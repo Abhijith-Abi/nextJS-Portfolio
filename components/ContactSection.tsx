@@ -1,6 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../lib/firebase";
 import { SectionWrapper } from "./SectionWrapper";
 
 type FormState = {
@@ -19,6 +21,8 @@ export function ContactSection() {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = (values: FormState) => {
     const nextErrors: Partial<FormState> = {};
@@ -32,19 +36,36 @@ export function ContactSection() {
     return nextErrors;
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const validationErrors = validate(form);
     setErrors(validationErrors);
+    setSubmitError(null);
+
     if (Object.keys(validationErrors).length > 0) {
       setSubmitted(false);
       return;
     }
-    // In a real app this is where you would POST to an API route.
-    // For now we just show a success state.
-    setSubmitted(true);
-    console.log("Contact form submitted:", form);
-    setForm(initialState);
+
+    try {
+      setSubmitting(true);
+
+      await addDoc(collection(db, "contacts"), {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        createdAt: serverTimestamp()
+      });
+
+      setSubmitted(true);
+      setForm(initialState);
+    } catch (error) {
+      console.error("Error saving contact message:", error);
+      setSubmitError("Something went wrong. Please try again.");
+      setSubmitted(false);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -141,15 +162,20 @@ export function ContactSection() {
 
             <button
               type="submit"
-              className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 md:w-auto"
+              disabled={submitting}
+              className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-70 md:w-auto"
             >
-              Send Message
+              {submitting ? "Sending..." : "Send Message"}
             </button>
 
-            {submitted && (
+            {submitted && !submitError && (
               <p className="mt-2 text-xs text-emerald-400">
                 Thanks for reaching out! I&apos;ll get back to you soon.
               </p>
+            )}
+
+            {submitError && (
+              <p className="mt-2 text-xs text-rose-400">{submitError}</p>
             )}
           </form>
 

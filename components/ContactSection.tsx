@@ -58,18 +58,16 @@ export function ContactSection() {
   };
 
   return (
-    <SectionWrapper id="contact" className="pb-24">
-      <div className="mx-auto max-w-3xl">
-        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Contact
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-              Let&apos;s build something together
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm text-muted sm:text-base md:text-right">
+    <SectionWrapper id="contact">
+      <div className="space-y-8">
+        <div className="mb-8 space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            Contact
+          </p>
+          <h2 className="text-2xl font-semibold sm:text-3xl">
+            Let&apos;s build something together
+          </h2>
+          <p className="max-w-xl text-sm text-muted sm:text-base">
             Have a project, role, or idea in mind? Share a few details and
             I&apos;ll get back to you. I&apos;m open to full-time roles and
             freelance collaborations.
@@ -93,7 +91,7 @@ export function ContactSection() {
                 type="text"
                 value={form.name}
                 onChange={(e) => handleChange("name", e.target.value)}
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                className="mt-1 w-full rounded-lg border border-slate-800 bg-black/60 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
                 placeholder="Your name"
               />
               {errors.name && (
@@ -113,7 +111,7 @@ export function ContactSection() {
                 type="email"
                 value={form.email}
                 onChange={(e) => handleChange("email", e.target.value)}
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                className="mt-1 w-full rounded-lg border border-slate-800 bg-black/60 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
                 placeholder="you@example.com"
               />
               {errors.email && (
@@ -133,7 +131,7 @@ export function ContactSection() {
                 rows={4}
                 value={form.message}
                 onChange={(e) => handleChange("message", e.target.value)}
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                className="mt-1 w-full rounded-lg border border-slate-800 bg-black/60 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
                 placeholder="Tell me about your project, role, or idea..."
               />
               {errors.message && (
@@ -143,7 +141,7 @@ export function ContactSection() {
 
             <button
               type="submit"
-              className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+              className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 md:w-auto"
             >
               Send Message
             </button>

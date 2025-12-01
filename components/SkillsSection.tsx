@@ -91,17 +91,19 @@ export function SkillsSection() {
 
     return (
         <SectionWrapper id="skills">
-            <div className="mb-8 text-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                    Skills
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-                    A modern frontend toolkit.
-                </h2>
-                <p className="mx-auto mt-3 max-w-2xl text-sm text-muted sm:text-base">
-                    I work across the modern React ecosystem, from building
-                    design systems and animations to integrating APIs and
-                    optimizing performance for production-grade applications.
+            <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                        Skills
+                    </p>
+                    <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
+                        A modern frontend toolkit
+                    </h2>
+                </div>
+                <p className="max-w-xl text-sm text-muted sm:text-base md:text-right">
+                    I work across the modern React ecosystem, from design
+                    systems and animations to API integrations and performance
+                    work for production-grade applications.
                 </p>
             </div>
 

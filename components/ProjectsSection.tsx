@@ -46,17 +46,18 @@ const projects: Project[] = [
 export function ProjectsSection() {
   return (
     <SectionWrapper id="projects">
-      <div className="mb-8 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-          Projects
-        </p>
-        <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-          Selected work.
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-sm text-muted sm:text-base">
-          A few projects that highlight my experience building learning
-          platforms, internal tools, and business dashboards with React and
-          Next.js.
+      <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            Projects
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
+            Selected work
+          </h2>
+        </div>
+        <p className="max-w-xl text-sm text-muted sm:text-base md:text-right">
+          A curated set of products and platforms that showcase how I approach
+          structure, UX, and performance for real-world web applications.
         </p>
       </div>
 

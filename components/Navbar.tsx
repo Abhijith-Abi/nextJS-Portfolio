@@ -27,14 +27,14 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-900/40 backdrop-blur-xl">
+  <header className="sticky top-0 z-40 border-b border-white/5 bg-black/70 backdrop-blur-xl">
       <nav className="container-width flex items-center justify-between py-4">
         <button
           type="button"
           onClick={() => scrollToSection("home")}
           className="flex items-center gap-3 text-left"
         >
-          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-slate-900/60">
+          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-slate-900/70">
             <Image
               src="/profile.png"
               alt="Abhijith P A logo"

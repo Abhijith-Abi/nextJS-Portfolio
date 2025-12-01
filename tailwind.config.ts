@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#020617",
+        background: "#000000",
         surface: "#020617",
-        accent: "#38bdf8", // professional sky blue
-        accentSecondary: "#a855f7", // soft violet
+        accent: "#22c55e", // emerald on black
+        accentSecondary: "#22d3ee", // teal accent
         muted: "#94a3b8"
       },
       boxShadow: {

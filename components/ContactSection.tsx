@@ -60,14 +60,16 @@ export function ContactSection() {
   return (
     <SectionWrapper id="contact" className="pb-24">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            Contact
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-            Let&apos;s build something together.
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted sm:text-base">
+        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Contact
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
+              Let&apos;s build something together
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm text-muted sm:text-base md:text-right">
             Have a project, role, or idea in mind? Share a few details and
             I&apos;ll get back to you. I&apos;m open to full-time roles and
             freelance collaborations.

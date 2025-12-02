@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import {
     collection,
+    deleteDoc,
+    doc,
     getDocs,
     orderBy,
     query,
@@ -20,6 +22,25 @@ type ContactMessage = {
 
 const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_MSG_DASH_PASSWORD;
 
+// helper to format date/time -> 11/12/2025 1:05 PM
+function formatDateTime(createdAt?: Timestamp) {
+    if (!createdAt) return "—";
+    const d = createdAt.toDate();
+
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();
+
+    let hours = d.getHours();
+    const minutes = String(d.getMinutes()).padStart(2, "0");
+    const ampm = hours >= 12 ? "PM" : "AM";
+
+    hours = hours % 12;
+    if (hours === 0) hours = 12; // 0 -> 12 AM/PM
+
+    return `${day}/${month}/${year} ${hours}:${minutes} ${ampm}`;
+}
+
 export default function MessagesPage() {
     const [isAuthed, setIsAuthed] = useState(false);
     const [checkingAuth, setCheckingAuth] = useState(true);
@@ -32,6 +53,9 @@ export default function MessagesPage() {
     const [search, setSearch] = useState("");
     const [fromDate, setFromDate] = useState<string>("");
     const [toDate, setToDate] = useState<string>("");
+
+    // track which message is being deleted (for button state)
+    const [deletingId, setDeletingId] = useState<string | null>(null);
 
     useEffect(() => {
         if (typeof window === "undefined") return;
@@ -55,9 +79,9 @@ export default function MessagesPage() {
                     orderBy("createdAt", "desc")
                 );
                 const snapshot = await getDocs(q);
-                const data: ContactMessage[] = snapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...(doc.data() as Omit<ContactMessage, "id">),
+                const data: ContactMessage[] = snapshot.docs.map((docSnap) => ({
+                    id: docSnap.id,
+                    ...(docSnap.data() as Omit<ContactMessage, "id">),
                 }));
 
                 setMessages(data);
@@ -122,6 +146,25 @@ export default function MessagesPage() {
             setError(null);
         } else {
             setError("Incorrect password.");
+        }
+    };
+
+    const handleDelete = async (id: string) => {
+        const confirmed = window.confirm(
+            "Are you sure you want to delete this message?"
+        );
+        if (!confirmed) return;
+
+        try {
+            setDeletingId(id);
+            setError(null);
+            await deleteDoc(doc(db, "contacts", id));
+            setMessages((prev) => prev.filter((m) => m.id !== id));
+        } catch (err) {
+            console.error("Error deleting message:", err);
+            setError("Failed to delete message.");
+        } finally {
+            setDeletingId(null);
         }
     };
 
@@ -258,13 +301,16 @@ export default function MessagesPage() {
                                     <th className="px-3 py-2.5 font-medium">
                                         Date
                                     </th>
+                                    <th className="px-3 py-2.5 font-medium text-right">
+                                        Actions
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {loading ? (
                                     <tr>
                                         <td
-                                            colSpan={4}
+                                            colSpan={5}
                                             className="px-3 py-4 text-center text-xs text-muted"
                                         >
                                             Loading messages…
@@ -273,7 +319,7 @@ export default function MessagesPage() {
                                 ) : filteredMessages.length === 0 ? (
                                     <tr>
                                         <td
-                                            colSpan={4}
+                                            colSpan={5}
                                             className="px-3 py-4 text-center text-xs text-muted"
                                         >
                                             No messages found.
@@ -304,11 +350,23 @@ export default function MessagesPage() {
                                                 </p>
                                             </td>
                                             <td className="px-3 py-2 align-top text-slate-400 whitespace-nowrap">
-                                                {m.createdAt
-                                                    ? m.createdAt
-                                                          .toDate()
-                                                          .toLocaleString()
-                                                    : "—"}
+                                                {formatDateTime(m.createdAt)}
+                                            </td>
+                                            <td className="px-3 py-2 align-top text-right">
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        handleDelete(m.id)
+                                                    }
+                                                    disabled={
+                                                        deletingId === m.id
+                                                    }
+                                                    className="inline-flex items-center rounded-full border border-rose-500/60 px-3 py-1 text-[11px] font-medium text-rose-300 hover:bg-rose-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                >
+                                                    {deletingId === m.id
+                                                        ? "Deleting…"
+                                                        : "Delete"}
+                                                </button>
                                             </td>
                                         </tr>
                                     ))

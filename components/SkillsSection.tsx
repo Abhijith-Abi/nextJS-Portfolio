@@ -1,86 +1,59 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { SectionWrapper } from "./SectionWrapper";
-import {
-    Bar,
-    BarChart,
-    CartesianGrid,
-    ResponsiveContainer,
-    XAxis,
-    YAxis,
-} from "recharts";
+import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SectionWrapper } from "./SectionWrapper";
+import RetroGrid from "./ui/RetroGrid";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const skillGroups = [
+const skillsData = [
     {
-        label: "Core",
-        items: ["HTML", "CSS", "JavaScript", "TypeScript"],
-    },
-    {
-        label: "Frameworks & UI",
+        category: "Frontend Core",
         items: [
             "React",
             "Next.js",
+            "TypeScript",
             "Tailwind CSS",
-            "Material UI",
-            "Shadcn UI",
-            "GSAP",
+            "HTML5",
+            "CSS3",
         ],
     },
     {
-        label: "State & Tooling",
-        items: ["Redux", "Zustand", "GitHub", "GitLab", "Figma"],
+        category: "Backend & Cloud",
+        items: [
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "Firebase",
+            "AWS",
+            "Docker",
+        ],
+    },
+    {
+        category: "Tools & Design",
+        items: ["Git", "Figma", "Redux", "GSAP", "Jest", "CI/CD"],
     },
 ];
 
-const chartData = [
-    { skill: "React", level: 92 },
-    { skill: "Next.js", level: 90 },
-    { skill: "TypeScript", level: 85 },
-    { skill: "Tailwind CSS", level: 93 },
-    { skill: "UI / UX", level: 82 },
-    { skill: "State Mgmt", level: 88 },
-];
-
 export function SkillsSection() {
-    const chartRef = useRef<HTMLDivElement | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const el = chartRef.current;
+        const el = containerRef.current;
         if (!el) return;
 
         const ctx = gsap.context(() => {
             gsap.fromTo(
-                el,
-                { autoAlpha: 0, y: 40 },
+                ".glass-card",
+                { y: 50, opacity: 0 },
                 {
-                    autoAlpha: 1,
                     y: 0,
-                    duration: 0.9,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.2,
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: el,
                         start: "top 80%",
-                    },
-                }
-            );
-
-            gsap.fromTo(
-                ".skill-badge",
-                { autoAlpha: 0, y: 20 },
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    duration: 0.5,
-                    stagger: 0.04,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: el,
-                        start: "top 85%",
                     },
                 }
             );
@@ -90,115 +63,51 @@ export function SkillsSection() {
     }, []);
 
     return (
-        <SectionWrapper id="skills">
-            <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                        Skills
+        <div className="relative overflow-hidden py-24 sm:py-32" id="skills">
+            {/* Background Grid */}
+            <RetroGrid className="dark:opacity-20" />
+
+            <SectionWrapper id="skills-content" className="relative z-10">
+                <div className="mb-16 text-center">
+                    <p className="mx-auto mb-4 w-fit rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent shadow-[0_0_10px_1px_rgba(34,197,94,0.2)]">
+                        Technical Arsenal
                     </p>
-                    <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-                        A modern frontend toolkit
+                    <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 sm:text-5xl">
+                        Built for the Future.
                     </h2>
-                </div>
-                <p className="max-w-xl text-sm text-muted sm:text-base md:text-right">
-                    I work across the modern React ecosystem, from design
-                    systems and animations to API integrations and performance
-                    work for production-grade applications.
-                </p>
-            </div>
-
-            <div
-                ref={chartRef}
-                className="card-surface flex flex-col gap-6 p-5 sm:p-6"
-            >
-                <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                        Tech stack
+                    <p className="mt-4 text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+                        I leverage a modern, full-stack toolkit to build
+                        scalable applications that perform at the speed of
+                        thought.
                     </p>
-                    <div className="mt-4 grid gap-4 text-xs sm:grid-cols-3">
-                        {skillGroups.map((group) => (
-                            <div key={group.label}>
-                                <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                                    {group.label}
-                                </p>
-                                <div className="flex flex-wrap gap-1.5">
-                                    {group.items.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className="skill-badge inline-flex items-center gap-1 rounded-full border border-slate-700/80 bg-slate-950/70 px-2.5 py-1 text-[11px] text-slate-100 shadow-sm shadow-emerald-500/10"
-                                        >
-                                            <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-tr from-accent to-accentSecondary" />
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
                 </div>
 
-                <div className="border-t border-slate-800/70 pt-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                        Skill levels
-                    </p>
-                    <div className="mt-3 h-72 sm:h-80">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <BarChart
-                                data={chartData}
-                                layout="vertical"
-                                margin={{
-                                    top: 8,
-                                    right: 16,
-                                    left: 0,
-                                    bottom: 8,
-                                }}
-                            >
-                                <defs>
-                                    <linearGradient
-                                        id="skill-bar"
-                                        x1="0"
-                                        y1="0"
-                                        x2="1"
-                                        y2="0"
+                <div ref={containerRef} className="grid gap-6 md:grid-cols-3">
+                    {skillsData.map((group) => (
+                        <div
+                            key={group.category}
+                            className="glass-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:border-accent/30 hover:bg-white/10"
+                        >
+                            <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/20 blur-3xl transition-all group-hover:bg-accent/30" />
+
+                            <h3 className="relative mb-6 text-xl font-semibold text-slate-100">
+                                {group.category}
+                            </h3>
+
+                            <div className="relative flex flex-wrap gap-3">
+                                {group.items.map((item) => (
+                                    <span
+                                        key={item}
+                                        className="cursor-default rounded-md border border-white/5 bg-black/20 px-3 py-1.5 text-sm text-slate-300 transition-colors hover:border-accent/40 hover:text-white"
                                     >
-                                        <stop offset="0%" stopColor="#22c55e" />
-                                        <stop
-                                            offset="100%"
-                                            stopColor="#22d3ee"
-                                        />
-                                    </linearGradient>
-                                </defs>
-                                <CartesianGrid
-                                    stroke="#1e293b"
-                                    horizontal={false}
-                                    strokeDasharray="3 6"
-                                />
-                                <XAxis
-                                    type="number"
-                                    domain={[0, 100]}
-                                    tick={{ fill: "#64748b", fontSize: 10 }}
-                                    axisLine={false}
-                                    tickLine={false}
-                                />
-                                <YAxis
-                                    type="category"
-                                    dataKey="skill"
-                                    tick={{ fill: "#cbd5f5", fontSize: 11 }}
-                                    axisLine={false}
-                                    tickLine={false}
-                                    width={90}
-                                />
-                                <Bar
-                                    dataKey="level"
-                                    radius={999}
-                                    barSize={16}
-                                    fill="url(#skill-bar)"
-                                />
-                            </BarChart>
-                        </ResponsiveContainer>
-                    </div>
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            </div>
-        </SectionWrapper>
+            </SectionWrapper>
+        </div>
     );
 }

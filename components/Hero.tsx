@@ -22,19 +22,19 @@ export function Hero() {
             tl.fromTo(
                 ".hero-kicker",
                 { autoAlpha: 0, y: 12 },
-                { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }
+                { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" },
             )
                 .fromTo(
                     ".hero-title",
                     { autoAlpha: 0, y: 20 },
                     { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" },
-                    "-=0.1"
+                    "-=0.1",
                 )
                 .fromTo(
                     ".hero-sub",
                     { autoAlpha: 0, y: 20 },
                     { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" },
-                    "-=0.3"
+                    "-=0.3",
                 )
                 .fromTo(
                     ".hero-cta",
@@ -46,7 +46,7 @@ export function Hero() {
                         ease: "power3.out",
                         stagger: 0.05,
                     },
-                    "-=0.4"
+                    "-=0.4",
                 );
         }, element);
 
@@ -107,7 +107,7 @@ export function Hero() {
                 <div className="card-surface mx-auto max-w-sm overflow-hidden rounded-2xl border border-white/5 bg-black/60 p-4">
                     <div className="w-full rounded-xl bg-slate-900/70">
                         <Image
-                            src="/profile.png"
+                            src="/profile.jpg"
                             alt="Abhijith P A"
                             width={640}
                             height={640}

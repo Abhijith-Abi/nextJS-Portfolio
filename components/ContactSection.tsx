@@ -54,9 +54,12 @@ export function ContactSection() {
             // Send email using EmailJS
             const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
             const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+            const autoReplyTemplateId =
+                process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID;
             const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
             if (serviceId && templateId && publicKey) {
+                // Send notification email to admin
                 await emailjs.send(
                     serviceId,
                     templateId,
@@ -67,6 +70,20 @@ export function ContactSection() {
                     },
                     publicKey,
                 );
+
+                // Send auto-reply to user
+                if (autoReplyTemplateId) {
+                    await emailjs.send(
+                        serviceId,
+                        autoReplyTemplateId,
+                        {
+                            to_name: form.name,
+                            to_email: form.email,
+                            message: form.message,
+                        },
+                        publicKey,
+                    );
+                }
             } else {
                 console.warn(
                     "EmailJS credentials not found in environment variables.",

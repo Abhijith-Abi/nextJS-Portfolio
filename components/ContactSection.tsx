@@ -66,8 +66,16 @@ export function ContactSection() {
                         serviceId,
                         templateId,
                         {
+                            // Send multiple variations to ensure template compatibility
+                            name: form.name,
                             from_name: form.name,
+                            user_name: form.name,
+
+                            email: form.email,
                             from_email: form.email,
+                            user_email: form.email,
+
+                            subject: "New Contact Form Submission",
                             message: form.message,
                         },
                         publicKey,
@@ -82,8 +90,15 @@ export function ContactSection() {
                                 serviceId,
                                 autoReplyTemplateId,
                                 {
+                                    // Variables for the recipient (the user)
                                     to_name: form.name,
                                     to_email: form.email,
+
+                                    // Standard variables just in case
+                                    name: form.name,
+                                    email: form.email,
+
+                                    subject: "Thank you for contacting me",
                                     message: form.message,
                                 },
                                 publicKey,

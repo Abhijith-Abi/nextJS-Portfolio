@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../lib/firebase";
+import emailjs from "@emailjs/browser";
 import { SectionWrapper } from "./SectionWrapper";
 
 type FormState = {
@@ -50,6 +51,29 @@ export function ContactSection() {
         try {
             setSubmitting(true);
 
+            // Send email using EmailJS
+            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+            if (serviceId && templateId && publicKey) {
+                await emailjs.send(
+                    serviceId,
+                    templateId,
+                    {
+                        from_name: form.name,
+                        from_email: form.email,
+                        message: form.message,
+                    },
+                    publicKey,
+                );
+            } else {
+                console.warn(
+                    "EmailJS credentials not found in environment variables.",
+                );
+            }
+
+            // Save to Firebase
             await addDoc(collection(db, "contacts"), {
                 name: form.name,
                 email: form.email,

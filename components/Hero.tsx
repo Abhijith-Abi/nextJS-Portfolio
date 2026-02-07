@@ -107,10 +107,11 @@ export function Hero() {
                 <div className="card-surface mx-auto max-w-sm overflow-hidden rounded-2xl border border-white/5 bg-black/60 p-4">
                     <div className="w-full rounded-xl bg-slate-900/70">
                         <Image
-                            src="/profile.jpg"
+                            src="/me.jpeg"
                             alt="Abhijith P A"
-                            width={640}
-                            height={640}
+                            width={500}
+                            height={500}
+                            priority
                             className="h-auto w-full rounded-xl object-contain"
                         />
                     </div>

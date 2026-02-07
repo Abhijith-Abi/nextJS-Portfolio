@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { CursorFollower } from "../components/CursorFollower";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
                 <div className="background-orbit background-orbit-1" />
                 <div className="background-orbit background-orbit-2" />
                 <div className="background-orbit background-orbit-3" />
+                <CursorFollower />
                 {children}
             </body>
         </html>

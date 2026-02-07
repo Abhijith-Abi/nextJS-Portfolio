@@ -11,6 +11,12 @@ body {
     color: #e5e7eb;
 }
 
+@media (min-width: 768px) {
+    body, a, button, input, textarea, [role="button"] {
+        cursor: none !important;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -36,11 +42,18 @@ body {
     position: fixed;
     inset: auto;
     border-radius: 999px;
-    filter: blur(48px);
+    filter: blur(24px); /* Reduced blur for mobile default */
     opacity: 0.6;
     pointer-events: none;
     mix-blend-mode: screen;
     z-index: -1;
+    will-change: transform; /* Hint to browser for optimization */
+}
+
+@media (min-width: 768px) {
+    .background-orbit {
+        filter: blur(48px); /* Deeper blur on larger screens */
+    }
 }
 
 .background-orbit-1 {

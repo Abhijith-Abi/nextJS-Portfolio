@@ -50,8 +50,9 @@ export function ContactSection() {
 
         try {
             setSubmitting(true);
+            let emailSent = false;
 
-            // Send email using EmailJS
+            // 1. Send email using EmailJS
             const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
             const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
             const autoReplyTemplateId =
@@ -59,30 +60,41 @@ export function ContactSection() {
             const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
             if (serviceId && templateId && publicKey) {
-                // Send notification email to admin
-                await emailjs.send(
-                    serviceId,
-                    templateId,
-                    {
-                        from_name: form.name,
-                        from_email: form.email,
-                        message: form.message,
-                    },
-                    publicKey,
-                );
-
-                // Send auto-reply to user
-                if (autoReplyTemplateId) {
+                try {
+                    // Send notification email to admin
                     await emailjs.send(
                         serviceId,
-                        autoReplyTemplateId,
+                        templateId,
                         {
-                            to_name: form.name,
-                            to_email: form.email,
+                            from_name: form.name,
+                            from_email: form.email,
                             message: form.message,
                         },
                         publicKey,
                     );
+
+                    emailSent = true;
+
+                    // Send auto-reply to user (fire and forget)
+                    if (autoReplyTemplateId) {
+                        emailjs
+                            .send(
+                                serviceId,
+                                autoReplyTemplateId,
+                                {
+                                    to_name: form.name,
+                                    to_email: form.email,
+                                    message: form.message,
+                                },
+                                publicKey,
+                            )
+                            .catch((err) =>
+                                console.warn("Failed to send auto-reply:", err),
+                            );
+                    }
+                } catch (emailError) {
+                    console.error("EmailJS Error:", emailError);
+                    throw new Error("Failed to send email.");
                 }
             } else {
                 console.warn(
@@ -90,19 +102,37 @@ export function ContactSection() {
                 );
             }
 
-            // Save to Firebase
-            await addDoc(collection(db, "contacts"), {
-                name: form.name,
-                email: form.email,
-                message: form.message,
-                createdAt: serverTimestamp(),
-            });
+            // 2. Save to Firebase (Optional - doesn't block success if email sent)
+            try {
+                // Check if Firebase keys essentially exist before trying
+                /*
+                 Note: We are not explicitly checking keys here because `lib/firebase`
+                 initialization handles that. If `db` is invalid, addDoc will throw.
+                 */
+                await addDoc(collection(db, "contacts"), {
+                    name: form.name,
+                    email: form.email,
+                    message: form.message,
+                    createdAt: serverTimestamp(),
+                });
+            } catch (firebaseError) {
+                console.error(
+                    "Firebase Error (Contact not saved to DB):",
+                    firebaseError,
+                );
+                // If email failed AND firebase failed, then it's a total failure.
+                // But if email sent, we consider it a success for the user.
+                if (!emailSent && !serviceId) {
+                    // Only throw if we had NO way to contact (no email config + db failed)
+                    throw new Error("Failed to save message.");
+                }
+            }
 
             setSubmitted(true);
             setForm(initialState);
         } catch (error) {
-            console.error("Error saving contact message:", error);
-            setSubmitError("Something went wrong. Please try again.");
+            console.error("Error submitting contact form:", error);
+            setSubmitError("Something went wrong. Please try again later.");
             setSubmitted(false);
         } finally {
             setSubmitting(false);

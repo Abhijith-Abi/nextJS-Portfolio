@@ -1,113 +1,194 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
 import { SectionWrapper } from "./SectionWrapper";
-import RetroGrid from "./ui/RetroGrid";
+import { FadeIn } from "./motion/RevealText";
 
-const skillsData = [
+type Cell = {
+    kind: "group" | "stat" | "feature";
+    span: string;
+    // group
+    category?: string;
+    blurb?: string;
+    items?: string[];
+    featured?: boolean;
+    // stat
+    label?: string;
+    value?: string;
+    sub?: string;
+    // feature
+    title?: string;
+    body?: string;
+};
+
+const cells: Cell[] = [
+    // Featured frontend group — large
     {
-        category: "Frontend Core",
+        kind: "group",
+        span: "lg:col-span-4 lg:row-span-2",
+        category: "Frontend",
+        blurb: "Where I spend most of my time. Component design, motion, and state.",
         items: [
             "React",
             "Next.js",
             "TypeScript",
             "Tailwind CSS",
-            "HTML5",
-            "CSS3",
+            "Framer Motion",
+            "GSAP",
+            "anime.js",
+            "Three.js",
+            "Zustand",
+            "Redux",
+            "Styled Components",
         ],
+        featured: true,
     },
+    // Years shipping stat
     {
-        category: "Backend & Cloud",
+        kind: "stat",
+        span: "lg:col-span-2",
+        value: "3+",
+        label: "Years shipping",
+        sub: "React & Next.js",
+    },
+    // Featured TypeScript callout
+    {
+        kind: "feature",
+        span: "lg:col-span-2",
+        title: "TypeScript-first",
+        body: "Strict types, narrow inference, and a small set of trusted libraries.",
+    },
+    // Backend group
+    {
+        kind: "group",
+        span: "lg:col-span-3",
+        category: "Backend & AI",
+        blurb: "APIs, auth, persistence, and AI-leaning workflows.",
         items: [
             "Node.js",
             "Express",
+            "REST",
             "PostgreSQL",
             "Firebase",
-            "AWS",
-            "Docker",
+            "OpenAI APIs",
+            "EmailJS",
+            "Recharts",
         ],
     },
+    // Tooling group
     {
-        category: "Tools & Design",
-        items: ["Git", "Figma", "Redux", "GSAP", "Jest", "CI/CD"],
+        kind: "group",
+        span: "lg:col-span-3",
+        category: "Tooling & Cloud",
+        blurb: "What keeps the work sharp, fast, and shippable.",
+        items: [
+            "Git",
+            "GitHub",
+            "Figma",
+            "Vercel",
+            "AWS",
+            "Docker",
+            "CI/CD",
+            "Vitest",
+        ],
     },
 ];
 
 export function SkillsSection() {
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const el = containerRef.current;
-        if (!el) return;
-
-        const ctx = gsap.context(() => {
-            gsap.fromTo(
-                ".glass-card",
-                { y: 50, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.2,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: el,
-                        start: "top 80%",
-                    },
-                }
-            );
-        }, el);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
-        <div className="relative overflow-hidden py-24 sm:py-32" id="skills">
-            {/* Background Grid */}
-            <RetroGrid className="dark:opacity-20" />
-
-            <SectionWrapper id="skills-content" className="relative z-10">
-                <div className="mb-16 text-center">
-                    <p className="mx-auto mb-4 w-fit rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent shadow-[0_0_10px_1px_rgba(34,197,94,0.2)]">
-                        Technical Arsenal
+        <SectionWrapper id="skills" index="03" label="Stack">
+            <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
+                <h2 className="font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                    <span className="block">THE TOOLKIT</span>
+                    <span className="block ghost-text">EVERY BUILD.</span>
+                </h2>
+                <FadeIn>
+                    <p className="text-sm leading-relaxed text-ink/65 sm:text-base md:text-right lg:text-lg">
+                        TypeScript-first. A small set of libraries I trust. Most
+                        importantly — a focus on motion, performance, and clean
+                        component architecture.
                     </p>
-                    <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 sm:text-5xl">
-                        Built for the Future.
-                    </h2>
-                    <p className="mt-4 text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
-                        I leverage a modern, full-stack toolkit to build
-                        scalable applications that perform at the speed of
-                        thought.
-                    </p>
-                </div>
+                </FadeIn>
+            </div>
 
-                <div ref={containerRef} className="grid gap-6 md:grid-cols-3">
-                    {skillsData.map((group) => (
+            {/* Bento grid */}
+            <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 lg:grid-cols-6">
+                {cells.map((cell, i) => (
+                    <FadeIn key={i} delay={i * 0.05} className={cell.span}>
                         <div
-                            key={group.category}
-                            className="glass-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:border-accent/30 hover:bg-white/10"
+                            className={`bento-card group relative flex h-full flex-col rounded-3xl p-6 sm:p-7 ${
+                                cell.featured ? "lg:p-8" : ""
+                            }`}
                         >
-                            <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/20 blur-3xl transition-all group-hover:bg-accent/30" />
-
-                            <h3 className="relative mb-6 text-xl font-semibold text-slate-100">
-                                {group.category}
-                            </h3>
-
-                            <div className="relative flex flex-wrap gap-3">
-                                {group.items.map((item) => (
-                                    <span
-                                        key={item}
-                                        className="cursor-default rounded-md border border-white/5 bg-black/20 px-3 py-1.5 text-sm text-slate-300 transition-colors hover:border-accent/40 hover:text-white"
-                                    >
-                                        {item}
-                                    </span>
-                                ))}
+                            {/* Top row */}
+                            <div className="flex items-start justify-between">
+                                <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/30 group-hover:text-accent">
+                                    0{i + 1}
+                                </span>
+                                <span className="text-accent">●</span>
                             </div>
+
+                            {/* Body — varies by kind */}
+                            {cell.kind === "group" && (
+                                <div className="mt-auto pt-8">
+                                    <h3
+                                        className={`font-display font-extrabold tracking-tight text-ink transition group-hover:text-accent ${
+                                            cell.featured
+                                                ? "text-3xl sm:text-4xl lg:text-5xl"
+                                                : "text-xl sm:text-2xl"
+                                        }`}
+                                    >
+                                        {cell.category}
+                                    </h3>
+                                    <p
+                                        className={`mt-3 leading-relaxed text-ink/60 ${
+                                            cell.featured
+                                                ? "max-w-md text-sm sm:text-base"
+                                                : "text-[13px] sm:text-sm"
+                                        }`}
+                                    >
+                                        {cell.blurb}
+                                    </p>
+                                    <ul className="mt-5 flex flex-wrap gap-1.5 sm:gap-2">
+                                        {cell.items?.map((item) => (
+                                            <li
+                                                key={item}
+                                                className="inline-flex items-center rounded-md border border-line bg-background px-2.5 py-1 font-mono text-[11px] text-ink/85 transition hover:border-accent hover:text-accent"
+                                            >
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+
+                            {cell.kind === "stat" && (
+                                <div className="mt-auto pt-8">
+                                    <p className="font-display text-5xl font-extrabold tracking-tight text-accent sm:text-6xl">
+                                        {cell.value}
+                                    </p>
+                                    <p className="mt-3 font-display text-lg font-bold text-ink sm:text-xl">
+                                        {cell.label}
+                                    </p>
+                                    <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.28em] text-ink/40">
+                                        {cell.sub}
+                                    </p>
+                                </div>
+                            )}
+
+                            {cell.kind === "feature" && (
+                                <div className="mt-auto pt-8">
+                                    <h3 className="font-display text-2xl font-extrabold tracking-tight text-ink transition group-hover:text-accent sm:text-3xl">
+                                        {cell.title}
+                                    </h3>
+                                    <p className="mt-3 text-sm leading-relaxed text-ink/60">
+                                        {cell.body}
+                                    </p>
+                                </div>
+                            )}
                         </div>
-                    ))}
-                </div>
-            </SectionWrapper>
-        </div>
+                    </FadeIn>
+                ))}
+            </div>
+        </SectionWrapper>
     );
 }

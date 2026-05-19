@@ -1,21 +1,39 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "../components/SmoothScroll";
+import { Loader } from "../components/Loader";
 import { CursorFollower } from "../components/CursorFollower";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-inter",
+    display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+    subsets: ["latin"],
+    variable: "--font-jetbrains",
+    display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    variable: "--font-space",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
-    title: "Abhijith P A | Frontend Developer Portfolio",
+    title: "Abhijith P A — Building Modern Digital Experiences",
     description:
-        "Portfolio of Abhijith P A, a frontend engineer specializing in React, Next.js, and modern web experiences.",
-    metadataBase: new URL("https://example.com"),
+        "Full Stack Developer crafting AI systems, ERP platforms, scalable applications, and immersive digital products.",
+    metadataBase: new URL("https://abisolutions.online"),
+    verification: { google: "google008d788f2689e4cb" },
     openGraph: {
-        title: "Abhijith P A | Frontend Developer",
-        description:
-            "3+ years building immersive, performant web applications with React and Next.js.",
-        url: "https://example.com",
-        siteName: "Abhijith Portfolio",
+        title: "Abhijith P A — Building Modern Digital Experiences",
+        description: "Portfolio of Abhijith P A — Full Stack Developer.",
+        url: "https://abisolutions.online",
+        siteName: "Abhijith P A",
         type: "website",
     },
     icons: {
@@ -31,15 +49,16 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="dark">
-            <body
-                className={`${inter.className} bg-background text-slate-100 antialiased`}
-            >
-                <div className="background-orbit background-orbit-1" />
-                <div className="background-orbit background-orbit-2" />
-                <div className="background-orbit background-orbit-3" />
+        <html
+            lang="en"
+            className={`dark ${inter.variable} ${jetbrains.variable} ${spaceGrotesk.variable}`}
+        >
+            <body className="bg-background font-sans text-ink antialiased">
+                <Loader />
+                <div className="ambient-glow" aria-hidden />
+                <div className="grain-overlay" aria-hidden />
                 <CursorFollower />
-                {children}
+                <SmoothScroll>{children}</SmoothScroll>
             </body>
         </html>
     );

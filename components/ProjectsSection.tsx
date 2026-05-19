@@ -1,104 +1,193 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { SectionWrapper } from "./SectionWrapper";
+import { FadeIn } from "./motion/RevealText";
 
 type Project = {
     name: string;
+    role: string;
+    domain: string;
+    year: string;
     description: string;
     tech: string[];
     live?: string;
+    /** Tailwind grid span classes for desktop layout */
+    span: string;
+    /** Render as featured (extra emphasis) */
+    featured?: boolean;
 };
 
 const projects: Project[] = [
     {
-        name: "HOSFACE - Healthcare Infrastructure Platform",
+        name: "Talrop ERP",
+        role: "Enterprise resource planning",
+        domain: "ERP",
+        year: "2025",
         description:
-            "Specialized healthcare platform facilitating clinic setups with a structured 4-step development model connecting doctors and investors.",
-        tech: ["Next.js", "Tailwind CSS", "React"],
-        live: "https://www.hosface.com/",
+            "Front-end for an ERP covering inventory, finance, and HR with real-time insights, granular permissions, and a unified design language across modules.",
+        tech: ["Next.js", "TypeScript", "Tailwind", "Zustand", "Recharts"],
+        live: "https://erp.talrop.com/",
+        span: "lg:col-span-4 lg:row-span-2",
+        featured: true,
     },
     {
-        name: "STEYP - Coding Learning Platform",
+        name: "Hosface",
+        role: "Healthcare infrastructure",
+        domain: "AI / Healthcare",
+        year: "2024",
         description:
-            "Interactive platform for video-based coding education with structured courses and real-time progress tracking.",
+            "Pairing doctors and investors through a structured four-step clinic-setup model. Built marketing surfaces, dashboards, and onboarding flow.",
+        tech: ["Next.js", "TypeScript", "Tailwind"],
+        live: "https://www.hosface.com/",
+        span: "lg:col-span-2",
+    },
+    {
+        name: "Steyp",
+        role: "Coding learning platform",
+        domain: "E-learning",
+        year: "2023",
+        description:
+            "Video-led coding education with structured tracks, exercises, and progress tracking.",
         tech: ["React", "Styled Components", "Redux"],
         live: "https://steyp.com/",
+        span: "lg:col-span-2",
     },
     {
-        name: "TEGAIN - Company & Community Hub",
+        name: "Tegain",
+        role: "Company & community hub",
+        domain: "CRM",
+        year: "2024",
         description:
-            "Company showcase website with community engagement and recruitment features, optimized for SEO and performance.",
-        tech: ["Next.js", "Tailwind CSS", "Zustand"],
+            "Brand site with community engagement and recruitment surfaces, tuned for SEO and Core Web Vitals.",
+        tech: ["Next.js", "Tailwind", "Zustand"],
         live: "https://tegain.com/",
+        span: "lg:col-span-3",
     },
     {
-        name: "SOMANS - Travel Management Platform",
+        name: "Somans",
+        role: "Travel management platform",
+        domain: "Scheduling",
+        year: "2024",
         description:
-            "Automated travel management solution for bookings, approvals, and analytics across HR and operations.",
-        tech: ["Next.js", "Tailwind CSS", "Zustand"],
+            "Internal tooling for bookings, approvals, and analytics across HR and operations. Reduced manual workflows with role-based dashboards.",
+        tech: ["Next.js", "Tailwind", "Zustand"],
         live: "https://www.somansleisuretours.com/",
-    },
-    {
-        name: "ERP System",
-        description:
-            "Comprehensive ERP interface for managing inventory, finance, and HR with real-time insights and role-based access.",
-        tech: ["Next.js", "Tailwind CSS", "Zustand"],
-        live: "https://erp.talrop.com/",
+        span: "lg:col-span-3",
     },
 ];
 
+const ArrowIcon = () => (
+    <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <line x1="7" y1="17" x2="17" y2="7" />
+        <polyline points="7 7 17 7 17 17" />
+    </svg>
+);
+
 export function ProjectsSection() {
     return (
-        <SectionWrapper id="projects">
-            <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                        Projects
+        <SectionWrapper id="projects" index="04" label="Work">
+            <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
+                <h2 className="font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                    <span className="block">SELECTED</span>
+                    <span className="block ghost-text">WORK.</span>
+                </h2>
+                <FadeIn>
+                    <p className="text-sm leading-relaxed text-ink/65 sm:text-base md:text-right lg:text-lg">
+                        A reading list of products I&apos;ve shipped. Each one
+                        is live software with real users — built alongside
+                        designers, engineers, and operators.
                     </p>
-                    <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-                        Selected work
-                    </h2>
-                </div>
-                <p className="max-w-xl text-sm text-muted sm:text-base md:text-right">
-                    A curated set of products and platforms that showcase how I
-                    approach structure, UX, and performance for real-world web
-                    applications.
-                </p>
+                </FadeIn>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-                {projects.map((project) => (
-                    <article
-                        key={project.name}
-                        className="card-surface group flex flex-col justify-between p-5 transition hover:-translate-y-1 hover:border-accent/70 hover:shadow-lg hover:shadow-emerald-500/20 sm:p-6"
-                    >
-                        <div>
-                            <h3 className="text-lg font-semibold text-slate-50">
-                                {project.name}
-                            </h3>
-                            <p className="mt-2 text-sm text-muted">
-                                {project.description}
-                            </p>
-                            <div className="mt-4 flex flex-wrap gap-2 text-[11px]">
-                                {project.tech.map((stack) => (
-                                    <span
-                                        key={stack}
-                                        className="inline-flex items-center rounded-full border border-slate-700/80 bg-slate-950/70 px-3 py-1 text-[11px] text-slate-100"
-                                    >
-                                        {stack}
-                                    </span>
-                                ))}
+            {/* Bento grid: 6 columns on lg, single column on mobile */}
+            <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 lg:grid-cols-6">
+                {projects.map((p, i) => (
+                    <FadeIn key={p.name} delay={i * 0.05} className={p.span}>
+                        <motion.a
+                            href={p.live ?? "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ y: -2 }}
+                            transition={{
+                                duration: 0.3,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
+                            className={`bento-card group flex h-full flex-col rounded-3xl p-6 sm:p-7 ${
+                                p.featured ? "lg:p-8" : ""
+                            }`}
+                        >
+                            {/* Top row: number + arrow */}
+                            <div className="flex items-start justify-between">
+                                <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/30 group-hover:text-accent">
+                                    0{i + 1}
+                                </span>
+                                <span className="flex h-8 w-8 items-center justify-center rounded-full text-accent transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                                    <ArrowIcon />
+                                </span>
                             </div>
-                        </div>
-                        <div className="mt-5 flex flex-wrap gap-3 text-xs">
-                            <a
-                                href={project.live ?? "#"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="rounded-full bg-slate-100 px-4 py-1.5 font-semibold text-slate-950 transition group-hover:bg-accent group-hover:text-slate-950"
-                            >
-                                Live Demo
-                            </a>
-                        </div>
-                    </article>
+
+                            {/* Body */}
+                            <div className="mt-auto pt-8">
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                                    <h3
+                                        className={`font-display font-extrabold tracking-tight text-ink transition group-hover:text-accent ${
+                                            p.featured
+                                                ? "text-3xl sm:text-4xl lg:text-5xl"
+                                                : "text-xl sm:text-2xl"
+                                        }`}
+                                    >
+                                        {p.name}
+                                    </h3>
+                                </div>
+                                <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40 sm:text-[11px]">
+                                    {p.role}
+                                </p>
+
+                                <p
+                                    className={`mt-4 leading-relaxed text-ink/60 ${
+                                        p.featured
+                                            ? "max-w-xl text-sm sm:text-base"
+                                            : "text-[13px] sm:text-sm"
+                                    }`}
+                                >
+                                    {p.description}
+                                </p>
+
+                                <div className="mt-5 flex flex-wrap items-center gap-2">
+                                    <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.28em] text-accent">
+                                        {p.domain}
+                                    </span>
+                                    <span className="font-mono text-[10px] text-ink/40">
+                                        · {p.year}
+                                    </span>
+                                </div>
+
+                                {p.featured && (
+                                    <div className="mt-4 flex flex-wrap gap-1.5">
+                                        {p.tech.map((stack) => (
+                                            <span
+                                                key={stack}
+                                                className="inline-flex items-center rounded-md border border-line bg-background px-2 py-0.5 font-mono text-[10px] text-ink/70"
+                                            >
+                                                {stack}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </motion.a>
+                    </FadeIn>
                 ))}
             </div>
         </SectionWrapper>

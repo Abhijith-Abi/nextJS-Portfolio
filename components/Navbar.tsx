@@ -1,116 +1,136 @@
 "use client";
 
-import Image from "next/image";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
 
 const navItems = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" }
+    { id: "home", label: "Home", num: "01" },
+    { id: "about", label: "About", num: "02" },
+    { id: "skills", label: "Stack", num: "03" },
+    { id: "projects", label: "Work", num: "04" },
+    { id: "experience", label: "Path", num: "05" },
+    { id: "contact", label: "Contact", num: "06" },
 ];
 
 function scrollToSection(id: string) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 export function Navbar() {
-  const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const { scrollY } = useScroll();
 
-  const handleClick = (id: string) => {
-    scrollToSection(id);
-    setOpen(false);
-  };
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setScrolled(latest > 12);
+    });
 
-  return (
-  <header className="sticky top-0 z-40 border-b border-white/5 bg-black/70 backdrop-blur-xl">
-      <nav className="container-width flex items-center justify-between py-4">
-        <button
-          type="button"
-          onClick={() => scrollToSection("home")}
-          className="flex items-center gap-3 text-left"
-        >
-          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-slate-900/70">
-            <Image
-              src="/profile.png"
-              alt="Abhijith P A logo"
-              width={36}
-              height={36}
-              className="h-full w-full object-cover"
-            />
-          </span>
-          <span className="text-sm font-medium text-slate-200">
-            Abhijith P A
-            <span className="block text-xs text-muted">Frontend Developer</span>
-          </span>
-        </button>
+    const handleClick = (id: string) => {
+        scrollToSection(id);
+        setOpen(false);
+    };
 
-        <div className="hidden items-center gap-8 md:flex">
-          <ul className="flex items-center gap-6 text-sm font-medium text-slate-300">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <button
-                  type="button"
-                  onClick={() => handleClick(item.id)}
-                  className="transition-colors hover:text-accent"
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              handleClick("contact");
+    return (
+        <motion.header
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 1.5,
             }}
-            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
-          >
-            Let&apos;s talk
-          </a>
-        </div>
-
-        <button
-          type="button"
-          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-slate-900/40 text-slate-200 backdrop-blur-xl md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle navigation"
+            className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
         >
-          <span className="sr-only">Toggle navigation</span>
-          <div className="space-y-1">
-            <span className="block h-0.5 w-5 bg-slate-200" />
-            <span className="block h-0.5 w-5 bg-slate-200" />
-          </div>
-        </button>
-      </nav>
-
-      {open && (
-        <div className="border-t border-white/10 bg-slate-900/80 backdrop-blur-xl md:hidden">
-          <div className="container-width py-4">
-            <ul className="space-y-3 text-sm font-medium text-slate-200">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <button
+            <nav
+                className={`relative flex w-full max-w-3xl items-center justify-between rounded-2xl border px-3 py-2.5 transition-all duration-300 ${
+                    scrolled
+                        ? "border-line bg-background/85 shadow-soft backdrop-blur-2xl"
+                        : "border-line bg-surface/80 backdrop-blur-xl"
+                }`}
+            >
+                <button
                     type="button"
-                    onClick={() => handleClick(item.id)}
-                    className="w-full rounded-lg px-3 py-2 text-left transition hover:bg-slate-800/70"
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
-    </header>
-  );
+                    onClick={() => scrollToSection("home")}
+                    className="group flex items-center gap-2.5 pl-2"
+                >
+                    <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-lg bg-accent">
+                        <span className="font-display text-[11px] font-extrabold text-white">
+                            A
+                        </span>
+                    </span>
+                    <span className="hidden font-display text-sm font-bold tracking-tight text-ink sm:block">
+                        Abhijith P A
+                    </span>
+                </button>
+
+                <ul className="hidden items-center gap-0.5 md:flex">
+                    {navItems.map((item) => (
+                        <li key={item.id}>
+                            <button
+                                type="button"
+                                onClick={() => handleClick(item.id)}
+                                className="group relative rounded-lg px-3 py-1.5 text-[13px] font-medium text-ink/60 transition hover:text-ink"
+                            >
+                                <span className="relative z-10">
+                                    {item.label}
+                                </span>
+                                <span className="absolute inset-0 rounded-lg bg-ink/0 transition group-hover:bg-ink/[0.04]" />
+                                <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-6" />
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+
+                <button
+                    type="button"
+                    onClick={() => handleClick("contact")}
+                    className="btn-primary hidden items-center gap-2 rounded-lg px-3.5 py-1.5 text-[12px] font-semibold md:inline-flex"
+                >
+                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                    Available
+                </button>
+
+                <button
+                    type="button"
+                    className="surface inline-flex h-9 w-9 items-center justify-center rounded-lg text-ink md:hidden"
+                    onClick={() => setOpen((v) => !v)}
+                    aria-label="Toggle navigation"
+                >
+                    <span className="sr-only">Toggle navigation</span>
+                    <div className="space-y-1">
+                        <span className="block h-0.5 w-4 bg-ink" />
+                        <span className="block h-0.5 w-4 bg-ink" />
+                    </div>
+                </button>
+
+                {open && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="surface absolute left-0 right-0 top-full mt-2 rounded-2xl p-3 md:hidden"
+                    >
+                        <ul className="space-y-0.5 text-sm font-medium text-ink/90">
+                            {navItems.map((item) => (
+                                <li key={item.id}>
+                                    <button
+                                        type="button"
+                                        onClick={() => handleClick(item.id)}
+                                        className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition hover:bg-ink/5"
+                                    >
+                                        <span className="font-mono text-[10px] text-ink/40">
+                                            {item.num}
+                                        </span>
+                                        {item.label}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                )}
+            </nav>
+        </motion.header>
+    );
 }
-
-
-

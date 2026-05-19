@@ -5,24 +5,26 @@ import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ExperienceSection } from "../components/ExperienceSection";
 import { ContactSection } from "../components/ContactSection";
+import { WorkflowSection } from "../components/WorkflowSection";
 
 export default function HomePage() {
     return (
-        <main className="min-h-screen">
+        <main className="relative min-h-screen">
             <Navbar />
             <Hero />
             <AboutSection />
             <SkillsSection />
+            <WorkflowSection />
             <ProjectsSection />
             <ExperienceSection />
             <ContactSection />
-            <footer className="border-t border-slate-800/80 bg-slate-950/80">
-                <div className="container-width flex flex-col items-center justify-between gap-3 py-4 text-[11px] text-muted sm:flex-row">
+            <footer className="relative border-t border-line">
+                <div className="container-width flex flex-col items-center justify-between gap-3 py-6 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/40 sm:flex-row">
                     <p>
-                        © {new Date().getFullYear()} Abhijith P A. All rights
-                        reserved.
+                        © {new Date().getFullYear()} Abhijith P A · All rights
+                        reserved
                     </p>
-                    <p>Built with Next.js, Tailwind CSS, GSAP, and Recharts.</p>
+                    <p>Built with Next · Three.js · anime.js · Framer</p>
                 </div>
             </footer>
         </main>

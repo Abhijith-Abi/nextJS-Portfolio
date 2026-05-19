@@ -1,68 +1,116 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { SectionWrapper } from "./SectionWrapper";
+import { FadeIn } from "./motion/RevealText";
+
+const chapters = [
+    {
+        n: "01",
+        kicker: "Origin",
+        title: "Started with curiosity, not a plan.",
+        body: "Picked up React in 2022 as an intern at Steyp. The first time I wired a UI to real data, something clicked — and I never really stopped iterating.",
+    },
+    {
+        n: "02",
+        kicker: "Craft",
+        title: "Three years of shipping real software.",
+        body: "Frontend builds across learning, healthcare, ERP, and travel. Each one taught me how to think in components, motion, and systems — not just screens.",
+    },
+    {
+        n: "03",
+        kicker: "Now",
+        title: "Frontend Engineer at Algobiz.",
+        body: "Building AI-leaning products and immersive web experiences. Driving UI architecture, motion language, and the developer experience inside the codebase.",
+    },
+];
+
+const facts = [
+    { v: "3+", l: "Years shipping" },
+    { v: "20+", l: "Production builds" },
+    { v: "Kerala", l: "Based in" },
+    { v: "Remote", l: "Open to" },
+];
 
 export function AboutSection() {
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"],
+    });
+
+    const lineHeight = useTransform(
+        scrollYProgress,
+        [0.2, 0.8],
+        ["0%", "100%"],
+    );
+
     return (
-        <SectionWrapper id="about">
-            <div className="space-y-6">
-                <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                        About
-                    </p>
-                    <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-                        A frontend engineer focused on clean, performant
-                        experiences.
+        <SectionWrapper id="about" index="02" label="About">
+            <div
+                ref={ref}
+                className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16"
+            >
+                {/* LEFT: title + facts (sticks on lg+) */}
+                <div className="lg:sticky lg:top-32 lg:self-start">
+                    <p className="section-eyebrow">Profile</p>
+                    <h2 className="mt-4 font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                        <span className="block">A DEVELOPER</span>
+                        <span className="block">WHO THINKS</span>
+                        <span className="block">
+                            IN <span className="text-accent">SYSTEMS.</span>
+                        </span>
                     </h2>
-                </div>
-                <div className="space-y-3 text-sm text-muted sm:text-base max-w-3xl">
-                    <p>
-                        I&apos;m Abhijith, a frontend developer with 3+ years of
-                        experience crafting immersive digital experiences. I
-                        specialize in turning product ideas and UI designs into
-                        robust, production-ready web applications using React,
-                        Next.js, and modern styling systems like Tailwind CSS
-                        and Material UI.
-                    </p>
-                    <p>
-                        I care deeply about micro-interactions, smooth
-                        performance, and accessibility, ensuring that every
-                        interface not only looks great but also feels intuitive
-                        and responsive across devices.
-                    </p>
+
+                    <FadeIn className="mt-8 sm:mt-10">
+                        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line">
+                            {facts.map((f) => (
+                                <div
+                                    key={f.l}
+                                    className="surface px-4 py-4 sm:px-5 sm:py-5"
+                                >
+                                    <p className="font-display text-lg font-bold text-ink sm:text-xl">
+                                        {f.v}
+                                    </p>
+                                    <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.28em] text-ink/40 sm:text-[10px] sm:tracking-[0.32em]">
+                                        {f.l}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </FadeIn>
                 </div>
 
-                <div className="mt-2 grid gap-4 text-sm sm:grid-cols-3">
-                    <div className="card-surface p-4">
-                        <p className="text-xs font-semibold text-slate-400">
-                            Experience
-                        </p>
-                        <p className="mt-2 text-lg font-semibold text-slate-50">
-                            3+ years
-                        </p>
-                        <p className="mt-1 text-xs text-muted">
-                            Frontend engineering with React &amp; Next.js
-                        </p>
+                {/* RIGHT: chapters with timeline */}
+                <div className="relative">
+                    <div className="absolute left-2 top-2 bottom-2 w-px bg-line sm:left-3">
+                        <motion.div
+                            style={{ height: lineHeight }}
+                            className="absolute left-0 top-0 w-px bg-accent"
+                        />
                     </div>
-                    <div className="card-surface p-4">
-                        <p className="text-xs font-semibold text-slate-400">
-                            Core stack
-                        </p>
-                        <p className="mt-2 text-sm font-semibold text-slate-50">
-                            React · Next.js · Tailwind
-                        </p>
-                        <p className="mt-1 text-xs text-muted">
-                            Building scalable, component-driven UIs
-                        </p>
-                    </div>
-                    <div className="card-surface p-4">
-                        <p className="text-xs font-semibold text-slate-400">
-                            Collaboration
-                        </p>
-                        <p className="mt-2 text-sm font-semibold text-slate-50">
-                            Product-focused
-                        </p>
-                        <p className="mt-1 text-xs text-muted">
-                            Working closely with designers &amp; backend teams
-                        </p>
+
+                    <div className="space-y-12 sm:space-y-16">
+                        {chapters.map((c, i) => (
+                            <FadeIn key={c.n} delay={i * 0.05}>
+                                <article className="relative pl-9 sm:pl-12">
+                                    <div className="absolute left-0.5 top-2 h-3 w-3 rounded-full border border-line bg-background sm:left-1.5">
+                                        <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(255,87,34,0.7)]" />
+                                    </div>
+
+                                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-accent sm:text-[11px] sm:tracking-[0.32em]">
+                                        {c.n} · {c.kicker}
+                                    </p>
+                                    <h3 className="mt-3 font-display text-xl font-bold leading-tight text-ink sm:mt-4 sm:text-2xl lg:text-3xl">
+                                        {c.title}
+                                    </h3>
+                                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/65 sm:mt-4 sm:text-base lg:text-lg">
+                                        {c.body}
+                                    </p>
+                                </article>
+                            </FadeIn>
+                        ))}
                     </div>
                 </div>
             </div>

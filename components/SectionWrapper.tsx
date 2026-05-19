@@ -1,59 +1,52 @@
 "use client";
 
-import { ReactNode, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 type SectionWrapperProps = {
-  id: string;
-  children: ReactNode;
-  className?: string;
+    id: string;
+    children: ReactNode;
+    className?: string;
+    index?: string;
+    label?: string;
 };
 
 export function SectionWrapper({
-  id,
-  children,
-  className = ""
+    id,
+    children,
+    className = "",
+    index,
+    label,
 }: SectionWrapperProps) {
-  const ref = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        element,
-        { autoAlpha: 0, y: 40 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%"
-          }
-        }
-      );
-    }, element);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section
-      id={id}
-      ref={ref}
-      className={`container-width py-16 sm:py-20 lg:py-24 ${className}`}
-    >
-      {children}
-    </section>
-  );
+    return (
+        <section
+            id={id}
+            className={`container-width relative py-20 sm:py-28 lg:py-36 ${className}`}
+        >
+            {(index || label) && (
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    className="mb-10 flex items-center gap-3 sm:mb-14 sm:gap-4 lg:mb-20"
+                >
+                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-accent sm:text-[11px] sm:tracking-[0.32em]">
+                        {index ?? ""}
+                    </span>
+                    <motion.span
+                        initial={{ scaleX: 0, originX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        className="hairline flex-1 origin-left"
+                    />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/50 sm:text-[11px] sm:tracking-[0.32em]">
+                        {label ?? ""}
+                    </span>
+                </motion.div>
+            )}
+            {children}
+        </section>
+    );
 }
-
-
-
-

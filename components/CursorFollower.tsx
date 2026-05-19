@@ -3,274 +3,181 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
+/**
+ * Blob cursor — soft squishy orange shape with jelly physics.
+ * Stretches in the direction of motion, squashes back to a circle when idle.
+ * Native cursor stays visible; this is a decorative accent.
+ */
 export function CursorFollower() {
-    const dotRef = useRef<HTMLDivElement | null>(null);
-    const ringRef = useRef<HTMLDivElement | null>(null);
-    const [cursorState, setCursorState] = useState<
-        "default" | "pointer" | "text" | "card"
-    >("default");
-    const [isClicked, setIsClicked] = useState(false);
-
-    // Velocity tracking
-    const pos = useRef({ x: 0, y: 0 });
-    const vel = useRef({ x: 0, y: 0 });
-    const setX = useRef<any>(null);
-    const setY = useRef<any>(null);
+    const blobRef = useRef<HTMLDivElement>(null);
+    const dotRef = useRef<HTMLDivElement>(null);
+    const [enabled, setEnabled] = useState(false);
+    const [hovering, setHovering] = useState(false);
 
     useEffect(() => {
+        const finePointer = window.matchMedia(
+            "(hover: hover) and (pointer: fine)",
+        ).matches;
+        const reduced = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
+        setEnabled(finePointer && !reduced);
+    }, []);
+
+    useEffect(() => {
+        if (!enabled) return;
+
+        const blob = blobRef.current;
         const dot = dotRef.current;
-        const ring = ringRef.current;
-        if (!dot || !ring) return;
+        if (!blob || !dot) return;
 
-        // Initial state
-        gsap.set([dot, ring], { xPercent: -50, yPercent: -50, opacity: 0 });
+        // Mouse target
+        const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        // Blob current position (lerps toward mouse)
+        const pos = { x: mouse.x, y: mouse.y };
 
-        // GSAP quickSetters for high performance
-        setX.current = gsap.quickSetter(ring, "x", "px");
-        setY.current = gsap.quickSetter(ring, "y", "px");
+        // GSAP setters for the inner dot — instant follow
+        gsap.set([blob, dot], { xPercent: -50, yPercent: -50, opacity: 0 });
         const setDotX = gsap.quickSetter(dot, "x", "px");
         const setDotY = gsap.quickSetter(dot, "y", "px");
 
-        // Animation Loop for Fluid Physics
-        const loop = () => {
-            // Calculate velocity (current mouse pos - last ring pos)
-            // Note: checking actual DOM values or tracking ref values
-            // For simplicity in React/GSAP, we'll let the mouse event update 'target' and loop update 'current'
-            // But here we'll use a simpler velocity estimation from mouse events directly for the stretch
-        };
+        let visible = false;
 
-        const handleMove = (event: MouseEvent) => {
-            const { clientX, clientY } = event;
-
-            // Auto-show
-            if (gsap.getProperty(dot, "opacity") === 0) {
-                gsap.to([dot, ring], { opacity: 1, duration: 0.3 });
-            }
-
-            // Dot follows instantly
-            setDotX(clientX);
-            setDotY(clientY);
-
-            // Ring follows with slight lerp for position (handled by GSAP tween usually, but we want velocity data)
-            // To get velocity for the "Jelly" effect, we need to compare current frame to previous frame
-            // Let's use a GSAP ticker for the ring motion to calculate velocity accurately
-        };
-
-        window.addEventListener("pointermove", handleMove);
-
-        // Ticker for Physics (Jelly Effect)
-        gsap.ticker.add(() => {
-            if (!ring) return;
-
-            // Use a persistent targetRef for mouse pos if we want lerp,
-            // but let's stick to the previous 'quickTo' logic for motion and add rotation/scale on top.
-            // Actually, mixing quickTo and manual rotation/scale can be tricky.
-            // Let's stick to a simpler "velocity based scale" on every mouse move if possible, or use the ticker to lerp.
-        });
-
-        return () => {
-            window.removeEventListener("pointermove", handleMove);
-            gsap.ticker.remove(loop);
-        };
-    }, []);
-
-    // RE-IMPLEMENTATION WITH PROPER JELLY LOGIC
-    useEffect(() => {
-        const dot = dotRef.current;
-        const ring = ringRef.current;
-        if (!dot || !ring) return;
-
-        // Mouse position target
-        const mouse = { x: 0, y: 0 };
-        // Current ring position
-        const current = { x: 0, y: 0 };
-
-        gsap.set([dot, ring], { xPercent: -50, yPercent: -50, opacity: 0 });
-
-        const xToDot = gsap.quickTo(dot, "x", {
-            duration: 0.1,
-            ease: "power3.out",
-        });
-        const yToDot = gsap.quickTo(dot, "y", {
-            duration: 0.1,
-            ease: "power3.out",
-        });
-
-        const handleMove = (e: MouseEvent) => {
+        const onMove = (e: PointerEvent) => {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
+            (setDotX as any)(e.clientX);
+            (setDotY as any)(e.clientY);
 
-            // Dot moves instantly
-            xToDot(mouse.x);
-            yToDot(mouse.y);
-
-            // Show if hidden
-            if (gsap.getProperty(dot, "opacity") === 0) {
-                gsap.to([dot, ring], { opacity: 1, duration: 0.3 });
+            if (!visible) {
+                visible = true;
+                gsap.to([blob, dot], { opacity: 1, duration: 0.3 });
             }
         };
 
-        // Physics Loop
-        const ticker = gsap.ticker.add(() => {
-            // Linear interpolation (Lerp) for ring movement to create drag
-            const runingSpeed = 0.15; // 0.15 easing
+        // Physics ticker — lerp blob position, compute velocity, deform
+        const tick = () => {
+            const dx = mouse.x - pos.x;
+            const dy = mouse.y - pos.y;
 
-            // Calculate distance to travel
-            const dx = mouse.x - current.x;
-            const dy = mouse.y - current.y;
+            // Lerp factor (lower = more drag, more squish)
+            const ease = 0.18;
+            pos.x += dx * ease;
+            pos.y += dy * ease;
 
-            // Update current position
-            current.x += dx * runingSpeed;
-            current.y += dy * runingSpeed;
+            // Velocity = distance to travel this frame
+            const vx = dx * ease;
+            const vy = dy * ease;
+            const speed = Math.sqrt(vx * vx + vy * vy);
 
-            // Apply position
-            gsap.set(ring, { x: current.x, y: current.y });
+            // Direction angle (deg)
+            const angle = (Math.atan2(vy, vx) * 180) / Math.PI;
 
-            // Calculate Velocity for deformation
-            const velX = dx * runingSpeed;
-            const velY = dy * runingSpeed;
-            const velocity = Math.sqrt(velX * velX + velY * velY);
-            const angle = Math.atan2(velY, velX) * (180 / Math.PI);
+            // Stretch factor capped — more speed = more stretch
+            const stretch = Math.min(speed / 30, 0.6);
+            const scaleX = 1 + stretch;
+            const scaleY = 1 - stretch * 0.55;
 
-            // Stretch based on velocity (capped)
-            const scaleFactor = Math.min(velocity * 0.05, 0.5); // Max stretch 0.5
-            const scaleX = 1 + scaleFactor;
-            const scaleY = 1 - scaleFactor * 0.5; // Squash less than stretch
-
-            // Apply transformation only if moving significantly
-            if (velocity > 0.1) {
-                gsap.set(ring, {
-                    rotation: angle,
-                    scaleX: scaleX,
-                    scaleY: scaleY,
-                    overwrite: "auto",
-                });
-            } else {
-                // Return to circle when stopped
-                gsap.to(ring, {
-                    scaleX: 1,
-                    scaleY: 1,
-                    rotation: 0,
-                    duration: 0.2,
-                    overwrite: "auto",
-                });
-            }
-        });
-
-        window.addEventListener("pointermove", handleMove);
-
-        // ... (Hover listeners same as before)
-        const handleMouseOver = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            const isLink = target.closest("a, button, [role='button']");
-            const isText = target.closest(
-                "p, span, h1, h2, h3, h4, h5, h6, input",
-            );
-            const customCursor = target
-                .closest("[data-cursor]")
-                ?.getAttribute("data-cursor");
-
-            if (customCursor) setCursorState(customCursor as any);
-            else if (isLink) setCursorState("pointer");
-            else if (isText)
-                setCursorState("default"); // Keep default for text to let jelly effect shine
-            else setCursorState("default");
+            gsap.set(blob, {
+                x: pos.x,
+                y: pos.y,
+                rotation: angle,
+                scaleX,
+                scaleY,
+            });
         };
 
-        const handleMouseOut = () => setCursorState("default");
-        const handleMouseDown = () => setIsClicked(true);
-        const handleMouseUp = () => setIsClicked(false);
+        const ticker = gsap.ticker.add(tick);
 
-        window.addEventListener("mouseover", handleMouseOver);
-        window.addEventListener("mouseout", handleMouseOut);
-        window.addEventListener("mousedown", handleMouseDown);
-        window.addEventListener("mouseup", handleMouseUp);
+        // Hover detection — grow on interactive elements
+        const interactiveSel =
+            'a, button, input, textarea, select, [role="button"], [data-cursor="hover"]';
+        const onOver = (e: MouseEvent) => {
+            const t = e.target as HTMLElement | null;
+            if (t && t.closest(interactiveSel)) setHovering(true);
+        };
+        const onOut = (e: MouseEvent) => {
+            const t = e.target as HTMLElement | null;
+            const r = e.relatedTarget as HTMLElement | null;
+            if (t && t.closest(interactiveSel)) {
+                if (!r || !r.closest(interactiveSel)) setHovering(false);
+            }
+        };
+
+        const onLeaveWindow = () => {
+            visible = false;
+            gsap.to([blob, dot], { opacity: 0, duration: 0.2 });
+        };
+        const onEnterWindow = () => {
+            visible = true;
+            gsap.to([blob, dot], { opacity: 1, duration: 0.2 });
+        };
+
+        window.addEventListener("pointermove", onMove);
+        window.addEventListener("mouseover", onOver);
+        window.addEventListener("mouseout", onOut);
+        document.addEventListener("mouseleave", onLeaveWindow);
+        document.addEventListener("mouseenter", onEnterWindow);
 
         return () => {
-            window.removeEventListener("pointermove", handleMove);
-            window.removeEventListener("mouseover", handleMouseOver);
-            window.removeEventListener("mouseout", handleMouseOut);
-            window.removeEventListener("mousedown", handleMouseDown);
-            window.removeEventListener("mouseup", handleMouseUp);
             gsap.ticker.remove(ticker);
+            window.removeEventListener("pointermove", onMove);
+            window.removeEventListener("mouseover", onOver);
+            window.removeEventListener("mouseout", onOut);
+            document.removeEventListener("mouseleave", onLeaveWindow);
+            document.removeEventListener("mouseenter", onEnterWindow);
         };
-    }, []);
+    }, [enabled]);
 
-    // State Styles
+    // React to hover state — animate blob size/opacity
     useEffect(() => {
-        const ring = ringRef.current;
-        if (!ring) return;
+        const blob = blobRef.current;
+        if (!blob) return;
+        gsap.to(blob, {
+            width: hovering ? 64 : 40,
+            height: hovering ? 64 : 40,
+            backgroundColor: hovering
+                ? "rgba(255, 87, 34, 0.5)"
+                : "rgba(255, 87, 34, 0.32)",
+            duration: 0.35,
+            ease: "power3.out",
+        });
+    }, [hovering]);
 
-        // We only animate properties that NOT handled by the ticker (width, height, color)
-        // Transformation (scale/rotation) is handled by ticker for physics,
-        // BUT we need to override/mix them for states like 'pointer'
-
-        const ringBase = {
-            backgroundColor: "transparent",
-            borderColor: "rgba(34, 197, 94, 0.4)",
-            mixBlendMode: "normal",
-        };
-
-        switch (cursorState) {
-            case "pointer":
-                // For pointer, we might want to stop the jelly effect or separate it
-                // Simple fix: Make the ring larger and maybe disable physics temporarily?
-                // Or just let it be a jelly bubble around the link
-
-                gsap.to(ring, {
-                    width: 60,
-                    height: 60,
-                    ...ringBase,
-                    backgroundColor: "rgba(34, 197, 94, 0.1)",
-                    mixBlendMode: "difference",
-                    duration: 0.3,
-                });
-                break;
-
-            case "card":
-                gsap.to(ring, {
-                    width: 80,
-                    height: 80,
-                    borderRadius: "20%", // Rounded square
-                    ...ringBase,
-                    borderColor: "rgba(255, 255, 255, 0.5)",
-                    mixBlendMode: "difference",
-                    duration: 0.4,
-                });
-                break;
-
-            default:
-                gsap.to(ring, {
-                    width: 32,
-                    height: 32,
-                    borderRadius: "50%",
-                    ...ringBase,
-                    duration: 0.3,
-                });
-                break;
-        }
-    }, [cursorState]);
-
-    // Click
-    useEffect(() => {
-        const ring = ringRef.current;
-        if (isClicked && ring) {
-            gsap.to(ring, { opacity: 0.5, duration: 0.1 });
-        } else if (ring) {
-            gsap.to(ring, { opacity: 1, duration: 0.1 });
-        }
-    }, [isClicked]);
+    if (!enabled) return null;
 
     return (
         <>
+            {/* Squishy blob */}
             <div
-                ref={ringRef}
-                className="pointer-events-none fixed left-0 top-0 z-[9999] hidden -translate-x-1/2 -translate-y-1/2 border rounded-full will-change-transform md:block"
+                ref={blobRef}
+                aria-hidden
+                className="pointer-events-none fixed left-0 top-0 z-[200] hidden lg:block"
+                style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: "9999px",
+                    background: "rgba(255, 87, 34, 0.32)",
+                    filter: "blur(2px)",
+                    boxShadow:
+                        "0 0 24px rgba(255, 87, 34, 0.45), inset 0 0 12px rgba(255, 122, 77, 0.4)",
+                    willChange: "transform, width, height",
+                    mixBlendMode: "screen",
+                }}
             />
+            {/* Crisp inner dot */}
             <div
                 ref={dotRef}
-                className="pointer-events-none fixed left-0 top-0 z-[9999] hidden -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent md:block"
-                style={{ width: 8, height: 8 }}
+                aria-hidden
+                className="pointer-events-none fixed left-0 top-0 z-[201] hidden lg:block"
+                style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "9999px",
+                    background: "#ff5722",
+                    boxShadow: "0 0 10px rgba(255, 87, 34, 0.9)",
+                    willChange: "transform",
+                }}
             />
         </>
     );

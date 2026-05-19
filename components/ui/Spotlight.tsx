@@ -54,7 +54,7 @@ export function Spotlight({ children, className = "" }: SpotlightProps) {
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
                 style={{
                     opacity,
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(16, 185, 129, 0.15), transparent 40%)`,
+                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(139, 92, 246, 0.18), transparent 40%)`,
                 }}
             />
             <div className="relative">{children}</div>

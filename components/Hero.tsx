@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import anime from "animejs";
+import Image from "next/image";
 import { AnimeText } from "./motion/AnimeText";
 import { AnimeCounter } from "./motion/AnimeCounter";
 import { MagneticButton } from "./motion/MagneticButton";
@@ -71,6 +72,20 @@ export function Hero() {
             ref={ref}
             className="relative isolate min-h-[100svh] w-full overflow-hidden"
         >
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0" aria-hidden>
+                <Image
+                    src="/profile.jpg"
+                    alt=""
+                    fill
+                    sizes="100vw"
+                    className="object-cover object-center opacity-80"
+                    quality={100}
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+            </div>
+
             {/* Vignettes */}
             <div
                 className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-background to-transparent"
@@ -83,44 +98,49 @@ export function Hero() {
 
             <motion.div
                 style={{ y, opacity }}
-                className="container-width relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-24 sm:pt-32 sm:pb-28 lg:pt-36"
+                className="container-width relative z-10 flex min-h-[100svh] flex-col justify-center px-5 pt-24 pb-20 sm:px-6 sm:pt-32 sm:pb-28 lg:px-8 lg:pt-36"
             >
-                {/* Eyebrow */}
-                <div className="hero-eyebrow surface mb-10 inline-flex w-fit items-center gap-2.5 rounded-full px-3.5 py-1.5 opacity-0 sm:mb-14 sm:px-4">
-                    <span className="relative flex h-1.5 w-1.5">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/80 sm:text-[11px] sm:tracking-[0.32em]">
-                        Available for new work · 2026
-                    </span>
+                {/* Top row: Eyebrow */}
+                <div className="flex items-start justify-between gap-4">
+                    {/* Eyebrow */}
+                    <div className="hero-eyebrow surface mb-8 inline-flex w-fit items-center gap-2.5 rounded-full px-3 py-1.5 opacity-0 sm:mb-12 sm:px-4 lg:mb-14">
+                        <span className="relative flex h-1.5 w-1.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                        </span>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-ink/80 sm:text-[10px] sm:tracking-[0.28em] lg:text-[11px] lg:tracking-[0.32em]">
+                            Available for new work · 2026
+                        </span>
+                    </div>
                 </div>
 
-                {/* Cinematic UPPERCASE headline */}
-                <h1 className="font-display text-[clamp(2.4rem,11vw,7rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                {/* Name intro */}
+                <div className="mb-3 sm:mb-5">
+                    <p className="hero-meta font-mono text-xs tracking-wide text-ink/50 opacity-0 sm:text-sm lg:text-base">
+                        <AnimeText text="Hi, I'm" delay={300} />
+                    </p>
+                </div>
+
+                {/* Cinematic UPPERCASE headline — Name + Role */}
+                <h1 className="font-display text-[clamp(2.2rem,10vw,7rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.02em] text-ink">
                     <span className="block">
-                        <AnimeText text="Building" delay={400} />
+                        <AnimeText text="Abi" delay={400} />
                     </span>
                     <span className="block">
-                        <AnimeText text="modern" delay={650} />{" "}
                         <span className="text-accent">
-                            <AnimeText text="digital" delay={850} />
+                            <AnimeText text="Full Stack" delay={650} />
                         </span>
                     </span>
                     <span className="block ghost-text">
-                        <AnimeText
-                            text="experiences."
-                            delay={1050}
-                            stagger={26}
-                        />
+                        <AnimeText text="Developer." delay={900} stagger={26} />
                     </span>
                 </h1>
 
                 {/* Subtitle + meta row */}
-                <div className="mt-8 grid gap-8 sm:mt-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
-                    <p className="max-w-xl text-base leading-relaxed text-ink/65 sm:text-lg">
+                <div className="mt-6 grid gap-6 sm:mt-8 sm:gap-8 lg:mt-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+                    <p className="max-w-xl text-sm leading-relaxed text-ink/65 sm:text-base lg:text-lg">
                         <AnimeText
-                            text="Full Stack Developer crafting AI systems, ERP platforms, scalable applications, and immersive digital products."
+                            text="I craft AI systems, ERP platforms, scalable web applications, and immersive digital products that solve real problems."
                             split="word"
                             delay={1300}
                             stagger={22}
@@ -129,17 +149,17 @@ export function Hero() {
                     </p>
 
                     {/* Right meta */}
-                    <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:grid-cols-1 lg:gap-5 lg:text-right">
+                    <div className="grid grid-cols-3 gap-3 sm:gap-5 lg:grid-cols-1 lg:gap-4 lg:text-right">
                         {[
                             { k: "Currently", v: "Algobiz" },
                             { k: "Based in", v: "Kerala, IN" },
                             { k: "Stack", v: "React · Next" },
                         ].map((m) => (
                             <div key={m.k} className="hero-meta opacity-0">
-                                <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-ink/40 sm:text-[10px] sm:tracking-[0.32em]">
+                                <p className="font-mono text-[8px] uppercase tracking-[0.24em] text-ink/40 sm:text-[9px] sm:tracking-[0.28em] lg:text-[10px] lg:tracking-[0.32em]">
                                     {m.k}
                                 </p>
-                                <p className="mt-1.5 font-display text-base font-semibold text-ink sm:text-lg">
+                                <p className="mt-1 font-display text-sm font-semibold text-ink sm:mt-1.5 sm:text-base lg:text-lg">
                                     {m.v}
                                 </p>
                             </div>
@@ -148,26 +168,26 @@ export function Hero() {
                 </div>
 
                 {/* CTAs */}
-                <div className="mt-12 flex flex-wrap items-center gap-3 sm:mt-14">
-                    <MagneticButton
+                <div className="mt-10 flex flex-wrap items-center gap-3 sm:mt-12 lg:mt-14">
+                    <button
                         onClick={() => scrollToSection("projects")}
-                        className="hero-cta btn-primary group inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold tracking-tight opacity-0 sm:px-7 sm:py-3"
+                        className="hero-cta hero-btn-primary group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-6 py-2.5 text-sm font-semibold tracking-tight opacity-0 sm:px-8 sm:py-3 sm:text-base"
                     >
-                        <span>Explore work</span>
-                        <span className="inline-block transition group-hover:translate-x-0.5">
+                        <span className="relative z-10">Explore work</span>
+                        <span className="relative z-10 inline-block transition-transform duration-300 ease-out group-hover:translate-x-1">
                             →
                         </span>
-                    </MagneticButton>
-                    <MagneticButton
+                    </button>
+                    <button
                         onClick={() => scrollToSection("contact")}
-                        className="hero-cta btn-ghost group inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium opacity-0 sm:px-7 sm:py-3"
+                        className="hero-cta hero-btn-ghost group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-6 py-2.5 text-sm font-medium opacity-0 sm:px-8 sm:py-3 sm:text-base"
                     >
-                        Start a project
-                    </MagneticButton>
+                        <span className="relative z-10">Start a project</span>
+                    </button>
                 </div>
 
                 {/* Stats strip */}
-                <div className="mt-16 grid w-full grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:mt-20 sm:grid-cols-4">
+                <div className="mt-12 grid w-full grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:mt-16 sm:rounded-2xl lg:mt-20 lg:grid-cols-4">
                     {[
                         { v: 3, suffix: "+", l: "Years shipping" },
                         { v: 20, suffix: "+", l: "Production builds" },
@@ -176,12 +196,12 @@ export function Hero() {
                     ].map((s) => (
                         <div
                             key={s.l}
-                            className="hero-stat surface px-4 py-5 opacity-0 sm:px-5 sm:py-6"
+                            className="hero-stat surface px-3 py-4 opacity-0 sm:px-5 sm:py-6"
                         >
-                            <p className="font-display text-2xl font-extrabold text-ink sm:text-3xl lg:text-4xl">
+                            <p className="font-display text-xl font-extrabold text-ink sm:text-2xl lg:text-3xl xl:text-4xl">
                                 <AnimeCounter to={s.v} suffix={s.suffix} />
                             </p>
-                            <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.28em] text-ink/40 sm:mt-2 sm:text-[10px] sm:tracking-[0.32em]">
+                            <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.24em] text-ink/40 sm:mt-2 sm:text-[9px] sm:tracking-[0.28em] lg:text-[10px] lg:tracking-[0.32em]">
                                 {s.l}
                             </p>
                         </div>

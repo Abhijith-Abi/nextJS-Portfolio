@@ -1,0 +1,40 @@
+name: Deploy Preview
+
+on:
+    push:
+        branches:
+            - develop
+
+jobs:
+    test-build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+
+            - run: npm ci
+            - run: npm run lint
+            - run: npm run build
+
+    update-preview:
+        needs: test-build
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Push develop to preview
+              run: |
+                  git config --global user.name "github-actions"
+                  git config --global user.email "github-actions@github.com"
+
+                  git fetch origin
+
+                  git checkout preview
+                  git merge origin/develop --no-edit
+
+                  git push origin preview

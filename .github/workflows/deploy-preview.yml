@@ -5,27 +5,20 @@ on:
         branches:
             - develop
 
+permissions:
+    contents: write
+
 jobs:
-    test-build:
+    update-preview:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v4
-
-            - uses: actions/setup-node@v4
               with:
-                  node-version: 20
+                  fetch-depth: 0
 
             - run: npm ci
-            - run: npm run lint
             - run: npm run build
-
-    update-preview:
-        needs: test-build
-        runs-on: ubuntu-latest
-
-        steps:
-            - uses: actions/checkout@v4
 
             - name: Update preview branch
               run: |

@@ -27,14 +27,13 @@ jobs:
         steps:
             - uses: actions/checkout@v4
 
-            - name: Push develop to preview
+            - name: Update preview branch
               run: |
-                  git config --global user.name "github-actions"
-                  git config --global user.email "github-actions@github.com"
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
                   git fetch origin
 
-                  git checkout preview
-                  git merge origin/develop --no-edit
+                  git checkout -B preview origin/develop
 
-                  git push origin preview
+                  git push origin preview --force

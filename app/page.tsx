@@ -7,9 +7,98 @@ import { ExperienceSection } from "../components/ExperienceSection";
 import { ContactSection } from "../components/ContactSection";
 import { WorkflowSection } from "../components/WorkflowSection";
 
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Abhijith P A",
+    alternateName: [
+        "Abi",
+        "Abhijith",
+        "Abijith",
+        "Abhijith PA",
+        "AP Abhijith",
+        "Abi Solutions",
+        "Abisolutions",
+        "Abhisolutions",
+        "Abhijith Steyp",
+        "Abhijith Algobiz",
+        "Abhijith Talrop",
+    ],
+    url: "https://abisolutions.online",
+    image: "https://abisolutions.online/profile.jpg",
+    jobTitle: "Full Stack Developer",
+    description:
+        "Abhijith P A (Abi) is a Full Stack Developer specializing in React, Next.js, Django, AWS, and AI-driven web applications. Frontend Engineer at Algobiz, formerly at Talrop and Steyp. Founder of Abi Solutions.",
+    email: "abhijithabhijith1999@gmail.com",
+    telephone: "+919961316468",
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Kerala",
+        addressRegion: "Kerala",
+        addressCountry: "IN",
+    },
+    sameAs: [
+        "https://github.com/Abhijith-Abi",
+        "https://www.linkedin.com/in/abhijith-pa/",
+        "https://abisolutions.online",
+    ],
+    knowsAbout: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Django",
+        "Python",
+        "AWS",
+        "Node.js",
+        "Tailwind CSS",
+        "Three.js",
+        "Framer Motion",
+        "GSAP",
+        "Firebase",
+        "PostgreSQL",
+        "Docker",
+        "REST APIs",
+        "SaaS Development",
+        "ERP Development",
+        "CRM Development",
+        "Ecommerce Development",
+    ],
+    worksFor: {
+        "@type": "Organization",
+        name: "Algobiz",
+        url: "https://algobiz.com",
+    },
+    alumniOf: [
+        { "@type": "Organization", name: "Talrop", url: "https://talrop.com" },
+        { "@type": "Organization", name: "Steyp", url: "https://steyp.com" },
+    ],
+    brand: {
+        "@type": "Brand",
+        name: "Abi Solutions",
+        url: "https://abisolutions.online",
+    },
+    hasOccupation: [
+        {
+            "@type": "Occupation",
+            name: "Full Stack Developer",
+            occupationalCategory: "Software Developer",
+            skills: "React, Next.js, TypeScript, Django, Python, AWS, Node.js, Tailwind CSS, GSAP, Framer Motion",
+        },
+    ],
+    nationality: {
+        "@type": "Country",
+        name: "India",
+    },
+};
+
 export default function HomePage() {
     return (
         <main className="relative min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Navbar />
             <Hero />
             <AboutSection />

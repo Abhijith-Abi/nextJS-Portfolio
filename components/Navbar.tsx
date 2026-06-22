@@ -2,14 +2,16 @@
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const navItems = [
-    { id: "home", label: "Home", num: "01" },
-    { id: "about", label: "About", num: "02" },
-    { id: "skills", label: "Stack", num: "03" },
-    { id: "projects", label: "Work", num: "04" },
-    { id: "experience", label: "Path", num: "05" },
-    { id: "contact", label: "Contact", num: "06" },
+    { id: "home", href: "/", label: "Home", num: "01" },
+    { id: "about", href: "/about", label: "About", num: "02" },
+    { id: "skills", href: "/services", label: "Stack", num: "03" },
+    { id: "projects", href: "/projects", label: "Work", num: "04" },
+    { id: "experience", href: "/about", label: "Path", num: "05" },
+    { id: "contact", href: "/contact", label: "Contact", num: "06" },
 ];
 
 function scrollToSection(id: string) {
@@ -22,13 +24,17 @@ export function Navbar() {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { scrollY } = useScroll();
+    const pathname = usePathname();
+    const isHome = pathname === "/";
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setScrolled(latest > 12);
     });
 
-    const handleClick = (id: string) => {
-        scrollToSection(id);
+    const handleClick = (item: (typeof navItems)[number]) => {
+        if (isHome) {
+            scrollToSection(item.id);
+        }
         setOpen(false);
     };
 
@@ -50,11 +56,7 @@ export function Navbar() {
                         : "border-line bg-surface/80 backdrop-blur-xl"
                 }`}
             >
-                <button
-                    type="button"
-                    onClick={() => scrollToSection("home")}
-                    className="group flex items-center gap-2.5 pl-2"
-                >
+                <Link href="/" className="group flex items-center gap-2.5 pl-2">
                     <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-lg bg-accent">
                         <span className="font-display text-[11px] font-extrabold text-white">
                             A
@@ -63,34 +65,59 @@ export function Navbar() {
                     <span className="hidden font-display text-sm font-bold tracking-tight text-ink sm:block">
                         Abhijith P A
                     </span>
-                </button>
+                </Link>
 
                 <ul className="hidden items-center gap-0.5 md:flex">
-                    {navItems.map((item) => (
-                        <li key={item.id}>
-                            <button
-                                type="button"
-                                onClick={() => handleClick(item.id)}
-                                className="group relative rounded-lg px-3 py-1.5 text-[13px] font-medium text-ink/60 transition hover:text-ink"
-                            >
-                                <span className="relative z-10">
-                                    {item.label}
-                                </span>
-                                <span className="absolute inset-0 rounded-lg bg-ink/0 transition group-hover:bg-ink/[0.04]" />
-                                <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-6" />
-                            </button>
-                        </li>
-                    ))}
+                    {navItems.map((item) =>
+                        isHome ? (
+                            <li key={item.id}>
+                                <button
+                                    type="button"
+                                    onClick={() => handleClick(item)}
+                                    className="group relative rounded-lg px-3 py-1.5 text-[13px] font-medium text-ink/60 transition hover:text-ink"
+                                >
+                                    <span className="relative z-10">
+                                        {item.label}
+                                    </span>
+                                    <span className="absolute inset-0 rounded-lg bg-ink/0 transition group-hover:bg-ink/[0.04]" />
+                                    <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-6" />
+                                </button>
+                            </li>
+                        ) : (
+                            <li key={item.id}>
+                                <Link
+                                    href={item.href}
+                                    className="group relative rounded-lg px-3 py-1.5 text-[13px] font-medium text-ink/60 transition hover:text-ink"
+                                >
+                                    <span className="relative z-10">
+                                        {item.label}
+                                    </span>
+                                    <span className="absolute inset-0 rounded-lg bg-ink/0 transition group-hover:bg-ink/[0.04]" />
+                                    <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-6" />
+                                </Link>
+                            </li>
+                        ),
+                    )}
                 </ul>
 
-                <button
-                    type="button"
-                    onClick={() => handleClick("contact")}
-                    className="btn-primary hidden items-center gap-2 rounded-lg px-3.5 py-1.5 text-[12px] font-semibold md:inline-flex"
-                >
-                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                    Available
-                </button>
+                {isHome ? (
+                    <button
+                        type="button"
+                        onClick={() => handleClick(navItems[5])}
+                        className="btn-primary hidden items-center gap-2 rounded-lg px-3.5 py-1.5 text-[12px] font-semibold md:inline-flex"
+                    >
+                        <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                        Available
+                    </button>
+                ) : (
+                    <Link
+                        href="/contact"
+                        className="btn-primary hidden items-center gap-2 rounded-lg px-3.5 py-1.5 text-[12px] font-semibold md:inline-flex"
+                    >
+                        <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                        Available
+                    </Link>
+                )}
 
                 <button
                     type="button"
@@ -113,20 +140,35 @@ export function Navbar() {
                         className="surface absolute left-0 right-0 top-full mt-2 rounded-2xl p-3 md:hidden"
                     >
                         <ul className="space-y-0.5 text-sm font-medium text-ink/90">
-                            {navItems.map((item) => (
-                                <li key={item.id}>
-                                    <button
-                                        type="button"
-                                        onClick={() => handleClick(item.id)}
-                                        className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition hover:bg-ink/5"
-                                    >
-                                        <span className="font-mono text-[10px] text-ink/40">
-                                            {item.num}
-                                        </span>
-                                        {item.label}
-                                    </button>
-                                </li>
-                            ))}
+                            {navItems.map((item) =>
+                                isHome ? (
+                                    <li key={item.id}>
+                                        <button
+                                            type="button"
+                                            onClick={() => handleClick(item)}
+                                            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition hover:bg-ink/5"
+                                        >
+                                            <span className="font-mono text-[10px] text-ink/40">
+                                                {item.num}
+                                            </span>
+                                            {item.label}
+                                        </button>
+                                    </li>
+                                ) : (
+                                    <li key={item.id}>
+                                        <Link
+                                            href={item.href}
+                                            onClick={() => setOpen(false)}
+                                            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition hover:bg-ink/5"
+                                        >
+                                            <span className="font-mono text-[10px] text-ink/40">
+                                                {item.num}
+                                            </span>
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ),
+                            )}
                         </ul>
                     </motion.div>
                 )}

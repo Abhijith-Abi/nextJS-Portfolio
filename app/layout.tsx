@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { Loader } from "../components/Loader";
@@ -24,22 +25,80 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-    title: "Abhijith P A — Building Modern Digital Experiences",
-    description:
-        "Full Stack Developer crafting AI systems, ERP platforms, scalable applications, and immersive digital products.",
     metadataBase: new URL("https://abisolutions.online"),
+    title: {
+        default: "Abhijith P A — Full Stack Developer | React, Next.js, AI",
+        template: "%s | Abhijith P A",
+    },
+    description:
+        "Full Stack Developer specializing in React.js, Next.js, TypeScript, and AI-driven products. 3+ years crafting ERP platforms, healthcare systems, and immersive web experiences from Kerala, India.",
+    keywords: [
+        "Abhijith P A",
+        "Full Stack Developer",
+        "React Developer",
+        "Next.js Developer",
+        "TypeScript Developer",
+        "Frontend Engineer Kerala",
+        "UI Engineer India",
+        "AI Web Developer",
+        "ERP Developer",
+        "Framer Motion",
+        "GSAP Developer",
+        "Three.js Developer",
+        "Tailwind CSS",
+        "Web Application Developer",
+        "Portfolio",
+        "Abi Solutions",
+    ],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    creator: "Abhijith P A",
+    publisher: "Abhijith P A",
+    category: "technology",
     verification: { google: "google008d788f2689e4cb" },
+    alternates: {
+        canonical: "https://abisolutions.online",
+    },
     openGraph: {
-        title: "Abhijith P A — Building Modern Digital Experiences",
-        description: "Portfolio of Abhijith P A — Full Stack Developer.",
-        url: "https://abisolutions.online",
-        siteName: "Abhijith P A",
         type: "website",
+        locale: "en_US",
+        url: "https://abisolutions.online",
+        siteName: "Abhijith P A — Full Stack Developer",
+        title: "Abhijith P A — Full Stack Developer | React, Next.js, AI",
+        description:
+            "3+ years building production-grade web apps, ERP platforms, AI products, and motion-rich interfaces. Based in Kerala, India.",
+        images: [
+            {
+                url: "/profile.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Abhijith P A — Full Stack Developer Portfolio",
+                type: "image/jpeg",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Abhijith P A — Full Stack Developer",
+        description:
+            "Building AI systems, ERP platforms, and immersive digital products with React, Next.js & TypeScript.",
+        images: ["/profile.jpg"],
+        creator: "@abhijith",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
     },
     icons: {
-        icon: "/profile.jpg",
+        icon: [{ url: "/profile.jpg", type: "image/jpeg" }],
         shortcut: "/profile.jpg",
-        apple: "/profile.jpg",
+        apple: [{ url: "/profile.jpg", sizes: "180x180", type: "image/jpeg" }],
     },
 };
 
@@ -60,6 +119,7 @@ export default function RootLayout({
                 <CursorFollower />
                 <SmoothScroll>{children}</SmoothScroll>
             </body>
+            <GoogleAnalytics gaId="G-T08NBY5C52" />
         </html>
     );
 }

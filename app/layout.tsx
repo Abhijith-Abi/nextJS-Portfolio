@@ -113,9 +113,15 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: [{ url: "/profile.jpg", type: "image/jpeg" }],
-        shortcut: "/profile.jpg",
-        apple: [{ url: "/profile.jpg", sizes: "180x180", type: "image/jpeg" }],
+        icon: [
+            { url: "/favicon.ico", sizes: "any" },
+            { url: "/icon0.svg", type: "image/svg+xml" },
+            { url: "/icon1.png", type: "image/png" },
+        ],
+        shortcut: "/favicon.ico",
+        apple: [
+            { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+        ],
     },
     other: {
         "google-site-verification": "google008d788f2689e4cb",

@@ -105,5 +105,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "yearly",
             priority: 0.7,
         },
+        {
+            url: `${baseUrl}/blog/react-server-components-best-practices-2026`,
+            lastModified: new Date("2026-06-22"),
+            changeFrequency: "yearly",
+            priority: 0.7,
+        },
     ];
 }

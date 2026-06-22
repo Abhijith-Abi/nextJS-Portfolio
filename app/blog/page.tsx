@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { SectionWrapper } from "../../components/SectionWrapper";
+import { BlogList } from "../../components/BlogList";
+import { blogPosts } from "../../lib/blog";
 
 export const metadata: Metadata = {
     title: "Blog — Abhijith P A | React, Next.js & Web Dev Articles",
@@ -28,9 +30,7 @@ export const metadata: Metadata = {
     authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
-    alternates: {
-        canonical: "https://abisolutions.online/blog",
-    },
+    alternates: { canonical: "https://abisolutions.online/blog" },
     openGraph: {
         type: "website",
         locale: "en_US",
@@ -90,17 +90,6 @@ const jsonLd = {
         name: "Abhijith P A",
         url: "https://abisolutions.online",
     },
-    about: [
-        "React.js",
-        "Next.js",
-        "TypeScript",
-        "Django",
-        "Python",
-        "AWS",
-        "Web Development",
-        "Frontend Engineering",
-        "Software Architecture",
-    ],
 };
 
 export default function BlogPage() {
@@ -113,20 +102,18 @@ export default function BlogPage() {
             <Navbar />
             <div className="pt-24">
                 <SectionWrapper id="blog" index="07" label="Blog">
-                    <div className="flex min-h-[50vh] flex-col items-center justify-center text-center">
+                    <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
                         <h1 className="font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
-                            <span className="block">COMING</span>
-                            <span className="block text-accent">SOON.</span>
+                            <span className="block">ARTICLES &</span>
+                            <span className="block ghost-text">INSIGHTS.</span>
                         </h1>
-                        <p className="mt-6 max-w-md text-base leading-relaxed text-ink/65 lg:text-lg">
-                            I&apos;m working on articles about React, Next.js,
-                            TypeScript, motion design, and lessons from building
-                            production software at Algobiz, Talrop, and Steyp.
-                        </p>
-                        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.32em] text-ink/40">
-                            Stay tuned · 2026
+                        <p className="text-sm leading-relaxed text-ink/65 sm:text-base md:text-right lg:text-lg">
+                            Lessons from building production software at
+                            Algobiz, Talrop, and Steyp. React, Next.js, Django,
+                            AWS, and everything in between.
                         </p>
                     </div>
+                    <BlogList posts={blogPosts} />
                 </SectionWrapper>
             </div>
         </main>

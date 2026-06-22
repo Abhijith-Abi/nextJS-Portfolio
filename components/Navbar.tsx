@@ -11,7 +11,8 @@ const navItems = [
     { id: "skills", href: "/services", label: "Stack", num: "03" },
     { id: "projects", href: "/projects", label: "Work", num: "04" },
     { id: "experience", href: "/about", label: "Path", num: "05" },
-    { id: "contact", href: "/contact", label: "Contact", num: "06" },
+    { id: "blog", href: "/blog", label: "Blog", num: "06" },
+    { id: "contact", href: "/contact", label: "Contact", num: "07" },
 ];
 
 function scrollToSection(id: string) {
@@ -32,7 +33,7 @@ export function Navbar() {
     });
 
     const handleClick = (item: (typeof navItems)[number]) => {
-        if (isHome) {
+        if (isHome && item.id !== "blog") {
             scrollToSection(item.id);
         }
         setOpen(false);
@@ -69,7 +70,7 @@ export function Navbar() {
 
                 <ul className="hidden items-center gap-0.5 md:flex">
                     {navItems.map((item) =>
-                        isHome ? (
+                        isHome && item.id !== "blog" ? (
                             <li key={item.id}>
                                 <button
                                     type="button"
@@ -103,7 +104,7 @@ export function Navbar() {
                 {isHome ? (
                     <button
                         type="button"
-                        onClick={() => handleClick(navItems[5])}
+                        onClick={() => handleClick(navItems[6])}
                         className="btn-primary hidden items-center gap-2 rounded-lg px-3.5 py-1.5 text-[12px] font-semibold md:inline-flex"
                     >
                         <span className="h-1.5 w-1.5 rounded-full bg-white" />
@@ -141,7 +142,7 @@ export function Navbar() {
                     >
                         <ul className="space-y-0.5 text-sm font-medium text-ink/90">
                             {navItems.map((item) =>
-                                isHome ? (
+                                isHome && item.id !== "blog" ? (
                                     <li key={item.id}>
                                         <button
                                             type="button"

@@ -27,12 +27,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
     metadataBase: new URL("https://abisolutions.online"),
     title: {
-        default:
-            "Abhijith P A | Full Stack Developer | React, Next.js, Django, AI Engineer | Founder of AlgoBiz",
-        template: "%s | Abhijith P A — Full Stack Developer",
+        default: "Abhijith P A — Full Stack Developer & AI Engineer | AlgoBiz",
+        template: "%s | Abhijith P A",
     },
     description:
-        "Abhijith P A is a Full Stack Developer & AI Engineer specializing in React, Next.js, Django, Python & AWS. Founder of AlgoBiz. Ex-Talrop, Tegain, Ribos. Building ERP, SaaS, HRMS & AI automation products from Kerala, India.",
+        "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. React, Next.js, Django, AWS. Ex-Talrop, Steyp, Tegain, Ribos. ERP, SaaS & AI automation.",
     keywords: [
         "Abhijith P A",
         "Abhijith PA",

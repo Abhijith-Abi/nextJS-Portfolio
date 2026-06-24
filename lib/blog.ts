@@ -377,6 +377,243 @@ export const blogPosts: BlogPost[] = [
             },
         ],
     },
+    {
+        slug: "react-best-practices-2026",
+        title: "React.js Best Practices in 2026 — Architecture, Performance & Patterns",
+        description:
+            "A comprehensive guide to React.js best practices in 2026 covering component architecture, performance optimization, state management, TypeScript patterns, and production-ready code from real projects at AlgoBiz, Talrop & Tegain.",
+        date: "2026-06-24",
+        readTime: "12 min read",
+        tags: [
+            "React",
+            "TypeScript",
+            "Performance",
+            "Architecture",
+            "Best Practices",
+        ],
+        keywords: [
+            "React best practices 2026",
+            "React.js best practices",
+            "React performance optimization",
+            "React architecture patterns",
+            "React TypeScript",
+            "React component design",
+            "React state management 2026",
+            "React developer India",
+            "Abhijith P A React",
+            "AlgoBiz React development",
+        ],
+        content: [
+            {
+                type: "paragraph",
+                content:
+                    "After 3+ years of shipping React applications at AlgoBiz, Talrop, Steyp, and Tegain, I've developed strong opinions on what actually matters in production React codebases. This isn't a beginner guide — it's the patterns and practices that have saved me from bugs, performance issues, and maintenance nightmares across 20+ production builds.",
+            },
+            {
+                type: "heading",
+                content: "1. Component Architecture That Scales",
+            },
+            {
+                type: "paragraph",
+                content:
+                    "The single biggest mistake I see in React projects is treating components as page-level monoliths. Every component should have a single responsibility. I structure projects into three layers: UI primitives (buttons, inputs, cards), composed components (forms, data tables, modals), and feature modules (complete business logic units). This pattern scaled beautifully across the Talrop ERP with its 15+ modules.",
+            },
+            {
+                type: "code",
+                language: "typescript",
+                content:
+                    "// Feature module pattern\\n// features/inventory/\\n//   components/  — UI specific to this feature\\n//   hooks/       — Business logic hooks\\n//   types.ts     — Feature-scoped types\\n//   index.ts     — Public API\\n\\n// Only export what other features need\\nexport { InventoryDashboard } from './components/InventoryDashboard';\\nexport { useInventoryStats } from './hooks/useInventoryStats';\\nexport type { InventoryItem } from './types';",
+            },
+            {
+                type: "heading",
+                content: "2. TypeScript — Strict Mode or Nothing",
+            },
+            {
+                type: "paragraph",
+                content:
+                    "In 2026, there's no excuse for loose TypeScript. Enable strict mode, avoid 'any' like the plague, and use discriminated unions for state machines. At AlgoBiz, we enforce this with ESLint rules that flag any type assertions. The upfront investment pays for itself within weeks when refactoring complex ERP modules.",
+            },
+            {
+                type: "code",
+                language: "typescript",
+                content:
+                    "// Discriminated union for async state\\ntype AsyncState<T> =\\n  | { status: 'idle' }\\n  | { status: 'loading' }\\n  | { status: 'success'; data: T }\\n  | { status: 'error'; error: Error };\\n\\n// Usage — TypeScript narrows automatically\\nfunction renderState<T>(state: AsyncState<T>) {\\n  switch (state.status) {\\n    case 'loading': return <Spinner />;\\n    case 'error': return <ErrorCard error={state.error} />;\\n    case 'success': return <DataView data={state.data} />;\\n    default: return null;\\n  }\\n}",
+            },
+            {
+                type: "heading",
+                content: "3. State Management — Keep It Simple",
+            },
+            {
+                type: "paragraph",
+                content:
+                    "Redux is overkill for 90% of applications in 2026. Here's my decision tree: Local UI state → useState. Shared component state → Context or Zustand. Server state → TanStack Query (React Query). Global app state → Zustand with slices. At Talrop ERP, each module manages its own Zustand store independently. No god-store, no prop drilling across modules.",
+            },
+            {
+                type: "heading",
+                content: "4. Performance — Measure Before Optimizing",
+            },
+            {
+                type: "list",
+                content:
+                    "Performance patterns that actually matter in production:",
+                items: [
+                    "React.memo only when you've profiled and confirmed unnecessary re-renders",
+                    "useMemo for expensive computations (not for object references)",
+                    "Code splitting with dynamic imports at the route and feature level",
+                    "Virtual scrolling for lists with 100+ items (we use Tanstack Virtual)",
+                    "Image optimization with next/image — lazy loading, proper sizes attribute",
+                    "Debounce search inputs and API calls (300ms is the sweet spot)",
+                ],
+            },
+            {
+                type: "heading",
+                content: "5. Server Components & Client Boundaries",
+            },
+            {
+                type: "paragraph",
+                content:
+                    "In Next.js App Router, the biggest win is keeping most components as Server Components. Only add 'use client' when you need interactivity, browser APIs, or React hooks. I draw the boundary at the leaf level — an interactive button inside a server-rendered page, not the entire page as a client component.",
+            },
+            { type: "heading", content: "6. Error Boundaries & Resilience" },
+            {
+                type: "paragraph",
+                content:
+                    "Every production app needs error boundaries at the feature level. If the inventory module crashes, the HR module should still work. We wrap each major feature in an ErrorBoundary with a fallback UI and error reporting. This pattern saved us multiple times during the Talrop ERP rollout.",
+            },
+            { type: "heading", content: "7. Testing Strategy" },
+            {
+                type: "paragraph",
+                content:
+                    "Testing philosophy: integration tests > unit tests > E2E tests. Test behavior, not implementation. Use React Testing Library with user-event. Mock at the network boundary (MSW), not at the component level. For critical flows (payments, auth), add Playwright E2E tests. Skip snapshot tests — they create noise without catching real bugs.",
+            },
+            { type: "heading", content: "Key Takeaways" },
+            {
+                type: "list",
+                content: "",
+                items: [
+                    "Structure by feature, not by file type",
+                    "TypeScript strict mode is non-negotiable in 2026",
+                    "Choose the right state tool for each layer",
+                    "Profile before optimizing — React DevTools Profiler is your friend",
+                    "Server Components by default, client only when needed",
+                    "Error boundaries at feature boundaries",
+                    "Test behavior, not implementation details",
+                ],
+            },
+        ],
+    },
+    {
+        slug: "how-i-built-finwage-payroll-hrms",
+        title: "How I Built Finwage — Payroll & HRMS with React and Django",
+        description:
+            "A deep dive into building Finwage, a payroll management system and HRMS using React, Django, PostgreSQL & AWS. Architecture decisions, salary calculations, attendance tracking, and lessons learned at AlgoBiz.",
+        date: "2026-06-25",
+        readTime: "15 min read",
+        tags: [
+            "React",
+            "Django",
+            "PostgreSQL",
+            "ERP",
+            "HRMS",
+            "Payroll",
+            "AlgoBiz",
+        ],
+        keywords: [
+            "Finwage",
+            "Finwage payroll",
+            "HRMS system",
+            "payroll management system",
+            "attendance management system",
+            "build HRMS with React",
+            "Django payroll system",
+            "ERP development",
+            "AlgoBiz Finwage",
+            "Abhijith P A Finwage",
+            "React Django ERP",
+            "HRMS Kerala",
+        ],
+        content: [
+            {
+                type: "paragraph",
+                content:
+                    "Finwage started as a simple payroll calculator and grew into a full HRMS handling attendance, leave management, salary processing, tax deductions, and employee self-service for multiple organizations. Here's how I built it at AlgoBiz using React, Django, PostgreSQL, and AWS.",
+            },
+            { type: "heading", content: "The Problem" },
+            {
+                type: "paragraph",
+                content:
+                    "Most businesses in Kerala still manage payroll on spreadsheets. They track attendance manually, calculate salaries by hand, and forget about tax compliance until the deadline. We needed a system that handles the entire lifecycle: attendance in → salary calculation → tax deduction → payslip generation → bank disbursement file.",
+            },
+            { type: "heading", content: "Architecture Overview" },
+            {
+                type: "paragraph",
+                content:
+                    "Finwage is a multi-tenant SaaS — each company gets isolated data with shared infrastructure. The frontend is React with TypeScript and Tailwind CSS for the dashboard. The backend is Django REST Framework with PostgreSQL for transactional data. AWS handles hosting (EC2), file storage (S3 for payslips), and email notifications (SES).",
+            },
+            {
+                type: "code",
+                language: "text",
+                content:
+                    "Frontend: React + TypeScript + Tailwind CSS\\nBackend: Django REST Framework + Python 3.12\\nDatabase: PostgreSQL 16 (multi-tenant with schema isolation)\\nQueue: Celery + Redis (for payroll batch processing)\\nStorage: AWS S3 (payslips, documents)\\nHosting: AWS EC2 + RDS + CloudFront\\nCI/CD: GitHub Actions → Docker → ECR → ECS",
+            },
+            { type: "heading", content: "Attendance Management" },
+            {
+                type: "paragraph",
+                content:
+                    "Attendance is the foundation of payroll. Finwage supports multiple clock-in methods: biometric device integration (via API), mobile GPS check-in, and manual entry with approval workflows. The tricky part is handling shift patterns — rotational shifts, split shifts, overtime calculation, and half-day logic. I modeled shifts as PostgreSQL JSONB columns with validation at the Django serializer level.",
+            },
+            { type: "heading", content: "Salary Calculation Engine" },
+            {
+                type: "paragraph",
+                content:
+                    "Salary calculation looks simple until you account for Indian payroll complexity: PF (Provident Fund), ESI (Employee State Insurance), Professional Tax (state-specific), TDS (Tax Deducted at Source), LOP (Loss of Pay), overtime, bonuses, and reimbursements. I built a rule engine where each component is a Python class with a calculate() method. Components can depend on other components (PF depends on basic salary), so I use topological sorting to determine calculation order.",
+            },
+            {
+                type: "code",
+                language: "python",
+                content:
+                    "class SalaryComponent(ABC):\\n    @abstractmethod\\n    def calculate(self, context: PayrollContext) -> Decimal:\\n        pass\\n\\nclass BasicSalary(SalaryComponent):\\n    def calculate(self, ctx: PayrollContext) -> Decimal:\\n        working_days = ctx.attendance.working_days\\n        total_days = ctx.period.total_days\\n        return (ctx.employee.ctc_basic * working_days) / total_days\\n\\nclass PFContribution(SalaryComponent):\\n    depends_on = ['basic_salary']\\n    \\n    def calculate(self, ctx: PayrollContext) -> Decimal:\\n        basic = ctx.computed['basic_salary']\\n        return min(basic * Decimal('0.12'), Decimal('1800'))",
+            },
+            { type: "heading", content: "Payslip Generation" },
+            {
+                type: "paragraph",
+                content:
+                    "Payslips are generated as PDFs using WeasyPrint (HTML/CSS to PDF) with Jinja2 templates. Each company can customize their payslip template — logo, layout, which components to show. The generation runs as a Celery batch job because processing 500+ employees' payslips synchronously would timeout. We generate them, upload to S3, and email links to employees.",
+            },
+            { type: "heading", content: "Multi-Tenant Architecture" },
+            {
+                type: "paragraph",
+                content:
+                    "Multi-tenancy in Django is tricky. I chose PostgreSQL schema-based isolation using django-tenants. Each company gets its own schema with identical table structures. Shared data (plans, billing) lives in the public schema. This gives us true data isolation (a bug in one tenant's query can never leak another tenant's data) while keeping infrastructure costs manageable.",
+            },
+            { type: "heading", content: "Frontend Dashboard" },
+            {
+                type: "paragraph",
+                content:
+                    "The React dashboard is where HR managers spend their time. It shows attendance summaries, pending approvals, salary status, and compliance alerts. I used Recharts for salary trend visualizations and TanStack Table for the employee data grid (sorting, filtering, pagination on 1000+ rows). The calendar view for attendance uses a custom component built with date-fns.",
+            },
+            { type: "heading", content: "Lessons Learned" },
+            {
+                type: "list",
+                content: "",
+                items: [
+                    "Indian payroll has edge cases that no documentation covers — you learn by getting it wrong",
+                    "Multi-tenant schema isolation is worth the complexity for financial data",
+                    "Batch processing with Celery prevents timeout issues on payroll runs",
+                    "Always store monetary values as Decimal, never float",
+                    "Generate audit logs for every salary calculation — compliance requires it",
+                    "PDF generation is slow — always do it async and cache the result",
+                    "Test with real payroll data (anonymized) — synthetic data misses edge cases",
+                ],
+            },
+            { type: "heading", content: "What's Next" },
+            {
+                type: "paragraph",
+                content:
+                    "We're adding AI-powered anomaly detection for attendance (flagging unusual patterns), automated tax filing integration, and a mobile app for employee self-service. Finwage started as a side project and now handles real payroll for multiple companies — the most rewarding kind of software to build.",
+            },
+        ],
+    },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

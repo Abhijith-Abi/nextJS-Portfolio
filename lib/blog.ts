@@ -407,7 +407,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 content:
-                    "After 3+ years of shipping React applications at AlgoBiz, Talrop, Steyp, and Tegain, I've developed strong opinions on what actually matters in production React codebases. This isn't a beginner guide — it's the patterns and practices that have saved me from bugs, performance issues, and maintenance nightmares across 20+ production builds.",
+                    "After 4+ years of shipping React applications at AlgoBiz, Talrop, Steyp, and Tegain, I've developed strong opinions on what actually matters in production React codebases. This isn't a beginner guide — it's the patterns and practices that have saved me from bugs, performance issues, and maintenance nightmares across 20+ production builds.",
             },
             {
                 type: "heading",

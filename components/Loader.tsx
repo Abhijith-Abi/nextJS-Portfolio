@@ -34,9 +34,9 @@ export function Loader() {
                             }}
                             className="relative"
                         >
-                            <div className="absolute -inset-12 rounded-full bg-accent opacity-20 blur-3xl" />
+                            <div className="absolute -inset-12 rounded-full bg-gradient-to-br from-blue-400/20 via-indigo-500/15 to-violet-600/10 blur-3xl" />
                             <div className="surface relative flex h-20 w-20 items-center justify-center rounded-2xl">
-                                <span className="font-display text-2xl font-extrabold text-accent">
+                                <span className="bg-gradient-to-br from-blue-400 to-indigo-600 bg-clip-text font-display text-2xl font-extrabold text-transparent">
                                     ABI
                                 </span>
                             </div>
@@ -59,7 +59,7 @@ export function Loader() {
                                     duration: 1.3,
                                     ease: [0.7, 0, 0.3, 1],
                                 }}
-                                className="absolute inset-0 origin-left bg-accent"
+                                className="absolute inset-0 origin-left bg-gradient-to-r from-blue-400 to-indigo-600"
                             />
                         </div>
                     </div>

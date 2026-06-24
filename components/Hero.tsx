@@ -79,20 +79,20 @@ export function Hero() {
                     alt=""
                     fill
                     sizes="100vw"
-                    className="object-cover object-center opacity-80"
+                    className="object-cover object-center opacity-60"
                     quality={100}
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
             </div>
 
             {/* Vignettes */}
             <div
-                className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-background to-transparent"
+                className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-40 bg-gradient-to-b from-background via-background/50 to-transparent"
                 aria-hidden
             />
             <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/3 bg-gradient-to-t from-background via-background/60 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent"
                 aria-hidden
             />
 
@@ -116,7 +116,7 @@ export function Hero() {
 
                 {/* Name intro */}
                 <div className="mb-3 sm:mb-5">
-                    <p className="hero-meta font-mono text-xs tracking-wide text-ink/50 opacity-0 sm:text-sm lg:text-base">
+                    <p className="hero-meta font-mono text-xs tracking-wide text-ink/70 opacity-0 sm:text-sm lg:text-base">
                         <AnimeText text="Hi, I'm" delay={300} />
                     </p>
                 </div>
@@ -138,7 +138,7 @@ export function Hero() {
 
                 {/* Subtitle + meta row */}
                 <div className="mt-6 grid gap-6 sm:mt-8 sm:gap-8 lg:mt-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
-                    <p className="max-w-xl text-sm leading-relaxed text-ink/65 sm:text-base lg:text-lg">
+                    <p className="max-w-xl text-sm leading-relaxed text-ink/80 sm:text-base lg:text-lg">
                         <AnimeText
                             text="I craft AI systems, ERP platforms, scalable web applications, and immersive digital products that solve real problems."
                             split="word"
@@ -156,7 +156,7 @@ export function Hero() {
                             { k: "Stack", v: "React · Next" },
                         ].map((m) => (
                             <div key={m.k} className="hero-meta opacity-0">
-                                <p className="font-mono text-[8px] uppercase tracking-[0.24em] text-ink/40 sm:text-[9px] sm:tracking-[0.28em] lg:text-[10px] lg:tracking-[0.32em]">
+                                <p className="font-mono text-[8px] uppercase tracking-[0.24em] text-ink/55 sm:text-[9px] sm:tracking-[0.28em] lg:text-[10px] lg:tracking-[0.32em]">
                                     {m.k}
                                 </p>
                                 <p className="mt-1 font-display text-sm font-semibold text-ink sm:mt-1.5 sm:text-base lg:text-lg">
@@ -189,7 +189,7 @@ export function Hero() {
                 {/* Stats strip */}
                 <div className="mt-12 grid w-full grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:mt-16 sm:rounded-2xl lg:mt-20 lg:grid-cols-4">
                     {[
-                        { v: 3, suffix: "+", l: "Years shipping" },
+                        { v: 4, suffix: "+", l: "Years shipping" },
                         { v: 20, suffix: "+", l: "Production builds" },
                         { v: 5, suffix: "", l: "Industries" },
                         { v: 100, suffix: "%", l: "Curiosity" },

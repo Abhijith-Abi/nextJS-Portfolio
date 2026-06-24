@@ -135,7 +135,7 @@ const jsonLd = [
                 occupationalCategory: "15-1252.00",
                 skills: "React, Next.js, TypeScript, Django, Python, AWS, Node.js, PostgreSQL, AI, Machine Learning",
                 qualifications:
-                    "3+ years building production web applications, ERP systems, and AI products",
+                    "4+ years building production web applications, ERP systems, and AI products",
             },
             {
                 "@type": "Occupation",
@@ -339,7 +339,7 @@ const jsonLd = [
                 name: "Who is Abhijith P A?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. He is the founder of AlgoBiz and has over 3 years of experience building production web applications, ERP systems, SaaS platforms, and AI automation products using React, Next.js, Django, Python, and AWS.",
+                    text: "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. He is the founder of AlgoBiz and has over 4 years of experience building production web applications, ERP systems, SaaS platforms, and AI automation products using React, Next.js, Django, Python, and AWS.",
                 },
             },
             {

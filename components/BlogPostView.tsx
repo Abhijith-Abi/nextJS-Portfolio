@@ -51,48 +51,75 @@ function RenderSection({ section }: { section: BlogSection }) {
 
 /** Modern generative cover when no image is provided */
 function GeneratedCover({ post }: { post: BlogPost }) {
+    // Generate a gradient based on the post's first tag
+    const tagGradients: Record<string, string> = {
+        React: "from-indigo-600 via-purple-600 to-pink-500",
+        "Next.js": "from-blue-600 via-indigo-500 to-violet-500",
+        TypeScript: "from-blue-500 via-sky-500 to-cyan-500",
+        Django: "from-emerald-500 via-teal-500 to-cyan-500",
+        ERP: "from-orange-500 via-rose-500 to-pink-600",
+        HRMS: "from-amber-500 via-orange-500 to-red-500",
+        Payroll: "from-amber-500 via-orange-500 to-red-500",
+        AlgoBiz: "from-fuchsia-500 via-purple-500 to-indigo-500",
+        Performance: "from-cyan-500 via-blue-500 to-indigo-600",
+        AI: "from-violet-600 via-purple-600 to-fuchsia-500",
+    };
+    const firstTag = post.tags[0] || "React";
+    const gradient =
+        tagGradients[firstTag] || "from-indigo-600 via-purple-600 to-pink-500";
+
     return (
-        <div className="absolute inset-0 overflow-hidden bg-[#0a0a0a]">
-            {/* Grid pattern */}
+        <div
+            className={`absolute inset-0 overflow-hidden bg-gradient-to-br ${gradient}`}
+        >
+            {/* Noise texture */}
             <div
-                className="absolute inset-0 opacity-[0.03]"
+                className="absolute inset-0 opacity-[0.12] mix-blend-overlay"
                 style={{
                     backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
+                        "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='1'/></svg>\")",
+                    backgroundSize: "100px 100px",
                 }}
             />
-            {/* Gradient orbs */}
-            <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-accent/20 blur-[80px]" />
-            <div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-purple-500/15 blur-[60px]" />
-            <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-[50px]" />
-            {/* Accent line */}
-            <div className="absolute left-8 top-8 h-px w-24 bg-gradient-to-r from-accent to-transparent" />
-            <div className="absolute bottom-8 right-8 h-px w-24 bg-gradient-to-l from-accent to-transparent" />
+            {/* Grid pattern */}
+            <div
+                className="absolute inset-0 opacity-[0.06]"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                    backgroundSize: "48px 48px",
+                }}
+            />
+            {/* Glow orbs */}
+            <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-white/15 blur-[80px]" />
+            <div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-white/10 blur-[60px]" />
+            {/* Accent lines */}
+            <div className="absolute left-8 top-8 h-px w-24 bg-gradient-to-r from-white/40 to-transparent" />
+            <div className="absolute bottom-8 right-8 h-px w-24 bg-gradient-to-l from-white/40 to-transparent" />
             {/* Center content */}
             <div className="relative flex h-full flex-col items-center justify-center px-8">
                 <div className="mb-3 flex items-center gap-2">
                     {post.tags.slice(0, 3).map((tag) => (
                         <span
                             key={tag}
-                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white/50"
+                            className="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white/80 backdrop-blur-sm"
                         >
                             {tag}
                         </span>
                     ))}
                 </div>
-                <h3 className="max-w-lg text-center font-display text-2xl font-bold leading-tight text-white/90 sm:text-3xl">
+                <h3 className="max-w-lg text-center font-display text-2xl font-bold leading-tight text-white sm:text-3xl">
                     {post.title}
                 </h3>
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.3em] text-accent/70">
-                    Abi Solutions · {new Date(post.date).getFullYear()}
+                <p className="mt-3 rounded-full bg-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.3em] text-white/70 backdrop-blur-sm">
+                    AlgoBiz · {new Date(post.date).getFullYear()}
                 </p>
             </div>
             {/* Corner decorations */}
-            <div className="absolute left-6 top-6 h-4 w-4 border-l border-t border-white/10" />
-            <div className="absolute right-6 top-6 h-4 w-4 border-r border-t border-white/10" />
-            <div className="absolute bottom-6 left-6 h-4 w-4 border-b border-l border-white/10" />
-            <div className="absolute bottom-6 right-6 h-4 w-4 border-b border-r border-white/10" />
+            <div className="absolute left-6 top-6 h-5 w-5 border-l-2 border-t-2 border-white/25 rounded-tl" />
+            <div className="absolute right-6 top-6 h-5 w-5 border-r-2 border-t-2 border-white/25 rounded-tr" />
+            <div className="absolute bottom-6 left-6 h-5 w-5 border-b-2 border-l-2 border-white/25 rounded-bl" />
+            <div className="absolute bottom-6 right-6 h-5 w-5 border-b-2 border-r-2 border-white/25 rounded-br" />
         </div>
     );
 }

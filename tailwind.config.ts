@@ -9,16 +9,16 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Modern dark portfolio — deep navy + electric indigo/violet
-                background: "#0f1119",
-                surface: "#161927",
-                surface2: "#1c2033",
-                ink: "#f0f0f5",
-                line: "#252a3a",
-                line2: "#333951",
-                accent: "#818cf8", // indigo-400 — electric but not harsh
-                accent2: "#a5b4fc", // indigo-300 — hover/lighter variant
-                muted: "#8b8fa8",
+                // Modern dark portfolio — dark midnight + electric blue/violet
+                background: "#080f1e",
+                surface: "#0d1529",
+                surface2: "#131c35",
+                ink: "#edf2ff",
+                line: "#1a2744",
+                line2: "#253759",
+                accent: "#60a5fa", // blue-400 — electric and cool
+                accent2: "#93c5fd", // blue-300
+                muted: "#7b8fad",
                 paper: "#fafafa",
             },
             fontFamily: {
@@ -31,10 +31,10 @@ const config: Config = {
                 mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
             },
             boxShadow: {
-                soft: "0 24px 64px -12px rgba(15,17,25,0.8)",
-                glow: "0 0 0 1px rgba(129,140,248,0.2), 0 16px 64px -12px rgba(129,140,248,0.35)",
+                soft: "0 24px 64px -12px rgba(8,15,30,0.9)",
+                glow: "0 0 0 1px rgba(96,165,250,0.2), 0 16px 64px -12px rgba(96,165,250,0.3)",
                 "glow-sm":
-                    "0 0 0 1px rgba(129,140,248,0.15), 0 8px 32px -8px rgba(129,140,248,0.2)",
+                    "0 0 0 1px rgba(96,165,250,0.15), 0 8px 32px -8px rgba(96,165,250,0.2)",
             },
             borderRadius: {
                 xl: "1rem",

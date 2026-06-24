@@ -40,39 +40,39 @@ html.lenis body {
 }
 
 body {
-    background-color: #0f1119;
+    background-color: #080f1e;
     background-image:
         radial-gradient(
             ellipse 80% 50% at 50% -20%,
-            rgba(99, 102, 241, 0.07),
+            rgba(96, 165, 250, 0.05),
             transparent
         ),
         radial-gradient(
             ellipse 60% 40% at 80% 100%,
-            rgba(129, 140, 248, 0.04),
+            rgba(59, 130, 246, 0.03),
             transparent
         );
-    color: #f0f0f5;
+    color: #edf2ff;
     overflow-x: hidden;
 }
 
 ::selection {
-    background: #818cf8;
-    color: #0f1119;
+    background: #60a5fa;
+    color: #080f1e;
 }
 
 ::-webkit-scrollbar {
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #0f1119;
+    background: #080f1e;
 }
 ::-webkit-scrollbar-thumb {
-    background: #252a3a;
+    background: #1a2744;
     border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #333951;
+    background: #253759;
 }
 
 /* ───────── Container ───────── */
@@ -82,8 +82,8 @@ body {
 
 /* ───────── Glass surface (the workhorse card) ───────── */
 .surface {
-    background: rgba(22, 25, 39, 0.8);
-    border: 1px solid rgba(37, 42, 58, 0.7);
+    background: rgba(13, 21, 41, 0.8);
+    border: 1px solid rgba(26, 39, 68, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
@@ -94,8 +94,8 @@ body {
         background-color 240ms ease;
 }
 .surface-hover:hover {
-    background: rgba(28, 32, 51, 0.9);
-    border-color: #333951;
+    background: rgba(19, 28, 53, 0.9);
+    border-color: #253759;
 }
 
 /* Hairline divider */
@@ -104,8 +104,8 @@ body {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(129, 140, 248, 0.2) 20%,
-        rgba(129, 140, 248, 0.2) 80%,
+        rgba(96, 165, 250, 0.2) 20%,
+        rgba(96, 165, 250, 0.2) 80%,
         transparent
     );
 }
@@ -116,8 +116,8 @@ body {
 
 /* ───────── Buttons ───────── */
 .btn-primary {
-    background: #818cf8;
-    color: #0f1119;
+    background: #60a5fa;
+    color: #080f1e;
     font-weight: 600;
     transition:
         background-color 220ms ease,
@@ -125,25 +125,25 @@ body {
         box-shadow 240ms ease;
 }
 .btn-primary:hover {
-    background: #a5b4fc;
+    background: #93c5fd;
     box-shadow:
-        0 0 0 1px rgba(129, 140, 248, 0.3),
-        0 16px 48px -10px rgba(129, 140, 248, 0.4);
+        0 0 0 1px rgba(96, 165, 250, 0.3),
+        0 16px 48px -10px rgba(96, 165, 250, 0.4);
 }
 
 .btn-ghost {
     background: transparent;
-    color: #f0f0f5;
-    border: 1px solid #333951;
+    color: #edf2ff;
+    border: 1px solid #253759;
     transition:
         border-color 220ms ease,
         background-color 220ms ease,
         color 220ms ease;
 }
 .btn-ghost:hover {
-    border-color: #818cf8;
-    color: #818cf8;
-    background: rgba(129, 140, 248, 0.06);
+    border-color: #60a5fa;
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.06);
 }
 
 /* ───────── Flip card (the experience profile portrait) ───────── */
@@ -181,8 +181,8 @@ body {
 .bento-card {
     position: relative;
     isolation: isolate;
-    background: rgba(22, 25, 39, 0.6);
-    border: 1px solid rgba(37, 42, 58, 0.5);
+    background: rgba(13, 21, 41, 0.6);
+    border: 1px solid rgba(26, 39, 68, 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition:
@@ -200,9 +200,9 @@ body {
         from var(--bento-angle, 0deg),
         transparent 0deg,
         transparent 200deg,
-        rgba(129, 140, 248, 0.8) 260deg,
-        rgba(165, 180, 252, 0.5) 310deg,
-        rgba(99, 102, 241, 0.3) 340deg,
+        rgba(96, 165, 250, 0.8) 260deg,
+        rgba(147, 197, 253, 0.5) 310deg,
+        rgba(59, 130, 246, 0.3) 340deg,
         transparent 360deg
     );
     -webkit-mask:
@@ -220,7 +220,7 @@ body {
 }
 .bento-card:hover {
     border-color: transparent;
-    background: rgba(22, 25, 39, 0.85);
+    background: rgba(13, 21, 41, 0.85);
     transform: translateY(-2px);
 }
 .bento-card:hover::before {
@@ -242,20 +242,20 @@ body {
     .bento-card:hover::before {
         background: linear-gradient(
             135deg,
-            rgba(129, 140, 248, 0.5),
+            rgba(96, 165, 250, 0.5),
             transparent
         );
     }
 }
 
 .ghost-text {
-    color: rgba(250, 250, 250, 0.1);
-    -webkit-text-stroke: 1px rgba(129, 140, 248, 0.25);
+    color: rgba(237, 242, 255, 0.1);
+    -webkit-text-stroke: 1px rgba(96, 165, 250, 0.22);
 }
 
 /* ───────── Decorative dashed curve ───────── */
 .dashed-curve {
-    stroke: #818cf8;
+    stroke: #60a5fa;
     stroke-width: 1.5;
     stroke-dasharray: 6 6;
     fill: none;
@@ -278,7 +278,7 @@ body {
     height: 60vh;
     background: radial-gradient(
         ellipse,
-        rgba(129, 140, 248, 0.06),
+        rgba(96, 165, 250, 0.05),
         transparent 60%
     );
     filter: blur(100px);
@@ -294,7 +294,7 @@ body {
     height: 50vh;
     background: radial-gradient(
         ellipse,
-        rgba(99, 102, 241, 0.05),
+        rgba(59, 130, 246, 0.04),
         transparent 60%
     );
     filter: blur(100px);
@@ -358,15 +358,15 @@ body {
 
 /* ───────── Hero Buttons (Professional) ───────── */
 .hero-btn-primary {
-    background: #818cf8;
-    color: #0f1119;
+    background: #60a5fa;
+    color: #080f1e;
     font-weight: 600;
     transition:
         transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow:
-        0 2px 12px -2px rgba(129, 140, 248, 0.35),
-        0 0 0 0 rgba(129, 140, 248, 0);
+        0 2px 12px -2px rgba(96, 165, 250, 0.35),
+        0 0 0 0 rgba(96, 165, 250, 0);
 }
 .hero-btn-primary::before {
     content: "";
@@ -385,8 +385,8 @@ body {
 .hero-btn-primary:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow:
-        0 8px 32px -4px rgba(129, 140, 248, 0.45),
-        0 0 0 1px rgba(129, 140, 248, 0.25);
+        0 8px 32px -4px rgba(96, 165, 250, 0.45),
+        0 0 0 1px rgba(96, 165, 250, 0.25);
 }
 .hero-btn-primary:hover::before {
     opacity: 1;
@@ -394,14 +394,14 @@ body {
 .hero-btn-primary:active {
     transform: translateY(0) scale(0.98);
     box-shadow:
-        0 2px 8px -2px rgba(129, 140, 248, 0.3),
-        0 0 0 0 rgba(129, 140, 248, 0);
+        0 2px 8px -2px rgba(96, 165, 250, 0.3),
+        0 0 0 0 rgba(96, 165, 250, 0);
 }
 
 .hero-btn-ghost {
     background: transparent;
-    color: #f0f0f5;
-    border: 1px solid rgba(240, 240, 245, 0.1);
+    color: #edf2ff;
+    border: 1px solid rgba(237, 242, 255, 0.1);
     transition:
         transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
         border-color 300ms ease,
@@ -415,7 +415,7 @@ body {
     border-radius: inherit;
     background: radial-gradient(
         ellipse at 50% 0%,
-        rgba(129, 140, 248, 0.08) 0%,
+        rgba(96, 165, 250, 0.08) 0%,
         transparent 70%
     );
     opacity: 0;
@@ -423,10 +423,10 @@ body {
 }
 .hero-btn-ghost:hover {
     transform: translateY(-2px) scale(1.02);
-    border-color: rgba(129, 140, 248, 0.4);
-    background: rgba(129, 140, 248, 0.04);
+    border-color: rgba(96, 165, 250, 0.4);
+    background: rgba(96, 165, 250, 0.04);
     box-shadow:
-        0 4px 20px -4px rgba(129, 140, 248, 0.12),
+        0 4px 20px -4px rgba(96, 165, 250, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 .hero-btn-ghost:hover::before {

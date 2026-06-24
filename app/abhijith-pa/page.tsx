@@ -149,13 +149,11 @@ export default function AbhijithPAPage() {
                                 AI automation products.
                             </p>
                             <p>
-                                With over 3 years of professional experience,
+                                With over 4 years of professional experience,
                                 Abhijith has worked at some of Kerala&apos;s
                                 most notable tech companies including{" "}
-                                <strong>Talrop</strong>,{" "}
-                                <strong>Steyp</strong>,{" "}
-                                <strong>Tegain</strong>,{" "}
-                                <strong>Ribos</strong>,{" "}
+                                <strong>Talrop</strong>, <strong>Steyp</strong>,{" "}
+                                <strong>Tegain</strong>, <strong>Ribos</strong>,{" "}
                                 <strong>Hosface</strong>,{" "}
                                 <strong>Somans Travels</strong>, and{" "}
                                 <strong>Spinwik</strong>.
@@ -196,7 +194,8 @@ export default function AbhijithPAPage() {
                                     Steyp
                                 </p>
                                 <p className="text-sm text-ink/60">
-                                    Software Engineer · Coding Education Platform
+                                    Software Engineer · Coding Education
+                                    Platform
                                 </p>
                             </li>
                             <li>
@@ -204,7 +203,8 @@ export default function AbhijithPAPage() {
                                     Tegain
                                 </p>
                                 <p className="text-sm text-ink/60">
-                                    Software Engineer · Community & Brand Platform
+                                    Software Engineer · Community & Brand
+                                    Platform
                                 </p>
                             </li>
                             <li>
@@ -277,9 +277,9 @@ export default function AbhijithPAPage() {
                         </h2>
                         <div className="mt-5 space-y-3 text-base text-ink/75">
                             <p>
-                                <strong>Talrop ERP</strong> — Enterprise resource
-                                planning system with inventory, finance & HR
-                                modules.
+                                <strong>Talrop ERP</strong> — Enterprise
+                                resource planning system with inventory, finance
+                                & HR modules.
                             </p>
                             <p>
                                 <strong>HOSFACE</strong> — Healthcare platform
@@ -290,16 +290,16 @@ export default function AbhijithPAPage() {
                                 HRMS with attendance tracking.
                             </p>
                             <p>
-                                <strong>STEYP</strong> — Coding education platform
-                                with structured learning tracks.
+                                <strong>STEYP</strong> — Coding education
+                                platform with structured learning tracks.
                             </p>
                             <p>
                                 <strong>Tegain</strong> — Community hub &
                                 recruitment platform.
                             </p>
                             <p>
-                                <strong>Somans Travels</strong> — Travel booking &
-                                operations management.
+                                <strong>Somans Travels</strong> — Travel booking
+                                & operations management.
                             </p>
                         </div>
 

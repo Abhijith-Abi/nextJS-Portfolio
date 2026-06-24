@@ -5,7 +5,7 @@ import { SectionWrapper } from "../../components/SectionWrapper";
 export const metadata: Metadata = {
     title: "Resume — Abhijith P A | Full Stack Developer Kerala",
     description:
-        "Resume of Abhijith P A (Abi Solutions). Full Stack Developer with 3+ years at Algobiz, Talrop & Steyp. React, Next.js, Django, AWS, TypeScript. Available for hire from Kerala, India.",
+        "Resume of Abhijith P A (Abi Solutions). Full Stack Developer with 4+ years at Algobiz, Talrop & Steyp. React, Next.js, Django, AWS, TypeScript. Available for hire from Kerala, India.",
     keywords: [
         "Abhijith P A resume",
         "Abhijith PA CV",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         siteName: "Abi Solutions",
         title: "Resume — Abhijith P A | Full Stack Developer",
         description:
-            "3+ years at Algobiz, Talrop & Steyp. React, Next.js, Django, AWS specialist from Kerala.",
+            "4+ years at Algobiz, Talrop & Steyp. React, Next.js, Django, AWS specialist from Kerala.",
         images: [
             {
                 url: "/og-image.jpg",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Resume — Abhijith P A | Full Stack Developer",
         description:
-            "React, Next.js, Django, AWS. 3+ years at Algobiz, Talrop & Steyp. Kerala, India.",
+            "React, Next.js, Django, AWS. 4+ years at Algobiz, Talrop & Steyp. Kerala, India.",
         images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
@@ -172,7 +172,7 @@ export default function ResumePage() {
                                 Summary
                             </h2>
                             <p className="text-base leading-relaxed text-ink/70">
-                                Full Stack Developer with 3+ years of experience
+                                Full Stack Developer with 4+ years of experience
                                 building production-grade web applications
                                 across healthcare, ERP, e-learning, travel, and
                                 AI domains. Specializing in React, Next.js,

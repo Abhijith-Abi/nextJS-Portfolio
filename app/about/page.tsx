@@ -6,7 +6,7 @@ import { ExperienceSection } from "../../components/ExperienceSection";
 export const metadata: Metadata = {
     title: "About Abhijith P A — Full Stack Developer & AI Engineer | Founder of AlgoBiz",
     description:
-        "Abhijith P A is a Full Stack Developer & AI Engineer from Wayanad, Kerala. Founder of AlgoBiz. 3+ years building React, Next.js, Django & AI products. Ex-Talrop, Tegain, Ribos. Specializing in ERP, SaaS, HRMS & AI automation.",
+        "Abhijith P A is a Full Stack Developer & AI Engineer from Wayanad, Kerala. Founder of AlgoBiz. 4+ years building React, Next.js, Django & AI products. Ex-Talrop, Tegain, Ribos. Specializing in ERP, SaaS, HRMS & AI automation.",
     keywords: [
         "About Abhijith P A",
         "Abhijith PA",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         siteName: "Abhijith P A — AlgoBiz",
         title: "About Abhijith P A — Full Stack Developer & AI Engineer | AlgoBiz Founder",
         description:
-            "3+ years shipping production web apps & AI products. Founder of AlgoBiz. Ex-Talrop, Tegain & Ribos. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
+            "4+ years shipping production web apps & AI products. Founder of AlgoBiz. Ex-Talrop, Tegain & Ribos. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
         images: [
             {
                 url: "/og-image.jpg",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
         creator: "@abhijith",
         title: "About Abhijith P A — AlgoBiz Founder | Full Stack Developer & AI Engineer",
         description:
-            "Full Stack Developer & AI Engineer. Founder of AlgoBiz. 3+ years at Talrop, Tegain & Ribos. Building ERP, SaaS & AI products from Kerala.",
+            "Full Stack Developer & AI Engineer. Founder of AlgoBiz. 4+ years at Talrop, Tegain & Ribos. Building ERP, SaaS & AI products from Kerala.",
         images: ["/og-image.jpg"],
     },
     robots: {
@@ -121,7 +121,7 @@ const jsonLd = [
             ],
             jobTitle: "Full Stack Developer & AI Engineer",
             description:
-                "Full Stack Developer and AI Engineer with 3+ years of experience building production web applications, ERP systems, SaaS platforms, HRMS, and AI automation products. Founder of AlgoBiz.",
+                "Full Stack Developer and AI Engineer with 4+ years of experience building production web applications, ERP systems, SaaS platforms, HRMS, and AI automation products. Founder of AlgoBiz.",
             image: "https://abisolutions.online/profile.jpg",
             url: "https://abisolutions.online",
             email: "abhijithabhijith1999@gmail.com",

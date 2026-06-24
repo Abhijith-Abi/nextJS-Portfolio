@@ -127,14 +127,14 @@ const experiences: Experience[] = [
 ];
 
 export function ExperienceSection() {
-    const [years, setYears] = useState(3);
+    const [years, setYears] = useState(4);
 
     useEffect(() => {
         const start = new Date("2022-04-01");
         const now = new Date();
         const diff = now.getFullYear() - start.getFullYear();
         const adjusted = now.getMonth() < start.getMonth() ? diff - 1 : diff;
-        setYears(Math.max(adjusted, 3));
+        setYears(Math.max(adjusted, 4));
     }, []);
 
     return (
@@ -169,7 +169,7 @@ export function ExperienceSection() {
                                             <p className="mt-4 text-[13px] leading-relaxed text-ink/65">
                                                 Frontend Engineer based in
                                                 Kerala. React, Next.js, motion,
-                                                and design systems — three years
+                                                and design systems — four years
                                                 of building real software for
                                                 real users.
                                             </p>
@@ -307,7 +307,7 @@ export function ExperienceSection() {
                                                             repeat: Infinity,
                                                             ease: "easeInOut",
                                                         }}
-                                                        className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(129,140,248,0.7)]"
+                                                        className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(96,165,250,0.7)]"
                                                     />
                                                     Now
                                                 </span>

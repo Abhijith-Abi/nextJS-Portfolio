@@ -46,7 +46,7 @@ const cells: Cell[] = [
     {
         kind: "stat",
         span: "lg:col-span-2",
-        value: "3+",
+        value: "4+",
         label: "Years shipping",
         sub: "React & Next.js",
     },

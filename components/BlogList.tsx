@@ -7,6 +7,19 @@ import { BlogPost } from "../lib/blog";
 import { FadeIn } from "./motion/RevealText";
 
 function BlogCard({ post, index }: { post: BlogPost; index: number }) {
+    // Colorful gradient pairs for each blog card
+    const gradients = [
+        "from-indigo-600 via-purple-600 to-pink-500",
+        "from-emerald-500 via-teal-500 to-cyan-500",
+        "from-orange-500 via-rose-500 to-pink-600",
+        "from-blue-600 via-indigo-500 to-violet-500",
+        "from-amber-500 via-orange-500 to-red-500",
+        "from-cyan-500 via-blue-500 to-indigo-600",
+        "from-fuchsia-500 via-purple-500 to-indigo-500",
+        "from-green-500 via-emerald-500 to-teal-600",
+    ];
+    const gradient = gradients[index % gradients.length];
+
     return (
         <FadeIn delay={index * 0.05}>
             <motion.article
@@ -28,35 +41,47 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
                                 className="object-cover transition duration-500 group-hover:scale-105"
                             />
                         ) : (
-                            <div className="absolute inset-0 overflow-hidden bg-[#0a0a0a]">
-                                {/* Grid pattern */}
+                            <div
+                                className={`absolute inset-0 overflow-hidden bg-gradient-to-br ${gradient}`}
+                            >
+                                {/* Noise texture overlay */}
                                 <div
-                                    className="absolute inset-0 opacity-[0.04]"
+                                    className="absolute inset-0 opacity-[0.15] mix-blend-overlay"
                                     style={{
                                         backgroundImage:
-                                            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-                                        backgroundSize: "32px 32px",
+                                            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='1'/></svg>\")",
+                                        backgroundSize: "100px 100px",
                                     }}
                                 />
-                                {/* Gradient orbs */}
-                                <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-accent/20 blur-[50px] transition-all duration-700 group-hover:bg-accent/30" />
-                                <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-purple-500/15 blur-[40px]" />
-                                {/* Center tag */}
+                                {/* Grid pattern */}
+                                <div
+                                    className="absolute inset-0 opacity-[0.08]"
+                                    style={{
+                                        backgroundImage:
+                                            "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                                        backgroundSize: "40px 40px",
+                                    }}
+                                />
+                                {/* Glow orb */}
+                                <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/20 blur-[40px] transition-all duration-500 group-hover:scale-150 group-hover:bg-white/30" />
+                                {/* Center content */}
                                 <div className="relative flex h-full flex-col items-center justify-center">
-                                    <span className="font-display text-4xl font-extrabold text-white/10 transition group-hover:text-accent/20">
+                                    <span className="font-display text-5xl font-black text-white/30 transition group-hover:text-white/50 group-hover:scale-110">
                                         {post.tags[0]?.[0] || "A"}
                                     </span>
-                                    <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.3em] text-white/20">
+                                    <span className="mt-2 rounded-full bg-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 backdrop-blur-sm">
                                         {post.tags[0] || "Article"}
                                     </span>
                                 </div>
                                 {/* Corner marks */}
-                                <div className="absolute left-3 top-3 h-3 w-3 border-l border-t border-white/10" />
-                                <div className="absolute right-3 top-3 h-3 w-3 border-r border-t border-white/10" />
+                                <div className="absolute left-3 top-3 h-4 w-4 border-l-2 border-t-2 border-white/20 rounded-tl" />
+                                <div className="absolute right-3 top-3 h-4 w-4 border-r-2 border-t-2 border-white/20 rounded-tr" />
+                                <div className="absolute bottom-3 left-3 h-4 w-4 border-b-2 border-l-2 border-white/20 rounded-bl" />
+                                <div className="absolute bottom-3 right-3 h-4 w-4 border-b-2 border-r-2 border-white/20 rounded-br" />
                             </div>
                         )}
-                        {/* Bottom fade */}
-                        <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[var(--color-surface,#0a0a0a)] to-transparent" />
+                        {/* Bottom fade into card */}
+                        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent" />
                     </div>
 
                     {/* Content */}

@@ -58,7 +58,7 @@ export function Navbar() {
                 }`}
             >
                 <Link href="/" className="group flex items-center gap-2.5 pl-2">
-                    <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-lg bg-accent">
+                    <span className="relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-blue-400 to-indigo-600">
                         <span className="font-display text-[11px] font-extrabold text-white">
                             A
                         </span>

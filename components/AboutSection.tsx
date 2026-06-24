@@ -15,7 +15,7 @@ const chapters = [
     {
         n: "02",
         kicker: "Craft",
-        title: "Three years of shipping real software.",
+        title: "Four years of shipping real software.",
         body: "Frontend builds across learning, healthcare, ERP, and travel. Each one taught me how to think in components, motion, and systems — not just screens.",
     },
     {
@@ -27,7 +27,7 @@ const chapters = [
 ];
 
 const facts = [
-    { v: "3+", l: "Years shipping" },
+    { v: "4+", l: "Years shipping" },
     { v: "20+", l: "Production builds" },
     { v: "Kerala", l: "Based in" },
     { v: "Remote", l: "Open to" },
@@ -96,7 +96,7 @@ export function AboutSection() {
                             <FadeIn key={c.n} delay={i * 0.05}>
                                 <article className="relative pl-9 sm:pl-12">
                                     <div className="absolute left-0.5 top-2 h-3 w-3 rounded-full border border-line bg-background sm:left-1.5">
-                                        <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(129,140,248,0.7)]" />
+                                        <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(96,165,250,0.7)]" />
                                     </div>
 
                                     <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-accent sm:text-[11px] sm:tracking-[0.32em]">

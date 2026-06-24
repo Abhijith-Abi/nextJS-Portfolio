@@ -32,7 +32,7 @@ export const metadata: Metadata = {
             "Bookings, approvals & analytics with role-based dashboards. Next.js & Tailwind.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Somans — Travel Platform by Abhijith P A",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         title: "Somans — Travel Platform | Abhijith P A",
         description:
             "Travel management with bookings, approvals & role-based dashboards.",
-        images: ["/profile.jpg"],
+        images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
     robots: {

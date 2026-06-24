@@ -21,7 +21,7 @@ export function SectionWrapper({
     return (
         <section
             id={id}
-            className={`container-width relative py-20 sm:py-28 lg:py-36 ${className}`}
+            className={`container-width relative py-16 sm:py-20 lg:py-24 ${className}`}
         >
             {(index || label) && (
                 <motion.div

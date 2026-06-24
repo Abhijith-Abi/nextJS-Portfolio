@@ -5,57 +5,67 @@ import { BlogList } from "../../components/BlogList";
 import { blogPosts } from "../../lib/blog";
 
 export const metadata: Metadata = {
-    title: "Blog — Abhijith P A | React, Next.js & Web Dev Articles",
+    title: "Blog — Abhijith P A | React, Next.js, Django, AI & ERP Articles | AlgoBiz",
     description:
-        "Web development articles by Abhijith P A (Abi). React, Next.js, Django, AWS tutorials and insights from building production software at Algobiz, Talrop & Steyp.",
+        "Web development & AI articles by Abhijith P A (AlgoBiz). React, Next.js, Django, Python, AWS, AI automation, ERP development tutorials. Insights from building at Talrop, Tegain & Ribos.",
     keywords: [
         "Abhijith P A blog",
-        "Abi Solutions blog",
-        "Abi blog",
+        "AlgoBiz blog",
+        "AlgoBiz articles",
         "React tutorials",
+        "React.js tutorials India",
         "Next.js articles",
-        "Django tips",
+        "Next.js tutorials Kerala",
+        "Django tutorials",
+        "Django articles India",
+        "Python tutorials",
         "AWS guides",
         "TypeScript articles",
-        "Python tutorials",
+        "AI development articles",
+        "ERP development tutorials",
+        "SaaS development blog",
+        "HRMS development",
+        "WhatsApp automation tutorial",
+        "Telegram bot development",
         "Web development blog India",
         "Frontend engineering articles",
         "Full Stack Developer blog Kerala",
-        "Algobiz developer blog",
         "Talrop developer insights",
-        "Steyp development articles",
-        "JavaScript tutorials India",
+        "Tegain developer articles",
+        "Ribos development",
+        "PostgreSQL tutorials",
         "Software engineering blog",
     ],
     authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
     creator: "Abhijith P A",
-    publisher: "Abi Solutions",
+    publisher: "AlgoBiz",
     alternates: { canonical: "https://abisolutions.online/blog" },
     openGraph: {
         type: "website",
         locale: "en_US",
         url: "https://abisolutions.online/blog",
-        siteName: "Abi Solutions",
-        title: "Blog — Abhijith P A | Web Development Articles & Tutorials",
+        siteName: "Abhijith P A — AlgoBiz",
+        title: "Blog — Abhijith P A | React, Next.js, Django & AI Development Articles",
         description:
-            "React, Next.js, Django & AWS articles. Lessons from building at Algobiz, Talrop & Steyp.",
+            "React, Next.js, Django, AI & ERP articles. Lessons from building production software at Talrop, Tegain & Ribos. By Abhijith P A (AlgoBiz).",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Abhijith P A Blog — Web Development Articles by Abi Solutions",
+                alt: "Abhijith P A Blog — Web Development & AI Articles | AlgoBiz",
                 type: "image/jpeg",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Blog — Abhijith P A | React & Web Dev",
-        description:
-            "Articles on React, Next.js, Django. Lessons from Algobiz, Talrop & Steyp. By Abhijith P A.",
-        images: ["/profile.jpg"],
+        site: "@abhijith",
         creator: "@abhijith",
+        title: "Blog — Abhijith P A | React, Django & AI Development | AlgoBiz",
+        description:
+            "Articles on React, Next.js, Django, AI automation & ERP. Insights from Talrop, Tegain & Ribos. By Abhijith P A.",
+        images: ["/og-image.jpg"],
     },
     robots: {
         index: true,
@@ -70,27 +80,70 @@ export const metadata: Metadata = {
     },
 };
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    name: "Abhijith P A — Web Development Blog",
-    alternateName: "Abi Solutions Blog",
-    description:
-        "Articles on React, Next.js, TypeScript, Django, AWS, and modern web development by Abhijith P A.",
-    url: "https://abisolutions.online/blog",
-    author: {
-        "@type": "Person",
-        name: "Abhijith P A",
-        alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
-        jobTitle: "Full Stack Developer",
+const jsonLd = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": "https://abisolutions.online/blog/#blog",
+        name: "Abhijith P A — AlgoBiz Blog",
+        alternateName: [
+            "AlgoBiz Blog",
+            "Abi Solutions Blog",
+            "Abhijith P A Web Development Blog",
+        ],
+        description:
+            "Articles on React, Next.js, TypeScript, Django, Python, AWS, AI automation, ERP development, and modern web engineering by Abhijith P A, founder of AlgoBiz.",
+        url: "https://abisolutions.online/blog",
+        inLanguage: "en-US",
+        author: {
+            "@type": "Person",
+            "@id": "https://abisolutions.online/#person",
+            name: "Abhijith P A",
+            jobTitle: "Full Stack Developer & AI Engineer",
+        },
+        publisher: {
+            "@type": "Organization",
+            "@id": "https://abisolutions.online/#organization",
+            name: "AlgoBiz",
+        },
+        blogPost: blogPosts.map((post) => ({
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.description,
+            url: `https://abisolutions.online/blog/${post.slug}`,
+            datePublished: post.date,
+            author: {
+                "@type": "Person",
+                "@id": "https://abisolutions.online/#person",
+                name: "Abhijith P A",
+            },
+            publisher: {
+                "@type": "Organization",
+                "@id": "https://abisolutions.online/#organization",
+                name: "AlgoBiz",
+            },
+            keywords: post.keywords,
+        })),
     },
-    publisher: {
-        "@type": "Person",
-        name: "Abhijith P A",
-        url: "https://abisolutions.online",
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://abisolutions.online",
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: "https://abisolutions.online/blog",
+            },
+        ],
     },
-};
+];
 
 export default function BlogPage() {
     return (
@@ -108,9 +161,9 @@ export default function BlogPage() {
                             <span className="block ghost-text">INSIGHTS.</span>
                         </h1>
                         <p className="text-sm leading-relaxed text-ink/65 sm:text-base md:text-right lg:text-lg">
-                            Lessons from building production software at
-                            Algobiz, Talrop, and Steyp. React, Next.js, Django,
-                            AWS, and everything in between.
+                            Lessons from building production software at Talrop,
+                            Tegain, and Ribos. React, Next.js, Django, AI
+                            automation, ERP systems, and everything in between.
                         </p>
                     </div>
                     <BlogList posts={blogPosts} />

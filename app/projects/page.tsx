@@ -3,35 +3,45 @@ import { Navbar } from "../../components/Navbar";
 import { ProjectsSection } from "../../components/ProjectsSection";
 
 export const metadata: Metadata = {
-    title: "Projects by Abhijith P A — Talrop ERP, Hosface, Steyp",
+    title: "Projects — HOSFACE, Finwage, STEYP, Talrop ERP | Abhijith P A & AlgoBiz",
     description:
-        "Production web apps by Abhijith P A: Talrop ERP, Hosface, Steyp, Tegain. Built with React, Next.js, TypeScript. Live software with real users.",
+        "Production web applications built by Abhijith P A (AlgoBiz): HOSFACE healthcare platform, Finwage payroll & HRMS, STEYP coding platform, Talrop ERP, Tegain community hub. Built with React, Next.js, Django, TypeScript & AWS.",
     keywords: [
         "Abhijith P A projects",
-        "Abhijith P A portfolio",
-        "Abhijith PA work",
-        "Abi Solutions projects",
+        "AlgoBiz projects",
+        "AlgoBiz portfolio",
+        "HOSFACE",
+        "HOSFACE developer",
+        "HOSFACE healthcare",
+        "Finwage",
+        "Finwage developer",
+        "Finwage payroll",
+        "Finwage HRMS",
+        "STEYP",
+        "STEYP platform",
+        "STEYP developer",
         "Talrop ERP",
         "Talrop ERP developer",
-        "Hosface developer",
-        "Hosface website",
-        "Steyp platform",
-        "Steyp developer",
-        "Tegain website",
+        "ERP System",
+        "Payroll Management System",
+        "HRMS System",
+        "Attendance Management System",
+        "Tegain",
         "Tegain developer",
-        "Somans travel platform",
+        "Tegain website",
+        "AI Automation",
+        "WhatsApp Automation",
+        "Telegram Automation",
+        "SaaS Development",
+        "Custom ERP Development",
         "React projects Kerala",
-        "Next.js portfolio India",
-        "Full Stack Developer work",
-        "Web Developer Kerala projects",
+        "Next.js projects India",
         "Django projects",
-        "AWS projects",
-        "ERP developer India",
-        "SaaS developer portfolio",
+        "Full Stack Developer projects",
     ],
     authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
     creator: "Abhijith P A",
-    publisher: "Abi Solutions",
+    publisher: "AlgoBiz",
     alternates: {
         canonical: "https://abisolutions.online/projects",
     },
@@ -39,27 +49,28 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: "https://abisolutions.online/projects",
-        siteName: "Abi Solutions",
-        title: "Projects — Abhijith P A | Talrop ERP, Hosface, Steyp, Tegain",
+        siteName: "Abhijith P A — AlgoBiz",
+        title: "Projects by Abhijith P A | HOSFACE, Finwage, STEYP, Talrop ERP | AlgoBiz",
         description:
-            "Live production apps: Talrop ERP, Hosface, Steyp, Tegain. React, Next.js & TypeScript by Abhijith P A.",
+            "Live production apps: HOSFACE, Finwage HRMS, STEYP, Talrop ERP, Tegain. ERP, SaaS, AI automation & web applications built with React, Next.js & Django.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Projects by Abhijith P A — Talrop ERP, Hosface, Steyp Portfolio",
+                alt: "Projects by Abhijith P A — HOSFACE, Finwage, STEYP, Talrop ERP | AlgoBiz",
                 type: "image/jpeg",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Projects — Abhijith P A | Talrop ERP, Hosface, Steyp",
-        description:
-            "Production web apps with real users. Talrop ERP, Hosface, Steyp, Tegain. Built with React & Next.js.",
-        images: ["/profile.jpg"],
+        site: "@abhijith",
         creator: "@abhijith",
+        title: "Projects — Abhijith P A | HOSFACE, Finwage, STEYP, Talrop ERP",
+        description:
+            "Production apps with real users: HOSFACE, Finwage, STEYP, Talrop ERP. Built with React, Next.js & Django by AlgoBiz.",
+        images: ["/og-image.jpg"],
     },
     robots: {
         index: true,
@@ -74,108 +85,159 @@ export const metadata: Metadata = {
     },
 };
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Projects by Abhijith P A",
-    description:
-        "Selected production-grade web applications built by Abhijith P A (Abi Solutions) using React, Next.js, TypeScript, Django, and AWS.",
-    url: "https://abisolutions.online/projects",
-    author: {
-        "@type": "Person",
-        name: "Abhijith P A",
-        alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
+const jsonLd = [
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Projects by Abhijith P A — AlgoBiz",
+        description:
+            "Selected production-grade web applications, ERP systems, SaaS platforms, and AI automation products built by Abhijith P A (AlgoBiz) using React, Next.js, TypeScript, Django, Python, and AWS.",
+        url: "https://abisolutions.online/projects",
+        author: {
+            "@type": "Person",
+            "@id": "https://abisolutions.online/#person",
+            name: "Abhijith P A",
+        },
+        publisher: {
+            "@type": "Organization",
+            "@id": "https://abisolutions.online/#organization",
+            name: "AlgoBiz",
+        },
+        mainEntity: {
+            "@type": "ItemList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    item: {
+                        "@type": "WebApplication",
+                        name: "HOSFACE",
+                        description:
+                            "Healthcare infrastructure platform pairing doctors and investors through a structured four-step clinic-setup model. Built with Next.js, TypeScript & Tailwind CSS.",
+                        url: "https://www.hosface.com/",
+                        applicationCategory: "HealthApplication",
+                        operatingSystem: "Web",
+                        creator: {
+                            "@type": "Person",
+                            "@id": "https://abisolutions.online/#person",
+                            name: "Abhijith P A",
+                        },
+                        offers: {
+                            "@type": "Offer",
+                            price: "0",
+                            priceCurrency: "INR",
+                        },
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    item: {
+                        "@type": "WebApplication",
+                        name: "Finwage",
+                        description:
+                            "Payroll management system and HRMS with attendance management, salary processing, tax calculations, and employee self-service portal. Built with React, Django & PostgreSQL.",
+                        applicationCategory: "BusinessApplication",
+                        operatingSystem: "Web",
+                        creator: {
+                            "@type": "Person",
+                            "@id": "https://abisolutions.online/#person",
+                            name: "Abhijith P A",
+                        },
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 3,
+                    item: {
+                        "@type": "WebApplication",
+                        name: "STEYP",
+                        description:
+                            "Video-led coding education platform with structured learning tracks, exercises, progress tracking, and certification. Built with React, Redux & Styled Components.",
+                        url: "https://steyp.com/",
+                        applicationCategory: "EducationalApplication",
+                        operatingSystem: "Web",
+                        creator: {
+                            "@type": "Person",
+                            "@id": "https://abisolutions.online/#person",
+                            name: "Abhijith P A",
+                        },
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 4,
+                    item: {
+                        "@type": "WebApplication",
+                        name: "Talrop ERP",
+                        description:
+                            "Enterprise resource planning platform covering inventory management, finance, HR, real-time analytics, and granular role-based permissions. Built with Next.js, TypeScript, Zustand & Recharts.",
+                        url: "https://erp.talrop.com/",
+                        applicationCategory: "BusinessApplication",
+                        operatingSystem: "Web",
+                        creator: {
+                            "@type": "Person",
+                            "@id": "https://abisolutions.online/#person",
+                            name: "Abhijith P A",
+                        },
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 5,
+                    item: {
+                        "@type": "WebSite",
+                        name: "Tegain",
+                        description:
+                            "Company and community hub with recruitment surfaces, community engagement, and brand site optimized for SEO and Core Web Vitals. Built with Next.js & Tailwind CSS.",
+                        url: "https://tegain.com/",
+                        creator: {
+                            "@type": "Person",
+                            "@id": "https://abisolutions.online/#person",
+                            name: "Abhijith P A",
+                        },
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 6,
+                    item: {
+                        "@type": "WebApplication",
+                        name: "Somans Leisure Tours",
+                        description:
+                            "Travel management platform with booking engine, approval workflows, role-based analytics dashboards, and operations automation. Built with Next.js, Tailwind & Zustand.",
+                        url: "https://www.somansleisuretours.com/",
+                        applicationCategory: "TravelApplication",
+                        operatingSystem: "Web",
+                        creator: {
+                            "@type": "Person",
+                            "@id": "https://abisolutions.online/#person",
+                            name: "Abhijith P A",
+                        },
+                    },
+                },
+            ],
+        },
     },
-    mainEntity: {
-        "@type": "ItemList",
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
         itemListElement: [
             {
                 "@type": "ListItem",
                 position: 1,
-                item: {
-                    "@type": "WebApplication",
-                    name: "Talrop ERP",
-                    description:
-                        "Enterprise resource planning platform covering inventory, finance, and HR with real-time insights and granular permissions.",
-                    url: "https://erp.talrop.com/",
-                    applicationCategory: "BusinessApplication",
-                    operatingSystem: "Web",
-                    creator: {
-                        "@type": "Person",
-                        name: "Abhijith P A",
-                    },
-                },
+                name: "Home",
+                item: "https://abisolutions.online",
             },
             {
                 "@type": "ListItem",
                 position: 2,
-                item: {
-                    "@type": "WebApplication",
-                    name: "Hosface",
-                    description:
-                        "Healthcare infrastructure platform pairing doctors and investors through a structured four-step clinic-setup model.",
-                    url: "https://www.hosface.com/",
-                    applicationCategory: "HealthApplication",
-                    operatingSystem: "Web",
-                    creator: {
-                        "@type": "Person",
-                        name: "Abhijith P A",
-                    },
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 3,
-                item: {
-                    "@type": "WebApplication",
-                    name: "Steyp",
-                    description:
-                        "Video-led coding education platform with structured tracks, exercises, and progress tracking.",
-                    url: "https://steyp.com/",
-                    applicationCategory: "EducationalApplication",
-                    operatingSystem: "Web",
-                    creator: {
-                        "@type": "Person",
-                        name: "Abhijith P A",
-                    },
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 4,
-                item: {
-                    "@type": "WebSite",
-                    name: "Tegain",
-                    description:
-                        "Company and community hub with recruitment surfaces tuned for SEO and Core Web Vitals.",
-                    url: "https://tegain.com/",
-                    creator: {
-                        "@type": "Person",
-                        name: "Abhijith P A",
-                    },
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 5,
-                item: {
-                    "@type": "WebApplication",
-                    name: "Somans Leisure Tours",
-                    description:
-                        "Travel management platform with bookings, approvals, and role-based analytics dashboards.",
-                    url: "https://www.somansleisuretours.com/",
-                    applicationCategory: "TravelApplication",
-                    operatingSystem: "Web",
-                    creator: {
-                        "@type": "Person",
-                        name: "Abhijith P A",
-                    },
-                },
+                name: "Projects",
+                item: "https://abisolutions.online/projects",
             },
         ],
     },
-};
+];
 
 export default function ProjectsPage() {
     return (

@@ -1,42 +1,39 @@
 import { MetadataRoute } from "next";
+import { blogPosts } from "../lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://abisolutions.online";
 
+    // Dynamic blog post entries
+    const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: "yearly" as const,
+        priority: 0.7,
+    }));
+
     return [
-        // Main pages
+        // ─── Core Pages (highest priority) ───
         {
             url: baseUrl,
             lastModified: new Date(),
             changeFrequency: "weekly",
-            priority: 1,
+            priority: 1.0,
         },
         {
             url: `${baseUrl}/about`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.9,
+            priority: 0.95,
         },
         {
             url: `${baseUrl}/projects`,
             lastModified: new Date(),
             changeFrequency: "weekly",
-            priority: 0.9,
+            priority: 0.95,
         },
         {
             url: `${baseUrl}/services`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/contact`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/resume`,
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.9,
@@ -45,21 +42,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/blog`,
             lastModified: new Date(),
             changeFrequency: "weekly",
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/resume`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/contact`,
+            lastModified: new Date(),
+            changeFrequency: "yearly",
             priority: 0.8,
         },
 
-        // Individual project pages
+        // ─── Individual Project Pages ───
         {
             url: `${baseUrl}/projects/talrop-erp`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.8,
+            priority: 0.85,
         },
         {
             url: `${baseUrl}/projects/hosface`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.8,
+            priority: 0.85,
         },
         {
             url: `${baseUrl}/projects/steyp`,
@@ -71,45 +80,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/projects/tegain`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.7,
+            priority: 0.8,
         },
         {
             url: `${baseUrl}/projects/somans`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.7,
+            priority: 0.75,
         },
 
-        // Blog posts
-        {
-            url: `${baseUrl}/blog/how-i-built-talrop-erp-with-nextjs`,
-            lastModified: new Date("2026-06-20"),
-            changeFrequency: "yearly",
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/blog/deploying-nextjs-on-vercel`,
-            lastModified: new Date("2026-06-18"),
-            changeFrequency: "yearly",
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/blog/react-state-management-zustand-vs-redux`,
-            lastModified: new Date("2026-06-15"),
-            changeFrequency: "yearly",
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/blog/building-saas-platform-with-react-django`,
-            lastModified: new Date("2026-06-12"),
-            changeFrequency: "yearly",
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/blog/react-server-components-best-practices-2026`,
-            lastModified: new Date("2026-06-22"),
-            changeFrequency: "yearly",
-            priority: 0.7,
-        },
+        // ─── Blog Posts (dynamic) ───
+        ...blogEntries,
     ];
 }

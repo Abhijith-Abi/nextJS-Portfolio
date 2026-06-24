@@ -4,36 +4,47 @@ import { SkillsSection } from "../../components/SkillsSection";
 import { WorkflowSection } from "../../components/WorkflowSection";
 
 export const metadata: Metadata = {
-    title: "Services — Hire Abhijith P A | React, Django, AWS Dev",
+    title: "Services — Hire Abhijith P A | AlgoBiz | React, Django, AI, ERP Development",
     description:
-        "Hire Abhijith P A (Abi Solutions) for React, Next.js, Django & AWS development. Custom web apps, ERP systems, SaaS & AI integrations. Freelance from Kerala, India.",
+        "Hire Abhijith P A (AlgoBiz) for React, Next.js, Django, AI & AWS development. Custom ERP systems, SaaS platforms, HRMS, payroll management, AI automation, WhatsApp bots & Telegram bots. Full Stack Developer from Kerala, India.",
     keywords: [
-        "Full Stack Developer services",
         "Hire Abhijith P A",
-        "Hire Abi Solutions",
-        "Freelance Developer India",
-        "Web Developer Kerala",
+        "Hire AlgoBiz",
+        "AlgoBiz services",
+        "AlgoBiz Web Development",
+        "AlgoBiz AI Development",
+        "AlgoBiz ERP Development",
+        "Full Stack Developer services",
         "React Developer hire",
-        "React.js Developer hire India",
-        "Next.js Developer freelance",
-        "Django Developer services",
+        "React Developer Kerala",
+        "React Developer India",
+        "Next.js Developer hire",
+        "Next.js Developer Kerala",
+        "Next.js Developer India",
+        "Django Developer hire",
+        "Django Developer Kerala",
+        "Django Developer India",
         "Python Developer hire",
         "AWS Developer India",
+        "AI Developer India",
+        "AI Engineer India",
         "ERP Development services",
-        "SaaS Developer hire",
-        "CRM Developer",
-        "Ecommerce Developer India",
-        "AI Web Development",
-        "Custom Web Applications",
-        "Frontend Development services",
-        "Backend Development services",
-        "Freelance Web Developer Kerala",
-        "Hire React Developer India",
-        "Software Engineer hire Kerala",
+        "SaaS Development",
+        "Custom ERP Development",
+        "HRMS Development",
+        "Payroll Management System",
+        "Attendance Management System",
+        "WhatsApp Automation",
+        "Telegram Automation",
+        "AI Automation",
+        "Web Developer Kerala",
+        "Freelance Developer India",
+        "TypeScript Developer",
+        "PostgreSQL Developer",
     ],
     authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
     creator: "Abhijith P A",
-    publisher: "Abi Solutions",
+    publisher: "AlgoBiz",
     alternates: {
         canonical: "https://abisolutions.online/services",
     },
@@ -41,27 +52,28 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: "https://abisolutions.online/services",
-        siteName: "Abi Solutions",
-        title: "Hire Abhijith P A — React, Next.js, Django & AWS Developer",
+        siteName: "Abhijith P A — AlgoBiz",
+        title: "Hire Abhijith P A | AlgoBiz — React, Django, AI & ERP Development Services",
         description:
-            "Custom web apps, ERP, SaaS & AI integrations. Full Stack Developer available for freelance & contract work from Kerala.",
+            "Custom ERP, SaaS, HRMS, AI automation & web applications. Full Stack Developer & AI Engineer available from Kerala, India.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Abi Solutions — Full Stack Development Services by Abhijith P A",
+                alt: "AlgoBiz — Full Stack Development & AI Services by Abhijith P A",
                 type: "image/jpeg",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Services — Hire Abhijith P A | Abi Solutions",
-        description:
-            "React, Next.js, Django & AWS. Custom web apps, ERP & SaaS. Freelance from Kerala, India.",
-        images: ["/profile.jpg"],
+        site: "@abhijith",
         creator: "@abhijith",
+        title: "Services — AlgoBiz | Hire Abhijith P A for React, Django & AI Development",
+        description:
+            "ERP, SaaS, HRMS, AI automation. React, Next.js, Django & AWS. Full Stack Developer from Kerala.",
+        images: ["/og-image.jpg"],
     },
     robots: {
         index: true,
@@ -76,89 +88,131 @@ export const metadata: Metadata = {
     },
 };
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "Abi Solutions — Full Stack Development Services",
-    description:
-        "Custom web application development using React, Next.js, Django, AWS, and TypeScript. ERP systems, SaaS platforms, CRM, ecommerce, and AI integrations by Abhijith P A.",
-    url: "https://abisolutions.online/services",
-    provider: {
-        "@type": "Person",
-        name: "Abhijith P A",
-        alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
-        jobTitle: "Full Stack Developer",
-        address: {
-            "@type": "PostalAddress",
-            addressLocality: "Kerala",
-            addressCountry: "IN",
+const jsonLd = [
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://abisolutions.online/services/#service",
+        name: "AlgoBiz — Full Stack Development & AI Engineering Services",
+        alternateName: [
+            "AlgoBiz Web Development",
+            "AlgoBiz AI Development",
+            "AlgoBiz ERP Development",
+            "Abi Solutions",
+        ],
+        description:
+            "Custom web application development, AI engineering, ERP systems, SaaS platforms, HRMS, payroll management, and AI automation by Abhijith P A. Technologies: React, Next.js, Django, Python, PostgreSQL, AWS, TypeScript.",
+        url: "https://abisolutions.online/services",
+        image: "https://abisolutions.online/og-image.jpg",
+        provider: {
+            "@type": "Person",
+            "@id": "https://abisolutions.online/#person",
+            name: "Abhijith P A",
+            jobTitle: "Full Stack Developer & AI Engineer",
+        },
+        brand: {
+            "@type": "Organization",
+            "@id": "https://abisolutions.online/#organization",
+            name: "AlgoBiz",
+        },
+        serviceType: [
+            "Full Stack Web Development",
+            "React & Next.js Development",
+            "Django & Python Backend Development",
+            "AI Engineering & Automation",
+            "ERP System Development",
+            "SaaS Platform Development",
+            "HRMS & Payroll Management System",
+            "Attendance Management System",
+            "WhatsApp Bot Development",
+            "Telegram Bot Development",
+            "AI Automation Development",
+            "AWS Cloud Infrastructure",
+            "CRM Development",
+            "Ecommerce Development",
+            "UI/UX Development",
+        ],
+        areaServed: [
+            { "@type": "Country", name: "India" },
+            { "@type": "State", name: "Kerala" },
+            { "@type": "City", name: "Wayanad" },
+        ],
+        availableChannel: {
+            "@type": "ServiceChannel",
+            serviceUrl: "https://abisolutions.online/contact",
+            servicePhone: "+919961316468",
+        },
+        hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "AlgoBiz Development Services",
+            itemListElement: [
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: "React & Next.js Development",
+                        description:
+                            "Production-grade web applications with React, Next.js, TypeScript, and Tailwind CSS. Component-driven architecture with motion design.",
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: "Django & Python Backend",
+                        description:
+                            "Scalable backend systems with Django, Python, PostgreSQL, REST APIs, and microservices architecture.",
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: "ERP & HRMS Development",
+                        description:
+                            "Custom ERP systems, HRMS, payroll management, attendance tracking, and enterprise resource planning with real-time analytics.",
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: "AI Automation & Bots",
+                        description:
+                            "AI-driven automation, WhatsApp automation, Telegram bots, OpenAI integration, and LLM-powered workflows.",
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: "SaaS & Cloud Platforms",
+                        description:
+                            "Multi-tenant SaaS platforms, AWS cloud infrastructure, CI/CD pipelines, and scalable deployment architecture.",
+                    },
+                },
+            ],
         },
     },
-    serviceType: [
-        "Web Application Development",
-        "Frontend Development",
-        "Backend Development",
-        "Full Stack Development",
-        "ERP Development",
-        "SaaS Development",
-        "CRM Development",
-        "Ecommerce Development",
-        "AI Integration",
-        "UI/UX Development",
-    ],
-    areaServed: {
-        "@type": "GeoCircle",
-        geoMidpoint: {
-            "@type": "GeoCoordinates",
-            latitude: 10.8505,
-            longitude: 76.2711,
-        },
-        description: "Worldwide (Remote)",
-    },
-    hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Development Services",
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
         itemListElement: [
             {
-                "@type": "Offer",
-                itemOffered: {
-                    "@type": "Service",
-                    name: "React & Next.js Development",
-                    description:
-                        "Production-grade web applications with React, Next.js, TypeScript, and Tailwind CSS.",
-                },
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://abisolutions.online",
             },
             {
-                "@type": "Offer",
-                itemOffered: {
-                    "@type": "Service",
-                    name: "Django & Python Backend",
-                    description:
-                        "Scalable backend systems with Django, Python, PostgreSQL, and REST APIs.",
-                },
-            },
-            {
-                "@type": "Offer",
-                itemOffered: {
-                    "@type": "Service",
-                    name: "AWS Cloud & DevOps",
-                    description:
-                        "Cloud infrastructure, deployment pipelines, and scalable architecture on AWS.",
-                },
-            },
-            {
-                "@type": "Offer",
-                itemOffered: {
-                    "@type": "Service",
-                    name: "ERP & SaaS Platforms",
-                    description:
-                        "Custom ERP, SaaS, and CRM platforms with role-based dashboards and real-time analytics.",
-                },
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: "https://abisolutions.online/services",
             },
         ],
     },
-};
+];
 
 export default function ServicesPage() {
     return (

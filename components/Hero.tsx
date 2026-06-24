@@ -70,7 +70,7 @@ export function Hero() {
         <section
             id="home"
             ref={ref}
-            className="relative isolate min-h-[100svh] w-full overflow-hidden"
+            className="relative isolate h-[100svh] min-h-[600px] w-full overflow-hidden"
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0" aria-hidden>
@@ -98,7 +98,7 @@ export function Hero() {
 
             <motion.div
                 style={{ y, opacity }}
-                className="container-width relative z-10 flex min-h-[100svh] flex-col justify-center px-5 pt-24 pb-20 sm:px-6 sm:pt-32 sm:pb-28 lg:px-8 lg:pt-36"
+                className="container-width relative z-10 flex h-full flex-col justify-center pt-20 pb-16 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24"
             >
                 {/* Top row: Eyebrow */}
                 <div className="flex items-start justify-between gap-4">

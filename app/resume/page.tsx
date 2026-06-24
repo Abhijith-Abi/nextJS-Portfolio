@@ -36,7 +36,7 @@ export const metadata: Metadata = {
             "3+ years at Algobiz, Talrop & Steyp. React, Next.js, Django, AWS specialist from Kerala.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Abhijith P A Resume — Full Stack Developer",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         title: "Resume — Abhijith P A | Full Stack Developer",
         description:
             "React, Next.js, Django, AWS. 3+ years at Algobiz, Talrop & Steyp. Kerala, India.",
-        images: ["/profile.jpg"],
+        images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
     robots: {

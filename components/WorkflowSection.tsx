@@ -119,8 +119,8 @@ export function WorkflowSection() {
                         fromRef={designRef}
                         toRef={userRef}
                         curvature={0.4}
-                        gradientStartColor="#ff7a4d"
-                        gradientStopColor="#ff5722"
+                        gradientStartColor="#a5b4fc"
+                        gradientStopColor="#818cf8"
                         duration={3.5}
                     />
                     <AnimatedBeam
@@ -128,8 +128,8 @@ export function WorkflowSection() {
                         fromRef={githubRef}
                         toRef={userRef}
                         curvature={-0.4}
-                        gradientStartColor="#ffffff"
-                        gradientStopColor="#ff5722"
+                        gradientStartColor="#fafafa"
+                        gradientStopColor="#818cf8"
                         duration={3.5}
                     />
                     <AnimatedBeam
@@ -137,8 +137,8 @@ export function WorkflowSection() {
                         fromRef={userRef}
                         toRef={codeRef}
                         curvature={0.4}
-                        gradientStartColor="#ff5722"
-                        gradientStopColor="#ffffff"
+                        gradientStartColor="#818cf8"
+                        gradientStopColor="#fafafa"
                         duration={3.5}
                         delay={0.5}
                     />
@@ -147,8 +147,8 @@ export function WorkflowSection() {
                         fromRef={userRef}
                         toRef={deployRef}
                         curvature={-0.4}
-                        gradientStartColor="#ff5722"
-                        gradientStopColor="#ff7a4d"
+                        gradientStartColor="#818cf8"
+                        gradientStopColor="#a5b4fc"
                         duration={3.5}
                         delay={1}
                     />

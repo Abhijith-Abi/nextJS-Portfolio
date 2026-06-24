@@ -33,7 +33,7 @@ export const metadata: Metadata = {
             "Company & community hub with recruitment surfaces. Next.js, Tailwind & Zustand.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Tegain — Community Platform by Abhijith P A",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         title: "Tegain — Community Hub | Abhijith P A",
         description:
             "Brand site with community engagement & recruitment. Next.js & Tailwind.",
-        images: ["/profile.jpg"],
+        images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
     robots: {

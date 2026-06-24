@@ -9,17 +9,17 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Agency Portfolio — pure black + vivid orange
-                background: "#000000",
-                surface: "#0d0d0d",
-                surface2: "#141414",
-                ink: "#ffffff",
-                line: "#1c1c1c",
-                line2: "#262626",
-                accent: "#ff5722", // vivid orange (deep orange / persimmon)
-                accent2: "#ff7a4d", // hover orange
-                muted: "#9a9a9a",
-                paper: "#fafafa", // for the white profile card
+                // Modern dark portfolio — deep navy + electric indigo/violet
+                background: "#0f1119",
+                surface: "#161927",
+                surface2: "#1c2033",
+                ink: "#f0f0f5",
+                line: "#252a3a",
+                line2: "#333951",
+                accent: "#818cf8", // indigo-400 — electric but not harsh
+                accent2: "#a5b4fc", // indigo-300 — hover/lighter variant
+                muted: "#8b8fa8",
+                paper: "#fafafa",
             },
             fontFamily: {
                 sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -31,8 +31,10 @@ const config: Config = {
                 mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
             },
             boxShadow: {
-                soft: "0 22px 60px rgba(0,0,0,0.65)",
-                glow: "0 0 0 1px rgba(255,87,34,0.18), 0 14px 60px -10px rgba(255,87,34,0.5)",
+                soft: "0 24px 64px -12px rgba(15,17,25,0.8)",
+                glow: "0 0 0 1px rgba(129,140,248,0.2), 0 16px 64px -12px rgba(129,140,248,0.35)",
+                "glow-sm":
+                    "0 0 0 1px rgba(129,140,248,0.15), 0 8px 32px -8px rgba(129,140,248,0.2)",
             },
             borderRadius: {
                 xl: "1rem",
@@ -43,6 +45,7 @@ const config: Config = {
                 "caret-blink": "caret-blink 1.1s steps(1) infinite",
                 "spin-slow": "spin 24s linear infinite",
                 marquee: "marquee var(--duration) linear infinite",
+                shimmer: "shimmer 2.5s linear infinite",
             },
             keyframes: {
                 "caret-blink": {
@@ -52,6 +55,10 @@ const config: Config = {
                 marquee: {
                     from: { transform: "translateX(0)" },
                     to: { transform: "translateX(calc(-100% - var(--gap)))" },
+                },
+                shimmer: {
+                    from: { backgroundPosition: "0 0" },
+                    to: { backgroundPosition: "-200% 0" },
                 },
             },
         },

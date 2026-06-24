@@ -96,7 +96,7 @@ export function AboutSection() {
                             <FadeIn key={c.n} delay={i * 0.05}>
                                 <article className="relative pl-9 sm:pl-12">
                                     <div className="absolute left-0.5 top-2 h-3 w-3 rounded-full border border-line bg-background sm:left-1.5">
-                                        <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(255,87,34,0.7)]" />
+                                        <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(129,140,248,0.7)]" />
                                     </div>
 
                                     <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-accent sm:text-[11px] sm:tracking-[0.32em]">

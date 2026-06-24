@@ -36,7 +36,7 @@ export const metadata: Metadata = {
             "Video-led coding education with structured tracks & progress tracking. Built with React & Redux.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Steyp — Coding Education Platform by Abhijith P A",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         title: "Steyp — Education Platform | Abhijith P A",
         description:
             "Coding education with video tracks & exercises. React, Redux & Styled Components.",
-        images: ["/profile.jpg"],
+        images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
     robots: {

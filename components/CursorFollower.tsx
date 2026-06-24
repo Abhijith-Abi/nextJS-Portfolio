@@ -137,8 +137,8 @@ export function CursorFollower() {
             width: hovering ? 64 : 40,
             height: hovering ? 64 : 40,
             backgroundColor: hovering
-                ? "rgba(255, 87, 34, 0.5)"
-                : "rgba(255, 87, 34, 0.32)",
+                ? "rgba(129, 140, 248, 0.45)"
+                : "rgba(129, 140, 248, 0.25)",
             duration: 0.35,
             ease: "power3.out",
         });
@@ -157,10 +157,10 @@ export function CursorFollower() {
                     width: 40,
                     height: 40,
                     borderRadius: "9999px",
-                    background: "rgba(255, 87, 34, 0.32)",
+                    background: "rgba(129, 140, 248, 0.25)",
                     filter: "blur(2px)",
                     boxShadow:
-                        "0 0 24px rgba(255, 87, 34, 0.45), inset 0 0 12px rgba(255, 122, 77, 0.4)",
+                        "0 0 24px rgba(129, 140, 248, 0.4), inset 0 0 12px rgba(165, 180, 252, 0.3)",
                     willChange: "transform, width, height",
                     mixBlendMode: "screen",
                 }}
@@ -174,8 +174,8 @@ export function CursorFollower() {
                     width: 6,
                     height: 6,
                     borderRadius: "9999px",
-                    background: "#ff5722",
-                    boxShadow: "0 0 10px rgba(255, 87, 34, 0.9)",
+                    background: "#818cf8",
+                    boxShadow: "0 0 10px rgba(129, 140, 248, 0.8)",
                     willChange: "transform",
                 }}
             />

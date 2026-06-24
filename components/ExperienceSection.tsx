@@ -307,7 +307,7 @@ export function ExperienceSection() {
                                                             repeat: Infinity,
                                                             ease: "easeInOut",
                                                         }}
-                                                        className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(255,87,34,0.7)]"
+                                                        className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(129,140,248,0.7)]"
                                                     />
                                                     Now
                                                 </span>

@@ -40,7 +40,7 @@ export function generateMetadata({ params }: Props): Metadata {
             tags: post.tags,
             images: [
                 {
-                    url: "/profile.jpg",
+                    url: "/og-image.jpg",
                     width: 1200,
                     height: 630,
                     alt: `${post.title} — Abhijith P A`,
@@ -52,7 +52,7 @@ export function generateMetadata({ params }: Props): Metadata {
             card: "summary_large_image",
             title: post.title,
             description: post.description,
-            images: ["/profile.jpg"],
+            images: ["/og-image.jpg"],
             creator: "@abhijith",
         },
         robots: {

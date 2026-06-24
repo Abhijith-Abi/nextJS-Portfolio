@@ -40,39 +40,52 @@ html.lenis body {
 }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #0f1119;
+    background-image:
+        radial-gradient(
+            ellipse 80% 50% at 50% -20%,
+            rgba(99, 102, 241, 0.07),
+            transparent
+        ),
+        radial-gradient(
+            ellipse 60% 40% at 80% 100%,
+            rgba(129, 140, 248, 0.04),
+            transparent
+        );
+    color: #f0f0f5;
     overflow-x: hidden;
 }
 
 ::selection {
-    background: #ff5722;
-    color: #ffffff;
+    background: #818cf8;
+    color: #0f1119;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #000000;
+    background: #0f1119;
 }
 ::-webkit-scrollbar-thumb {
-    background: #1c1c1c;
+    background: #252a3a;
     border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #262626;
+    background: #333951;
 }
 
 /* ───────── Container ───────── */
 .container-width {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20;
 }
 
-/* ───────── Flat dark surface (the workhorse card) ───────── */
+/* ───────── Glass surface (the workhorse card) ───────── */
 .surface {
-    background: #0d0d0d;
-    border: 1px solid #1c1c1c;
+    background: rgba(22, 25, 39, 0.8);
+    border: 1px solid rgba(37, 42, 58, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .surface-hover {
@@ -81,8 +94,8 @@ body {
         background-color 240ms ease;
 }
 .surface-hover:hover {
-    background: #141414;
-    border-color: #262626;
+    background: rgba(28, 32, 51, 0.9);
+    border-color: #333951;
 }
 
 /* Hairline divider */
@@ -91,8 +104,8 @@ body {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.18) 20%,
-        rgba(255, 255, 255, 0.18) 80%,
+        rgba(129, 140, 248, 0.2) 20%,
+        rgba(129, 140, 248, 0.2) 80%,
         transparent
     );
 }
@@ -103,33 +116,34 @@ body {
 
 /* ───────── Buttons ───────── */
 .btn-primary {
-    background: #ff5722;
-    color: #ffffff;
+    background: #818cf8;
+    color: #0f1119;
+    font-weight: 600;
     transition:
         background-color 220ms ease,
         transform 200ms ease,
         box-shadow 240ms ease;
 }
 .btn-primary:hover {
-    background: #ff7a4d;
+    background: #a5b4fc;
     box-shadow:
-        0 0 0 1px rgba(255, 87, 34, 0.25),
-        0 16px 50px -10px rgba(255, 87, 34, 0.55);
+        0 0 0 1px rgba(129, 140, 248, 0.3),
+        0 16px 48px -10px rgba(129, 140, 248, 0.4);
 }
 
 .btn-ghost {
     background: transparent;
-    color: #ffffff;
-    border: 1px solid #262626;
+    color: #f0f0f5;
+    border: 1px solid #333951;
     transition:
         border-color 220ms ease,
         background-color 220ms ease,
         color 220ms ease;
 }
 .btn-ghost:hover {
-    border-color: #ff5722;
-    color: #ff5722;
-    background: rgba(255, 87, 34, 0.06);
+    border-color: #818cf8;
+    color: #818cf8;
+    background: rgba(129, 140, 248, 0.06);
 }
 
 /* ───────── Flip card (the experience profile portrait) ───────── */
@@ -157,6 +171,7 @@ body {
 .flip-face-back {
     transform: rotateY(180deg);
 }
+
 @property --bento-angle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -166,11 +181,14 @@ body {
 .bento-card {
     position: relative;
     isolation: isolate;
-    background: #0d0d0d;
-    border: 1px solid #1c1c1c;
+    background: rgba(22, 25, 39, 0.6);
+    border: 1px solid rgba(37, 42, 58, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     transition:
         transform 320ms ease,
-        border-color 320ms ease;
+        border-color 320ms ease,
+        background-color 320ms ease;
 }
 .bento-card::before {
     content: "";
@@ -182,8 +200,9 @@ body {
         from var(--bento-angle, 0deg),
         transparent 0deg,
         transparent 200deg,
-        rgba(255, 87, 34, 0.9) 270deg,
-        rgba(255, 122, 77, 0.6) 320deg,
+        rgba(129, 140, 248, 0.8) 260deg,
+        rgba(165, 180, 252, 0.5) 310deg,
+        rgba(99, 102, 241, 0.3) 340deg,
         transparent 360deg
     );
     -webkit-mask:
@@ -201,6 +220,7 @@ body {
 }
 .bento-card:hover {
     border-color: transparent;
+    background: rgba(22, 25, 39, 0.85);
     transform: translateY(-2px);
 }
 .bento-card:hover::before {
@@ -217,30 +237,31 @@ body {
     }
 }
 
-/* Fallback for browsers without @property support — just a static glow border */
+/* Fallback for browsers without @property support */
 @supports not (background: conic-gradient(from 0deg, red 0deg)) {
     .bento-card:hover::before {
         background: linear-gradient(
             135deg,
-            rgba(255, 87, 34, 0.6),
+            rgba(129, 140, 248, 0.5),
             transparent
         );
     }
 }
+
 .ghost-text {
-    color: rgba(255, 255, 255, 0.18);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+    color: rgba(250, 250, 250, 0.1);
+    -webkit-text-stroke: 1px rgba(129, 140, 248, 0.25);
 }
 
-/* ───────── Decorative dashed curve (orange) ───────── */
+/* ───────── Decorative dashed curve ───────── */
 .dashed-curve {
-    stroke: #ff5722;
+    stroke: #818cf8;
     stroke-width: 1.5;
     stroke-dasharray: 6 6;
     fill: none;
 }
 
-/* ───────── Subtle ambient glow ───────── */
+/* ───────── Ambient glow — soft indigo radials ───────── */
 .ambient-glow {
     position: fixed;
     inset: 0;
@@ -251,33 +272,33 @@ body {
 .ambient-glow::before {
     content: "";
     position: absolute;
-    top: 10%;
-    right: -10%;
-    width: 50vw;
-    height: 50vh;
+    top: -10%;
+    right: -20%;
+    width: 60vw;
+    height: 60vh;
     background: radial-gradient(
-        circle,
-        rgba(255, 87, 34, 0.12),
+        ellipse,
+        rgba(129, 140, 248, 0.06),
         transparent 60%
     );
-    filter: blur(80px);
+    filter: blur(100px);
     will-change: transform;
-    animation: glow-drift 36s ease-in-out infinite alternate;
+    animation: glow-drift 40s ease-in-out infinite alternate;
 }
 .ambient-glow::after {
     content: "";
     position: absolute;
-    bottom: 0%;
-    left: -10%;
-    width: 40vw;
-    height: 40vh;
+    bottom: -10%;
+    left: -15%;
+    width: 50vw;
+    height: 50vh;
     background: radial-gradient(
-        circle,
-        rgba(255, 87, 34, 0.08),
+        ellipse,
+        rgba(99, 102, 241, 0.05),
         transparent 60%
     );
-    filter: blur(80px);
-    animation: glow-drift-2 42s ease-in-out infinite alternate;
+    filter: blur(100px);
+    animation: glow-drift-2 48s ease-in-out infinite alternate;
 }
 
 @keyframes glow-drift {
@@ -297,15 +318,15 @@ body {
     }
 }
 
-/* Film grain */
+/* Noise texture — lighter and more subtle */
 .grain-overlay {
     position: fixed;
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
-    background-size: 160px 160px;
-    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+    background-size: 200px 200px;
+    opacity: 0.025;
     mix-blend-mode: overlay;
 }
 
@@ -337,14 +358,15 @@ body {
 
 /* ───────── Hero Buttons (Professional) ───────── */
 .hero-btn-primary {
-    background: #ff5722;
-    color: #ffffff;
+    background: #818cf8;
+    color: #0f1119;
+    font-weight: 600;
     transition:
         transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow:
-        0 2px 8px -2px rgba(255, 87, 34, 0.4),
-        0 0 0 0 rgba(255, 87, 34, 0);
+        0 2px 12px -2px rgba(129, 140, 248, 0.35),
+        0 0 0 0 rgba(129, 140, 248, 0);
 }
 .hero-btn-primary::before {
     content: "";
@@ -353,9 +375,9 @@ body {
     border-radius: inherit;
     background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.25) 0%,
         transparent 50%,
-        rgba(0, 0, 0, 0.1) 100%
+        rgba(0, 0, 0, 0.05) 100%
     );
     opacity: 0;
     transition: opacity 300ms ease;
@@ -363,8 +385,8 @@ body {
 .hero-btn-primary:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow:
-        0 8px 30px -4px rgba(255, 87, 34, 0.5),
-        0 0 0 1px rgba(255, 87, 34, 0.2);
+        0 8px 32px -4px rgba(129, 140, 248, 0.45),
+        0 0 0 1px rgba(129, 140, 248, 0.25);
 }
 .hero-btn-primary:hover::before {
     opacity: 1;
@@ -372,14 +394,14 @@ body {
 .hero-btn-primary:active {
     transform: translateY(0) scale(0.98);
     box-shadow:
-        0 2px 8px -2px rgba(255, 87, 34, 0.4),
-        0 0 0 0 rgba(255, 87, 34, 0);
+        0 2px 8px -2px rgba(129, 140, 248, 0.3),
+        0 0 0 0 rgba(129, 140, 248, 0);
 }
 
 .hero-btn-ghost {
     background: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f0f0f5;
+    border: 1px solid rgba(240, 240, 245, 0.1);
     transition:
         transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
         border-color 300ms ease,
@@ -393,7 +415,7 @@ body {
     border-radius: inherit;
     background: radial-gradient(
         ellipse at 50% 0%,
-        rgba(255, 87, 34, 0.08) 0%,
+        rgba(129, 140, 248, 0.08) 0%,
         transparent 70%
     );
     opacity: 0;
@@ -401,11 +423,11 @@ body {
 }
 .hero-btn-ghost:hover {
     transform: translateY(-2px) scale(1.02);
-    border-color: rgba(255, 87, 34, 0.5);
-    background: rgba(255, 87, 34, 0.04);
+    border-color: rgba(129, 140, 248, 0.4);
+    background: rgba(129, 140, 248, 0.04);
     box-shadow:
-        0 4px 20px -4px rgba(255, 87, 34, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 4px 20px -4px rgba(129, 140, 248, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 .hero-btn-ghost:hover::before {
     opacity: 1;

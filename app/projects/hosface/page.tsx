@@ -35,7 +35,7 @@ export const metadata: Metadata = {
             "Healthcare infrastructure pairing doctors and investors. Built with Next.js, TypeScript & Tailwind.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Hosface — Healthcare Platform by Abhijith P A",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         title: "Hosface — Healthcare Platform | Abhijith P A",
         description:
             "Pairing doctors and investors through a clinic-setup model. Next.js & TypeScript.",
-        images: ["/profile.jpg"],
+        images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
     robots: {

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
             "Enterprise resource planning platform with inventory, finance & HR modules. Real-time insights and granular permissions.",
         images: [
             {
-                url: "/profile.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Talrop ERP — Enterprise Resource Planning by Abhijith P A",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         title: "Talrop ERP — Abhijith P A",
         description:
             "Full-featured ERP with inventory, finance & HR. Built with Next.js, TypeScript & Zustand.",
-        images: ["/profile.jpg"],
+        images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
     robots: {

@@ -62,7 +62,7 @@ Requirements:
 - AI Search optimized (ChatGPT, Gemini, Perplexity)
 - Include semantic and long-tail keywords naturally
 - Use latest 2026 industry practices
-- Written from the perspective of Abhijith P A, Full Stack Developer at Algobiz, ex-Software Solutions Firm & Steyp
+- Written from the perspective of Abhijith P A, Full Stack Developer at Algobiz, ex-Talrop & Steyp
 - slug must be lowercase, hyphenated, URL-safe
 
 Return ONLY valid JSON matching this exact schema:

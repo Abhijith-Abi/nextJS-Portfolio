@@ -76,7 +76,7 @@ const jsonLd = {
     jobTitle: "Full Stack Developer",
     worksFor: { "@type": "Organization", name: "Algobiz" },
     alumniOf: [
-        { "@type": "Organization", name: "Software Solutions Firm" },
+        { "@type": "Organization", name: "Talrop" },
         { "@type": "Organization", name: "Steyp" },
     ],
     knowsAbout: [
@@ -179,7 +179,7 @@ export default function ResumePage() {
                                 TypeScript, Django, and AWS. Passionate about
                                 motion-rich interfaces, scalable architecture,
                                 and developer experience. Currently Frontend
-                                Engineer at Algobiz, formerly at Software Solutions Firm and
+                                Engineer at Algobiz, formerly at Talrop and
                                 Steyp.
                             </p>
                         </section>
@@ -371,7 +371,7 @@ export default function ResumePage() {
                                     {
                                         name: "Enterprise ERP",
                                         desc: "Enterprise resource planning — inventory, finance, HR",
-                                        url: "https://erp.Software Solutions Firm.com/",
+                                        url: "https://abisolutions.online/projects/enterprise-erp",
                                     },
                                     {
                                         name: "Hosface",

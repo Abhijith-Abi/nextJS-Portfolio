@@ -211,7 +211,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 content:
-                    "I've used both extensively — Redux at Steyp, Zustand at Software Solutions Firm. Here's when each makes sense and why I switched.",
+                    "I've used both extensively — Redux at Steyp, Zustand for complex ERP architectures. Here's when each makes sense and why I switched.",
             },
             { type: "heading", content: "When to Use Redux" },
             {
@@ -428,7 +428,7 @@ export const blogPosts: BlogPost[] = [
         slug: "react-best-practices-2026",
         title: "React.js Best Practices in 2026 — Architecture, Performance & Patterns",
         description:
-            "A comprehensive guide to React.js best practices in 2026 covering component architecture, performance optimization, state management, TypeScript patterns, and production-ready code from real projects at AlgoBiz, Software Solutions Firm & Tegain.",
+            "A comprehensive guide to React.js best practices in 2026 covering component architecture, performance optimization, state management, TypeScript patterns, and production-ready code from real projects at AlgoBiz & Tegain.",
         date: "2026-06-24",
         readTime: "12 min read",
         tags: [

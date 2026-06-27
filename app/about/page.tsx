@@ -97,7 +97,7 @@ const jsonLd = [
         "@type": "AboutPage",
         name: "About Abhijith P A — Full Stack Developer & AI Engineer",
         description:
-            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of AlgoBiz. Previously worked at Software Solutions Firm, Tegain, Ribos, and Steyp. Specializing in React, Next.js, Django, Python, AWS, ERP development, SaaS products, and AI automation.",
+            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of AlgoBiz. Previously worked at Talrop, Tegain, Ribos, and Steyp. Specializing in React, Next.js, Django, Python, AWS, ERP development, SaaS products, and AI automation.",
         url: "https://abisolutions.online/about",
         mainEntity: {
             "@type": "Person",
@@ -111,7 +111,7 @@ const jsonLd = [
                 "Abhijith Developer",
                 "Abhijith Software Engineer",
                 "Abhijith Full Stack Developer",
-                "Abhijith Software Solutions Firm",
+                "Abhijith Talrop",
                 "Abhijith Tegain",
                 "Abhijith Kerala",
                 "Abhijith Wayanad",
@@ -148,8 +148,8 @@ const jsonLd = [
             alumniOf: [
                 {
                     "@type": "Organization",
-                    name: "Software Solutions Firm",
-                    url: "https://Software Solutions Firm.com",
+                    name: "Talrop",
+                    url: "https://www.talrop.com",
                     description:
                         "Technology learning and product company. Abhijith worked as Full Stack Developer building ERP and web applications.",
                 },

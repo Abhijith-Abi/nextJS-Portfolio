@@ -172,7 +172,7 @@ const jsonLd = [
                         name: "Enterprise ERP",
                         description:
                             "Enterprise resource planning platform covering inventory management, finance, HR, real-time analytics, and granular role-based permissions. Built with Next.js, TypeScript, Zustand & Recharts.",
-                        url: "https://erp.Software Solutions Firm.com/",
+                        url: "https://abisolutions.online/projects/enterprise-erp",
                         applicationCategory: "BusinessApplication",
                         operatingSystem: "Web",
                         creator: {

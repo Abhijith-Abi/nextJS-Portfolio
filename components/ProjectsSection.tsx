@@ -27,7 +27,7 @@ const projects: Project[] = [
         description:
             "Front-end for an ERP covering inventory, finance, and HR with real-time insights, granular permissions, and a unified design language across modules.",
         tech: ["Next.js", "TypeScript", "Tailwind", "Zustand", "Recharts"],
-        live: "https://erp.Software Solutions Firm.com/",
+        live: "/projects/enterprise-erp",
         span: "lg:col-span-4 lg:row-span-2",
         featured: true,
     },

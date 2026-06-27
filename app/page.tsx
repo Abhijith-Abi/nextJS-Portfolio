@@ -102,6 +102,20 @@ const jsonLd = [
         alumniOf: [
             {
                 "@type": "Organization",
+                name: "AlgoBiz",
+                url: "https://algobiz.in/",
+                description:
+                    "Software development agency founded by Abhijith P A",
+            },
+            {
+                "@type": "Organization",
+                name: "Talrop",
+                url: "https://www.talrop.com/",
+                description:
+                    "Technology company where Abhijith P A contributed as a Full Stack Developer",
+            },
+            {
+                "@type": "Organization",
                 name: "Tegain",
                 url: "https://tegain.com",
                 description:

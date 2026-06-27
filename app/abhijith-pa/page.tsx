@@ -78,8 +78,10 @@ const jsonLd = {
             "Abhijith P A is a Full Stack Developer and AI Engineer at AlgoBiz from Wayanad, Kerala, India. He specializes in React, Next.js, Django, Python, AWS, and AI automation. He has worked at Steyp, Tegain, Ribos, Hosface, Somans Travels, and Spinwik.",
         worksFor: { "@type": "Organization", name: "AlgoBiz" },
         alumniOf: [
-            { "@type": "Organization", name: "Steyp" },
-            { "@type": "Organization", name: "Tegain" },
+            { "@type": "Organization", name: "AlgoBiz", url: "https://algobiz.in/" },
+            { "@type": "Organization", name: "Talrop", url: "https://www.talrop.com/" },
+            { "@type": "Organization", name: "Steyp", url: "https://steyp.com/" },
+            { "@type": "Organization", name: "Tegain", url: "https://tegain.com/" },
             { "@type": "Organization", name: "Ribos" },
             { "@type": "Organization", name: "Hosface" },
             { "@type": "Organization", name: "Somans Travels" },

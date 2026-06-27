@@ -40,11 +40,11 @@ export function generateMetadata({ params }: Props): Metadata {
             tags: post.tags,
             images: [
                 {
-                    url: "/og-image.jpg",
+                    url: `https://abisolutions.online/blog/${post.slug}/opengraph-image`,
                     width: 1200,
                     height: 630,
                     alt: `${post.title} — Abhijith P A`,
-                    type: "image/jpeg",
+                    type: "image/png",
                 },
             ],
         },
@@ -52,7 +52,7 @@ export function generateMetadata({ params }: Props): Metadata {
             card: "summary_large_image",
             title: post.title,
             description: post.description,
-            images: ["/og-image.jpg"],
+            images: [`https://abisolutions.online/blog/${post.slug}/opengraph-image`],
             creator: "@abhijith",
         },
         robots: {

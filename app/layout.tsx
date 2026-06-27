@@ -205,6 +205,28 @@ const globalJsonLd = {
                 "https://www.linkedin.com/in/abhijith-pa/",
                 "https://abisolutions.online"
             ],
+            "alumniOf": [
+                {
+                    "@type": "Organization",
+                    "name": "AlgoBiz",
+                    "url": "https://algobiz.in/"
+                },
+                {
+                    "@type": "Organization",
+                    "name": "Steyp",
+                    "url": "https://steyp.com/"
+                },
+                {
+                    "@type": "Organization",
+                    "name": "Tegain",
+                    "url": "https://tegain.com/"
+                },
+                {
+                    "@type": "Organization",
+                    "name": "Talrop",
+                    "url": "https://www.talrop.com/"
+                }
+            ],
             "worksFor": {
                 "@type": "Organization",
                 "@id": "https://abisolutions.online/#organization"

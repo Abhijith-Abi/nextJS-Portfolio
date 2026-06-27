@@ -7,7 +7,7 @@ import { blogPosts } from "../../lib/blog";
 export const metadata: Metadata = {
     title: "Blog — Abhijith P A | React, Next.js, Django, AI & ERP Articles | AlgoBiz",
     description:
-        "Web development & AI articles by Abhijith P A (AlgoBiz). React, Next.js, Django, Python, AWS, AI automation, ERP development tutorials. Insights from building at Talrop, Tegain & Ribos.",
+        "Web development & AI articles by Abhijith P A (AlgoBiz). React, Next.js, Django, Python, AWS, AI automation, ERP development tutorials. Insights from building at Tegain & Ribos.",
     keywords: [
         "Abhijith P A blog",
         "AlgoBiz blog",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         "Web development blog India",
         "Frontend engineering articles",
         "Full Stack Developer blog Kerala",
-        "Talrop developer insights",
+        "ERP developer insights",
         "Tegain developer articles",
         "Ribos development",
         "PostgreSQL tutorials",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         siteName: "Abhijith P A — AlgoBiz",
         title: "Blog — Abhijith P A | React, Next.js, Django & AI Development Articles",
         description:
-            "React, Next.js, Django, AI & ERP articles. Lessons from building production software at Talrop, Tegain & Ribos. By Abhijith P A (AlgoBiz).",
+            "React, Next.js, Django, AI & ERP articles. Lessons from building production software at Tegain & Ribos. By Abhijith P A (AlgoBiz).",
         images: [
             {
                 url: "/og-image.jpg",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         creator: "@abhijith",
         title: "Blog — Abhijith P A | React, Django & AI Development | AlgoBiz",
         description:
-            "Articles on React, Next.js, Django, AI automation & ERP. Insights from Talrop, Tegain & Ribos. By Abhijith P A.",
+            "Articles on React, Next.js, Django, AI automation & ERP. Insights from Tegain & Ribos. By Abhijith P A.",
         images: ["/og-image.jpg"],
     },
     robots: {
@@ -161,8 +161,8 @@ export default function BlogPage() {
                             <span className="block ghost-text">INSIGHTS.</span>
                         </h1>
                         <p className="text-sm leading-relaxed text-ink/65 sm:text-base md:text-right lg:text-lg">
-                            Lessons from building production software at Talrop,
-                            Tegain, and Ribos. React, Next.js, Django, AI
+                            Lessons from building production software at Tegain and
+                            Ribos. React, Next.js, Django, AI
                             automation, ERP systems, and everything in between.
                         </p>
                     </div>

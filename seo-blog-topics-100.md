@@ -189,7 +189,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: Why is it called a "discriminated" union?
   - **A**: Because the type has a common literal property (the discriminant) that TypeScript uses to narrow down the specific type block inside conditional logic.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Enhance your code quality and reliability. Engage Abi Solutions for senior software review.
 
 ### Topic 13: Type-Safe API Fetching: Integrating Zod with TypeScript and Next.js
@@ -477,7 +477,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: Where should I store the JWT on the client side?
   - **A**: It is safest to store JWTs in an `httpOnly`, `secure`, and `sameSite=Strict` cookie to prevent Cross-Site Scripting (XSS) attacks.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Hire Abi Solutions to configure secure API architectures for your web and mobile applications.
 
 ### Topic 33: How Abi Solutions Designs Custom Django Middlewares for SaaS APIs
@@ -663,7 +663,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: What is the most immediate way to cut AWS development environments cost?
   - **A**: Schedule non-production instances to turn off automatically outside working hours, and terminate orphan EBS volumes.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Get an expert audit of your cloud bills. Contract AWS optimizer Abi Solutions.
 
 ### Topic 46: Infrastructure as Code (IaC): Introduction to AWS CDK with TypeScript
@@ -807,7 +807,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: What is the main difference between Blue-Green and Canary releases?
   - **A**: Blue-Green spins up a complete new parallel environment before routing all traffic instantly. Canary routes a small slice of users to the new build incrementally.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Keep your systems online 100% of the time. Partner with DevOps specialists at Abi Solutions.
 
 ### Topic 56: Understanding Docker Networking: Bridge, Host, Overlay, and Custom Networks
@@ -937,7 +937,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: When should I choose Micro-Frontends?
   - **A**: Choose micro-frontends in massive organizations where multiple decoupled product teams must build, deploy, and scale their page segments independently.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Build scalable digital products. Contact micro-frontend engineering experts at Abi Solutions.
 
 ### Topic 65: Component API Design: Writing Extensible and Maintainable React Components
@@ -1053,7 +1053,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: When should I use gRPC?
   - **A**: gRPC is ideal for high-performance, low-latency communication between internal microservices due to its binary Protocol Buffers format.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Choose the correct API structure for your platforms. Hire integrations expert Abi Solutions.
 
 ### Topic 73: Implementing API Rate Limiting: Protecting Servers from Abuse
@@ -1197,7 +1197,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: When should I use `ssr: false` in dynamic imports?
   - **A**: Use `ssr: false` when importing libraries that require browser-only globals (like `window` or `document`), preventing server rendering failures.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Speed up mobile page load times. Consult performance developers at Abi Solutions.
 
 ### Topic 83: Modern Image Optimization: Next.js Image Component vs. Standard HTML Img
@@ -1341,7 +1341,7 @@ This document contains 100 high-quality, strategically curated SEO blog topics d
 - **FAQ**:
   - **Q**: Where does JSON-LD script live on a webpage?
   - **A**: It can be safely placed anywhere in the page body or head inside a `<script type="application/ld+json">` tag.
-- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/talrop-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/talrop-erp/page.tsx)
+- **Internal Links**: [/services](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/services/page.tsx), [/projects/enterprise-erp](file:///Users/abi/Documents/Me/Dev/nextJS-Portfolio/app/projects/enterprise-erp/page.tsx)
 - **CTA**: Enhance your name brand visibility on Google. Setup dynamic JSON-LD schemas with Abi Solutions.
 
 ### Topic 93: Build your own AI Agent: Integrating OpenAI API with Python Django

@@ -6,7 +6,7 @@ import { ExperienceSection } from "../../components/ExperienceSection";
 export const metadata: Metadata = {
     title: "About Abhijith P A — Full Stack Developer & AI Engineer | Founder of AlgoBiz",
     description:
-        "Abhijith P A is a Full Stack Developer & AI Engineer from Wayanad, Kerala. Founder of AlgoBiz. 4+ years building React, Next.js, Django & AI products. Ex-Talrop, Tegain, Ribos. Specializing in ERP, SaaS, HRMS & AI automation.",
+        "Abhijith P A is a Full Stack Developer & AI Engineer from Wayanad, Kerala. Founder of AlgoBiz. 4+ years building React, Next.js, Django & AI products. ex-Tegain, Ribos. Specializing in ERP, SaaS, HRMS & AI automation.",
     keywords: [
         "About Abhijith P A",
         "Abhijith PA",
@@ -25,11 +25,8 @@ export const metadata: Metadata = {
         "AlgoBiz LLP",
         "AlgoBiz Technologies",
         "AlgoBiz founder",
-        "Talrop",
-        "Abhijith Talrop",
-        "Talrop Developer",
-        "Talrop Alumni",
-        "Talrop Full Stack Developer",
+        "React Developer Kerala",
+        "Next.js Developer Kerala",
         "Tegain",
         "Abhijith Tegain",
         "Tegain Developer",
@@ -59,7 +56,7 @@ export const metadata: Metadata = {
         siteName: "Abhijith P A — AlgoBiz",
         title: "About Abhijith P A — Full Stack Developer & AI Engineer | AlgoBiz Founder",
         description:
-            "4+ years shipping production web apps & AI products. Founder of AlgoBiz. Ex-Talrop, Tegain & Ribos. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
+            "4+ years shipping production web apps & AI products. Founder of AlgoBiz. ex-Tegain & Ribos. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
         images: [
             {
                 url: "/profile.jpg",
@@ -78,7 +75,7 @@ export const metadata: Metadata = {
         creator: "@abhijith",
         title: "About Abhijith P A — AlgoBiz Founder | Full Stack Developer & AI Engineer",
         description:
-            "Full Stack Developer & AI Engineer. Founder of AlgoBiz. 4+ years at Talrop, Tegain & Ribos. Building ERP, SaaS & AI products from Kerala.",
+            "Full Stack Developer & AI Engineer. Founder of AlgoBiz. 4+ years at Tegain & Ribos. Building ERP, SaaS & AI products from Kerala.",
         images: ["/profile.jpg"],
     },
     robots: {
@@ -100,7 +97,7 @@ const jsonLd = [
         "@type": "AboutPage",
         name: "About Abhijith P A — Full Stack Developer & AI Engineer",
         description:
-            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of AlgoBiz. Previously worked at Talrop, Tegain, Ribos, and Steyp. Specializing in React, Next.js, Django, Python, AWS, ERP development, SaaS products, and AI automation.",
+            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of AlgoBiz. Previously worked at Software Solutions Firm, Tegain, Ribos, and Steyp. Specializing in React, Next.js, Django, Python, AWS, ERP development, SaaS products, and AI automation.",
         url: "https://abisolutions.online/about",
         mainEntity: {
             "@type": "Person",
@@ -114,7 +111,7 @@ const jsonLd = [
                 "Abhijith Developer",
                 "Abhijith Software Engineer",
                 "Abhijith Full Stack Developer",
-                "Abhijith Talrop",
+                "Abhijith Software Solutions Firm",
                 "Abhijith Tegain",
                 "Abhijith Kerala",
                 "Abhijith Wayanad",
@@ -151,8 +148,8 @@ const jsonLd = [
             alumniOf: [
                 {
                     "@type": "Organization",
-                    name: "Talrop",
-                    url: "https://talrop.com",
+                    name: "Software Solutions Firm",
+                    url: "https://Software Solutions Firm.com",
                     description:
                         "Technology learning and product company. Abhijith worked as Full Stack Developer building ERP and web applications.",
                 },

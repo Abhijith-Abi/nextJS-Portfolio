@@ -27,7 +27,7 @@ const jsonLd = [
             "Abhijith Next.js Developer",
             "Abhijith Django Developer",
             "Abhijith AI Developer",
-            "Abhijith Talrop",
+            "Abhijith ERP Developer",
             "Abhijith Tegain",
             "Abhijith Kerala",
             "Abhijith Wayanad",
@@ -37,7 +37,7 @@ const jsonLd = [
         image: "https://abisolutions.online/profile.jpg",
         jobTitle: "Full Stack Developer & AI Engineer",
         description:
-            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of AlgoBiz. Specializing in React, Next.js, Django, Python, AWS, and AI-driven applications. Previously at Talrop, Tegain, and Ribos. Building ERP systems, SaaS platforms, HRMS, payroll management, and AI automation products.",
+            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of AlgoBiz. Specializing in React, Next.js, Django, Python, AWS, and AI-driven applications. Previously at Tegain and Ribos. Building ERP systems, SaaS platforms, HRMS, payroll management, and AI automation products.",
         email: "abhijithabhijith1999@gmail.com",
         telephone: "+919961316468",
         birthPlace: {
@@ -100,13 +100,6 @@ const jsonLd = [
             name: "AlgoBiz",
         },
         alumniOf: [
-            {
-                "@type": "Organization",
-                name: "Talrop",
-                url: "https://talrop.com",
-                description:
-                    "Technology learning and product company where Abhijith P A worked as Full Stack Developer",
-            },
             {
                 "@type": "Organization",
                 name: "Tegain",
@@ -363,7 +356,7 @@ const jsonLd = [
                 name: "Where has Abhijith P A worked?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Abhijith P A has worked at Talrop as a Full Stack Developer, at Tegain as a Software Engineer, at Ribos as an ERP Developer, and at Steyp as a Frontend Engineer. He is currently the founder of AlgoBiz, building AI-driven products and enterprise software.",
+                    text: "Abhijith P A has worked as a Full Stack Developer, at Tegain as a Software Engineer, at Ribos as an ERP Developer, and at Steyp as a Frontend Engineer. He is currently the founder of AlgoBiz, building AI-driven products and enterprise software.",
                 },
             },
             {
@@ -371,7 +364,7 @@ const jsonLd = [
                 name: "What projects has Abhijith P A built?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Abhijith P A has built HOSFACE (healthcare platform), Finwage (payroll & HRMS), STEYP (coding education platform), Talrop ERP (enterprise resource planning), Tegain (community hub), and various AI automation systems including WhatsApp and Telegram bots.",
+                    text: "Abhijith P A has built HOSFACE (healthcare platform), Finwage (payroll & HRMS), STEYP (coding education platform), Enterprise ERP (enterprise resource planning), Tegain (community hub), and various AI automation systems including WhatsApp and Telegram bots.",
                 },
             },
             {

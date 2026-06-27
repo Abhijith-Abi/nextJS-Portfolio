@@ -98,12 +98,12 @@ const experiences: Experience[] = [
         featured: true,
     },
     {
-        company: "Talrop",
+        company: "Software Solutions Firm",
         title: "UI Engineer · Level 2",
         timeframe: "May 2025 – Dec 2025",
         type: "Full-time",
         description:
-            "Owned UI work across product surfaces — refactored shared components, tightened performance, and mentored on Next.js patterns inside the Talrop product suite.",
+            "Owned UI work across product surfaces — refactored shared components, tightened performance, and mentored on Next.js patterns inside the modular enterprise product suite.",
         span: "lg:col-span-2",
     },
     {
@@ -112,7 +112,7 @@ const experiences: Experience[] = [
         timeframe: "Oct 2022 –  Apr 2025",
         type: "Full-time",
         description:
-            "Led frontend builds across multiple products including Hosface, Tegain, and the Talrop ERP. Set up component conventions used across the team.",
+            "Led frontend builds across multiple products including Hosface, Tegain, and the Enterprise ERP. Set up component conventions used across the team.",
         span: "lg:col-span-2",
     },
     {

@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         // ─── Individual Project Pages ───
         {
-            url: `${baseUrl}/projects/talrop-erp`,
+            url: `${baseUrl}/projects/enterprise-erp`,
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.85,

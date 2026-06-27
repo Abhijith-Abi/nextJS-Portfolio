@@ -5,7 +5,7 @@ import { SectionWrapper } from "../../components/SectionWrapper";
 export const metadata: Metadata = {
     title: "Resume — Abhijith P A | Full Stack Developer Kerala",
     description:
-        "Resume of Abhijith P A (Abi Solutions). Full Stack Developer with 4+ years at Algobiz, Talrop & Steyp. React, Next.js, Django, AWS, TypeScript. Available for hire from Kerala, India.",
+        "Resume of Abhijith P A (Abi Solutions). Full Stack Developer with 4+ years at Algobiz & Steyp. React, Next.js, Django, AWS, TypeScript. Available for hire from Kerala, India.",
     keywords: [
         "Abhijith P A resume",
         "Abhijith PA CV",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         "Django Developer resume",
         "AWS Developer CV",
         "Algobiz developer resume",
-        "Talrop developer CV",
+        "senior developer CV",
         "Steyp developer resume",
         "Frontend Engineer resume India",
         "Hire Abhijith P A",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         siteName: "Abi Solutions",
         title: "Resume — Abhijith P A | Full Stack Developer",
         description:
-            "4+ years at Algobiz, Talrop & Steyp. React, Next.js, Django, AWS specialist from Kerala.",
+            "4+ years at Algobiz & Steyp. React, Next.js, Django, AWS specialist from Kerala.",
         images: [
             {
                 url: "/og-image.jpg",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Resume — Abhijith P A | Full Stack Developer",
         description:
-            "React, Next.js, Django, AWS. 4+ years at Algobiz, Talrop & Steyp. Kerala, India.",
+            "React, Next.js, Django, AWS. 4+ years at Algobiz & Steyp. Kerala, India.",
         images: ["/og-image.jpg"],
         creator: "@abhijith",
     },
@@ -76,7 +76,7 @@ const jsonLd = {
     jobTitle: "Full Stack Developer",
     worksFor: { "@type": "Organization", name: "Algobiz" },
     alumniOf: [
-        { "@type": "Organization", name: "Talrop" },
+        { "@type": "Organization", name: "Software Solutions Firm" },
         { "@type": "Organization", name: "Steyp" },
     ],
     knowsAbout: [
@@ -179,7 +179,7 @@ export default function ResumePage() {
                                 TypeScript, Django, and AWS. Passionate about
                                 motion-rich interfaces, scalable architecture,
                                 and developer experience. Currently Frontend
-                                Engineer at Algobiz, formerly at Talrop and
+                                Engineer at Algobiz, formerly at Software Solutions Firm and
                                 Steyp.
                             </p>
                         </section>
@@ -228,7 +228,7 @@ export default function ResumePage() {
                                         </span>
                                     </div>
                                     <p className="mt-1 font-medium text-ink/80">
-                                        Talrop
+                                        Software Solutions Firm
                                     </p>
                                     <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/70">
                                         <li>
@@ -237,7 +237,7 @@ export default function ResumePage() {
                                         </li>
                                         <li>
                                             • Mentored on Next.js patterns
-                                            inside the Talrop product suite
+                                            inside the modular enterprise product suite
                                         </li>
                                         <li>
                                             • Tightened performance and
@@ -262,7 +262,7 @@ export default function ResumePage() {
                                     <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/70">
                                         <li>
                                             • Led frontend builds for Hosface,
-                                            Tegain, Talrop ERP, and Somans
+                                            Tegain, Enterprise ERP, and Somans
                                         </li>
                                         <li>
                                             • Set up component conventions
@@ -369,9 +369,9 @@ export default function ResumePage() {
                             <div className="space-y-4">
                                 {[
                                     {
-                                        name: "Talrop ERP",
+                                        name: "Enterprise ERP",
                                         desc: "Enterprise resource planning — inventory, finance, HR",
-                                        url: "https://erp.talrop.com/",
+                                        url: "https://erp.Software Solutions Firm.com/",
                                     },
                                     {
                                         name: "Hosface",

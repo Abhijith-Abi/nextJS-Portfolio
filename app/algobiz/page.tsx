@@ -259,7 +259,7 @@ export default function AlgoBizPage() {
                         </h2>
                         <div className="mt-5 space-y-3 text-base text-ink/75">
                             <p>
-                                <strong>Talrop ERP</strong> — Enterprise resource
+                                <strong>Enterprise ERP</strong> — Enterprise resource
                                 planning covering inventory, finance & HR.
                             </p>
                             <p>

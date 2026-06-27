@@ -20,68 +20,115 @@ export type BlogSection = {
 
 export const blogPosts: BlogPost[] = [
     {
-        slug: "how-i-built-talrop-erp-with-nextjs",
-        title: "How I Built Talrop ERP with Next.js & TypeScript",
+        slug: "how-i-built-a-modern-enterprise-erp-with-nextjs",
+        title: "How I Built a Modern Enterprise ERP with Next.js & TypeScript",
         description:
-            "A deep dive into building the Talrop ERP frontend with Next.js, TypeScript, Zustand & Recharts. Architecture decisions, state management, and performance optimization.",
+            "A complete technical guide to building a scalable, high-performance modular ERP with Next.js App Router, Zustand, and TypeScript, including optimal folder structures, TanStack Query API integration, Shadcn UI components, Framer Motion layouts, and advanced SEO setups.",
         date: "2026-06-20",
-        readTime: "8 min read",
-        tags: ["Next.js", "TypeScript", "ERP", "Zustand", "Recharts"],
+        readTime: "15 min read",
+        tags: ["Next.js", "TypeScript", "ERP", "Zustand", "TanStack Query", "Shadcn UI", "Framer Motion", "SEO"],
         keywords: [
-            "Talrop ERP",
-            "Next.js ERP",
-            "Build ERP with React",
-            "TypeScript ERP development",
-            "Enterprise React application",
+            "Modern ERP Next.js",
+            "Next.js ERP folder structure",
+            "TanStack Query React ERP integration",
+            "Shadcn UI Radix components",
+            "Framer Motion dashboard animations",
+            "TypeScript React ERP development",
+            "Enterprise React application architecture",
+            "Abi Solutions consulting",
         ],
         content: [
             {
                 type: "paragraph",
-                content:
-                    "Building an enterprise resource planning system with 15+ modules taught me more about React architecture than any tutorial ever could. Here's what I learned.",
+                content: "Building an enterprise resource planning (ERP) system with 15+ modules (including Inventory, HR, and Payroll) taught me more about React architecture than any tutorial ever could. Here is a breakdown of how we built a modern ERP system using Next.js and TypeScript, detailing directory patterns, query caching, component layouts, image optimizations, and SEO parameters.",
             },
-            { type: "heading", content: "The Challenge" },
             {
-                type: "paragraph",
-                content:
-                    "Talrop needed an ERP that unified inventory management, financial tracking, and HR operations into a single platform. The frontend had to handle complex data relationships, real-time updates, and granular role-based permissions — all while remaining fast and maintainable.",
-            },
-            { type: "heading", content: "Architecture Decisions" },
-            {
-                type: "paragraph",
-                content:
-                    "I chose Next.js for its hybrid rendering model. Some pages need SSR for SEO (public-facing), while internal dashboards use client-side rendering for interactivity.",
+                type: "heading",
+                content: "Modular Folder Structure",
             },
             {
                 type: "paragraph",
-                content:
-                    "TypeScript was non-negotiable for an ERP. With 15+ modules sharing data types, strict typing caught countless bugs before they reached production.",
+                content: "Managing a multi-module enterprise project requires strict directory organization. We adopt a feature-driven App Router structure where each ERP module (e.g., Inventory, Payroll) is contained in its own folder with its specific layout, page components, and store slices, while sharing base UI components.",
+            },
+            {
+                type: "code",
+                language: "text",
+                content: "next-erp-app/\n├── app/\n│   ├── layout.tsx         # Root layout with metadata and analytics\n│   ├── page.tsx           # Primary dashboard entrance\n│   ├── inventory/         # Inventory Management Module\n│   │   ├── layout.tsx     # Module-specific sidebar and locks\n│   │   └── page.tsx       # Inventory tables and controls\n│   ├── hr/                # Human Resources Module\n│   │   ├── layout.tsx     # HR layout\n│   │   └── page.tsx       # Attendance and employee lists\n│   └── payroll/           # Payroll & Invoicing Module\n│       ├── layout.tsx     # Financial locks\n│       └── page.tsx       # Salary sheets and runs\n├── components/\n│   ├── ui/                # Shared atomic components (Button, Input, Dropdown)\n│   └── common/            # Shared complex components (Sidebar, Topbar)\n├── lib/                   # Shared API helpers and utility libraries\n│   ├── client.ts          # Axios / Fetch client configuration\n│   └── utils.ts           # Helper utilities (date formats, currency calculations)\n└── store/                 # Global state management\n    ├── useAuthStore.ts    # Session and user permissions store\n    └── useNotifyStore.ts  # System toast and banners store",
+            },
+            {
+                type: "heading",
+                content: "State Management with Zustand Slices",
             },
             {
                 type: "paragraph",
-                content:
-                    "Zustand over Redux was a deliberate choice. ERP modules are mostly independent — each manages its own state slice. Zustand's minimal API made it faster to develop.",
+                content: "Rather than using a single monolithic Redux store that triggers global re-renders, we use Zustand. Each ERP module maintains its own lightweight, independent store slice. This isolates state updates, improves rendering speed on complex tables, and keeps the code clean.",
             },
-            { type: "heading", content: "Performance at Scale" },
+            {
+                type: "heading",
+                content: "API Connection with TanStack Query",
+            },
+            {
+                type: "paragraph",
+                content: "An ERP relies on real-time data fetching, background synchronization, and cache management to prevent unnecessary database queries. We use @tanstack/react-query to manage the client server cache, query invalidations, and optimistic updates.",
+            },
+            {
+                type: "code",
+                language: "tsx",
+                content: "import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';\nimport axios from 'axios';\n\ninterface InventoryItem {\n  id: string;\n  name: string;\n  stockCount: number;\n  price: number;\n}\n\n// Custom hook to fetch products\nexport function useInventoryItems() {\n  return useQuery<InventoryItem[]>({\n    queryKey: ['inventory', 'items'],\n    queryFn: async () => {\n      const { data } = await axios.get('/api/inventory/items');\n      return data;\n    },\n    staleTime: 1000 * 60 * 5, // Cache values for 5 minutes before refetching\n  });\n}",
+            },
+            {
+                type: "heading",
+                content: "Interactive UI: Shadcn UI & Framer Motion",
+            },
+            {
+                type: "paragraph",
+                content: "To build a premium, keyboard-accessible, and animated interface rapidly, we combine Shadcn UI (accessible headless primitives styled with Tailwind CSS) with Framer Motion. This combination handles modal dialogs, slide-overs, and popups cleanly with responsive easing configurations.",
+            },
+            {
+                type: "code",
+                language: "tsx",
+                content: "import { motion, AnimatePresence } from 'framer-motion';\nimport { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';\n\ninterface ERPModalProps {\n  isOpen: boolean;\n  onClose: () => void;\n  title: string;\n  children: React.ReactNode;\n}\n\nexport function ERPModal({ isOpen, onClose, title, children }: ERPModalProps) {\n  return (\n    <AnimatePresence>\n      {isOpen && (\n        <Dialog open={isOpen} onOpenChange={onClose}>\n          <DialogContent className=\"overflow-hidden\">\n            <motion.div\n              initial={{ opacity: 0, y: 15 }}\n              animate={{ opacity: 1, y: 0 }}\n              exit={{ opacity: 0, y: -15 }}\n              transition={{ duration: 0.2, ease: 'easeOut' }}\n            >\n              <DialogHeader>\n                <DialogTitle>{title}</DialogTitle>\n              </DialogHeader>\n              <div className=\"mt-4\">{children}</div>\n            </motion.div>\n          </DialogContent>\n        </Dialog>\n      )}\n    </AnimatePresence>\n  );\n}",
+            },
+            {
+                type: "heading",
+                content: "Image Optimization & Core Web Vitals",
+            },
+            {
+                type: "paragraph",
+                content: "ERP applications process large volumes of user data and media (employee headshots, receipts, document thumbnails). To keep Core Web Vitals high (maintaining 95+ performance score), we leverage Next.js's native <Image /> component. This automatically serves WebP/AVIF compressed files, enforces lazy loading, and prevents layout shifts (CLS) by requiring explicit aspect ratios.",
+            },
+            {
+                type: "code",
+                language: "tsx",
+                content: "import Image from 'next/image';\n\nexport function EmployeeAvatar({ src, name }) {\n  return (\n    <div className=\"relative h-12 w-12 overflow-hidden rounded-full border border-line\">\n      <Image\n        src={src || '/photos/abhi.jpg'}\n        alt={`${name} - Profile Image`}\n        fill\n        sizes=\"48px\"\n        className=\"object-cover\"\n        loading=\"lazy\"\n      />\n    </div>\n  );\n}",
+            },
+            {
+                type: "heading",
+                content: "Advanced SEO & Structured Metadata",
+            },
+            {
+                type: "paragraph",
+                content: "Even internal dashboards require solid SEO setups for public entryways, landing sheets, and documentation guides. We implement dynamic page metadata configurations, structured Person and Organization JSON-LD schemas, and a sitemap generator that registers all modules and blogs dynamically.",
+            },
+            {
+                type: "code",
+                language: "typescript",
+                content: "import type { Metadata } from 'next';\n\nexport const metadata: Metadata = {\n  title: 'Enterprise ERP - High Performance Dashboards',\n  description: 'A modular, high-fidelity ERP workspace designed by Abi Solutions.',\n  openGraph: {\n    title: 'Enterprise ERP Portfolio',\n    images: [{ url: '/photos/abhijith-1.jpg' }],\n  }\n};",
+            },
+            {
+                type: "heading",
+                content: "Verification & Takeaways",
+            },
             {
                 type: "list",
-                content: "We solved performance issues with:",
+                content: "To build enterprise software that is fast, maintainable, and search-engine friendly:",
                 items: [
-                    "Data windowing — only render visible chart segments",
-                    "Memoization of computed values with useMemo",
-                    "Lazy loading of module bundles with dynamic imports",
-                    "API response caching with stale-while-revalidate",
-                ],
-            },
-            { type: "heading", content: "Key Takeaways" },
-            {
-                type: "list",
-                content: "",
-                items: [
-                    "TypeScript pays for itself in enterprise apps",
-                    "Zustand scales beautifully for modular architectures",
-                    "Design systems are mandatory for multi-module products",
-                    "Performance optimization should be built in from day one",
+                    "Isolate features in directory groupings to keep the code modular.",
+                    "Manage state slice mutations cleanly using Zustand.",
+                    "Optimize heavy API dependencies using TanStack Query for cache invalidation.",
+                    "Design premium, accessible layouts combining Shadcn UI with Framer Motion.",
+                    "Enforce strict TypeScript types to prevent runtime errors.",
+                    "Optimize images using next/image with WebP formats and proper sizes.",
                 ],
             },
         ],
@@ -164,7 +211,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 content:
-                    "I've used both extensively — Redux at Steyp, Zustand at Talrop. Here's when each makes sense and why I switched.",
+                    "I've used both extensively — Redux at Steyp, Zustand at Software Solutions Firm. Here's when each makes sense and why I switched.",
             },
             { type: "heading", content: "When to Use Redux" },
             {
@@ -381,7 +428,7 @@ export const blogPosts: BlogPost[] = [
         slug: "react-best-practices-2026",
         title: "React.js Best Practices in 2026 — Architecture, Performance & Patterns",
         description:
-            "A comprehensive guide to React.js best practices in 2026 covering component architecture, performance optimization, state management, TypeScript patterns, and production-ready code from real projects at AlgoBiz, Talrop & Tegain.",
+            "A comprehensive guide to React.js best practices in 2026 covering component architecture, performance optimization, state management, TypeScript patterns, and production-ready code from real projects at AlgoBiz, Software Solutions Firm & Tegain.",
         date: "2026-06-24",
         readTime: "12 min read",
         tags: [
@@ -407,7 +454,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 content:
-                    "After 4+ years of shipping React applications at AlgoBiz, Talrop, Steyp, and Tegain, I've developed strong opinions on what actually matters in production React codebases. This isn't a beginner guide — it's the patterns and practices that have saved me from bugs, performance issues, and maintenance nightmares across 20+ production builds.",
+                    "After 4+ years of shipping React applications at Algobiz, Steyp, and Tegain, I've developed strong opinions on what actually matters in production React codebases. This isn't a beginner guide — it's the patterns and practices that have saved me from bugs, performance issues, and maintenance nightmares across 20+ production builds.",
             },
             {
                 type: "heading",
@@ -416,7 +463,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 content:
-                    "The single biggest mistake I see in React projects is treating components as page-level monoliths. Every component should have a single responsibility. I structure projects into three layers: UI primitives (buttons, inputs, cards), composed components (forms, data tables, modals), and feature modules (complete business logic units). This pattern scaled beautifully across the Talrop ERP with its 15+ modules.",
+                    "The single biggest mistake I see in React projects is treating components as page-level monoliths. Every component should have a single responsibility. I structure projects into three layers: UI primitives (buttons, inputs, cards), composed components (forms, data tables, modals), and feature modules (complete business logic units). This pattern scaled beautifully across the Enterprise ERP with its 15+ modules.",
             },
             {
                 type: "code",
@@ -446,7 +493,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 content:
-                    "Redux is overkill for 90% of applications in 2026. Here's my decision tree: Local UI state → useState. Shared component state → Context or Zustand. Server state → TanStack Query (React Query). Global app state → Zustand with slices. At Talrop ERP, each module manages its own Zustand store independently. No god-store, no prop drilling across modules.",
+                    "Redux is overkill for 90% of applications in 2026. Here's my decision tree: Local UI state → useState. Shared component state → Context or Zustand. Server state → TanStack Query (React Query). Global app state → Zustand with slices. At Enterprise ERP, each module manages its own Zustand store independently. No god-store, no prop drilling across modules.",
             },
             {
                 type: "heading",
@@ -478,7 +525,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 content:
-                    "Every production app needs error boundaries at the feature level. If the inventory module crashes, the HR module should still work. We wrap each major feature in an ErrorBoundary with a fallback UI and error reporting. This pattern saved us multiple times during the Talrop ERP rollout.",
+                    "Every production app needs error boundaries at the feature level. If the inventory module crashes, the HR module should still work. We wrap each major feature in an ErrorBoundary with a fallback UI and error reporting. This pattern saved us multiple times during the Enterprise ERP rollout.",
             },
             { type: "heading", content: "7. Testing Strategy" },
             {

@@ -3,9 +3,9 @@ import { Navbar } from "../../components/Navbar";
 import { ProjectsSection } from "../../components/ProjectsSection";
 
 export const metadata: Metadata = {
-    title: "Projects — HOSFACE, Finwage, STEYP, Talrop ERP | Abhijith P A & AlgoBiz",
+    title: "Projects — HOSFACE, Finwage, STEYP, Enterprise ERP | Abhijith P A & AlgoBiz",
     description:
-        "Production web applications built by Abhijith P A (AlgoBiz): HOSFACE healthcare platform, Finwage payroll & HRMS, STEYP coding platform, Talrop ERP, Tegain community hub. Built with React, Next.js, Django, TypeScript & AWS.",
+        "Production web applications built by Abhijith P A (AlgoBiz): HOSFACE healthcare platform, Finwage payroll & HRMS, STEYP coding platform, Enterprise ERP, Tegain community hub. Built with React, Next.js, Django, TypeScript & AWS.",
     keywords: [
         "Abhijith P A projects",
         "AlgoBiz projects",
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
         "STEYP",
         "STEYP platform",
         "STEYP developer",
-        "Talrop ERP",
-        "Talrop ERP developer",
+        "Enterprise ERP",
+        "Enterprise ERP developer",
         "ERP System",
         "Payroll Management System",
         "HRMS System",
@@ -50,15 +50,15 @@ export const metadata: Metadata = {
         locale: "en_US",
         url: "https://abisolutions.online/projects",
         siteName: "Abhijith P A — AlgoBiz",
-        title: "Projects by Abhijith P A | HOSFACE, Finwage, STEYP, Talrop ERP | AlgoBiz",
+        title: "Projects by Abhijith P A | HOSFACE, Finwage, STEYP, Enterprise ERP | AlgoBiz",
         description:
-            "Live production apps: HOSFACE, Finwage HRMS, STEYP, Talrop ERP, Tegain. ERP, SaaS, AI automation & web applications built with React, Next.js & Django.",
+            "Live production apps: HOSFACE, Finwage HRMS, STEYP, Enterprise ERP, Tegain. ERP, SaaS, AI automation & web applications built with React, Next.js & Django.",
         images: [
             {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Projects by Abhijith P A — HOSFACE, Finwage, STEYP, Talrop ERP | AlgoBiz",
+                alt: "Projects by Abhijith P A — HOSFACE, Finwage, STEYP, Enterprise ERP | AlgoBiz",
                 type: "image/jpeg",
             },
         ],
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@abhijith",
         creator: "@abhijith",
-        title: "Projects — Abhijith P A | HOSFACE, Finwage, STEYP, Talrop ERP",
+        title: "Projects — Abhijith P A | HOSFACE, Finwage, STEYP, Enterprise ERP",
         description:
-            "Production apps with real users: HOSFACE, Finwage, STEYP, Talrop ERP. Built with React, Next.js & Django by AlgoBiz.",
+            "Production apps with real users: HOSFACE, Finwage, STEYP, Enterprise ERP. Built with React, Next.js & Django by AlgoBiz.",
         images: ["/og-image.jpg"],
     },
     robots: {
@@ -169,10 +169,10 @@ const jsonLd = [
                     position: 4,
                     item: {
                         "@type": "WebApplication",
-                        name: "Talrop ERP",
+                        name: "Enterprise ERP",
                         description:
                             "Enterprise resource planning platform covering inventory management, finance, HR, real-time analytics, and granular role-based permissions. Built with Next.js, TypeScript, Zustand & Recharts.",
-                        url: "https://erp.talrop.com/",
+                        url: "https://erp.Software Solutions Firm.com/",
                         applicationCategory: "BusinessApplication",
                         operatingSystem: "Web",
                         creator: {

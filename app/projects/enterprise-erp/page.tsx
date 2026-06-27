@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../../components/Navbar";
 import { SectionWrapper } from "../../../components/SectionWrapper";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Talrop ERP — Enterprise Resource Planning | Abhijith P A",
+    title: "Enterprise ERP — Enterprise Resource Planning | Abhijith P A",
     description:
-        "Talrop ERP: A full-featured enterprise resource planning platform built by Abhijith P A. Covers inventory, finance, HR with real-time insights. Built with Next.js, TypeScript, Tailwind & Zustand.",
+        "Enterprise ERP: A full-featured enterprise resource planning platform built by Abhijith P A. Covers inventory, finance, HR with real-time insights. Built with Next.js, TypeScript, Tailwind & Zustand.",
     keywords: [
-        "Talrop ERP",
-        "Talrop ERP developer",
-        "Abhijith P A Talrop",
+        "Enterprise ERP",
+        "Enterprise ERP developer",
+        "Abhijith P A ERP",
         "ERP platform Next.js",
         "Enterprise resource planning React",
-        "Talrop developer",
         "ERP Developer India",
         "Next.js ERP system",
         "Inventory management system",
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     alternates: {
-        canonical: "https://abisolutions.online/projects/talrop-erp",
+        canonical: "https://abisolutions.online/projects/enterprise-erp",
     },
     openGraph: {
         type: "article",
         locale: "en_US",
-        url: "https://abisolutions.online/projects/talrop-erp",
+        url: "https://abisolutions.online/projects/enterprise-erp",
         siteName: "Abi Solutions",
-        title: "Talrop ERP — Built by Abhijith P A | Next.js, TypeScript",
+        title: "Enterprise ERP — Built by Abhijith P A | Next.js, TypeScript",
         description:
             "Enterprise resource planning platform with inventory, finance & HR modules. Real-time insights and granular permissions.",
         images: [
@@ -39,14 +39,14 @@ export const metadata: Metadata = {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Talrop ERP — Enterprise Resource Planning by Abhijith P A",
+                alt: "Enterprise ERP — Enterprise Resource Planning by Abhijith P A",
                 type: "image/jpeg",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Talrop ERP — Abhijith P A",
+        title: "Enterprise ERP — Abhijith P A",
         description:
             "Full-featured ERP with inventory, finance & HR. Built with Next.js, TypeScript & Zustand.",
         images: ["/og-image.jpg"],
@@ -68,10 +68,10 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Talrop ERP",
+    name: "Enterprise ERP",
     description:
         "Enterprise resource planning platform covering inventory, finance, and HR with real-time insights, granular permissions, and a unified design language.",
-    url: "https://erp.talrop.com/",
+    url: "https://abisolutions.online/projects/enterprise-erp",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     creator: {
@@ -86,7 +86,7 @@ const jsonLd = {
     },
 };
 
-export default function TalropErpPage() {
+export default function EnterpriseErpPage() {
     return (
         <main className="relative min-h-screen">
             <script
@@ -95,7 +95,7 @@ export default function TalropErpPage() {
             />
             <Navbar />
             <div className="pt-24">
-                <SectionWrapper id="talrop-erp" index="01" label="Project">
+                <SectionWrapper id="enterprise-erp" index="01" label="Project">
                     <article className="mx-auto max-w-4xl">
                         {/* Header */}
                         <div className="mb-12">
@@ -103,21 +103,19 @@ export default function TalropErpPage() {
                                 Featured Project · 2025
                             </p>
                             <h1 className="mt-4 font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
-                                Talrop ERP
+                                Enterprise ERP
                             </h1>
                             <p className="mt-4 text-lg leading-relaxed text-ink/70 lg:text-xl">
                                 A full-featured enterprise resource planning
                                 platform covering inventory, finance, and HR —
-                                built for the Talrop product ecosystem.
+                                built for a modular enterprise product ecosystem.
                             </p>
-                            <a
-                                href="https://erp.talrop.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <Link
+                                href="/projects"
                                 className="mt-6 inline-flex items-center gap-2 font-mono text-sm text-accent transition hover:underline"
                             >
-                                Visit Live Site →
-                            </a>
+                                ← Back to Projects
+                            </Link>
                         </div>
 
                         {/* Tech Stack */}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BlogPost, BlogSection } from "../lib/blog";
 import { SectionWrapper } from "./SectionWrapper";
 import { FadeIn } from "./motion/RevealText";
+import { motion } from "framer-motion";
 
 function RenderSection({ section }: { section: BlogSection }) {
     switch (section.type) {
@@ -128,7 +129,11 @@ export function BlogPostView({ post }: { post: BlogPost }) {
     return (
         <SectionWrapper id="blog-post" index="01" label="Blog">
             <article className="mx-auto max-w-3xl">
-                <FadeIn>
+                <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                >
                     {/* Back Button */}
                     <Link
                         href="/blog"
@@ -193,15 +198,19 @@ export function BlogPostView({ post }: { post: BlogPost }) {
                             ))}
                         </div>
                     </header>
-                </FadeIn>
+                </motion.div>
 
-                <FadeIn delay={0.1}>
+                <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                >
                     <div>
                         {post.content.map((section, i) => (
                             <RenderSection key={i} section={section} />
                         ))}
                     </div>
-                </FadeIn>
+                </motion.div>
 
                 {/* Footer with back button */}
                 <footer className="mt-12 border-t border-line pt-6">

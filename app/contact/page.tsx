@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         "ERP developer hire India",
         "Web Developer India remote",
         "Software Engineer contact Kerala",
-        "Talrop developer hire",
+        "senior developer hire",
         "Tegain developer hire",
         "Ribos developer hire",
     ],

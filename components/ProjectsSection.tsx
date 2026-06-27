@@ -20,14 +20,14 @@ type Project = {
 
 const projects: Project[] = [
     {
-        name: "Talrop ERP",
+        name: "Enterprise ERP",
         role: "Enterprise resource planning",
         domain: "ERP",
         year: "2025",
         description:
             "Front-end for an ERP covering inventory, finance, and HR with real-time insights, granular permissions, and a unified design language across modules.",
         tech: ["Next.js", "TypeScript", "Tailwind", "Zustand", "Recharts"],
-        live: "https://erp.talrop.com/",
+        live: "https://erp.Software Solutions Firm.com/",
         span: "lg:col-span-4 lg:row-span-2",
         featured: true,
     },
@@ -194,10 +194,15 @@ export function ProjectsSection() {
             {/* Open Source Projects Section */}
             <div className="mt-24 mb-6">
                 <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-ink sm:text-3xl">
-                    Open Source <span className="text-accent">Templates & Boilerplates</span>
+                    Open Source{" "}
+                    <span className="text-accent">
+                        Templates & Boilerplates
+                    </span>
                 </h3>
                 <p className="mt-2 text-xs leading-relaxed text-ink/65 sm:text-sm lg:text-base max-w-2xl">
-                    A curated collection of developer starter kits, components libraries, and system boilerplates published to GitHub. Free, open source, and production-ready.
+                    A curated collection of developer starter kits, components
+                    libraries, and system boilerplates published to GitHub.
+                    Free, open source, and production-ready.
                 </p>
             </div>
 
@@ -205,38 +210,49 @@ export function ProjectsSection() {
                 {[
                     {
                         name: "React Admin Dashboard",
-                        description: "A modular, premium, and fully accessible admin panel dashboard template with built-in dark mode and Recharts telemetry.",
+                        description:
+                            "A modular, premium, and fully accessible admin panel dashboard template with built-in dark mode and Recharts telemetry.",
                         tech: ["React", "TypeScript", "Tailwind", "Recharts"],
                         link: "https://github.com/Abhijith-Abi/react-admin-dashboard",
                     },
                     {
                         name: "Tailwind Component Library",
-                        description: "Headless, accessible (WAI-ARIA compliant) layout components and custom utility plugins for Tailwind CSS projects.",
+                        description:
+                            "Headless, accessible (WAI-ARIA compliant) layout components and custom utility plugins for Tailwind CSS projects.",
                         tech: ["Tailwind CSS", "Radix UI", "React"],
                         link: "https://github.com/Abhijith-Abi/tailwind-component-library",
                     },
                     {
                         name: "Next.js Starter",
-                        description: "Production-ready boilerplate configured with Next.js App Router, strict type-checking, dynamic sitemaps, and SEO presets.",
+                        description:
+                            "Production-ready boilerplate configured with Next.js App Router, strict type-checking, dynamic sitemaps, and SEO presets.",
                         tech: ["Next.js 14", "TypeScript", "Tailwind", "SEO"],
                         link: "https://github.com/Abhijith-Abi/nextjs-starter",
                     },
                     {
                         name: "React Boilerplate",
-                        description: "Lightweight SPA starting kit preconfigured with Vite, Zustand state management, Tailwind variables, and Vitest testing.",
+                        description:
+                            "Lightweight SPA starting kit preconfigured with Vite, Zustand state management, Tailwind variables, and Vitest testing.",
                         tech: ["React", "Vite", "Zustand", "Tailwind"],
                         link: "https://github.com/Abhijith-Abi/react-boilerplate",
                     },
                     {
                         name: "Django Boilerplate",
-                        description: "Scalable backend skeleton prebuilt with JWT auth, custom middlewares, PostgreSQL schemas, Celery tasks, and Docker settings.",
+                        description:
+                            "Scalable backend skeleton prebuilt with JWT auth, custom middlewares, PostgreSQL schemas, Celery tasks, and Docker settings.",
                         tech: ["Django", "Python", "PostgreSQL", "Docker"],
                         link: "https://github.com/Abhijith-Abi/django-boilerplate",
                     },
                     {
                         name: "Authentication Template",
-                        description: "Multi-provider passwordless authentication flow template configured with next-auth (Auth.js) and session tokens database storage.",
-                        tech: ["Auth.js", "Next.js", "TypeScript", "PostgreSQL"],
+                        description:
+                            "Multi-provider passwordless authentication flow template configured with next-auth (Auth.js) and session tokens database storage.",
+                        tech: [
+                            "Auth.js",
+                            "Next.js",
+                            "TypeScript",
+                            "PostgreSQL",
+                        ],
                         link: "https://github.com/Abhijith-Abi/auth-template",
                     },
                 ].map((repo, idx) => (

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         template: "%s | Abhijith P A",
     },
     description:
-        "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. React, Next.js, Django, AWS. Ex-Talrop, Steyp, Tegain, Ribos. ERP, SaaS & AI automation.",
+        "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. React, Next.js, Django, AWS. Ex-Steyp, Tegain, Ribos. ERP, SaaS & AI automation.",
     keywords: [
         "Abhijith P A",
         "Abhijith PA",
@@ -55,10 +55,10 @@ export const metadata: Metadata = {
         "AlgoBiz Web Development",
         "AlgoBiz AI Development",
         "AlgoBiz ERP Development",
-        "Talrop",
-        "Abhijith Talrop",
-        "Talrop Developer",
-        "Talrop Alumni",
+        "React Developer",
+        "Next.js Developer",
+        "Django Developer",
+        "Full Stack Developer",
         "Tegain",
         "Abhijith Tegain",
         "Tegain Developer",
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
         siteName: "Abhijith P A — AlgoBiz",
         title: "Abhijith P A | Full Stack Developer & AI Engineer | Founder of AlgoBiz",
         description:
-            "Full Stack Developer from Wayanad, Kerala. Founder of AlgoBiz. Ex-Talrop, Tegain & Ribos. Building ERP, SaaS, AI automation & web products with React, Next.js, Django & AWS.",
+            "Full Stack Developer from Wayanad, Kerala. Founder of AlgoBiz. Ex-Steyp, Tegain & Ribos. Building ERP, SaaS, AI automation & web products with React, Next.js, Django & AWS.",
         images: [
             {
                 url: "https://abisolutions.online/profile.jpg",
@@ -124,7 +124,7 @@ export const metadata: Metadata = {
         creator: "@abhijith",
         title: "Abhijith P A | Full Stack Developer & AI Engineer | AlgoBiz",
         description:
-            "React, Next.js, Django & AWS developer. Founder of AlgoBiz. Ex-Talrop, Tegain, Ribos. Building ERP, SaaS & AI products from Kerala, India.",
+            "React, Next.js, Django & AWS developer. Founder of AlgoBiz. Ex-Tegain, Ribos. Building ERP, SaaS & AI products from Kerala, India.",
         images: [
             {
                 url: "https://abisolutions.online/profile.jpg",

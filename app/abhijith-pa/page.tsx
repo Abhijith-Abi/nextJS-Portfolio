@@ -6,7 +6,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
     title: "Abhijith P A — Full Stack Developer & AI Engineer | Kerala, India",
     description:
-        "Abhijith P A (Abhijith PA, Abi) is a Full Stack Developer & AI Engineer at AlgoBiz from Wayanad, Kerala, India. React, Next.js, Django, Python, AWS specialist. Ex-Talrop, Steyp, Tegain, Ribos. Building ERP, SaaS, HRMS & AI automation.",
+        "Abhijith P A (Abhijith PA, Abi) is a Full Stack Developer & AI Engineer at AlgoBiz from Wayanad, Kerala, India. React, Next.js, Django, Python, AWS specialist. ex-Steyp, Tegain, Ribos. Building ERP, SaaS, HRMS & AI automation.",
     keywords: [
         "Abhijith P A",
         "Abhijith PA",
@@ -24,7 +24,6 @@ export const metadata: Metadata = {
         "Abhijith Kerala",
         "Abhijith Wayanad",
         "Abhijith India",
-        "Abhijith Talrop",
         "Abhijith Tegain",
         "Abhijith AlgoBiz",
         "Abhijith Steyp",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
         siteName: "Abhijith P A — AlgoBiz",
         title: "Abhijith P A — Full Stack Developer & AI Engineer",
         description:
-            "Full Stack Developer & AI Engineer at AlgoBiz. React, Next.js, Django, AWS. Ex-Talrop, Steyp, Tegain, Ribos. Kerala, India.",
+            "Full Stack Developer & AI Engineer at AlgoBiz. React, Next.js, Django, AWS. ex-Steyp, Tegain, Ribos. Kerala, India.",
         images: [{ url: "/profile.jpg", width: 800, height: 800, alt: "Abhijith P A - Senior Frontend Developer" }],
         firstName: "Abhijith",
         lastName: "P A",
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Abhijith P A — Full Stack Developer & AI Engineer",
         description:
-            "React, Next.js, Django, AWS. Developer at AlgoBiz. Ex-Talrop, Steyp, Tegain, Ribos.",
+            "React, Next.js, Django, AWS. Developer at AlgoBiz. ex-Steyp, Tegain, Ribos.",
         images: ["/profile.jpg"],
     },
 };
@@ -76,10 +75,9 @@ const jsonLd = {
         image: "https://abisolutions.online/profile.jpg",
         jobTitle: "Full Stack Developer & AI Engineer",
         description:
-            "Abhijith P A is a Full Stack Developer and AI Engineer at AlgoBiz from Wayanad, Kerala, India. He specializes in React, Next.js, Django, Python, AWS, and AI automation. He has worked at Talrop, Steyp, Tegain, Ribos, Hosface, Somans Travels, and Spinwik.",
+            "Abhijith P A is a Full Stack Developer and AI Engineer at AlgoBiz from Wayanad, Kerala, India. He specializes in React, Next.js, Django, Python, AWS, and AI automation. He has worked at Steyp, Tegain, Ribos, Hosface, Somans Travels, and Spinwik.",
         worksFor: { "@type": "Organization", name: "AlgoBiz" },
         alumniOf: [
-            { "@type": "Organization", name: "Talrop" },
             { "@type": "Organization", name: "Steyp" },
             { "@type": "Organization", name: "Tegain" },
             { "@type": "Organization", name: "Ribos" },
@@ -152,7 +150,7 @@ export default function AbhijithPAPage() {
                                 With over 4 years of professional experience,
                                 Abhijith has worked at some of Kerala&apos;s
                                 most notable tech companies including{" "}
-                                <strong>Talrop</strong>, <strong>Steyp</strong>,{" "}
+                                <strong>Steyp</strong>,{" "}
                                 <strong>Tegain</strong>, <strong>Ribos</strong>,{" "}
                                 <strong>Hosface</strong>,{" "}
                                 <strong>Somans Travels</strong>, and{" "}
@@ -210,14 +208,6 @@ export default function AbhijithPAPage() {
                                 </p>
                                 <p className="text-sm text-ink/60">
                                     Full Stack Developer & AI Engineer · Present
-                                </p>
-                            </li>
-                            <li>
-                                <p className="font-display font-semibold text-ink">
-                                    Talrop
-                                </p>
-                                <p className="text-sm text-ink/60">
-                                    Full Stack Developer · ERP, Web Applications
                                 </p>
                             </li>
                             <li>
@@ -308,7 +298,7 @@ export default function AbhijithPAPage() {
                         </h2>
                         <div className="mt-5 space-y-3 text-base text-ink/75">
                             <p>
-                                <strong>Talrop ERP</strong> — Enterprise
+                                <strong>Enterprise ERP</strong> — Enterprise
                                 resource planning system with inventory, finance
                                 & HR modules.
                             </p>

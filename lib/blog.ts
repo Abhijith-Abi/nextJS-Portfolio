@@ -614,6 +614,278 @@ export const blogPosts: BlogPost[] = [
             },
         ],
     },
+    {
+        slug: "react-micro-animations-framer-motion-tailwind",
+        title: "Orchestrating Micro-Animations in React Using Framer Motion and Tailwind",
+        description: "Learn how to build responsive, high-performance micro-animations in React. A deep dive by Abhijith P A into button hovers, input fields, and page loader interactions using Framer Motion and Tailwind CSS.",
+        date: "2026-06-27",
+        readTime: "8 min read",
+        tags: ["React", "Framer Motion", "Tailwind CSS", "UI Engineering"],
+        keywords: [
+            "Abhijith P A micro-animations",
+            "Framer Motion hover effects",
+            "Tailwind custom transitions",
+            "React interactive button designs",
+            "Abi Solutions web development",
+            "UI Engineering Kerala",
+        ],
+        content: [
+            {
+                type: "paragraph",
+                content: "Micro-animations are the bridge between a functional interface and a premium, high-fidelity user experience. When done right, they guide the user's attention, reinforce brand touchpoints, and make interactions feel physical and responsive. In this article, I'll show you how to orchestrate professional micro-animations in React using Framer Motion and Tailwind CSS.",
+            },
+            {
+                type: "heading",
+                content: "Why Micro-Animations Matter",
+            },
+            {
+                type: "paragraph",
+                content: "In modern UI engineering, micro-animations are not mere decoration. They serve key cognitive functions: confirming actions (a button click), indicating state changes (entering data), and directing visual hierarchy. For example, at Abi Solutions, we prioritize micro-interactions on all components to reduce perceived latency and provide satisfying feedback.",
+            },
+            {
+                type: "heading",
+                content: "Principles of Good Animation",
+            },
+            {
+                type: "list",
+                content: "To build animations that look premium rather than distracting, follow these rules:",
+                items: [
+                    "Keep it fast: micro-interactions should last between 150ms and 300ms.",
+                    "Use spring physics: avoid linear eases; use spring configs for natural, physics-based motion.",
+                    "Animate only transform and opacity: this leverages GPU acceleration and prevents reflows.",
+                    "Respect preference: always check for prefers-reduced-motion to keep your interface accessible.",
+                ],
+            },
+            {
+                type: "heading",
+                content: "Step 1: Setting up Framer Motion and Tailwind",
+            },
+            {
+                type: "paragraph",
+                content: "First, install framer-motion in your React project. In Tailwind CSS, we will use basic layout classes for alignment and base dimensions, while leaving the animation state management and fluid spring physics to Framer Motion's motion component.",
+            },
+            {
+                type: "code",
+                language: "bash",
+                content: "npm install framer-motion",
+            },
+            {
+                type: "heading",
+                content: "Step 2: Building an Interactive Spring Button",
+            },
+            {
+                type: "paragraph",
+                content: "Let's build a magnetic spring-loaded button that scales down when pressed and shifts slightly on hover. We configure custom transition durations and spring physics using Framer Motion's whileHover and whileTap properties.",
+            },
+            {
+                type: "code",
+                language: "tsx",
+                content: "import { motion } from 'framer-motion';\n\nexport function SpringButton() {\n  return (\n    <motion.button\n      whileHover={{ scale: 1.05, y: -2 }}\n      whileTap={{ scale: 0.95 }}\n      transition={{\n        type: 'spring',\n        stiffness: 400,\n        damping: 15\n      }}\n      className=\"btn-primary rounded-full px-6 py-3 font-semibold text-white bg-accent shadow-lg shadow-accent/20 hover:shadow-accent/30\"\n    >\n      Interact with me\n    </motion.button>\n  );\n}",
+            },
+            {
+                type: "heading",
+                content: "Step 3: Staggered Input Fields",
+            },
+            {
+                type: "paragraph",
+                content: "Staggering entry transitions can guide a user's eye down a form. We define a parent wrapper with a delay stagger effect and children variants that fade in and slide up.",
+            },
+            {
+                type: "code",
+                language: "tsx",
+                content: "const containerVariants = {\n  hidden: { opacity: 0 },\n  show: {\n    opacity: 1,\n    transition: {\n      staggerChildren: 0.15\n    }\n  }\n};\n\nconst itemVariants = {\n  hidden: { opacity: 0, y: 15 },\n  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 20 } }\n};\n\nexport function FormWrapper({ children }) {\n  return (\n    <motion.form variants={containerVariants} initial=\"hidden\" animate=\"show\">\n      {children}\n    </motion.form>\n  );\n}",
+            },
+            {
+                type: "heading",
+                content: "Performance Considerations",
+            },
+            {
+                type: "paragraph",
+                content: "Always run tests to ensure your frame rate remains at 60fps. Animating height, width, top, or left forces the browser to recalculate layouts (reflow), which causes stuttering. Instead, stick to scale, x, y, rotate, and opacity which are offloaded directly to the GPU.",
+            },
+            {
+                type: "heading",
+                content: "Key Takeaways",
+            },
+            {
+                type: "list",
+                content: "Orchestrating micro-animations requires a balance between design and performance:",
+                items: [
+                    "Spring transitions feel more human than ease-in-out curves.",
+                    "Stagger animations sequentially to manage user focus.",
+                    "Always respect user preferences for reduced motion using Tailwind's motion-safe modifier.",
+                    "Keep animations lightweight to maintain high Core Web Vitals performance.",
+                ],
+            },
+        ],
+    },
+    {
+        slug: "django-orm-query-optimization-fix-nplus1-select-related",
+        title: "Advanced Django ORM: Optimizing Queries to Prevent N+1 Issues",
+        description: "Stop slowing down your database. Learn how Abhijith P A diagnoses and fixes N+1 query bottlenecks in Django ORM using select_related and prefetch_related.",
+        date: "2026-06-27",
+        readTime: "9 min read",
+        tags: ["Django", "Python", "Database", "Performance"],
+        keywords: [
+            "Abhijith P A Django developer",
+            "Django ORM optimization",
+            "select_related vs prefetch_related",
+            "Django database query analysis",
+            "Abi Solutions backend consulting",
+        ],
+        content: [
+            {
+                type: "paragraph",
+                content: "Object-Relational Mappers (ORMs) are incredibly powerful for accelerating development speed. However, they shield developers from the SQL query reality. One of the most common performance silent killers in Django applications is the N+1 query problem. In this article, I'll explain what it is, how to identify it, and how to eliminate it in production.",
+            },
+            {
+                type: "heading",
+                content: "Understanding the N+1 Query Problem",
+            },
+            {
+                type: "paragraph",
+                content: "The N+1 problem occurs when your application retrieves a list of database records (1 query) and then executes an additional query for each record retrieved (N queries) to fetch related data. For example, if you list 50 books and fetch the author for each book dynamically inside a loop, your application executes 1 + 50 = 51 database queries. This introduces massive round-trip network latency and quickly degrades page loading speeds.",
+            },
+            {
+                type: "heading",
+                content: "Diagnosing N+1 Queries in Django",
+            },
+            {
+                type: "paragraph",
+                content: "At Abi Solutions, the first tool we reach for to diagnose query patterns is django-debug-toolbar. It displays a list of all executed SQL queries for a request, highlights duplicates, and shows execution times. Alternatively, in test suites or scripts, you can inspect the connection queries list directly.",
+            },
+            {
+                type: "code",
+                language: "python",
+                content: "from django.db import connection\n\n# Run your query block\nprint(len(connection.queries))",
+            },
+            {
+                type: "heading",
+                content: "The Solution: select_related vs. prefetch_related",
+            },
+            {
+                type: "paragraph",
+                content: "Django provides two primary tools to solve N+1 problems: select_related and prefetch_related. They accomplish the same goal (eager loading related data) but use different strategies under the hood.",
+            },
+            {
+                type: "list",
+                content: "Here is how to choose between them:",
+                items: [
+                    "select_related: Use this for single-value relationships—ForeignKey and OneToOne fields. It performs an SQL JOIN in the primary query.",
+                    "prefetch_related: Use this for multi-value relationships—ManyToMany and reverse ForeignKey fields. It executes a separate query with an IN clause and joins the records in Python memory.",
+                ],
+            },
+            {
+                type: "heading",
+                content: "Eager Loading in Action (Code Example)",
+            },
+            {
+                type: "paragraph",
+                content: "Let's look at an optimized Django view fetching books and authors. Notice how we use select_related to pre-load the author table and prefetch_related to load all tags associated with the books in just 2 queries.",
+            },
+            {
+                type: "code",
+                language: "python",
+                content: "# Bad: Executes N+1 queries\nbooks = Book.objects.all()\nfor book in books:\n    print(book.author.name)  # Database hit for each book\n\n# Good: Executes exactly 2 queries total\nbooks = Book.objects.select_related('author').prefetch_related('tags').all()\nfor book in books:\n    print(book.author.name)  # Cached in memory\n    print([tag.name for tag in book.tags.all()])  # Cached in memory",
+            },
+            {
+                type: "heading",
+                content: "Key Takeaways",
+            },
+            {
+                type: "list",
+                content: "To maintain high performance in Django backends:",
+                items: [
+                    "Eager load ForeignKey properties using select_related.",
+                    "Eager load ManyToMany properties using prefetch_related.",
+                    "Monitor queries using django-debug-toolbar or Silk in local setups.",
+                    "Write integration tests to assert query limits using assertNumQueries.",
+                ],
+            },
+        ],
+    },
+    {
+        slug: "build-ai-agent-openai-api-python-django-backend",
+        title: "Build your own AI Agent: Integrating OpenAI API with Python Django",
+        description: "Learn how to build and host custom AI agents on your backend. Abhijith P A guides you through connecting OpenAI assistant endpoints, session history, and server-sent streaming events in Django.",
+        date: "2026-06-27",
+        readTime: "10 min read",
+        tags: ["Python", "Django", "AI", "OpenAI"],
+        keywords: [
+            "Abhijith P A AI developer",
+            "OpenAI Django integration",
+            "build AI agents Python",
+            "server sent events django stream",
+            "Abi Solutions AI automation",
+        ],
+        content: [
+            {
+                type: "paragraph",
+                content: "Artificial Intelligence is shifting from basic query-and-response interfaces to agentic systems—applications that can invoke tools, reason about paths, and execute background tasks autonomously. In this guide, I will show you how to build a stateful AI agent on a Django backend, connect it to OpenAI's API, and stream responses to your React client in real time.",
+            },
+            {
+                type: "heading",
+                content: "Architecture of an AI Agent",
+            },
+            {
+                type: "paragraph",
+                content: "An AI agent requires three core blocks: (1) System Persona/Instructions (defining behavior), (2) Thread/Memory (preserving conversational state), and (3) Tools (giving the model capabilities like querying database tables or sending emails). In our setup, Django serves as the orchestrator, storing conversation logs in PostgreSQL and communicating with OpenAI's API via a secure backend gateway.",
+            },
+            {
+                type: "heading",
+                content: "Step 1: Installing Dependencies",
+            },
+            {
+                type: "paragraph",
+                content: "Start by installing the official OpenAI Python package. Ensure your environment variables are configured securely with your API key.",
+            },
+            {
+                type: "code",
+                language: "bash",
+                content: "pip install openai",
+            },
+            {
+                type: "heading",
+                content: "Step 2: Managing Chat Threads and Sessions",
+            },
+            {
+                type: "paragraph",
+                content: "To support ongoing conversations, we store thread IDs in our database. When a user submits a message, we fetch their active thread or initialize a new one on OpenAI's servers.",
+            },
+            {
+                type: "code",
+                language: "python",
+                content: "from openai import OpenAI\nimport os\n\nclient = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))\n\ndef get_or_create_thread(session_id: str) -> str:\n    # Lookup in database\n    chat_session = ChatSession.objects.filter(session_id=session_id).first()\n    if chat_session and chat_session.openai_thread_id:\n        return chat_session.openai_thread_id\n    \n    # If new, create on OpenAI\n    thread = client.beta.threads.create()\n    ChatSession.objects.create(session_id=session_id, openai_thread_id=thread.id)\n    return thread.id",
+            },
+            {
+                type: "heading",
+                content: "Step 3: Streaming Agent Responses (Server-Sent Events)",
+            },
+            {
+                type: "paragraph",
+                content: "Static JSON responses make the UI feel slow and laggy. Instead, we stream text tokens as they are generated using Django's StreamingHttpResponse. This provides an instant 'typing' effect to the user.",
+            },
+            {
+                type: "code",
+                language: "python",
+                content: "from django.http import StreamingHttpResponse\nfrom django.views.decorators.csrf import csrf_exempt\nimport json\n\n@csrf_exempt\ndef stream_agent_chat(request):\n    body = json.loads(request.body)\n    thread_id = get_or_create_thread(body['session_id'])\n    \n    # Submit message\n    client.beta.threads.messages.create(\n        thread_id=thread_id,\n        role=\"user\",\n        content=body['message']\n    )\n    \n    # Helper generator to stream tokens\n    def generate_tokens():\n        run = client.beta.threads.runs.create_and_poll( # Or use Assistant Stream APIs\n            thread_id=thread_id,\n            assistant_id=os.environ.get('OPENAI_ASSISTANT_ID')\n        )\n        messages = client.beta.threads.messages.list(thread_id=thread_id)\n        # Stream the last message content parts...\n        yield f\"data: {messages.data[0].content[0].text.value}\\n\\n\"\n        \n    return StreamingHttpResponse(generate_tokens(), content_type=\"text/event-stream\")",
+            },
+            {
+                type: "heading",
+                content: "Best Practices for Production AI backends",
+            },
+            {
+                type: "list",
+                content: "When deploying AI features at scale, keep these security guidelines in mind:",
+                items: [
+                    "Limit token usage: enforce max output lengths to control API expenses.",
+                    "Validate tools input: never pass raw AI inputs directly into database executors.",
+                    "Use Redis for session cache: store session threads in memory to avoid query delays.",
+                    "Graceful fallback: provide an alternative response if the OpenAI API encounters limits.",
+                ],
+            },
+        ],
+    },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

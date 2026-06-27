@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         title: "Abhijith P A — Full Stack Developer & AI Engineer",
         description:
             "Full Stack Developer & AI Engineer at AlgoBiz. React, Next.js, Django, AWS. Ex-Talrop, Steyp, Tegain, Ribos. Kerala, India.",
-        images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+        images: [{ url: "/profile.jpg", width: 800, height: 800, alt: "Abhijith P A - Senior Frontend Developer" }],
         firstName: "Abhijith",
         lastName: "P A",
     },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         title: "Abhijith P A — Full Stack Developer & AI Engineer",
         description:
             "React, Next.js, Django, AWS. Developer at AlgoBiz. Ex-Talrop, Steyp, Tegain, Ribos.",
-        images: ["/og-image.jpg"],
+        images: ["/profile.jpg"],
     },
 };
 
@@ -167,6 +167,37 @@ export default function AbhijithPAPage() {
                                 (ERP) systems to AI-powered WhatsApp and
                                 Telegram automation bots.
                             </p>
+                        </div>
+
+                        {/* Professional Photos Gallery */}
+                        <h2 className="mt-12 font-display text-2xl font-bold text-ink">
+                            Professional Workspace & Media
+                        </h2>
+                        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                            <div className="group relative aspect-square overflow-hidden rounded-2xl border border-line bg-surface">
+                                <img
+                                    src="/photos/abhi.jpg"
+                                    alt="Abhijith P A - Senior Frontend Developer"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="group relative aspect-square overflow-hidden rounded-2xl border border-line bg-surface">
+                                <img
+                                    src="/photos/abhijith-1.jpg"
+                                    alt="Abhijith P A - Senior Frontend Developer"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="group relative aspect-square overflow-hidden rounded-2xl border border-line bg-surface">
+                                <img
+                                    src="/photos/abhijith-3.jpg"
+                                    alt="Abhijith P A - Senior Frontend Developer"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </div>
                         </div>
 
                         <h2 className="mt-12 font-display text-2xl font-bold text-ink">

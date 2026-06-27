@@ -103,6 +103,13 @@ export const metadata: Metadata = {
             "Full Stack Developer from Wayanad, Kerala. Founder of AlgoBiz. Ex-Talrop, Tegain & Ribos. Building ERP, SaaS, AI automation & web products with React, Next.js, Django & AWS.",
         images: [
             {
+                url: "https://abisolutions.online/profile.jpg",
+                width: 800,
+                height: 800,
+                alt: "Abhijith P A - Senior Frontend Developer",
+                type: "image/jpeg",
+            },
+            {
                 url: "https://abisolutions.online/og-image.jpg",
                 width: 1200,
                 height: 630,
@@ -119,6 +126,12 @@ export const metadata: Metadata = {
         description:
             "React, Next.js, Django & AWS developer. Founder of AlgoBiz. Ex-Talrop, Tegain, Ribos. Building ERP, SaaS & AI products from Kerala, India.",
         images: [
+            {
+                url: "https://abisolutions.online/profile.jpg",
+                width: 800,
+                height: 800,
+                alt: "Abhijith P A - Senior Frontend Developer",
+            },
             {
                 url: "https://abisolutions.online/og-image.jpg",
                 width: 1200,
@@ -157,6 +170,72 @@ export const metadata: Metadata = {
     },
 };
 
+const globalJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://abisolutions.online/#person",
+            "name": "Abhijith P A",
+            "alternateName": [
+                "Abhijith PA",
+                "Abhijith",
+                "Abijith",
+                "Abi",
+                "Abhi",
+                "Abhi Developer",
+                "Abi Developer",
+                "Abhijith P A Developer",
+                "Abhijith PA Developer"
+            ],
+            "url": "https://abisolutions.online",
+            "image": "https://abisolutions.online/profile.jpg",
+            "jobTitle": "Full Stack Developer & AI Engineer",
+            "description": "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. Founder of Abi Solutions. Specializing in React, Next.js, Django, Python, AWS, and AI systems.",
+            "email": "abhijithabhijith1999@gmail.com",
+            "telephone": "+919961316468",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Wayanad",
+                "addressRegion": "Kerala",
+                "addressCountry": "IN"
+            },
+            "sameAs": [
+                "https://github.com/Abhijith-Abi",
+                "https://www.linkedin.com/in/abhijith-pa/",
+                "https://abisolutions.online"
+            ],
+            "worksFor": {
+                "@type": "Organization",
+                "@id": "https://abisolutions.online/#organization"
+            }
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://abisolutions.online/#organization",
+            "name": "Abi Solutions",
+            "alternateName": [
+                "AbiSolutions",
+                "AlgoBiz",
+                "Algobiz",
+                "AlgoBiz LLP",
+                "AlgoBiz Technologies"
+            ],
+            "url": "https://abisolutions.online",
+            "logo": "https://abisolutions.online/icon-512.png",
+            "description": "Abi Solutions (and AlgoBiz) is a software development and AI engineering agency founded by Abhijith P A. Custom ERP systems, SaaS platforms, AI automated systems, and high-performance React & Next.js applications.",
+            "founder": {
+                "@type": "Person",
+                "@id": "https://abisolutions.online/#person"
+            },
+            "sameAs": [
+                "https://github.com/Abhijith-Abi",
+                "https://www.linkedin.com/in/abhijith-pa/"
+            ]
+        }
+    ]
+};
+
 export default function RootLayout({
     children,
 }: {
@@ -168,6 +247,12 @@ export default function RootLayout({
             className={`dark ${inter.variable} ${jetbrains.variable} ${spaceGrotesk.variable}`}
         >
             <body className="bg-background font-sans text-ink antialiased">
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(globalJsonLd),
+                    }}
+                />
                 <Loader />
                 <div className="ambient-glow" aria-hidden />
                 <div className="grain-overlay" aria-hidden />

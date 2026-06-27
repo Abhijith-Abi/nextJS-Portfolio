@@ -62,9 +62,9 @@ export const metadata: Metadata = {
             "4+ years shipping production web apps & AI products. Founder of AlgoBiz. Ex-Talrop, Tegain & Ribos. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
         images: [
             {
-                url: "/og-image.jpg",
-                width: 1200,
-                height: 630,
+                url: "/profile.jpg",
+                width: 800,
+                height: 800,
                 alt: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of AlgoBiz",
                 type: "image/jpeg",
             },
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
         title: "About Abhijith P A — AlgoBiz Founder | Full Stack Developer & AI Engineer",
         description:
             "Full Stack Developer & AI Engineer. Founder of AlgoBiz. 4+ years at Talrop, Tegain & Ribos. Building ERP, SaaS & AI products from Kerala.",
-        images: ["/og-image.jpg"],
+        images: ["/profile.jpg"],
     },
     robots: {
         index: true,

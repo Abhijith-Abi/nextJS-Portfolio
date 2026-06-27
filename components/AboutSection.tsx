@@ -10,7 +10,7 @@ const chapters = [
         n: "01",
         kicker: "Origin",
         title: "Started with curiosity, not a plan.",
-        body: "Picked up React in 2022 as an intern at Steyp. The first time I wired a UI to real data, something clicked — and I never really stopped iterating.",
+        body: "I am Abhijith P A (also known as Abhijith PA, Abi, or Abhi). I started learning React in 2022 as an intern at Steyp. Wiring a UI to real data clicked instantly, driving me to start Abi Solutions and build advanced software platforms.",
     },
     {
         n: "02",

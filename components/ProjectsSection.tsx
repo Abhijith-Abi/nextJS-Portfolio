@@ -190,6 +190,98 @@ export function ProjectsSection() {
                     </FadeIn>
                 ))}
             </div>
+
+            {/* Open Source Projects Section */}
+            <div className="mt-24 mb-6">
+                <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-ink sm:text-3xl">
+                    Open Source <span className="text-accent">Templates & Boilerplates</span>
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-ink/65 sm:text-sm lg:text-base max-w-2xl">
+                    A curated collection of developer starter kits, components libraries, and system boilerplates published to GitHub. Free, open source, and production-ready.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                    {
+                        name: "React Admin Dashboard",
+                        description: "A modular, premium, and fully accessible admin panel dashboard template with built-in dark mode and Recharts telemetry.",
+                        tech: ["React", "TypeScript", "Tailwind", "Recharts"],
+                        link: "https://github.com/Abhijith-Abi/react-admin-dashboard",
+                    },
+                    {
+                        name: "Tailwind Component Library",
+                        description: "Headless, accessible (WAI-ARIA compliant) layout components and custom utility plugins for Tailwind CSS projects.",
+                        tech: ["Tailwind CSS", "Radix UI", "React"],
+                        link: "https://github.com/Abhijith-Abi/tailwind-component-library",
+                    },
+                    {
+                        name: "Next.js Starter",
+                        description: "Production-ready boilerplate configured with Next.js App Router, strict type-checking, dynamic sitemaps, and SEO presets.",
+                        tech: ["Next.js 14", "TypeScript", "Tailwind", "SEO"],
+                        link: "https://github.com/Abhijith-Abi/nextjs-starter",
+                    },
+                    {
+                        name: "React Boilerplate",
+                        description: "Lightweight SPA starting kit preconfigured with Vite, Zustand state management, Tailwind variables, and Vitest testing.",
+                        tech: ["React", "Vite", "Zustand", "Tailwind"],
+                        link: "https://github.com/Abhijith-Abi/react-boilerplate",
+                    },
+                    {
+                        name: "Django Boilerplate",
+                        description: "Scalable backend skeleton prebuilt with JWT auth, custom middlewares, PostgreSQL schemas, Celery tasks, and Docker settings.",
+                        tech: ["Django", "Python", "PostgreSQL", "Docker"],
+                        link: "https://github.com/Abhijith-Abi/django-boilerplate",
+                    },
+                    {
+                        name: "Authentication Template",
+                        description: "Multi-provider passwordless authentication flow template configured with next-auth (Auth.js) and session tokens database storage.",
+                        tech: ["Auth.js", "Next.js", "TypeScript", "PostgreSQL"],
+                        link: "https://github.com/Abhijith-Abi/auth-template",
+                    },
+                ].map((repo, idx) => (
+                    <FadeIn key={repo.name} delay={idx * 0.05}>
+                        <motion.a
+                            href={repo.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ y: -2 }}
+                            transition={{
+                                duration: 0.3,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
+                            className="surface group flex h-full flex-col justify-between rounded-3xl border border-line p-6 sm:p-7 hover:border-accent/40"
+                        >
+                            <div>
+                                <div className="flex items-center justify-between">
+                                    <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-accent/85 bg-accent/5 border border-accent/20 px-2 py-0.5 rounded">
+                                        Open Source
+                                    </span>
+                                    <span className="text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-200">
+                                        <ArrowIcon />
+                                    </span>
+                                </div>
+                                <h4 className="mt-4 font-display text-lg font-bold text-ink group-hover:text-accent transition">
+                                    {repo.name}
+                                </h4>
+                                <p className="mt-2 text-xs leading-relaxed text-ink/60">
+                                    {repo.description}
+                                </p>
+                            </div>
+                            <div className="mt-5 flex flex-wrap gap-1.5">
+                                {repo.tech.map((t) => (
+                                    <span
+                                        key={t}
+                                        className="rounded bg-background border border-line px-2 py-0.5 font-mono text-[9px] text-ink/50"
+                                    >
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.a>
+                    </FadeIn>
+                ))}
+            </div>
         </SectionWrapper>
     );
 }

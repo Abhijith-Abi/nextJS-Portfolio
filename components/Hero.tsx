@@ -76,7 +76,7 @@ export function Hero() {
             <div className="absolute inset-0 z-0" aria-hidden>
                 <Image
                     src="/profile.jpg"
-                    alt=""
+                    alt="Abhijith P A - Senior Frontend Developer"
                     fill
                     sizes="100vw"
                     className="object-cover object-center opacity-60"
@@ -123,15 +123,16 @@ export function Hero() {
 
                 {/* Cinematic UPPERCASE headline — Name + Role */}
                 <h1 className="font-display text-[clamp(2.2rem,10vw,7rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.02em] text-ink">
-                    <span className="block">
+                    <span className="sr-only">Abhijith P A (Abhijith PA) — Full Stack Developer, AI Engineer & Founder of Abi Solutions (Abi / Abhi)</span>
+                    <span className="block" aria-hidden="true">
                         <AnimeText text="Abi" delay={400} />
                     </span>
-                    <span className="block">
+                    <span className="block" aria-hidden="true">
                         <span className="text-accent">
                             <AnimeText text="Full Stack" delay={650} />
                         </span>
                     </span>
-                    <span className="block ghost-text">
+                    <span className="block ghost-text" aria-hidden="true">
                         <AnimeText text="Developer." delay={900} stagger={26} />
                     </span>
                 </h1>

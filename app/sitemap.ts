@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "../lib/blog";
-import { locationsData } from "../lib/locations";
+import { locationsData, exactKeywordAliases } from "../lib/locations";
 import { servicesSEOData, serviceAliases } from "../lib/services-seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -20,6 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 0.9,
+    }));
+
+    // Exact Match Keyword Entries (coder-in-wayanad, developer-in-wayanad, etc.)
+    const exactKeywordEntries: MetadataRoute.Sitemap = Object.keys(exactKeywordAliases).map((kwSlug) => ({
+        url: `${baseUrl}/${kwSlug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.95,
     }));
 
     // Dynamic /locations/[location] routes
@@ -120,6 +128,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         // ─── District Keyword Landing Pages ───
         ...locationEntries,
+
+        // ─── Standalone Exact-Match Keyword Pages (coder-in-wayanad, etc.) ───
+        ...exactKeywordEntries,
 
         // ─── Individual Project Pages ───
         {

@@ -654,9 +654,74 @@ export const locationAliases: Record<string, string> = {
     "trivandrum": "thiruvananthapuram"
 };
 
+export const exactKeywordAliases: Record<string, string> = {
+    // Wayanad
+    "coder-in-wayanad": "wayanad",
+    "developer-in-wayanad": "wayanad",
+    "best-developer-in-wayanad": "wayanad",
+    "web-developer-wayanad": "wayanad",
+    "developer-wayanad": "wayanad",
+    
+    // Kozhikode / Calicut
+    "coder-in-kozhikode": "kozhikode",
+    "developer-in-kozhikode": "kozhikode",
+    "best-developer-in-kozhikode": "kozhikode",
+    "web-developer-kozhikode": "kozhikode",
+    "coder-in-calicut": "kozhikode",
+    "developer-in-calicut": "kozhikode",
+    "developer-kozhikode": "kozhikode",
+    
+    // Kochi / Ernakulam
+    "developer-in-kochi": "kochi",
+    "web-developer-kochi": "kochi",
+    "best-developer-in-kochi": "kochi",
+    "react-developer-kochi": "kochi",
+    "developer-in-ernakulam": "kochi",
+    "developer-kochi": "kochi",
+    
+    // Malappuram
+    "developer-in-malappuram": "malappuram",
+    "web-developer-malappuram": "malappuram",
+    "best-developer-in-malappuram": "malappuram",
+    "developer-malappuram": "malappuram",
+    
+    // Thrissur
+    "developer-in-thrissur": "thrissur",
+    "web-developer-thrissur": "thrissur",
+    "developer-thrissur": "thrissur",
+    
+    // Thiruvananthapuram / Trivandrum
+    "developer-in-thiruvananthapuram": "thiruvananthapuram",
+    "web-developer-thiruvananthapuram": "thiruvananthapuram",
+    "developer-in-trivandrum": "thiruvananthapuram",
+    "developer-thiruvananthapuram": "thiruvananthapuram",
+    
+    // Other districts
+    "developer-in-kannur": "kannur",
+    "developer-kannur": "kannur",
+    "developer-in-kottayam": "kottayam",
+    "developer-kottayam": "kottayam",
+    "developer-in-palakkad": "palakkad",
+    "developer-palakkad": "palakkad",
+    "developer-in-kasaragod": "kasaragod",
+    "developer-kasaragod": "kasaragod",
+    "developer-in-alappuzha": "alappuzha",
+    "developer-alappuzha": "alappuzha",
+    "developer-in-kollam": "kollam",
+    "developer-kollam": "kollam",
+    "developer-in-idukki": "idukki",
+    "developer-idukki": "idukki",
+    "developer-in-pathanamthitta": "pathanamthitta",
+    "developer-pathanamthitta": "pathanamthitta"
+};
+
 export function getLocationData(slug?: string): LocationInfo | null {
     if (!slug || typeof slug !== "string") return null;
-    const normalized = slug.toLowerCase().replace(/^developer-/, "");
-    const mappedSlug = locationAliases[normalized] || normalized;
+    const normalized = slug.toLowerCase().trim();
+    if (exactKeywordAliases[normalized]) {
+        return locationsData[exactKeywordAliases[normalized]] || null;
+    }
+    const cleanSlug = normalized.replace(/^developer-/, "");
+    const mappedSlug = locationAliases[cleanSlug] || cleanSlug;
     return locationsData[mappedSlug] || null;
 }

@@ -84,6 +84,24 @@ export const metadata: Metadata = {
         "Finwage",
         "STEYP",
         "Abi Solutions",
+        "best developer in Wayanad",
+        "best software developer in Wayanad",
+        "best web developer in Wayanad",
+        "best full stack developer in Wayanad",
+        "best React developer in Wayanad",
+        "best Next.js developer in Wayanad",
+        "best coder in Wayanad",
+        "top developer in Wayanad",
+        "web developer Wayanad",
+        "software company Wayanad",
+        "website development Wayanad",
+        "hire web developer Wayanad",
+        "freelance developer in Wayanad",
+        "custom software development Wayanad",
+        "ERP developer Wayanad",
+        "AI software developer Wayanad",
+        "website developer near Kalpetta",
+        "website developer near Sulthan Bathery",
     ],
     authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
     creator: "Abhijith P A",
@@ -176,8 +194,8 @@ const globalJsonLd = {
         {
             "@type": "Person",
             "@id": "https://abisolutions.online/#person",
-            "name": "Abhijith P A",
-            "alternateName": [
+            name: "Abhijith P A",
+            alternateName: [
                 "Abhijith PA",
                 "Abhijith",
                 "Abijith",
@@ -186,76 +204,78 @@ const globalJsonLd = {
                 "Abhi Developer",
                 "Abi Developer",
                 "Abhijith P A Developer",
-                "Abhijith PA Developer"
+                "Abhijith PA Developer",
             ],
-            "url": "https://abisolutions.online",
-            "image": "https://abisolutions.online/profile.jpg",
-            "jobTitle": "Full Stack Developer & AI Engineer",
-            "description": "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. Founder of Abi Solutions. Specializing in React, Next.js, Django, Python, AWS, and AI systems.",
-            "email": "abhijithabhijith1999@gmail.com",
-            "telephone": "+919961316468",
-            "address": {
+            url: "https://abisolutions.online",
+            image: "https://abisolutions.online/profile.jpg",
+            jobTitle: "Full Stack Developer & AI Engineer",
+            description:
+                "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. Founder of Abi Solutions. Specializing in React, Next.js, Django, Python, AWS, and AI systems.",
+            email: "abhijithabhijith1999@gmail.com",
+            telephone: "+919961316468",
+            address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Wayanad",
-                "addressRegion": "Kerala",
-                "addressCountry": "IN"
+                addressLocality: "Wayanad",
+                addressRegion: "Kerala",
+                addressCountry: "IN",
             },
-            "sameAs": [
+            sameAs: [
                 "https://github.com/Abhijith-Abi",
                 "https://www.linkedin.com/in/abhijith-pa/",
-                "https://abisolutions.online"
+                "https://abisolutions.online",
             ],
-            "alumniOf": [
+            alumniOf: [
                 {
                     "@type": "Organization",
-                    "name": "AlgoBiz",
-                    "url": "https://algobiz.in/"
+                    name: "AlgoBiz",
+                    url: "https://algobiz.in/",
                 },
                 {
                     "@type": "Organization",
-                    "name": "Steyp",
-                    "url": "https://steyp.com/"
+                    name: "Steyp",
+                    url: "https://steyp.com/",
                 },
                 {
                     "@type": "Organization",
-                    "name": "Tegain",
-                    "url": "https://tegain.com/"
+                    name: "Tegain",
+                    url: "https://tegain.com/",
                 },
                 {
                     "@type": "Organization",
-                    "name": "Talrop",
-                    "url": "https://www.talrop.com/"
-                }
+                    name: "Talrop",
+                    url: "https://www.talrop.com/",
+                },
             ],
-            "worksFor": {
+            worksFor: {
                 "@type": "Organization",
-                "@id": "https://abisolutions.online/#organization"
-            }
+                "@id": "https://abisolutions.online/#organization",
+            },
         },
         {
             "@type": "Organization",
             "@id": "https://abisolutions.online/#organization",
-            "name": "Abi Solutions",
-            "alternateName": [
+            name: "Abi Solutions",
+            alternateName: [
                 "AbiSolutions",
                 "AlgoBiz",
                 "Algobiz",
                 "AlgoBiz LLP",
-                "AlgoBiz Technologies"
+                "AlgoBiz Technologies",
             ],
-            "url": "https://abisolutions.online",
-            "logo": "https://abisolutions.online/icon-512.png",
-            "description": "Abi Solutions (and AlgoBiz) is a software development and AI engineering agency founded by Abhijith P A. Custom ERP systems, SaaS platforms, AI automated systems, and high-performance React & Next.js applications.",
-            "founder": {
+            url: "https://abisolutions.online",
+            logo: "https://abisolutions.online/icon-512.png",
+            description:
+                "Abi Solutions (and AlgoBiz) is a software development and AI engineering agency founded by Abhijith P A. Custom ERP systems, SaaS platforms, AI automated systems, and high-performance React & Next.js applications.",
+            founder: {
                 "@type": "Person",
-                "@id": "https://abisolutions.online/#person"
+                "@id": "https://abisolutions.online/#person",
             },
-            "sameAs": [
+            sameAs: [
                 "https://github.com/Abhijith-Abi",
-                "https://www.linkedin.com/in/abhijith-pa/"
-            ]
-        }
-    ]
+                "https://www.linkedin.com/in/abhijith-pa/",
+            ],
+        },
+    ],
 };
 
 export default function RootLayout({

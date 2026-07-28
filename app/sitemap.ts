@@ -51,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         {
+            url: `${baseUrl}/web-developer-wayanad`,
+            lastModified: new Date(),
+            changeFrequency: "weekly",
+            priority: 0.95,
+        },
+        {
             url: `${baseUrl}/blog`,
             lastModified: new Date(),
             changeFrequency: "weekly",

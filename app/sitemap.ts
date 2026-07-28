@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "../lib/blog";
+import { locationsData } from "../lib/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://abisolutions.online";
@@ -10,6 +11,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(post.date),
         changeFrequency: "yearly" as const,
         priority: 0.7,
+    }));
+
+    // Dynamic Kerala District SEO landing pages entries
+    const locationEntries: MetadataRoute.Sitemap = Object.values(locationsData).map((loc) => ({
+        url: `${baseUrl}/${loc.routeSlug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.9,
     }));
 
     return [
@@ -74,6 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "yearly",
             priority: 0.8,
         },
+
+        // ─── Kerala District SEO Landing Pages (All 14 Districts) ───
+        ...locationEntries,
 
         // ─── Individual Project Pages ───
         {

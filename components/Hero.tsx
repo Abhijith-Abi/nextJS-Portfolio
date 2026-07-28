@@ -80,7 +80,7 @@ export function Hero() {
                     fill
                     sizes="100vw"
                     className="object-cover object-center opacity-60"
-                    quality={100}
+                    quality={80}
                     priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
@@ -202,7 +202,7 @@ export function Hero() {
                             <p className="font-display text-xl font-extrabold text-ink sm:text-2xl lg:text-3xl xl:text-4xl">
                                 <AnimeCounter to={s.v} suffix={s.suffix} />
                             </p>
-                            <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.24em] text-ink/40 sm:mt-2 sm:text-[9px] sm:tracking-[0.28em] lg:text-[10px] lg:tracking-[0.32em]">
+                            <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.24em] text-ink/70 sm:mt-2 sm:text-[9px] sm:tracking-[0.28em] lg:text-[10px] lg:tracking-[0.32em]">
                                 {s.l}
                             </p>
                         </div>
@@ -217,7 +217,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 2.4 }}
                 className="pointer-events-none absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 lg:block"
             >
-                <div className="flex flex-col items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/40">
+                <div className="flex flex-col items-center gap-2 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70">
                     <span>Scroll</span>
                     <div className="relative h-8 w-px overflow-hidden bg-ink/10">
                         <motion.span

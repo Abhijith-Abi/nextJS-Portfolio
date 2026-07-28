@@ -189,7 +189,6 @@ export function ExperienceSection() {
                                             src="/me.jpeg"
                                             alt="Abhijith P A"
                                             fill
-                                            priority
                                             sizes="(max-width: 1024px) 260px, 280px"
                                             className="object-cover"
                                         />

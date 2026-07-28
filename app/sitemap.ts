@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "../lib/blog";
 import { locationsData } from "../lib/locations";
+import { servicesSEOData } from "../lib/services-seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://abisolutions.online";
@@ -19,6 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 0.9,
+    }));
+
+    // Dynamic Algobiz Service SEO landing pages entries
+    const serviceEntries: MetadataRoute.Sitemap = Object.values(servicesSEOData).map((srv) => ({
+        url: `${baseUrl}/${srv.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.95,
     }));
 
     return [
@@ -83,6 +92,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "yearly",
             priority: 0.8,
         },
+
+        // ─── Service SEO Landing Pages (All 14 Algobiz Service Pages) ───
+        ...serviceEntries,
 
         // ─── Kerala District SEO Landing Pages (All 14 Districts) ───
         ...locationEntries,

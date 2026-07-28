@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "../lib/blog";
 import { locationsData } from "../lib/locations";
-import { servicesSEOData } from "../lib/services-seo";
+import { servicesSEOData, serviceAliases } from "../lib/services-seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://abisolutions.online";
@@ -22,9 +22,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    // Dynamic Algobiz Service SEO landing pages entries
+    // Dynamic /locations/[location] routes
+    const nestedLocationEntries: MetadataRoute.Sitemap = Object.keys(locationsData).map((slug) => ({
+        url: `${baseUrl}/locations/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.85,
+    }));
+
+    // Dynamic Service SEO landing pages entries (full slug)
     const serviceEntries: MetadataRoute.Sitemap = Object.values(servicesSEOData).map((srv) => ({
         url: `${baseUrl}/${srv.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.95,
+    }));
+
+    // Dynamic /services/[service] clean routes
+    const nestedServiceEntries: MetadataRoute.Sitemap = Object.keys(serviceAliases).map((alias) => ({
+        url: `${baseUrl}/services/${alias}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 0.95,
@@ -93,10 +109,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
 
-        // ─── Service SEO Landing Pages (All 14 Algobiz Service Pages) ───
+        // ─── Service Routes (/services/[service]) ───
+        ...nestedServiceEntries,
+
+        // ─── Service Keyword Landing Pages ───
         ...serviceEntries,
 
-        // ─── Kerala District SEO Landing Pages (All 14 Districts) ───
+        // ─── Location Routes (/locations/[location]) ───
+        ...nestedLocationEntries,
+
+        // ─── District Keyword Landing Pages ───
         ...locationEntries,
 
         // ─── Individual Project Pages ───

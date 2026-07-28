@@ -766,7 +766,26 @@ export const servicesSEOData: Record<string, ServiceSEOInfo> = {
     }
 };
 
-export function getServiceSEOData(slug: string): ServiceSEOInfo | null {
+export const serviceAliases: Record<string, string> = {
+    "web-development": "web-development-company-kerala",
+    "software-development": "software-development-company-kerala",
+    "full-stack-development": "full-stack-development-company-kerala",
+    "react-development": "react-development-company-kerala",
+    "nextjs-development": "nextjs-development-company-kerala",
+    "python-development": "python-development-company-kerala",
+    "django-development": "django-development-company-kerala",
+    "fastapi-development": "fastapi-development-company-kerala",
+    "mobile-app-development": "mobile-app-development-company-kerala",
+    "ai-development": "ai-development-company-kerala",
+    "erp-development": "erp-development-company-kerala",
+    "crm-development": "crm-development-company-kerala",
+    "saas-development": "saas-development-company-kerala",
+    "ecommerce-development": "ecommerce-development-company-kerala"
+};
+
+export function getServiceSEOData(slug?: string): ServiceSEOInfo | null {
+    if (!slug || typeof slug !== "string") return null;
     const normalized = slug.toLowerCase().trim();
-    return servicesSEOData[normalized] || null;
+    const mapped = serviceAliases[normalized] || normalized;
+    return servicesSEOData[mapped] || null;
 }

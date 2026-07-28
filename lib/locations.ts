@@ -655,14 +655,24 @@ export const locationAliases: Record<string, string> = {
 };
 
 export const exactKeywordAliases: Record<string, string> = {
-    // Wayanad
+    // Wayanad Tech Stack Queries
     "coder-in-wayanad": "wayanad",
     "developer-in-wayanad": "wayanad",
     "best-developer-in-wayanad": "wayanad",
     "web-developer-wayanad": "wayanad",
     "developer-wayanad": "wayanad",
+    "full-stack-developer-wayanad": "wayanad",
+    "best-full-stack-developer-in-wayanad": "wayanad",
+    "react-developer-wayanad": "wayanad",
+    "best-react-developer-in-wayanad": "wayanad",
+    "python-developer-wayanad": "wayanad",
+    "django-developer-wayanad": "wayanad",
+    "devops-engineer-wayanad": "wayanad",
+    "devops-developer-wayanad": "wayanad",
+    "frontend-developer-wayanad": "wayanad",
+    "html-css-developer-wayanad": "wayanad",
     
-    // Kozhikode / Calicut
+    // Kozhikode / Calicut Tech Stack Queries
     "coder-in-kozhikode": "kozhikode",
     "developer-in-kozhikode": "kozhikode",
     "best-developer-in-kozhikode": "kozhikode",
@@ -670,41 +680,90 @@ export const exactKeywordAliases: Record<string, string> = {
     "coder-in-calicut": "kozhikode",
     "developer-in-calicut": "kozhikode",
     "developer-kozhikode": "kozhikode",
+    "full-stack-developer-kozhikode": "kozhikode",
+    "best-full-stack-developer-in-kozhikode": "kozhikode",
+    "react-developer-kozhikode": "kozhikode",
+    "best-react-developer-in-kozhikode": "kozhikode",
+    "python-developer-kozhikode": "kozhikode",
+    "django-developer-kozhikode": "kozhikode",
+    "devops-engineer-kozhikode": "kozhikode",
+    "devops-developer-kozhikode": "kozhikode",
+    "frontend-developer-kozhikode": "kozhikode",
+    "html-css-developer-kozhikode": "kozhikode",
     
-    // Kochi / Ernakulam
+    // Kochi / Ernakulam Tech Stack Queries
     "developer-in-kochi": "kochi",
     "web-developer-kochi": "kochi",
     "best-developer-in-kochi": "kochi",
     "react-developer-kochi": "kochi",
+    "best-react-developer-in-kochi": "kochi",
     "developer-in-ernakulam": "kochi",
     "developer-kochi": "kochi",
+    "full-stack-developer-kochi": "kochi",
+    "best-full-stack-developer-in-kochi": "kochi",
+    "python-developer-kochi": "kochi",
+    "django-developer-kochi": "kochi",
+    "devops-engineer-kochi": "kochi",
+    "devops-developer-kochi": "kochi",
+    "frontend-developer-kochi": "kochi",
+    "html-css-developer-kochi": "kochi",
     
-    // Malappuram
+    // Malappuram Tech Stack Queries
     "developer-in-malappuram": "malappuram",
     "web-developer-malappuram": "malappuram",
     "best-developer-in-malappuram": "malappuram",
     "developer-malappuram": "malappuram",
+    "full-stack-developer-malappuram": "malappuram",
+    "react-developer-malappuram": "malappuram",
+    "python-developer-malappuram": "malappuram",
+    "django-developer-malappuram": "malappuram",
+    "devops-engineer-malappuram": "malappuram",
     
-    // Thrissur
+    // Thrissur Tech Stack Queries
     "developer-in-thrissur": "thrissur",
     "web-developer-thrissur": "thrissur",
     "developer-thrissur": "thrissur",
+    "full-stack-developer-thrissur": "thrissur",
+    "react-developer-thrissur": "thrissur",
+    "python-developer-thrissur": "thrissur",
+    "django-developer-thrissur": "thrissur",
     
-    // Thiruvananthapuram / Trivandrum
+    // Thiruvananthapuram / Trivandrum Tech Stack Queries
     "developer-in-thiruvananthapuram": "thiruvananthapuram",
     "web-developer-thiruvananthapuram": "thiruvananthapuram",
     "developer-in-trivandrum": "thiruvananthapuram",
     "developer-thiruvananthapuram": "thiruvananthapuram",
+    "full-stack-developer-thiruvananthapuram": "thiruvananthapuram",
+    "react-developer-thiruvananthapuram": "thiruvananthapuram",
+    "python-developer-thiruvananthapuram": "thiruvananthapuram",
+    "django-developer-thiruvananthapuram": "thiruvananthapuram",
+    "devops-engineer-thiruvananthapuram": "thiruvananthapuram",
+    
+    // State Level Tech Stack Queries (Kerala)
+    "best-full-stack-developer-kerala": "kochi",
+    "best-react-developer-kerala": "kochi",
+    "best-python-developer-kerala": "kozhikode",
+    "best-django-developer-kerala": "kozhikode",
+    "best-devops-engineer-kerala": "kochi",
+    "best-frontend-developer-kerala": "wayanad",
+    "best-backend-developer-kerala": "kozhikode",
     
     // Other districts
     "developer-in-kannur": "kannur",
     "developer-kannur": "kannur",
+    "full-stack-developer-kannur": "kannur",
+    "react-developer-kannur": "kannur",
     "developer-in-kottayam": "kottayam",
     "developer-kottayam": "kottayam",
+    "full-stack-developer-kottayam": "kottayam",
+    "react-developer-kottayam": "kottayam",
     "developer-in-palakkad": "palakkad",
     "developer-palakkad": "palakkad",
+    "full-stack-developer-palakkad": "palakkad",
+    "react-developer-palakkad": "palakkad",
     "developer-in-kasaragod": "kasaragod",
     "developer-kasaragod": "kasaragod",
+    "full-stack-developer-kasaragod": "kasaragod",
     "developer-in-alappuzha": "alappuzha",
     "developer-alappuzha": "alappuzha",
     "developer-in-kollam": "kollam",

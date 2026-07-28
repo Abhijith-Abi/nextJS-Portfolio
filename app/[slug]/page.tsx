@@ -29,6 +29,20 @@ export async function generateStaticParams() {
     ];
 }
 
+function getCustomHeading(slug?: string, locName?: string): string {
+    if (!slug || !locName) return "Best Developer";
+    const s = slug.toLowerCase();
+    if (s.includes("full-stack")) return `Best Full Stack Developer in ${locName}`;
+    if (s.includes("react")) return `Best React Developer in ${locName}`;
+    if (s.includes("python")) return `Best Python Developer in ${locName}`;
+    if (s.includes("django")) return `Best Django Developer in ${locName}`;
+    if (s.includes("devops")) return `Top DevOps Engineer in ${locName}`;
+    if (s.includes("frontend")) return `Best Frontend Developer in ${locName}`;
+    if (s.includes("html-css")) return `Expert HTML & CSS Developer in ${locName}`;
+    if (s.includes("coder")) return `Best Coder & Software Developer in ${locName}`;
+    return `Best Web Developer & Software Engineer in ${locName}`;
+}
+
 // Dynamic metadata generation for Senior Technical SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const resolvedParams = await params;
@@ -65,10 +79,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const loc = getLocationData(slug);
     if (loc) {
         const canonicalUrl = `https://abisolutions.online/${slug}`;
-        const isCoder = slug?.includes("coder");
-        const formattedTitle = isCoder
-            ? `Best Coder in ${loc.shortName} | Full Stack, React & AI Developer — AlgoBiz`
-            : loc.metaTitle;
+        const isStandardRoute = slug === loc.routeSlug || slug === loc.slug;
+        const formattedTitle = isStandardRoute
+            ? loc.metaTitle
+            : `${getCustomHeading(slug, loc.shortName)} | Algobiz Innovations LLP`;
 
         return {
             title: formattedTitle,
@@ -244,10 +258,10 @@ export default async function SlugPage({ params }: PageProps) {
 
     // ─── RENDER LOCATION / EXACT KEYWORD PAGE ───
     if (loc) {
-        const isCoder = slug?.includes("coder");
-        const customHeading = isCoder
-            ? `Best Coder & Web Developer in ${loc.shortName}`
-            : loc.tagline;
+        const isStandardRoute = slug === loc.routeSlug || slug === loc.slug;
+        const customHeading = isStandardRoute
+            ? loc.tagline
+            : getCustomHeading(slug, loc.shortName);
 
         const jsonLdData = [
             {

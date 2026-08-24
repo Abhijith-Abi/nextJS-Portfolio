@@ -5,8 +5,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { SectionWrapper } from "./SectionWrapper";
 import { FadeIn } from "./motion/RevealText";
+import {
+    Sparkles,
+    Briefcase,
+    Calendar,
+    ArrowUpRight,
+    MapPin,
+    Clock,
+    Flame,
+} from "lucide-react";
 
-/* Inline SVG icons (lucide v1 doesn't ship these) */
+/* Inline SVG icons */
 const IconGithub = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         viewBox="0 0 24 24"
@@ -49,27 +58,6 @@ const IconMail = (props: React.SVGProps<SVGSVGElement>) => (
         <polyline points="22,6 12,13 2,6" />
     </svg>
 );
-const IconTwitter = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-        <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
-    </svg>
-);
-
-const ArrowIcon = () => (
-    <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <line x1="7" y1="17" x2="17" y2="7" />
-        <polyline points="7 7 17 7 17 17" />
-    </svg>
-);
 
 type Experience = {
     company: string;
@@ -79,40 +67,41 @@ type Experience = {
     type?: string;
     skills?: string[];
     isCurrent?: boolean;
-    /** Tailwind grid span class for desktop bento layout */
     span: string;
     featured?: boolean;
 };
 
 const experiences: Experience[] = [
     {
-        company: "Algobiz",
-        title: "Frontend Engineer",
+        company: "Abi Solutions",
+        title: "Founder & Lead Full Stack Engineer",
         timeframe: "Jan 2026 – Present",
         type: "Full-time",
         description:
-            "Building production-grade interfaces and AI-leaning workflows. Driving UI architecture, motion language, and the developer experience inside the codebase.",
-        skills: ["Next.js", "TypeScript", "Tailwind", "GSAP", "Framer Motion"],
+            "Directing technical architecture and product builds across AI automation, custom ERP platforms, and enterprise React/Next.js systems. Mentoring engineering workflows and maintaining client delivery standards.",
+        skills: ["Next.js 14", "TypeScript", "Django", "AWS", "OpenAI APIs", "PostgreSQL"],
         isCurrent: true,
         span: "lg:col-span-4",
         featured: true,
     },
     {
-        company: "Software Solutions Firm",
-        title: "UI Engineer · Level 2",
+        company: "Enterprise Software Solutions Firm",
+        title: "Senior UI Engineer · Level 2",
         timeframe: "May 2025 – Dec 2025",
         type: "Full-time",
         description:
-            "Owned UI work across product surfaces — refactored shared components, tightened performance, and mentored on Next.js patterns inside the modular enterprise product suite.",
+            "Led frontend engineering across modular enterprise suites. Refactored high-traffic dashboards, improved rendering benchmarks by 40%, and established strict TypeScript design systems.",
+        skills: ["React", "TypeScript", "Next.js", "Zustand", "Tailwind"],
         span: "lg:col-span-2",
     },
     {
         company: "Steyp",
         title: "Software Engineer · Next.js Developer",
-        timeframe: "Oct 2022 –  Apr 2025",
+        timeframe: "Oct 2022 – Apr 2025",
         type: "Full-time",
         description:
-            "Led frontend builds across multiple products including Hosface, Tegain, and the Enterprise ERP. Set up component conventions used across the team.",
+            "Engineered core web platforms including Hosface, Tegain, and Enterprise ERP. Established reusable component standards and implemented responsive UI flows across multiple products.",
+        skills: ["Next.js", "React", "Redux", "Tailwind", "REST APIs"],
         span: "lg:col-span-2",
     },
     {
@@ -121,13 +110,15 @@ const experiences: Experience[] = [
         timeframe: "Apr 2022 – Oct 2022",
         type: "Internship",
         description:
-            "Started in React, picked up Redux and styled-components, and product fundamentals. Converted to full-time at the end of the internship.",
+            "Gained deep foundation in React component trees, data flow paradigms, and interface motion. Converted to full-time engineer following rapid feature deliveries.",
+        skills: ["JavaScript", "React", "CSS3", "Git"],
         span: "lg:col-span-4",
     },
 ];
 
 export function ExperienceSection() {
     const [years, setYears] = useState(4);
+    const [currentTime, setCurrentTime] = useState("");
 
     useEffect(() => {
         const start = new Date("2022-04-01");
@@ -135,97 +126,102 @@ export function ExperienceSection() {
         const diff = now.getFullYear() - start.getFullYear();
         const adjusted = now.getMonth() < start.getMonth() ? diff - 1 : diff;
         setYears(Math.max(adjusted, 4));
+
+        // Format IST time
+        const updateTime = () => {
+            const options: Intl.DateTimeFormatOptions = {
+                timeZone: "Asia/Kolkata",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+            };
+            setCurrentTime(new Intl.DateTimeFormat("en-US", options).format(new Date()));
+        };
+        updateTime();
+        const interval = setInterval(updateTime, 10000);
+        return () => clearInterval(interval);
     }, []);
 
     return (
-        <SectionWrapper id="experience" index="05" label="Path">
-            <div className="grid gap-10 lg:grid-cols-[320px_1fr] lg:gap-14 xl:grid-cols-[360px_1fr]">
-                {/* LEFT: profile card */}
+        <SectionWrapper id="experience" index="06" label="Career Path">
+            <div className="grid gap-10 lg:grid-cols-[340px_1fr] lg:gap-14 xl:grid-cols-[380px_1fr] items-start">
+                {/* LEFT: interactive 3D profile flip card */}
                 <FadeIn>
-                    <div className="lg:sticky lg:top-32">
-                        <div className="surface relative overflow-hidden rounded-3xl p-6 sm:p-7">
-                            {/* Portrait — flip card. Front: description. Back: photo */}
-                            <div className="flip-card relative mx-auto aspect-[4/5] w-full max-w-[260px]">
+                    <div className="lg:sticky lg:top-28">
+                        <div className="surface relative overflow-hidden rounded-3xl p-6 sm:p-7 border border-white/[0.08] shadow-glow-sm">
+                            {/* Flip Card */}
+                            <div className="flip-card relative mx-auto aspect-[4/5] w-full max-w-[280px]">
                                 <div className="flip-card-inner h-full w-full">
-                                    {/* FRONT: description */}
-                                    <div className="flip-face flex flex-col justify-between rounded-[2rem] border border-line bg-background p-5 sm:p-6">
+                                    {/* FRONT */}
+                                    <div className="flip-face flex flex-col justify-between rounded-[2rem] border border-white/10 bg-background/95 p-6">
                                         <div className="flex items-start justify-between">
-                                            <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-accent">
-                                                · About
+                                            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent font-bold">
+                                                · Profile
                                             </span>
-                                            <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/40">
-                                                hover
+                                            <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-ink/40 bg-white/[0.05] px-2 py-0.5 rounded-full">
+                                                Hover Photo
                                             </span>
                                         </div>
 
                                         <div>
-                                            <p className="font-display text-3xl font-extrabold leading-[0.95] tracking-tight text-ink sm:text-[2rem]">
-                                                Crafting{" "}
-                                                <span className="text-accent">
-                                                    interfaces
-                                                </span>{" "}
-                                                that ship.
+                                            <p className="font-display text-2xl font-black leading-tight text-ink sm:text-[1.75rem]">
+                                                Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2">intelligent</span> software.
                                             </p>
-                                            <p className="mt-4 text-[13px] leading-relaxed text-ink/65">
-                                                Frontend Engineer based in
-                                                Kerala. React, Next.js, motion,
-                                                and design systems — four years
-                                                of building real software for
-                                                real users.
+                                            <p className="mt-3 text-xs leading-relaxed text-ink/70">
+                                                Full Stack Developer & AI Engineer based in Kerala, India. React, Next.js, Django, AWS & AI Automation.
                                             </p>
                                         </div>
 
-                                        <div className="flex items-center justify-between border-t border-line pt-4 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40">
-                                            <span>Algobiz · 2026</span>
-                                            <span className="text-accent">
-                                                ↻
-                                            </span>
+                                        <div className="flex items-center justify-between border-t border-white/[0.08] pt-3 font-mono text-[10px] text-ink/50">
+                                            <span>Abi Solutions · 2026</span>
+                                            <span className="text-accent">↻ Flip</span>
                                         </div>
                                     </div>
 
                                     {/* BACK: photo */}
-                                    <div className="flip-face flip-face-back overflow-hidden rounded-[2rem] bg-background">
+                                    <div className="flip-face flip-face-back overflow-hidden rounded-[2rem] bg-background border border-white/10">
                                         <Image
                                             src="/me.jpeg"
                                             alt="Abhijith P A"
                                             fill
-                                            sizes="(max-width: 1024px) 260px, 280px"
+                                            sizes="(max-width: 1024px) 280px, 320px"
                                             className="object-cover"
                                         />
-                                        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/60 to-transparent p-5 pt-16">
-                                            <p className="font-display text-lg font-bold text-ink">
+                                        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent p-5 pt-16">
+                                            <p className="font-display text-base font-bold text-ink">
                                                 Abhijith P A
                                             </p>
-                                            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.28em] text-accent">
-                                                Frontend Engineer
+                                            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                                                Full Stack & AI Engineer
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <h3 className="mt-6 text-center font-display text-2xl font-extrabold tracking-tight text-ink">
-                                Abhijith P A
-                            </h3>
-
-                            <div className="mt-3 flex items-center justify-center">
-                                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-base">
-                                    🔥
-                                </span>
+                            <div className="mt-6 text-center">
+                                <h3 className="font-display text-xl font-black tracking-tight text-ink">
+                                    Abhijith P A
+                                </h3>
+                                <p className="mt-1 font-mono text-xs text-accent">
+                                    Founder @ Abi Solutions
+                                </p>
                             </div>
 
-                            <p className="mt-3 text-center text-sm leading-relaxed text-ink/65">
-                                A Frontend Engineer who has shipped countless
-                                modern, motion-rich digital products.
-                            </p>
+                            {/* Local Time Widget */}
+                            <div className="mt-4 flex items-center justify-center gap-2 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-2.5 font-mono text-[11px] text-ink/70">
+                                <Clock className="h-3.5 w-3.5 text-accent" />
+                                <span>Kerala (IST): {currentTime || "GMT+5:30"}</span>
+                            </div>
 
+                            {/* Social Connectors */}
                             <div className="mt-5 flex items-center justify-center gap-2.5">
                                 <a
                                     href="https://github.com/Abhijith-Abi"
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label="GitHub"
-                                    className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink/80 transition hover:border-accent hover:bg-accent hover:text-white"
+                                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
                                 >
                                     <IconGithub className="h-4 w-4" />
                                 </a>
@@ -234,146 +230,102 @@ export function ExperienceSection() {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label="LinkedIn"
-                                    className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink/80 transition hover:border-accent hover:bg-accent hover:text-white"
+                                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
                                 >
                                     <IconLinkedin className="h-4 w-4" />
                                 </a>
                                 <a
                                     href="mailto:abhijithabhijith1999@gmail.com"
                                     aria-label="Email"
-                                    className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink/80 transition hover:border-accent hover:bg-accent hover:text-white"
+                                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
                                 >
                                     <IconMail className="h-4 w-4" />
-                                </a>
-                                <a
-                                    href="https://twitter.com"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    aria-label="Twitter"
-                                    className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink/80 transition hover:border-accent hover:bg-accent hover:text-white"
-                                >
-                                    <IconTwitter className="h-4 w-4" />
                                 </a>
                             </div>
                         </div>
                     </div>
                 </FadeIn>
 
-                {/* RIGHT: headline + bento grid */}
+                {/* RIGHT: timeline headline + experience bento cards */}
                 <div>
                     <FadeIn>
-                        <h2 className="font-display text-[clamp(2.4rem,8vw,5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                            <Briefcase className="h-3 w-3" />
+                            Work History & Roles
+                        </div>
+                        <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
                             <span className="block">{years}+ YEARS OF</span>
-                            <span className="block ghost-text">EXPERIENCE</span>
+                            <span className="block text-accent">
+                                PROFESSIONAL CRAFT.
+                            </span>
                         </h2>
                     </FadeIn>
 
-                    {/* Bento grid: 4 cols on desktop */}
-                    <div className="mt-10 grid auto-rows-[minmax(160px,auto)] grid-cols-1 gap-4 lg:grid-cols-4">
+                    {/* Timeline Bento Grid */}
+                    <div className="mt-8 sm:mt-10 grid auto-rows-[minmax(160px,auto)] grid-cols-1 gap-4 lg:grid-cols-4">
                         {experiences.map((exp, i) => (
                             <FadeIn
                                 key={`${exp.company}-${i}`}
-                                delay={i * 0.05}
+                                delay={i * 0.06}
                                 className={exp.span}
                             >
-                                <motion.article
-                                    whileHover={{ y: -2 }}
-                                    transition={{
-                                        duration: 0.3,
-                                        ease: [0.22, 1, 0.36, 1],
-                                    }}
-                                    className={`bento-card group relative flex h-full cursor-pointer flex-col rounded-3xl p-5 sm:p-6 ${
+                                <article
+                                    className={`bento-card group relative flex h-full flex-col justify-between rounded-3xl p-6 sm:p-7 ${
                                         exp.featured ? "lg:p-8" : ""
                                     }`}
                                 >
                                     {/* Top row */}
-                                    <div className="flex items-start justify-between gap-3">
-                                        <div className="flex items-center gap-2.5">
-                                            <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/30 group-hover:text-accent">
-                                                0{i + 1}
-                                            </span>
-                                            {exp.isCurrent && (
-                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.28em] text-accent">
-                                                    <motion.span
-                                                        animate={{
-                                                            scale: [1, 1.4, 1],
-                                                            opacity: [
-                                                                1, 0.6, 1,
-                                                            ],
-                                                        }}
-                                                        transition={{
-                                                            duration: 2,
-                                                            repeat: Infinity,
-                                                            ease: "easeInOut",
-                                                        }}
-                                                        className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(96,165,250,0.7)]"
-                                                    />
-                                                    Now
+                                    <div>
+                                        <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] pb-3.5">
+                                            <div className="flex items-center gap-2">
+                                                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/40">
+                                                    0{i + 1}
                                                 </span>
-                                            )}
-                                        </div>
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-accent transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                                            <ArrowIcon />
-                                        </span>
-                                    </div>
-
-                                    {/* Body */}
-                                    <div className="mt-auto pt-6">
-                                        <h3
-                                            className={`font-display font-extrabold tracking-tight text-ink transition group-hover:text-accent ${
-                                                exp.featured
-                                                    ? "text-3xl sm:text-4xl lg:text-5xl"
-                                                    : "text-xl sm:text-2xl"
-                                            }`}
-                                        >
-                                            {exp.company}
-                                        </h3>
-                                        <p
-                                            className={`mt-1.5 font-medium text-ink/85 ${
-                                                exp.featured
-                                                    ? "text-base sm:text-lg"
-                                                    : "text-[13px] sm:text-sm"
-                                            }`}
-                                        >
-                                            {exp.title}
-                                        </p>
-
-                                        <p
-                                            className={`mt-4 leading-relaxed text-ink/55 ${
-                                                exp.featured
-                                                    ? "max-w-2xl text-sm sm:text-base"
-                                                    : "text-[13px] sm:text-sm"
-                                            }`}
-                                        >
-                                            {exp.description}
-                                        </p>
-
-                                        <p className="mt-5 font-mono text-[11px] text-ink/40">
-                                            {exp.timeframe}
-                                            {exp.type && (
-                                                <>
-                                                    <span className="mx-2 text-accent">
-                                                        ·
+                                                {exp.isCurrent && (
+                                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/40 bg-accent-emerald/10 px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-accent-emerald font-semibold">
+                                                        <span className="h-1.5 w-1.5 animate-ping rounded-full bg-accent-emerald" />
+                                                        Current
                                                     </span>
-                                                    {exp.type}
-                                                </>
-                                            )}
-                                        </p>
-
-                                        {exp.featured && exp.skills && (
-                                            <div className="mt-4 flex flex-wrap gap-1.5">
-                                                {exp.skills.map((s) => (
-                                                    <span
-                                                        key={s}
-                                                        className="inline-flex items-center rounded-md border border-line bg-background px-2 py-0.5 font-mono text-[10px] text-ink/70"
-                                                    >
-                                                        {s}
-                                                    </span>
-                                                ))}
+                                                )}
                                             </div>
-                                        )}
+                                            <span className="font-mono text-[10px] text-ink/40">
+                                                {exp.timeframe}
+                                            </span>
+                                        </div>
+
+                                        <div className="pt-4">
+                                            <h3
+                                                className={`font-display font-extrabold tracking-tight text-ink group-hover:text-accent transition-colors ${
+                                                    exp.featured
+                                                        ? "text-2xl sm:text-3xl"
+                                                        : "text-lg sm:text-xl"
+                                                }`}
+                                            >
+                                                {exp.company}
+                                            </h3>
+                                            <p className="mt-1 font-mono text-xs font-semibold text-accent2">
+                                                {exp.title}
+                                            </p>
+                                            <p className="mt-3 text-xs leading-relaxed text-ink/70 sm:text-sm">
+                                                {exp.description}
+                                            </p>
+                                        </div>
                                     </div>
-                                </motion.article>
+
+                                    {/* Skill pills */}
+                                    {exp.skills && (
+                                        <div className="mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+                                            {exp.skills.map((s) => (
+                                                <span
+                                                    key={s}
+                                                    className="inline-flex items-center rounded-lg border border-white/[0.08] bg-background/80 px-2 py-0.5 font-mono text-[9px] text-ink/70"
+                                                >
+                                                    {s}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </article>
                             </FadeIn>
                         ))}
                     </div>

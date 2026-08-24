@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { SectionWrapper } from "../../components/SectionWrapper";
+import { Footer } from "../../components/Footer";
 
 export const metadata: Metadata = {
     title: "Resume — Abhijith P A | Full Stack Developer Kerala",
@@ -452,6 +453,7 @@ export default function ResumePage() {
                         </div>
                     </article>
                 </SectionWrapper>
+                <Footer />
             </div>
         </main>
     );

@@ -45,7 +45,10 @@ export default function robots(): MetadataRoute.Robots {
                 allow: ["/"],
             },
         ],
-        sitemap: "https://abisolutions.online/sitemap.xml",
+        sitemap: [
+            "https://abisolutions.online/sitemap.xml",
+            "https://abisolutions.online/image-sitemap.xml",
+        ],
         host: "https://abisolutions.online",
     };
 }

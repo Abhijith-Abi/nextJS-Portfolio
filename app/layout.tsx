@@ -5,6 +5,7 @@ import "./globals.css";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { Loader } from "../components/Loader";
 import { CursorFollower } from "../components/CursorFollower";
+import { portfolioPhotos } from "../lib/photos";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -24,14 +25,18 @@ const spaceGrotesk = Space_Grotesk({
     display: "swap",
 });
 
+export const viewport = {
+    themeColor: "#07060d",
+};
+
 export const metadata: Metadata = {
     metadataBase: new URL("https://abisolutions.online"),
     title: {
-        default: "Abhijith P A — Full Stack Developer & AI Engineer | AlgoBiz",
+        default: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
         template: "%s | Abhijith P A",
     },
     description:
-        "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. React, Next.js, Django, AWS. Ex-Steyp, Tegain, Ribos. ERP, SaaS & AI automation.",
+        "Abhijith P A is a Full Stack Developer & AI Engineer, Founder of Abi Solutions, Kerala, India. React, Next.js, Django, AWS, ERP, SaaS & AI automation.",
     keywords: [
         "Abhijith P A",
         "Abhijith PA",
@@ -183,8 +188,8 @@ export const metadata: Metadata = {
     },
     other: {
         "google-site-verification": "google008d788f2689e4cb",
-        "theme-color": "#080f1e",
-        "msapplication-TileColor": "#080f1e",
+        "theme-color": "#070406",
+        "msapplication-TileColor": "#070406",
     },
 };
 
@@ -207,10 +212,16 @@ const globalJsonLd = {
                 "Abhijith PA Developer",
             ],
             url: "https://abisolutions.online",
-            image: "https://abisolutions.online/profile.jpg",
+            image: [
+                "https://abisolutions.online/avatar.jpg",
+                "https://abisolutions.online/profile.jpg",
+                ...portfolioPhotos.map(
+                    (p) => `https://abisolutions.online${p.src}`,
+                ),
+            ],
             jobTitle: "Full Stack Developer & AI Engineer",
             description:
-                "Abhijith P A is a Full Stack Developer & AI Engineer at AlgoBiz, Kerala. Founder of Abi Solutions. Specializing in React, Next.js, Django, Python, AWS, and AI systems.",
+                "Abhijith P A is a Full Stack Developer & AI Engineer, Founder of Abi Solutions, Kerala. Specializing in React, Next.js, Django, Python, AWS, and AI systems.",
             email: "abhijithabhijith1999@gmail.com",
             telephone: "+919961316468",
             address: {

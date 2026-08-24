@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { AboutSection } from "../../components/AboutSection";
 import { ExperienceSection } from "../../components/ExperienceSection";
+import { Footer } from "../../components/Footer";
+import { portfolioPhotos } from "../../lib/photos";
 
 export const metadata: Metadata = {
-    title: "About Abhijith P A — Full Stack Developer & AI Engineer | Founder of AlgoBiz",
+    title: "About Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
     description:
-        "Abhijith P A is a Full Stack Developer & AI Engineer from Wayanad, Kerala. Founder of AlgoBiz. 4+ years building React, Next.js, Django & AI products. ex-Tegain, Ribos. Specializing in ERP, SaaS, HRMS & AI automation.",
+        "Abhijith P A (Abi) is a Full Stack Developer & AI Engineer from Wayanad, Kerala. Founder of Abi Solutions. 4+ years building React, Next.js, Django & AI products. Specializing in ERP, SaaS & AI automation.",
     keywords: [
         "About Abhijith P A",
         "Abhijith PA",
@@ -20,32 +22,18 @@ export const metadata: Metadata = {
         "Abhijith Kerala",
         "Abhijith Wayanad",
         "Abhijith India",
-        "AlgoBiz",
-        "Algobiz",
-        "AlgoBiz LLP",
-        "AlgoBiz Technologies",
-        "AlgoBiz founder",
-        "React Developer Kerala",
-        "Next.js Developer Kerala",
-        "Tegain",
-        "Abhijith Tegain",
-        "Tegain Developer",
-        "Tegain Software Engineer",
-        "Ribos",
-        "Ribos Developer",
-        "Ribos Engineer",
+        "Abi Solutions",
+        "Abi Solutions founder",
         "Full Stack Developer Kerala",
-        "Full Stack Developer India",
-        "React Developer Kerala",
-        "Next.js Developer Kerala",
-        "Django Developer Kerala",
         "AI Developer India",
         "AI Engineer India",
         "Software Engineer Kerala",
+        "Abhijith P A Photos",
+        "Abhijith Developer Images",
     ],
     authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
     creator: "Abhijith P A",
-    publisher: "AlgoBiz",
+    publisher: "Abi Solutions",
     alternates: {
         canonical: "https://abisolutions.online/about",
     },
@@ -53,30 +41,26 @@ export const metadata: Metadata = {
         type: "profile",
         locale: "en_US",
         url: "https://abisolutions.online/about",
-        siteName: "Abhijith P A — AlgoBiz",
-        title: "About Abhijith P A — Full Stack Developer & AI Engineer | AlgoBiz Founder",
+        siteName: "Abhijith P A — Abi Solutions",
+        title: "About Abhijith P A — Full Stack Developer & AI Engineer | Abi Solutions",
         description:
-            "4+ years shipping production web apps & AI products. Founder of AlgoBiz. ex-Tegain & Ribos. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
-        images: [
-            {
-                url: "/profile.jpg",
-                width: 800,
-                height: 800,
-                alt: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of AlgoBiz",
-                type: "image/jpeg",
-            },
-        ],
+            "4+ years shipping production web apps & AI products. Founder of Abi Solutions. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
+        images: portfolioPhotos.map((photo) => ({
+            url: photo.src,
+            width: 800,
+            height: 1000,
+            alt: photo.alt,
+            type: "image/jpeg",
+        })),
         firstName: "Abhijith",
         lastName: "P A",
     },
     twitter: {
         card: "summary_large_image",
-        site: "@abhijith",
-        creator: "@abhijith",
-        title: "About Abhijith P A — AlgoBiz Founder | Full Stack Developer & AI Engineer",
+        title: "About Abhijith P A — Abi Solutions Founder | Full Stack Developer",
         description:
-            "Full Stack Developer & AI Engineer. Founder of AlgoBiz. 4+ years at Tegain & Ribos. Building ERP, SaaS & AI products from Kerala.",
-        images: ["/profile.jpg"],
+            "Full Stack Developer & AI Engineer. Founder of Abi Solutions. Building ERP, SaaS & AI products from Kerala.",
+        images: ["/og-image.jpg", "/profile.jpg"],
     },
     robots: {
         index: true,
@@ -97,7 +81,7 @@ const jsonLd = [
         "@type": "AboutPage",
         name: "About Abhijith P A — Full Stack Developer & AI Engineer",
         description:
-            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of AlgoBiz. Previously worked at Talrop, Tegain, Ribos, and Steyp. Specializing in React, Next.js, Django, Python, AWS, ERP development, SaaS products, and AI automation.",
+            "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of Abi Solutions. Specializing in React, Next.js, Django, Python, AWS, ERP development, SaaS products, and AI automation.",
         url: "https://abisolutions.online/about",
         mainEntity: {
             "@type": "Person",
@@ -109,17 +93,14 @@ const jsonLd = [
                 "AP Abhijith",
                 "Abijith",
                 "Abhijith Developer",
-                "Abhijith Software Engineer",
                 "Abhijith Full Stack Developer",
-                "Abhijith Talrop",
-                "Abhijith Tegain",
                 "Abhijith Kerala",
                 "Abhijith Wayanad",
             ],
             jobTitle: "Full Stack Developer & AI Engineer",
             description:
-                "Full Stack Developer and AI Engineer with 4+ years of experience building production web applications, ERP systems, SaaS platforms, HRMS, and AI automation products. Founder of AlgoBiz.",
-            image: "https://abisolutions.online/profile.jpg",
+                "Full Stack Developer and AI Engineer with 4+ years of experience building production web applications, ERP systems, SaaS platforms, HRMS, and AI automation products. Founder of Abi Solutions.",
+            image: portfolioPhotos.map((p) => `https://abisolutions.online${p.src}`),
             url: "https://abisolutions.online",
             email: "abhijithabhijith1999@gmail.com",
             telephone: "+919961316468",
@@ -132,83 +113,13 @@ const jsonLd = [
             worksFor: {
                 "@type": "Organization",
                 "@id": "https://abisolutions.online/#organization",
-                name: "AlgoBiz",
-                alternateName: [
-                    "Algobiz",
-                    "AlgoBiz LLP",
-                    "AlgoBiz Technologies",
-                    "AlgoBiz Solutions",
-                ],
+                name: "Abi Solutions",
             },
             founder: {
                 "@type": "Organization",
                 "@id": "https://abisolutions.online/#organization",
-                name: "AlgoBiz",
+                name: "Abi Solutions",
             },
-            alumniOf: [
-                {
-                    "@type": "Organization",
-                    name: "Talrop",
-                    url: "https://www.talrop.com",
-                    description:
-                        "Technology learning and product company. Abhijith worked as Full Stack Developer building ERP and web applications.",
-                },
-                {
-                    "@type": "Organization",
-                    name: "Tegain",
-                    url: "https://tegain.com",
-                    description:
-                        "Technology company. Abhijith contributed as Software Engineer on community and brand platforms.",
-                },
-                {
-                    "@type": "Organization",
-                    name: "Ribos",
-                    description:
-                        "Software company. Abhijith worked on ERP systems and enterprise web applications.",
-                },
-                {
-                    "@type": "Organization",
-                    name: "Steyp",
-                    url: "https://steyp.com",
-                    description:
-                        "Coding education platform where Abhijith started his career as Frontend Engineer.",
-                },
-            ],
-            knowsAbout: [
-                "React.js",
-                "Next.js",
-                "TypeScript",
-                "JavaScript",
-                "Django",
-                "Python",
-                "AWS",
-                "Node.js",
-                "PostgreSQL",
-                "Tailwind CSS",
-                "Three.js",
-                "Framer Motion",
-                "GSAP",
-                "Firebase",
-                "Docker",
-                "AI Development",
-                "WhatsApp Automation",
-                "Telegram Automation",
-                "ERP Development",
-                "SaaS Development",
-                "HRMS Development",
-            ],
-            hasOccupation: [
-                {
-                    "@type": "Occupation",
-                    name: "Full Stack Developer",
-                    skills: "React, Next.js, TypeScript, Django, Python, AWS, PostgreSQL, Node.js",
-                },
-                {
-                    "@type": "Occupation",
-                    name: "AI Engineer",
-                    skills: "AI Automation, WhatsApp Bots, Telegram Bots, OpenAI, LLM Integration",
-                },
-            ],
             sameAs: [
                 "https://github.com/Abhijith-Abi",
                 "https://www.linkedin.com/in/abhijith-pa/",
@@ -247,6 +158,7 @@ export default function AboutPage() {
             <div className="pt-24">
                 <AboutSection />
                 <ExperienceSection />
+                <Footer />
             </div>
         </main>
     );

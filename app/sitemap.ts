@@ -2,9 +2,11 @@ import { MetadataRoute } from "next";
 import { blogPosts } from "../lib/blog";
 import { locationsData, exactKeywordAliases } from "../lib/locations";
 import { servicesSEOData, serviceAliases } from "../lib/services-seo";
+import { portfolioPhotos } from "../lib/photos";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://abisolutions.online";
+    const allPhotoUrls = portfolioPhotos.map((p) => `${baseUrl}${p.src}`);
 
     // Dynamic blog post entries
     const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({

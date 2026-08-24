@@ -3,6 +3,30 @@
 import { motion } from "framer-motion";
 import { SectionWrapper } from "./SectionWrapper";
 import { FadeIn } from "./motion/RevealText";
+import {
+    ArrowUpRight,
+    Sparkles,
+    ExternalLink,
+    Layers,
+    Activity,
+    Shield,
+    Calendar,
+} from "lucide-react";
+import Link from "next/link";
+
+const IconGithub = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+    </svg>
+);
 
 type Project = {
     name: string;
@@ -10,293 +34,314 @@ type Project = {
     domain: string;
     year: string;
     description: string;
+    metric: string;
     tech: string[];
     live?: string;
-    /** Tailwind grid span classes for desktop layout */
+    internalUrl?: string;
     span: string;
-    /** Render as featured (extra emphasis) */
     featured?: boolean;
 };
 
 const projects: Project[] = [
     {
         name: "Enterprise ERP",
-        role: "Enterprise resource planning",
-        domain: "ERP",
-        year: "2025",
+        role: "Architecture & Frontend Lead",
+        domain: "Enterprise SaaS",
+        year: "2025 – 2026",
+        metric: "Multi-tenant ERP · 99.9% Uptime",
         description:
-            "Front-end for an ERP covering inventory, finance, and HR with real-time insights, granular permissions, and a unified design language across modules.",
-        tech: ["Next.js", "TypeScript", "Tailwind", "Zustand", "Recharts"],
-        live: "/projects/enterprise-erp",
+            "Modular ERP architecture unifying multi-location inventory, finance accounting, payroll, and role-based access control with real-time telemetry dashboards.",
+        tech: ["Next.js 14", "TypeScript", "Tailwind", "Zustand", "Recharts", "PostgreSQL"],
+        live: "https://abisolutions.online/projects/enterprise-erp",
+        internalUrl: "/projects/enterprise-erp",
         span: "lg:col-span-4 lg:row-span-2",
         featured: true,
     },
     {
         name: "Hosface",
-        role: "Healthcare infrastructure",
-        domain: "AI / Healthcare",
+        role: "Healthcare Platform",
+        domain: "HealthTech / AI",
         year: "2024",
+        metric: "Clinical Onboarding Engine",
         description:
-            "Pairing doctors and investors through a structured four-step clinic-setup model. Built marketing surfaces, dashboards, and onboarding flow.",
-        tech: ["Next.js", "TypeScript", "Tailwind"],
+            "Connecting physicians, clinics, and health investors through a 4-step clinic launch model with interactive marketing funnels and patient portals.",
+        tech: ["Next.js", "TypeScript", "Tailwind", "REST APIs"],
         live: "https://www.hosface.com/",
+        internalUrl: "/projects/hosface",
         span: "lg:col-span-2",
     },
     {
         name: "Steyp",
-        role: "Coding learning platform",
-        domain: "E-learning",
+        role: "EdTech Learning Platform",
+        domain: "E-Learning",
         year: "2023",
+        metric: "Video Tracks & Exercises",
         description:
-            "Video-led coding education with structured tracks, exercises, and progress tracking.",
-        tech: ["React", "Styled Components", "Redux"],
+            "Interactive video-driven software engineering education platform featuring guided coding tracks, student progress metrics, and live exercises.",
+        tech: ["React", "Styled Components", "Redux", "Node.js"],
         live: "https://steyp.com/",
+        internalUrl: "/projects/steyp",
         span: "lg:col-span-2",
     },
     {
         name: "Tegain",
-        role: "Company & community hub",
-        domain: "CRM",
+        role: "Company & Community Hub",
+        domain: "Corporate / CRM",
         year: "2024",
+        metric: "100/100 Core Web Vitals",
         description:
-            "Brand site with community engagement and recruitment surfaces, tuned for SEO and Core Web Vitals.",
-        tech: ["Next.js", "Tailwind", "Zustand"],
+            "High-converting brand platform with integrated recruitment workflows and community surfaces, optimized for extreme search visibility and rapid loads.",
+        tech: ["Next.js", "Tailwind", "Zustand", "SEO"],
         live: "https://tegain.com/",
+        internalUrl: "/projects/tegain",
         span: "lg:col-span-3",
     },
     {
-        name: "Somans",
-        role: "Travel management platform",
-        domain: "Scheduling",
+        name: "Somans Leisure Tours",
+        role: "Travel ERP & Operations",
+        domain: "Logistics / Travel",
         year: "2024",
+        metric: "Automated Itineraries & Bookings",
         description:
-            "Internal tooling for bookings, approvals, and analytics across HR and operations. Reduced manual workflows with role-based dashboards.",
-        tech: ["Next.js", "Tailwind", "Zustand"],
+            "Internal operations and booking management suite reducing manual administrative overhead through automated approval workflows and customer portals.",
+        tech: ["Next.js", "Tailwind", "Zustand", "Cloudflare"],
         live: "https://www.somansleisuretours.com/",
+        internalUrl: "/projects/somans",
         span: "lg:col-span-3",
     },
 ];
 
-const ArrowIcon = () => (
-    <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <line x1="7" y1="17" x2="17" y2="7" />
-        <polyline points="7 7 17 7 17 17" />
-    </svg>
-);
+const openSourceProjects = [
+    {
+        name: "React Admin Dashboard",
+        description:
+            "Modular, high-performance admin template pre-built with dark mode, Recharts telemetry, and accessible components.",
+        tech: ["React", "TypeScript", "Tailwind", "Recharts"],
+        link: "https://github.com/Abhijith-Abi/react-admin-dashboard",
+    },
+    {
+        name: "Tailwind Component Library",
+        description:
+            "Accessible WAI-ARIA compliant UI components and custom utility plugins for production Tailwind projects.",
+        tech: ["Tailwind CSS", "Radix UI", "React"],
+        link: "https://github.com/Abhijith-Abi/tailwind-component-library",
+    },
+    {
+        name: "Next.js Starter Boilerplate",
+        description:
+            "Production boilerplate configured with App Router, strict TypeScript, dynamic XML sitemaps, and Schema.org SEO.",
+        tech: ["Next.js 14", "TypeScript", "Tailwind", "SEO"],
+        link: "https://github.com/Abhijith-Abi/nextjs-starter",
+    },
+    {
+        name: "React Vite SPA Boilerplate",
+        description:
+            "Lightweight single page app skeleton with Vite, Zustand state, Tailwind variables, and Vitest test runner.",
+        tech: ["React", "Vite", "Zustand", "Tailwind"],
+        link: "https://github.com/Abhijith-Abi/react-boilerplate",
+    },
+    {
+        name: "Django Backend Skeleton",
+        description:
+            "Scalable Django architecture with JWT auth, PostgreSQL schemas, Celery tasks, and Docker setup.",
+        tech: ["Django", "Python", "PostgreSQL", "Docker"],
+        link: "https://github.com/Abhijith-Abi/django-boilerplate",
+    },
+    {
+        name: "Authentication Template",
+        description:
+            "Passwordless multi-provider authentication flow configured with NextAuth (Auth.js) and token storage.",
+        tech: ["Auth.js", "Next.js", "TypeScript", "PostgreSQL"],
+        link: "https://github.com/Abhijith-Abi/auth-template",
+    },
+];
 
 export function ProjectsSection() {
     return (
-        <SectionWrapper id="projects" index="04" label="Work">
+        <SectionWrapper id="projects" index="05" label="Selected Work">
+            {/* Header */}
             <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
-                <h2 className="font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
-                    <span className="block">SELECTED</span>
-                    <span className="block ghost-text">WORK.</span>
-                </h2>
+                <div>
+                    <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                        <Sparkles className="h-3 w-3" />
+                        Proven Production Deliveries
+                    </div>
+                    <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                        <span className="block">FEATURED</span>
+                        <span className="block text-accent">
+                            PRODUCTS & SOFTWARE.
+                        </span>
+                    </h2>
+                </div>
                 <FadeIn>
-                    <p className="text-sm leading-relaxed text-ink/65 sm:text-base md:text-right lg:text-lg">
-                        A reading list of products I&apos;ve shipped. Each one
-                        is live software with real users — built alongside
-                        designers, engineers, and operators.
+                    <p className="text-sm leading-relaxed text-ink/75 sm:text-base md:text-right lg:text-lg">
+                        Selected production applications deployed for real clients and thousands of active users. Built for performance, security, and exceptional UX.
                     </p>
                 </FadeIn>
             </div>
 
-            {/* Bento grid: 6 columns on lg, single column on mobile */}
-            <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 lg:grid-cols-6">
+            {/* Bento Grid */}
+            <div className="grid auto-rows-[minmax(200px,auto)] grid-cols-1 gap-4 lg:grid-cols-6">
                 {projects.map((p, i) => (
-                    <FadeIn key={p.name} delay={i * 0.05} className={p.span}>
-                        <motion.a
-                            href={p.live ?? "#"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ y: -2 }}
-                            transition={{
-                                duration: 0.3,
-                                ease: [0.22, 1, 0.36, 1],
-                            }}
-                            className={`bento-card group flex h-full flex-col rounded-3xl p-6 sm:p-7 ${
-                                p.featured ? "lg:p-8" : ""
+                    <FadeIn key={p.name} delay={i * 0.06} className={p.span}>
+                        <div
+                            className={`bento-card group flex h-full flex-col justify-between rounded-3xl p-6 sm:p-7 ${
+                                p.featured ? "lg:p-9" : ""
                             }`}
                         >
-                            {/* Top row: number + arrow */}
-                            <div className="flex items-start justify-between">
-                                <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink/30 group-hover:text-accent">
-                                    0{i + 1}
-                                </span>
-                                <span className="flex h-8 w-8 items-center justify-center rounded-full text-accent transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                                    <ArrowIcon />
-                                </span>
-                            </div>
+                            {/* Browser Mockup Top Bar */}
+                            <div>
+                                <div className="flex items-center justify-between border-b border-white/[0.07] pb-4">
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
+                                        <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
+                                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+                                        <span className="ml-2 font-mono text-[10px] text-ink/40">
+                                            0{i + 1} · {p.domain}
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        {p.internalUrl && (
+                                            <Link
+                                                href={p.internalUrl}
+                                                className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/[0.05] text-ink/60 transition hover:bg-accent hover:text-black"
+                                                title="View Case Study"
+                                            >
+                                                <Layers className="h-4 w-4" />
+                                            </Link>
+                                        )}
+                                        {p.live && (
+                                            <a
+                                                href={p.live}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent/10 text-accent transition hover:bg-accent hover:text-black hover:shadow-glow-sm"
+                                                title="Open Live Website"
+                                            >
+                                                <ArrowUpRight className="h-4 w-4" />
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
 
-                            {/* Body */}
-                            <div className="mt-auto pt-8">
-                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                                {/* Content */}
+                                <div className="pt-6">
+                                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                                        <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
+                                            <Activity className="h-2.5 w-2.5" />
+                                            {p.metric}
+                                        </span>
+                                        <span className="font-mono text-[10px] text-ink/40">
+                                            {p.year}
+                                        </span>
+                                    </div>
+
                                     <h3
-                                        className={`font-display font-extrabold tracking-tight text-ink transition group-hover:text-accent ${
+                                        className={`font-display font-extrabold tracking-tight text-ink group-hover:text-accent transition-colors ${
                                             p.featured
-                                                ? "text-3xl sm:text-4xl lg:text-5xl"
+                                                ? "text-2xl sm:text-3xl lg:text-4xl"
                                                 : "text-xl sm:text-2xl"
                                         }`}
                                     >
                                         {p.name}
                                     </h3>
+                                    <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-accent2">
+                                        {p.role}
+                                    </p>
+
+                                    <p
+                                        className={`mt-3.5 leading-relaxed text-ink/70 ${
+                                            p.featured
+                                                ? "text-sm sm:text-base max-w-xl"
+                                                : "text-xs sm:text-sm"
+                                        }`}
+                                    >
+                                        {p.description}
+                                    </p>
                                 </div>
-                                <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40 sm:text-[11px]">
-                                    {p.role}
-                                </p>
-
-                                <p
-                                    className={`mt-4 leading-relaxed text-ink/60 ${
-                                        p.featured
-                                            ? "max-w-xl text-sm sm:text-base"
-                                            : "text-[13px] sm:text-sm"
-                                    }`}
-                                >
-                                    {p.description}
-                                </p>
-
-                                <div className="mt-5 flex flex-wrap items-center gap-2">
-                                    <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.28em] text-accent">
-                                        {p.domain}
-                                    </span>
-                                    <span className="font-mono text-[10px] text-ink/40">
-                                        · {p.year}
-                                    </span>
-                                </div>
-
-                                {p.featured && (
-                                    <div className="mt-4 flex flex-wrap gap-1.5">
-                                        {p.tech.map((stack) => (
-                                            <span
-                                                key={stack}
-                                                className="inline-flex items-center rounded-md border border-line bg-background px-2 py-0.5 font-mono text-[10px] text-ink/70"
-                                            >
-                                                {stack}
-                                            </span>
-                                        ))}
-                                    </div>
-                                )}
                             </div>
-                        </motion.a>
-                    </FadeIn>
-                ))}
-            </div>
 
-            {/* Open Source Projects Section */}
-            <div className="mt-24 mb-6">
-                <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-ink sm:text-3xl">
-                    Open Source{" "}
-                    <span className="text-accent">
-                        Templates & Boilerplates
-                    </span>
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-ink/65 sm:text-sm lg:text-base max-w-2xl">
-                    A curated collection of developer starter kits, components
-                    libraries, and system boilerplates published to GitHub.
-                    Free, open source, and production-ready.
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {[
-                    {
-                        name: "React Admin Dashboard",
-                        description:
-                            "A modular, premium, and fully accessible admin panel dashboard template with built-in dark mode and Recharts telemetry.",
-                        tech: ["React", "TypeScript", "Tailwind", "Recharts"],
-                        link: "https://github.com/Abhijith-Abi/react-admin-dashboard",
-                    },
-                    {
-                        name: "Tailwind Component Library",
-                        description:
-                            "Headless, accessible (WAI-ARIA compliant) layout components and custom utility plugins for Tailwind CSS projects.",
-                        tech: ["Tailwind CSS", "Radix UI", "React"],
-                        link: "https://github.com/Abhijith-Abi/tailwind-component-library",
-                    },
-                    {
-                        name: "Next.js Starter",
-                        description:
-                            "Production-ready boilerplate configured with Next.js App Router, strict type-checking, dynamic sitemaps, and SEO presets.",
-                        tech: ["Next.js 14", "TypeScript", "Tailwind", "SEO"],
-                        link: "https://github.com/Abhijith-Abi/nextjs-starter",
-                    },
-                    {
-                        name: "React Boilerplate",
-                        description:
-                            "Lightweight SPA starting kit preconfigured with Vite, Zustand state management, Tailwind variables, and Vitest testing.",
-                        tech: ["React", "Vite", "Zustand", "Tailwind"],
-                        link: "https://github.com/Abhijith-Abi/react-boilerplate",
-                    },
-                    {
-                        name: "Django Boilerplate",
-                        description:
-                            "Scalable backend skeleton prebuilt with JWT auth, custom middlewares, PostgreSQL schemas, Celery tasks, and Docker settings.",
-                        tech: ["Django", "Python", "PostgreSQL", "Docker"],
-                        link: "https://github.com/Abhijith-Abi/django-boilerplate",
-                    },
-                    {
-                        name: "Authentication Template",
-                        description:
-                            "Multi-provider passwordless authentication flow template configured with next-auth (Auth.js) and session tokens database storage.",
-                        tech: [
-                            "Auth.js",
-                            "Next.js",
-                            "TypeScript",
-                            "PostgreSQL",
-                        ],
-                        link: "https://github.com/Abhijith-Abi/auth-template",
-                    },
-                ].map((repo, idx) => (
-                    <FadeIn key={repo.name} delay={idx * 0.05}>
-                        <motion.a
-                            href={repo.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ y: -2 }}
-                            transition={{
-                                duration: 0.3,
-                                ease: [0.22, 1, 0.36, 1],
-                            }}
-                            className="surface group flex h-full flex-col justify-between rounded-3xl border border-line p-6 sm:p-7 hover:border-accent/40"
-                        >
-                            <div>
-                                <div className="flex items-center justify-between">
-                                    <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-accent/85 bg-accent/5 border border-accent/20 px-2 py-0.5 rounded">
-                                        Open Source
-                                    </span>
-                                    <span className="text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-200">
-                                        <ArrowIcon />
-                                    </span>
-                                </div>
-                                <h4 className="mt-4 font-display text-lg font-bold text-ink group-hover:text-accent transition">
-                                    {repo.name}
-                                </h4>
-                                <p className="mt-2 text-xs leading-relaxed text-ink/60">
-                                    {repo.description}
-                                </p>
-                            </div>
-                            <div className="mt-5 flex flex-wrap gap-1.5">
-                                {repo.tech.map((t) => (
+                            {/* Tech Stack Footer */}
+                            <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+                                {p.tech.map((t) => (
                                     <span
                                         key={t}
-                                        className="rounded bg-background border border-line px-2 py-0.5 font-mono text-[9px] text-ink/50"
+                                        className="inline-flex items-center rounded-lg border border-white/[0.08] bg-background/80 px-2.5 py-1 font-mono text-[10px] text-ink/80"
                                     >
                                         {t}
                                     </span>
                                 ))}
                             </div>
-                        </motion.a>
+                        </div>
                     </FadeIn>
                 ))}
+            </div>
+
+            {/* Open Source Ecosystem Section */}
+            <div className="mt-20 sm:mt-24">
+                <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div>
+                        <div className="inline-flex items-center gap-2 rounded-full border border-accent-emerald/20 bg-accent-emerald/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent-emerald mb-3">
+                            <IconGithub className="h-3 w-3" />
+                            Open Source Ecosystem
+                        </div>
+                        <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-ink sm:text-3xl">
+                            Developer Boilerplates &{" "}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-emerald">
+                                Starter Kits
+                            </span>
+                        </h3>
+                    </div>
+                    <a
+                        href="https://github.com/Abhijith-Abi"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 font-mono text-xs text-accent hover:underline"
+                    >
+                        <span>View GitHub Profile</span>
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {openSourceProjects.map((repo, idx) => (
+                        <FadeIn key={repo.name} delay={idx * 0.05}>
+                            <a
+                                href={repo.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="surface group flex h-full flex-col justify-between rounded-3xl border border-white/[0.08] p-6 transition-all duration-300 hover:border-accent/40 hover:shadow-glow-sm"
+                            >
+                                <div>
+                                    <div className="flex items-center justify-between">
+                                        <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-lg">
+                                            Open Source
+                                        </span>
+                                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/[0.04] text-ink/60 group-hover:text-accent group-hover:bg-accent/10 transition-colors">
+                                            <ArrowUpRight className="h-3.5 w-3.5" />
+                                        </span>
+                                    </div>
+                                    <h4 className="mt-4 font-display text-base font-bold text-ink group-hover:text-accent transition-colors">
+                                        {repo.name}
+                                    </h4>
+                                    <p className="mt-2 text-xs leading-relaxed text-ink/65">
+                                        {repo.description}
+                                    </p>
+                                </div>
+                                <div className="mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+                                    {repo.tech.map((t) => (
+                                        <span
+                                            key={t}
+                                            className="rounded-md bg-background border border-white/[0.06] px-2 py-0.5 font-mono text-[9px] text-ink/60"
+                                        >
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                            </a>
+                        </FadeIn>
+                    ))}
+                </div>
             </div>
         </SectionWrapper>
     );

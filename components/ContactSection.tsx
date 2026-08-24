@@ -7,6 +7,17 @@ import emailjs from "@emailjs/browser";
 import { SectionWrapper } from "./SectionWrapper";
 import { FadeIn } from "./motion/RevealText";
 import { MagneticButton } from "./motion/MagneticButton";
+import {
+    Send,
+    Mail,
+    Phone,
+    MapPin,
+    MessageSquare,
+    Sparkles,
+    CheckCircle2,
+    Clock,
+    ArrowUpRight,
+} from "lucide-react";
 
 type FormState = {
     name: string;
@@ -129,103 +140,135 @@ export function ContactSection() {
     };
 
     const inputClasses =
-        "mt-2 w-full rounded-lg border border-line bg-background px-3.5 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink/30 focus:border-accent focus:ring-2 focus:ring-accent/20";
+        "mt-2 w-full rounded-xl border border-white/10 bg-background/90 px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/30 focus:border-accent focus:ring-2 focus:ring-accent/20";
 
     return (
-        <SectionWrapper id="contact" index="06" label="Contact">
-            <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
-                <div className="space-y-10">
+        <SectionWrapper id="contact" index="07" label="Contact">
+            <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16 items-start">
+                {/* Left Info Column */}
+                <div className="space-y-8">
                     <div>
-                        <p className="section-eyebrow">Get in touch</p>
-                        <h2 className="mt-4 font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
-                            <span className="block">LET&apos;S BUILD</span>
-                            <span className="block">
-                                SOMETHING{" "}
-                                <span className="text-accent">REAL.</span>
+                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                            <Sparkles className="h-3 w-3" />
+                            Start a Project or Collaboration
+                        </div>
+                        <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                            <span className="block">LET&apos;S ENGINEER</span>
+                            <span className="block text-accent">
+                                SOMETHING REMARKABLE.
                             </span>
                         </h2>
-                        <FadeIn className="mt-6 max-w-md text-base leading-relaxed text-ink/70 lg:text-lg">
+                        <FadeIn className="mt-4 max-w-md text-sm leading-relaxed text-ink/75 sm:text-base">
                             <p>
-                                I&apos;m open to frontend roles and freelance
-                                work — especially on products that value craft,
-                                motion, and design systems. Most replies go out
-                                within a day.
+                                Open for full-stack web applications, AI automation workflows, ERP engineering, and technical consulting.
                             </p>
                         </FadeIn>
                     </div>
 
-                    <ul className="space-y-4 font-mono text-sm">
-                        {[
-                            {
-                                k: "Email",
-                                v: "abhijithabhijith1999@gmail.com",
-                                href: "mailto:abhijithabhijith1999@gmail.com",
-                            },
-                            {
-                                k: "Phone",
-                                v: "+91 99613 16468",
-                                href: "tel:+919961316468",
-                            },
-                            {
-                                k: "Based",
-                                v: "Kerala, India · Remote-friendly",
-                            },
-                            {
-                                k: "LinkedIn",
-                                v: "/in/abhijith-pa ↗",
-                                href: "https://www.linkedin.com/in/abhijith-pa/",
-                            },
-                            {
-                                k: "GitHub",
-                                v: "@Abhijith-Abi ↗",
-                                href: "https://github.com/Abhijith-Abi",
-                            },
-                        ].map((item) => (
-                            <li
-                                key={item.k}
-                                className="flex items-start justify-between gap-4 border-b border-line pb-4 last:border-b-0"
-                            >
-                                <span className="text-[10px] uppercase tracking-[0.32em] text-ink/40">
-                                    {item.k}
+                    {/* Quick WhatsApp Action Card */}
+                    <FadeIn>
+                        <a
+                            href="https://wa.me/919961316468?text=Hi%20Abhijith,%20I%20would%20like%20to%20discuss%20a%20project"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="surface flex items-center justify-between rounded-2xl p-4 border border-accent-emerald/30 bg-accent-emerald/5 hover:bg-accent-emerald/10 transition-all duration-300 group"
+                        >
+                            <div className="flex items-center gap-3">
+                                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-emerald/20 text-accent-emerald">
+                                    <MessageSquare className="h-5 w-5" />
                                 </span>
-                                {item.href ? (
-                                    <a
-                                        href={item.href}
-                                        target={
-                                            item.href.startsWith("http")
-                                                ? "_blank"
-                                                : undefined
-                                        }
-                                        rel="noreferrer"
-                                        className="text-ink transition hover:text-accent"
+                                <div>
+                                    <p className="font-display text-sm font-bold text-ink group-hover:text-accent-emerald transition-colors">
+                                        Direct WhatsApp Chat
+                                    </p>
+                                    <p className="font-mono text-[10px] text-ink/50">
+                                        Instant response · +91 99613 16468
+                                    </p>
+                                </div>
+                            </div>
+                            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent-emerald text-black font-bold text-xs group-hover:translate-x-0.5 transition-transform">
+                                <ArrowUpRight className="h-4 w-4" />
+                            </span>
+                        </a>
+                    </FadeIn>
+
+                    {/* Contact Methods List */}
+                    <div className="surface rounded-2xl p-5 border border-white/[0.08]">
+                        <ul className="space-y-4 font-mono text-xs">
+                            {[
+                                {
+                                    k: "Email",
+                                    v: "abhijithabhijith1999@gmail.com",
+                                    href: "mailto:abhijithabhijith1999@gmail.com",
+                                    icon: Mail,
+                                },
+                                {
+                                    k: "Phone",
+                                    v: "+91 99613 16468",
+                                    href: "tel:+919961316468",
+                                    icon: Phone,
+                                },
+                                {
+                                    k: "Location",
+                                    v: "Wayanad, Kerala · Remote Worldwide",
+                                    icon: MapPin,
+                                },
+                            ].map((item) => {
+                                const Icon = item.icon;
+                                return (
+                                    <li
+                                        key={item.k}
+                                        className="flex items-center justify-between gap-4 border-b border-white/[0.06] pb-3 last:border-b-0 last:pb-0"
                                     >
-                                        {item.v}
-                                    </a>
-                                ) : (
-                                    <span className="text-ink">{item.v}</span>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
+                                        <div className="flex items-center gap-2 text-ink/50">
+                                            <Icon className="h-3.5 w-3.5 text-accent" />
+                                            <span className="text-[10px] uppercase tracking-[0.2em]">
+                                                {item.k}
+                                            </span>
+                                        </div>
+                                        {item.href ? (
+                                            <a
+                                                href={item.href}
+                                                className="text-ink transition hover:text-accent font-medium truncate"
+                                            >
+                                                {item.v}
+                                            </a>
+                                        ) : (
+                                            <span className="text-ink truncate">{item.v}</span>
+                                        )}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+
+                    <div className="flex items-center gap-2 font-mono text-[11px] text-ink/60">
+                        <Clock className="h-3.5 w-3.5 text-accent" />
+                        <span>Average response turnaround under 24 hours</span>
+                    </div>
                 </div>
 
+                {/* Right Form Column */}
                 <FadeIn>
                     <form
                         onSubmit={handleSubmit}
-                        className="surface rounded-3xl p-6 sm:p-8"
+                        className="surface-card rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl backdrop-blur-2xl"
                     >
-                        <div className="mb-6 flex items-center justify-between border-b border-line pb-4 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/40">
-                            <span>~/message.tsx</span>
-                            <span className="text-accent">draft</span>
+                        <div className="mb-6 flex items-center justify-between border-b border-white/[0.08] pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40">
+                            <span className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-accent" />
+                                ~/contact_form.tsx
+                            </span>
+                            <span className="text-accent">secure transmission</span>
                         </div>
 
-                        <div className="space-y-5">
+                        <div className="space-y-4">
                             <div>
                                 <label
                                     htmlFor="name"
-                                    className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40"
+                                    className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/50"
                                 >
-                                    Name
+                                    Your Name
                                 </label>
                                 <input
                                     id="name"
@@ -235,10 +278,10 @@ export function ContactSection() {
                                         handleChange("name", e.target.value)
                                     }
                                     className={inputClasses}
-                                    placeholder="Your name"
+                                    placeholder="Jane Doe"
                                 />
                                 {errors.name && (
-                                    <p className="mt-1.5 text-xs text-rose-400">
+                                    <p className="mt-1 font-mono text-[11px] text-rose-400">
                                         {errors.name}
                                     </p>
                                 )}
@@ -247,9 +290,9 @@ export function ContactSection() {
                             <div>
                                 <label
                                     htmlFor="email"
-                                    className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40"
+                                    className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/50"
                                 >
-                                    Email
+                                    Email Address
                                 </label>
                                 <input
                                     id="email"
@@ -259,10 +302,10 @@ export function ContactSection() {
                                         handleChange("email", e.target.value)
                                     }
                                     className={inputClasses}
-                                    placeholder="you@example.com"
+                                    placeholder="jane@company.com"
                                 />
                                 {errors.email && (
-                                    <p className="mt-1.5 text-xs text-rose-400">
+                                    <p className="mt-1 font-mono text-[11px] text-rose-400">
                                         {errors.email}
                                     </p>
                                 )}
@@ -271,22 +314,22 @@ export function ContactSection() {
                             <div>
                                 <label
                                     htmlFor="message"
-                                    className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40"
+                                    className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/50"
                                 >
-                                    Message
+                                    Project Scope & Message
                                 </label>
                                 <textarea
                                     id="message"
-                                    rows={5}
+                                    rows={4}
                                     value={form.message}
                                     onChange={(e) =>
                                         handleChange("message", e.target.value)
                                     }
                                     className={inputClasses}
-                                    placeholder="Tell me about your project, role, or idea..."
+                                    placeholder="Tell me about your product requirements, timeline, and goals..."
                                 />
                                 {errors.message && (
-                                    <p className="mt-1.5 text-xs text-rose-400">
+                                    <p className="mt-1 font-mono text-[11px] text-rose-400">
                                         {errors.message}
                                     </p>
                                 )}
@@ -296,27 +339,28 @@ export function ContactSection() {
                         <MagneticButton
                             type="submit"
                             disabled={submitting}
-                            className="btn-primary mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-70"
+                            className="btn-primary mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-sm font-bold disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer shadow-glow-sm"
                         >
                             {submitting ? (
-                                <span className="font-mono text-xs uppercase tracking-[0.28em]">
-                                    Sending…
+                                <span className="font-mono text-xs uppercase tracking-[0.24em]">
+                                    Transmitting…
                                 </span>
                             ) : (
                                 <>
-                                    <span>Send message</span>
-                                    <span>→</span>
+                                    <span>Dispatch Message</span>
+                                    <Send className="h-4 w-4" />
                                 </>
                             )}
                         </MagneticButton>
 
                         {submitted && !submitError && (
-                            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.28em] text-accent">
-                                ✓ Message sent. I&apos;ll be in touch.
-                            </p>
+                            <div className="mt-4 flex items-center gap-2 rounded-xl bg-accent-emerald/10 border border-accent-emerald/30 p-3 font-mono text-xs text-accent-emerald">
+                                <CheckCircle2 className="h-4 w-4" />
+                                <span>Message successfully sent. I will respond within 24 hours.</span>
+                            </div>
                         )}
                         {submitError && (
-                            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.28em] text-rose-400">
+                            <p className="mt-4 font-mono text-xs text-rose-400">
                                 ✗ {submitError}
                             </p>
                         )}

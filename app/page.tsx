@@ -2,10 +2,14 @@ import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { AboutSection } from "../components/AboutSection";
 import { SkillsSection } from "../components/SkillsSection";
-import { ProjectsSection } from "../components/ProjectsSection";
-import { ExperienceSection } from "../components/ExperienceSection";
-import { ContactSection } from "../components/ContactSection";
+import { TechRadarMatrix } from "../components/TechRadarMatrix";
 import { WorkflowSection } from "../components/WorkflowSection";
+import { ProjectsSection } from "../components/ProjectsSection";
+import { ProjectEstimator } from "../components/ProjectEstimator";
+import { LiveTerminal } from "../components/LiveTerminal";
+import { ExperienceSection } from "../components/ExperienceSection";
+import { TestimonialsSection } from "../components/TestimonialsSection";
+import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 
 const jsonLd = [
@@ -379,7 +383,7 @@ const jsonLd = [
                 name: "What projects has Abhijith P A built?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Abhijith P A has built HOSFACE (healthcare platform), Finwage (payroll & HRMS), STEYP (coding education platform), Enterprise ERP (enterprise resource planning), Tegain (community hub), and various AI automation systems including WhatsApp and Telegram bots.",
+                    text: "Abhijith P A has built Start Visa (global visa & immigration platform), House of Vaz (luxury e-commerce storefront), Yuva Paripalan (youth community empowerment portal), Palana Neuro Sync (neurological clinical portal), and various AI automation systems including WhatsApp and Telegram bots.",
                 },
             },
             {
@@ -407,9 +411,13 @@ export default function HomePage() {
             <Hero />
             <AboutSection />
             <SkillsSection />
+            <TechRadarMatrix />
             <WorkflowSection />
             <ProjectsSection />
+            <ProjectEstimator />
+            <LiveTerminal />
             <ExperienceSection />
+            <TestimonialsSection />
             <ContactSection />
             <Footer />
         </main>

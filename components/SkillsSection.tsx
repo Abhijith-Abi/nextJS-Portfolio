@@ -19,7 +19,7 @@ const categories: SkillCategory[] = [
     {
         title: "Frontend Engineering",
         icon: Code2,
-        accent: "#8b5cf6",
+        accent: "#2f6bff",
         description:
             "Design systems, interactive component trees, state management, and fluid motion language.",
         span: "lg:col-span-4",
@@ -37,7 +37,7 @@ const categories: SkillCategory[] = [
     {
         title: "Backend & Systems",
         icon: Server,
-        accent: "#6366f1",
+        accent: "#60a5fa",
         description:
             "High-throughput REST & GraphQL APIs, data schemas, authentication, and background workers.",
         span: "lg:col-span-2",
@@ -53,7 +53,7 @@ const categories: SkillCategory[] = [
     {
         title: "AI & Automation",
         icon: Cpu,
-        accent: "#a855f7",
+        accent: "#1d4ed8",
         description:
             "Autonomous agents, LLM integrations, WhatsApp/Telegram business bots, and RAG pipelines.",
         span: "lg:col-span-2",

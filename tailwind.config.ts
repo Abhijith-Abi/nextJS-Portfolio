@@ -9,20 +9,21 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Electric Violet & Cosmic Indigo (Raycast / Modern AI Theme)
-                background: "#07060d",
-                surface: "#0f0c1b",
-                surface2: "#161226",
-                "surface-card": "#130f21",
+                // Zentra Luxury Dark & Electric Royal Blue Theme
+                background: "#07080c",
+                surface: "rgba(15, 18, 26, 0.85)",
+                surface2: "#131622",
+                "surface-card": "rgba(20, 24, 36, 0.9)",
                 ink: "#ffffff",
-                "ink-muted": "#94a3b8",
+                "ink-muted": "#9098aa",
                 line: "rgba(255, 255, 255, 0.08)",
-                line2: "rgba(139, 92, 246, 0.25)",
-                accent: "#8b5cf6", // electric violet
-                accent2: "#6366f1", // cosmic indigo
-                "accent-purple": "#a855f7", // neon purple
-                "accent-emerald": "#10b981", // live emerald
-                muted: "#64748b",
+                line2: "rgba(47, 107, 255, 0.3)",
+                accent: "#2f6bff", // electric royal blue
+                accent2: "#60a5fa", // luminous sky / ice blue
+                "accent-ocean": "#1d4ed8", // deep cobalt
+                "accent-abyss": "#0b1020", // cosmic navy slate
+                "accent-emerald": "#10b981", // active live emerald
+                muted: "#838c9e",
                 paper: "#ffffff",
             },
             fontFamily: {
@@ -35,14 +36,14 @@ const config: Config = {
                 mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
             },
             boxShadow: {
-                soft: "0 24px 64px -12px rgba(7,6,13,0.95)",
-                glow: "0 0 0 1px rgba(139,92,246,0.3), 0 16px 48px -12px rgba(139,92,246,0.4)",
+                soft: "0 24px 64px -12px rgba(7,8,12,0.95)",
+                glow: "0 0 0 1px rgba(47,107,255,0.35), 0 16px 48px -12px rgba(47,107,255,0.4)",
                 "glow-sm":
-                    "0 0 0 1px rgba(139,92,246,0.25), 0 8px 24px -8px rgba(139,92,246,0.35)",
-                "glow-indigo":
-                    "0 0 0 1px rgba(99,102,241,0.3), 0 16px 48px -12px rgba(99,102,241,0.4)",
-                "glow-purple":
-                    "0 0 0 1px rgba(168,85,247,0.3), 0 16px 48px -12px rgba(168,85,247,0.4)",
+                    "0 0 0 1px rgba(47,107,255,0.25), 0 8px 24px -8px rgba(47,107,255,0.35)",
+                "glow-blue":
+                    "0 0 0 1px rgba(47,107,255,0.4), 0 16px 48px -12px rgba(47,107,255,0.5)",
+                "glow-sky":
+                    "0 0 0 1px rgba(96,165,250,0.35), 0 16px 48px -12px rgba(96,165,250,0.4)",
             },
             borderRadius: {
                 xl: "1rem",

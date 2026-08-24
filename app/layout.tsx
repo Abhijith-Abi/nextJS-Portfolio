@@ -5,6 +5,7 @@ import "./globals.css";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { Loader } from "../components/Loader";
 import { CursorFollower } from "../components/CursorFollower";
+import { CommandPalette } from "../components/CommandPalette";
 import { portfolioPhotos } from "../lib/photos";
 
 const inter = Inter({
@@ -26,7 +27,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const viewport = {
-    themeColor: "#07060d",
+    themeColor: "#07080c",
 };
 
 export const metadata: Metadata = {
@@ -307,6 +308,7 @@ export default function RootLayout({
                     }}
                 />
                 <Loader />
+                <CommandPalette />
                 <div className="ambient-glow" aria-hidden />
                 <div className="grain-overlay" aria-hidden />
                 <CursorFollower />

@@ -3,45 +3,29 @@ import { Navbar } from "../../components/Navbar";
 import { ProjectsSection } from "../../components/ProjectsSection";
 
 export const metadata: Metadata = {
-    title: "Projects — HOSFACE, Finwage, STEYP, Enterprise ERP | Abhijith P A & AlgoBiz",
+    title: "Projects — Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync | Abhijith P A & Abi Solutions",
     description:
-        "Production web applications built by Abhijith P A (AlgoBiz): HOSFACE healthcare platform, Finwage payroll & HRMS, STEYP coding platform, Enterprise ERP, Tegain community hub. Built with React, Next.js, Django, TypeScript & AWS.",
+        "Production web applications built by Abhijith P A (Abi Solutions): Start Visa (global visa platform), House of Vaz (luxury e-commerce), Yuva Paripalan (youth community), Palana Neuro Sync (neurological clinical portal). Built with Next.js 14, React, TypeScript, Django & AWS.",
     keywords: [
         "Abhijith P A projects",
-        "AlgoBiz projects",
-        "AlgoBiz portfolio",
-        "HOSFACE",
-        "HOSFACE developer",
-        "HOSFACE healthcare",
-        "Finwage",
-        "Finwage developer",
-        "Finwage payroll",
-        "Finwage HRMS",
-        "STEYP",
-        "STEYP platform",
-        "STEYP developer",
-        "Enterprise ERP",
-        "Enterprise ERP developer",
-        "ERP System",
-        "Payroll Management System",
-        "HRMS System",
-        "Attendance Management System",
-        "Tegain",
-        "Tegain developer",
-        "Tegain website",
-        "AI Automation",
-        "WhatsApp Automation",
-        "Telegram Automation",
-        "SaaS Development",
-        "Custom ERP Development",
-        "React projects Kerala",
-        "Next.js projects India",
-        "Django projects",
-        "Full Stack Developer projects",
+        "Abi Solutions projects",
+        "Start Visa",
+        "Start Visa developer",
+        "House of Vaz",
+        "House of Vaz e-commerce",
+        "Yuva Paripalan",
+        "Yuva Paripalan website",
+        "Palana Neuro Sync",
+        "Palana Neuro Sync developer",
+        "Visa Application System",
+        "E-Commerce Development",
+        "HealthTech Clinical Portal",
+        "Next.js Developer Kerala",
+        "Full Stack Developer India",
     ],
     authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
     creator: "Abhijith P A",
-    publisher: "AlgoBiz",
+    publisher: "Abi Solutions",
     alternates: {
         canonical: "https://abisolutions.online/projects",
     },
@@ -49,16 +33,16 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: "https://abisolutions.online/projects",
-        siteName: "Abhijith P A — AlgoBiz",
-        title: "Projects by Abhijith P A | HOSFACE, Finwage, STEYP, Enterprise ERP | AlgoBiz",
+        siteName: "Abhijith P A — Abi Solutions",
+        title: "Projects by Abhijith P A | Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync",
         description:
-            "Live production apps: HOSFACE, Finwage HRMS, STEYP, Enterprise ERP, Tegain. ERP, SaaS, AI automation & web applications built with React, Next.js & Django.",
+            "Live production apps: Start Visa, House of Vaz E-Commerce, Yuva Paripalan, Palana Neuro Sync. Built with Next.js, React, TypeScript & AWS by Abhijith P A.",
         images: [
             {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Projects by Abhijith P A — HOSFACE, Finwage, STEYP, Enterprise ERP | AlgoBiz",
+                alt: "Projects by Abhijith P A — Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync",
                 type: "image/jpeg",
             },
         ],
@@ -67,9 +51,9 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@abhijith",
         creator: "@abhijith",
-        title: "Projects — Abhijith P A | HOSFACE, Finwage, STEYP, Enterprise ERP",
+        title: "Projects — Abhijith P A | Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync",
         description:
-            "Production apps with real users: HOSFACE, Finwage, STEYP, Enterprise ERP. Built with React, Next.js & Django by AlgoBiz.",
+            "Production apps with real users: Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync. Built with Next.js & React by Abi Solutions.",
         images: ["/og-image.jpg"],
     },
     robots: {
@@ -89,9 +73,9 @@ const jsonLd = [
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: "Projects by Abhijith P A — AlgoBiz",
+        name: "Projects by Abhijith P A — Abi Solutions",
         description:
-            "Selected production-grade web applications, ERP systems, SaaS platforms, and AI automation products built by Abhijith P A (AlgoBiz) using React, Next.js, TypeScript, Django, Python, and AWS.",
+            "Selected production-grade web applications, e-commerce stores, visa processing platforms, and clinical systems built by Abhijith P A (Abi Solutions) using React, Next.js, TypeScript, Django, Python, and AWS.",
         url: "https://abisolutions.online/projects",
         author: {
             "@type": "Person",
@@ -101,7 +85,7 @@ const jsonLd = [
         publisher: {
             "@type": "Organization",
             "@id": "https://abisolutions.online/#organization",
-            name: "AlgoBiz",
+            name: "Abi Solutions",
         },
         mainEntity: {
             "@type": "ItemList",
@@ -111,21 +95,16 @@ const jsonLd = [
                     position: 1,
                     item: {
                         "@type": "WebApplication",
-                        name: "HOSFACE",
+                        name: "Start Visa",
                         description:
-                            "Healthcare infrastructure platform pairing doctors and investors through a structured four-step clinic-setup model. Built with Next.js, TypeScript & Tailwind CSS.",
-                        url: "https://www.hosface.com/",
-                        applicationCategory: "HealthApplication",
+                            "Comprehensive visa assistance and global immigration solution with automated eligibility assessments, document processing, and consultation scheduling. Built with Next.js 14, TypeScript & Tailwind CSS.",
+                        url: "https://www.startvisa.com/",
+                        applicationCategory: "BusinessApplication",
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
                             "@id": "https://abisolutions.online/#person",
                             name: "Abhijith P A",
-                        },
-                        offers: {
-                            "@type": "Offer",
-                            price: "0",
-                            priceCurrency: "INR",
                         },
                     },
                 },
@@ -134,10 +113,11 @@ const jsonLd = [
                     position: 2,
                     item: {
                         "@type": "WebApplication",
-                        name: "Finwage",
+                        name: "House of Vaz",
                         description:
-                            "Payroll management system and HRMS with attendance management, salary processing, tax calculations, and employee self-service portal. Built with React, Django & PostgreSQL.",
-                        applicationCategory: "BusinessApplication",
+                            "High-conversion luxury lifestyle and fashion e-commerce storefront with dynamic catalogue filtering, shopping bag state, and payment integrations. Built with Next.js, React & Tailwind CSS.",
+                        url: "https://houseofvaz.com/",
+                        applicationCategory: "ShoppingApplication",
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
@@ -151,11 +131,11 @@ const jsonLd = [
                     position: 3,
                     item: {
                         "@type": "WebApplication",
-                        name: "STEYP",
+                        name: "Yuva Paripalan",
                         description:
-                            "Video-led coding education platform with structured learning tracks, exercises, progress tracking, and certification. Built with React, Redux & Styled Components.",
-                        url: "https://steyp.com/",
-                        applicationCategory: "EducationalApplication",
+                            "Youth empowerment and community development portal with program onboarding, volunteer management, and event schedules. Built with Next.js, TypeScript & PostgreSQL.",
+                        url: "https://www.yuvaparipalan.com/",
+                        applicationCategory: "SocialApplication",
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
@@ -169,45 +149,11 @@ const jsonLd = [
                     position: 4,
                     item: {
                         "@type": "WebApplication",
-                        name: "Enterprise ERP",
+                        name: "Palana Neuro Sync",
                         description:
-                            "Enterprise resource planning platform covering inventory management, finance, HR, real-time analytics, and granular role-based permissions. Built with Next.js, TypeScript, Zustand & Recharts.",
-                        url: "https://abisolutions.online/projects/enterprise-erp",
-                        applicationCategory: "BusinessApplication",
-                        operatingSystem: "Web",
-                        creator: {
-                            "@type": "Person",
-                            "@id": "https://abisolutions.online/#person",
-                            name: "Abhijith P A",
-                        },
-                    },
-                },
-                {
-                    "@type": "ListItem",
-                    position: 5,
-                    item: {
-                        "@type": "WebSite",
-                        name: "Tegain",
-                        description:
-                            "Company and community hub with recruitment surfaces, community engagement, and brand site optimized for SEO and Core Web Vitals. Built with Next.js & Tailwind CSS.",
-                        url: "https://tegain.com/",
-                        creator: {
-                            "@type": "Person",
-                            "@id": "https://abisolutions.online/#person",
-                            name: "Abhijith P A",
-                        },
-                    },
-                },
-                {
-                    "@type": "ListItem",
-                    position: 6,
-                    item: {
-                        "@type": "WebApplication",
-                        name: "Somans Leisure Tours",
-                        description:
-                            "Travel management platform with booking engine, approval workflows, role-based analytics dashboards, and operations automation. Built with Next.js, Tailwind & Zustand.",
-                        url: "https://www.somansleisuretours.com/",
-                        applicationCategory: "TravelApplication",
+                            "Neurological care and clinical synchronization platform connecting clinicians with patient assessments and appointment bookings. Built with React, Next.js & REST APIs.",
+                        url: "https://palananeurosync.com/",
+                        applicationCategory: "HealthApplication",
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",

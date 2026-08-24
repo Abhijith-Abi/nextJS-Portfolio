@@ -143,24 +143,24 @@ export function PhotoGallery() {
                 ))}
             </div>
 
-            {/* Fullscreen Lightbox Modal */}
+            {/* Fullscreen Lightbox Modal (Minimal Frosted Glass) */}
             <AnimatePresence>
                 {selectedPhoto && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[150] flex items-center justify-center bg-background/95 p-4 backdrop-blur-2xl sm:p-6"
+                        className="fixed inset-0 z-[150] flex items-center justify-center bg-black/75 p-4 backdrop-blur-2xl sm:p-6"
                         onClick={() => setSelectedPhotoIndex(null)}
                     >
                         {/* Close button */}
                         <button
                             type="button"
                             onClick={() => setSelectedPhotoIndex(null)}
-                            className="absolute top-6 right-6 z-20 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-ink transition hover:bg-accent hover:text-white"
+                            className="absolute top-6 right-6 z-20 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/80 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
                             aria-label="Close image preview"
                         >
-                            <X className="h-6 w-6" />
+                            <X className="h-5 w-5" />
                         </button>
 
                         {/* Navigation Buttons */}
@@ -170,7 +170,7 @@ export function PhotoGallery() {
                                 e.stopPropagation();
                                 handlePrev();
                             }}
-                            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-ink transition hover:bg-accent hover:text-white"
+                            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/80 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
                             aria-label="Previous photo"
                         >
                             <ChevronLeft className="h-6 w-6" />
@@ -182,7 +182,7 @@ export function PhotoGallery() {
                                 e.stopPropagation();
                                 handleNext();
                             }}
-                            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-ink transition hover:bg-accent hover:text-white"
+                            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/80 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
                             aria-label="Next photo"
                         >
                             <ChevronRight className="h-6 w-6" />
@@ -190,13 +190,14 @@ export function PhotoGallery() {
 
                         {/* Modal Container */}
                         <motion.div
-                            initial={{ scale: 0.95, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.95, opacity: 0 }}
+                            initial={{ scale: 0.95, opacity: 0, y: 10 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 10 }}
+                            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative max-h-[85vh] max-w-4xl overflow-hidden rounded-3xl border border-white/15 bg-surface/90 shadow-2xl"
+                            className="relative max-h-[88vh] max-w-4xl overflow-hidden rounded-[2rem] border border-white/15 bg-[#0a0d16]/90 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.9),0_0_0_1px_rgba(47,107,255,0.2)] backdrop-blur-3xl"
                         >
-                            <div className="relative h-[60vh] sm:h-[70vh] w-[85vw] max-w-3xl">
+                            <div className="relative h-[60vh] sm:h-[70vh] w-[85vw] max-w-3xl bg-black/40">
                                 <Image
                                     src={selectedPhoto.src}
                                     alt={selectedPhoto.alt}
@@ -208,20 +209,20 @@ export function PhotoGallery() {
                             </div>
 
                             {/* Caption Footer */}
-                            <div className="border-t border-white/10 bg-background/90 p-4 sm:p-6 backdrop-blur-xl">
-                                <div className="flex flex-wrap items-center justify-between gap-2">
+                            <div className="border-t border-white/[0.08] bg-black/50 p-4 sm:p-6 backdrop-blur-2xl">
+                                <div className="flex flex-wrap items-center justify-between gap-3">
                                     <div>
-                                        <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent font-semibold">
+                                        <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/15 px-3 py-0.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent font-semibold">
                                             {selectedPhoto.category} · {selectedPhoto.year}
                                         </span>
-                                        <h3 className="mt-0.5 font-display text-lg font-bold text-ink">
+                                        <h3 className="mt-1 font-display text-lg font-bold text-white">
                                             {selectedPhoto.title}
                                         </h3>
-                                        <p className="mt-1 text-xs text-ink/75 sm:text-sm">
+                                        <p className="mt-1 text-xs text-ink/75 sm:text-sm max-w-xl">
                                             {selectedPhoto.caption}
                                         </p>
                                     </div>
-                                    <div className="flex items-center gap-2 font-mono text-xs text-ink/60">
+                                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-ink/70">
                                         <MapPin className="h-3.5 w-3.5 text-accent" />
                                         <span>{selectedPhoto.location}</span>
                                     </div>

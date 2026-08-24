@@ -35,9 +35,9 @@ export function Loader() {
                             }}
                             className="relative"
                         >
-                            <div className="absolute -inset-10 animate-pulse rounded-full bg-gradient-to-br from-accent/30 via-accent2/20 to-accent-purple/15 blur-3xl" />
+                            <div className="absolute -inset-10 animate-pulse rounded-full bg-gradient-to-br from-accent/30 via-accent2/20 to-accent-emerald/15 blur-3xl" />
                             <div className="surface relative flex h-20 w-20 items-center justify-center rounded-2xl border border-white/10 shadow-glow">
-                                <span className="bg-gradient-to-br from-accent via-accent2 to-accent-purple bg-clip-text font-display text-2xl font-black text-transparent">
+                                <span className="bg-gradient-to-br from-accent via-accent2 to-white bg-clip-text font-display text-2xl font-black text-transparent">
                                     ABI
                                 </span>
                             </div>
@@ -63,7 +63,7 @@ export function Loader() {
                                     duration: 1.1,
                                     ease: [0.7, 0, 0.3, 1],
                                 }}
-                                className="absolute inset-0 origin-left bg-gradient-to-r from-accent via-accent2 to-accent-purple"
+                                className="absolute inset-0 origin-left bg-gradient-to-r from-accent via-accent2 to-white"
                             />
                         </div>
                     </div>

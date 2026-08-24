@@ -6,13 +6,12 @@ import { FadeIn } from "./motion/RevealText";
 import {
     ArrowUpRight,
     Sparkles,
-    ExternalLink,
-    Layers,
+    Globe,
+    ShoppingBag,
+    Users,
     Activity,
-    Shield,
-    Calendar,
 } from "lucide-react";
-import Link from "next/link";
+import Image from "next/image";
 
 const IconGithub = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -30,84 +29,54 @@ const IconGithub = (props: React.SVGProps<SVGSVGElement>) => (
 
 type Project = {
     name: string;
-    role: string;
     domain: string;
-    year: string;
     description: string;
-    metric: string;
+    image: string;
+    url: string;
     tech: string[];
-    live?: string;
-    internalUrl?: string;
-    span: string;
-    featured?: boolean;
+    role: string;
 };
 
 const projects: Project[] = [
     {
-        name: "Enterprise ERP",
-        role: "Architecture & Frontend Lead",
-        domain: "Enterprise SaaS",
-        year: "2025 – 2026",
-        metric: "Multi-tenant ERP · 99.9% Uptime",
+        name: "Start Visa",
+        domain: "AI Immigration & Visa Platform",
+        role: "Lead Full Stack Architect",
         description:
-            "Modular ERP architecture unifying multi-location inventory, finance accounting, payroll, and role-based access control with real-time telemetry dashboards.",
-        tech: ["Next.js 14", "TypeScript", "Tailwind", "Zustand", "Recharts", "PostgreSQL"],
-        live: "https://abisolutions.online/projects/enterprise-erp",
-        internalUrl: "/projects/enterprise-erp",
-        span: "lg:col-span-4 lg:row-span-2",
-        featured: true,
+            "Global digital visa processing platform with AI eligibility scoring, multi-country requirement engines, and automated application tracking.",
+        image: "/projects/startvisa.jpg",
+        url: "https://www.startvisa.com/",
+        tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "PostgreSQL", "Cloudflare"],
     },
     {
-        name: "Hosface",
-        role: "Healthcare Platform",
-        domain: "HealthTech / AI",
-        year: "2024",
-        metric: "Clinical Onboarding Engine",
+        name: "House of Vaz",
+        domain: "Luxury E-Commerce & Retail",
+        role: "Lead Frontend Engineer",
         description:
-            "Connecting physicians, clinics, and health investors through a 4-step clinic launch model with interactive marketing funnels and patient portals.",
-        tech: ["Next.js", "TypeScript", "Tailwind", "REST APIs"],
-        live: "https://www.hosface.com/",
-        internalUrl: "/projects/hosface",
-        span: "lg:col-span-2",
+            "High-end fashion and lifestyle storefront built with sub-second checkout speeds, dynamic product filtering, and persistent cart architecture.",
+        image: "/projects/houseofvaz.jpg",
+        url: "https://houseofvaz.com/",
+        tech: ["Next.js", "React", "Tailwind CSS", "Zustand", "Stripe"],
     },
     {
-        name: "Steyp",
-        role: "EdTech Learning Platform",
-        domain: "E-Learning",
-        year: "2023",
-        metric: "Video Tracks & Exercises",
+        name: "Yuva Paripalan",
+        domain: "Youth Empowerment Platform",
+        role: "Full Stack Developer",
         description:
-            "Interactive video-driven software engineering education platform featuring guided coding tracks, student progress metrics, and live exercises.",
-        tech: ["React", "Styled Components", "Redux", "Node.js"],
-        live: "https://steyp.com/",
-        internalUrl: "/projects/steyp",
-        span: "lg:col-span-2",
+            "Social empowerment portal supporting volunteer onboarding, community events, feedback funnels, and real-time engagement telemetry.",
+        image: "/projects/yuvaparipalan.jpg",
+        url: "https://www.yuvaparipalan.com/",
+        tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Vercel"],
     },
     {
-        name: "Tegain",
-        role: "Company & Community Hub",
-        domain: "Corporate / CRM",
-        year: "2024",
-        metric: "100/100 Core Web Vitals",
+        name: "Palana Neuro Sync",
+        domain: "Clinical Healthcare & Telemetry",
+        role: "Healthcare Systems Lead",
         description:
-            "High-converting brand platform with integrated recruitment workflows and community surfaces, optimized for extreme search visibility and rapid loads.",
-        tech: ["Next.js", "Tailwind", "Zustand", "SEO"],
-        live: "https://tegain.com/",
-        internalUrl: "/projects/tegain",
-        span: "lg:col-span-3",
-    },
-    {
-        name: "Somans Leisure Tours",
-        role: "Travel ERP & Operations",
-        domain: "Logistics / Travel",
-        year: "2024",
-        metric: "Automated Itineraries & Bookings",
-        description:
-            "Internal operations and booking management suite reducing manual administrative overhead through automated approval workflows and customer portals.",
-        tech: ["Next.js", "Tailwind", "Zustand", "Cloudflare"],
-        live: "https://www.somansleisuretours.com/",
-        internalUrl: "/projects/somans",
-        span: "lg:col-span-3",
+            "Clinical rehabilitation portal synchronizing patient telemetry, neurological therapy progress, and direct specialist booking funnels.",
+        image: "/projects/palananeurosync.jpg",
+        url: "https://palananeurosync.com/",
+        tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
     },
 ];
 
@@ -159,120 +128,78 @@ const openSourceProjects = [
 export function ProjectsSection() {
     return (
         <SectionWrapper id="projects" index="05" label="Selected Work">
-            {/* Header */}
-            <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
+            {/* Minimal Header */}
+            <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
-                    <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
-                        <Sparkles className="h-3 w-3" />
-                        Proven Production Deliveries
-                    </div>
-                    <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
-                        <span className="block">FEATURED</span>
-                        <span className="block text-accent">
-                            PRODUCTS & SOFTWARE.
-                        </span>
+                    <span className="font-mono text-xs uppercase tracking-[0.24em] text-accent font-semibold">
+                        // Featured Case Studies
+                    </span>
+                    <h2 className="mt-2 font-display text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold tracking-tight text-white">
+                        Selected Projects<span className="text-accent">.</span>
                     </h2>
                 </div>
-                <FadeIn>
-                    <p className="text-sm leading-relaxed text-ink/75 sm:text-base md:text-right lg:text-lg">
-                        Selected production applications deployed for real clients and thousands of active users. Built for performance, security, and exceptional UX.
-                    </p>
-                </FadeIn>
+                <p className="max-w-md text-sm sm:text-base text-ink-muted leading-relaxed">
+                    Production platforms and consumer digital products built with modern stacks, sub-second performance, and verified reliability.
+                </p>
             </div>
 
-            {/* Bento Grid */}
-            <div className="grid auto-rows-[minmax(200px,auto)] grid-cols-1 gap-4 lg:grid-cols-6">
+            {/* Clean Minimal 2-Column Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
                 {projects.map((p, i) => (
-                    <FadeIn key={p.name} delay={i * 0.06} className={p.span}>
-                        <div
-                            className={`bento-card group flex h-full flex-col justify-between rounded-3xl p-6 sm:p-7 ${
-                                p.featured ? "lg:p-9" : ""
-                            }`}
+                    <FadeIn key={p.name} delay={i * 0.1}>
+                        <a
+                            href={p.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block rounded-3xl border border-white/10 bg-[#0c0f18]/80 p-5 sm:p-6 backdrop-blur-xl transition-all duration-300 hover:border-accent/40 hover:bg-[#111624]/90 hover:shadow-glow hover:-translate-y-1"
                         >
-                            {/* Browser Mockup Top Bar */}
-                            <div>
-                                <div className="flex items-center justify-between border-b border-white/[0.07] pb-4">
-                                    <div className="flex items-center gap-1.5">
-                                        <span className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
-                                        <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
-                                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-                                        <span className="ml-2 font-mono text-[10px] text-ink/40">
-                                            0{i + 1} · {p.domain}
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        {p.internalUrl && (
-                                            <Link
-                                                href={p.internalUrl}
-                                                className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/[0.05] text-ink/60 transition hover:bg-accent hover:text-black"
-                                                title="View Case Study"
-                                            >
-                                                <Layers className="h-4 w-4" />
-                                            </Link>
-                                        )}
-                                        {p.live && (
-                                            <a
-                                                href={p.live}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent/10 text-accent transition hover:bg-accent hover:text-black hover:shadow-glow-sm"
-                                                title="Open Live Website"
-                                            >
-                                                <ArrowUpRight className="h-4 w-4" />
-                                            </a>
-                                        )}
-                                    </div>
+                            {/* Project Visual Preview */}
+                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+                                <Image
+                                    src={p.image}
+                                    alt={`${p.name} Preview`}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                                    priority={i < 2}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover:opacity-10 transition-opacity" />
+
+                                {/* Floating Live Badge */}
+                                <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/70 px-3 py-1 text-[11px] font-mono text-white backdrop-blur-md transition group-hover:bg-accent group-hover:border-accent">
+                                    <span>Visit</span>
+                                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                 </div>
+                            </div>
 
-                                {/* Content */}
-                                <div className="pt-6">
-                                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                                        <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
-                                            <Activity className="h-2.5 w-2.5" />
-                                            {p.metric}
-                                        </span>
-                                        <span className="font-mono text-[10px] text-ink/40">
-                                            {p.year}
-                                        </span>
-                                    </div>
-
-                                    <h3
-                                        className={`font-display font-extrabold tracking-tight text-ink group-hover:text-accent transition-colors ${
-                                            p.featured
-                                                ? "text-2xl sm:text-3xl lg:text-4xl"
-                                                : "text-xl sm:text-2xl"
-                                        }`}
-                                    >
+                            {/* Project Information */}
+                            <div className="mt-5">
+                                <div className="flex items-center justify-between gap-2">
+                                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-accent transition-colors">
                                         {p.name}
                                     </h3>
-                                    <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-accent2">
-                                        {p.role}
-                                    </p>
+                                    <span className="font-mono text-[11px] text-accent font-medium">
+                                        {p.domain}
+                                    </span>
+                                </div>
 
-                                    <p
-                                        className={`mt-3.5 leading-relaxed text-ink/70 ${
-                                            p.featured
-                                                ? "text-sm sm:text-base max-w-xl"
-                                                : "text-xs sm:text-sm"
-                                        }`}
-                                    >
-                                        {p.description}
-                                    </p>
+                                <p className="mt-2.5 text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-2">
+                                    {p.description}
+                                </p>
+
+                                {/* Tech Tags */}
+                                <div className="mt-4 flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+                                    {p.tech.map((t) => (
+                                        <span
+                                            key={t}
+                                            className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[10px] text-ink/70"
+                                        >
+                                            {t}
+                                        </span>
+                                    ))}
                                 </div>
                             </div>
-
-                            {/* Tech Stack Footer */}
-                            <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-wrap gap-1.5">
-                                {p.tech.map((t) => (
-                                    <span
-                                        key={t}
-                                        className="inline-flex items-center rounded-lg border border-white/[0.08] bg-background/80 px-2.5 py-1 font-mono text-[10px] text-ink/80"
-                                    >
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
+                        </a>
                     </FadeIn>
                 ))}
             </div>

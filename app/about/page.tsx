@@ -45,13 +45,22 @@ export const metadata: Metadata = {
         title: "About Abhijith P A — Full Stack Developer & AI Engineer | Abi Solutions",
         description:
             "4+ years shipping production web apps & AI products. Founder of Abi Solutions. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
-        images: portfolioPhotos.map((photo) => ({
-            url: photo.src,
-            width: 800,
-            height: 1000,
-            alt: photo.alt,
-            type: "image/jpeg",
-        })),
+        images: [
+            {
+                url: "https://abisolutions.online/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "About Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
+                type: "image/jpeg",
+            },
+            ...portfolioPhotos.map((photo) => ({
+                url: photo.src,
+                width: 800,
+                height: 1000,
+                alt: photo.alt,
+                type: "image/jpeg",
+            })),
+        ],
         firstName: "Abhijith",
         lastName: "P A",
     },

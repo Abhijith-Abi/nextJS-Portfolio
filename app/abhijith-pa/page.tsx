@@ -44,6 +44,7 @@ export const metadata: Metadata = {
         "Abhijith Wayanad",
         "Abhijith India",
         "Abi Solutions",
+        "Abi Solutions Founder",
         "Full Stack Developer Kerala",
         "AI Engineer India",
         "Abhijith P A Photos",
@@ -54,22 +55,31 @@ export const metadata: Metadata = {
         locale: "en_US",
         url: "https://abisolutions.online/abhijith-pa",
         siteName: "Abhijith P A — Abi Solutions",
-        title: "Abhijith P A — Full Stack Developer & AI Engineer | Abi Solutions",
+        title: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
         description:
             "Full Stack Developer & AI Engineer, Founder of Abi Solutions. React, Next.js, Django, AWS, AI Automation from Kerala, India.",
-        images: portfolioPhotos.map((photo) => ({
-            url: photo.src,
-            width: 800,
-            height: 1000,
-            alt: photo.alt,
-            type: "image/jpeg",
-        })),
+        images: [
+            {
+                url: "https://abisolutions.online/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
+                type: "image/jpeg",
+            },
+            ...portfolioPhotos.map((photo) => ({
+                url: photo.src,
+                width: 800,
+                height: 1000,
+                alt: photo.alt,
+                type: "image/jpeg",
+            })),
+        ],
         firstName: "Abhijith",
         lastName: "P A",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Abhijith P A — Full Stack Developer & AI Engineer",
+        title: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
         description:
             "React, Next.js, Django, AWS. Founder of Abi Solutions. Kerala, India.",
         images: ["/og-image.jpg", "/profile.jpg"],

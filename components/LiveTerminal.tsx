@@ -96,13 +96,13 @@ export function LiveTerminal() {
     return (
         <SectionWrapper id="terminal" index="06" label="Terminal">
             {/* Header */}
-            <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
+            <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.1fr_0.9fr]">
                 <div>
                     <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
                         <TerminalIcon className="h-3 w-3" />
                         Live Architecture Simulator
                     </div>
-                    <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                    <h2 className="font-display text-[clamp(2rem,6vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
                         <span className="block">INTERACTIVE LIVE</span>
                         <span className="block text-accent">
                             CLOUD TERMINAL.
@@ -110,29 +110,29 @@ export function LiveTerminal() {
                     </h2>
                 </div>
                 <FadeIn>
-                    <p className="text-sm leading-relaxed text-ink/75 sm:text-base md:text-right lg:text-lg">
+                    <p className="text-xs sm:text-sm md:text-base leading-relaxed text-ink/75 md:text-right lg:text-lg">
                         Test and simulate automated CI/CD deployments, AI agent workflows, and performance benchmark audits in real-time.
                     </p>
                 </FadeIn>
             </div>
 
             {/* Terminal Main Window */}
-            <div className="surface relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-surface/95 shadow-glow">
+            <div className="surface relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-white/15 bg-surface/95 shadow-glow">
                 {/* Top Window Bar */}
-                <div className="flex flex-wrap items-center justify-between border-b border-white/10 bg-background/80 px-4 py-3 sm:px-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-white/10 bg-background/80 px-3.5 sm:px-6 py-2.5 sm:py-3">
                     <div className="flex items-center gap-2">
                         <div className="flex items-center gap-1.5">
-                            <span className="h-3 w-3 rounded-full bg-red-500/80" />
-                            <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
-                            <span className="h-3 w-3 rounded-full bg-green-500/80" />
+                            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-red-500/80" />
+                            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-yellow-500/80" />
+                            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-green-500/80" />
                         </div>
-                        <span className="ml-3 font-mono text-xs text-ink/60 hidden sm:inline">
-                            abi-solutions-cloud — zsh — 80x24
+                        <span className="ml-2 sm:ml-3 font-mono text-[11px] sm:text-xs text-ink/60 hidden xs:inline">
+                            abi-cloud — zsh
                         </span>
                     </div>
 
-                    {/* Preset Tabs */}
-                    <div className="flex flex-wrap gap-1">
+                    {/* Preset Tabs (Horizontally scrollable on mobile) */}
+                    <div className="flex gap-1 overflow-x-auto no-scrollbar py-0.5">
                         {presets.map((p) => {
                             const isSelected = activePreset === p.id;
                             const Icon = p.icon;
@@ -141,14 +141,14 @@ export function LiveTerminal() {
                                     key={p.id}
                                     type="button"
                                     onClick={() => setActivePreset(p.id)}
-                                    className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 font-mono text-xs transition-all cursor-pointer ${
+                                    className={`inline-flex items-center gap-1 sm:gap-1.5 rounded-xl px-2.5 sm:px-3 py-1 sm:py-1.5 font-mono text-[10.5px] sm:text-xs transition-all cursor-pointer shrink-0 ${
                                         isSelected
                                             ? "bg-accent text-white font-bold shadow-glow-sm"
                                             : "text-ink/60 hover:text-ink hover:bg-white/5"
                                     }`}
                                 >
-                                    <Icon className="h-3.5 w-3.5" />
-                                    <span>{p.label}</span>
+                                    <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+                                    <span className="truncate max-w-[130px] sm:max-w-none">{p.label}</span>
                                 </button>
                             );
                         })}
@@ -156,27 +156,27 @@ export function LiveTerminal() {
                 </div>
 
                 {/* Terminal Screen Body */}
-                <div className="p-6 sm:p-8 font-mono text-xs sm:text-sm bg-background/90 min-h-[280px]">
+                <div className="p-4 sm:p-7 lg:p-8 font-mono text-xs sm:text-sm bg-background/90 min-h-[260px] sm:min-h-[280px]">
                     {/* Command Prompt Line */}
-                    <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4 mb-4">
+                    <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3 sm:pb-4 mb-3 sm:mb-4">
                         <div className="flex items-center gap-2 min-w-0">
                             <span className="text-accent font-bold">$</span>
-                            <span className="text-ink font-semibold truncate">{currentPreset.command}</span>
+                            <span className="text-ink font-semibold truncate text-[11.5px] sm:text-sm">{currentPreset.command}</span>
                         </div>
                         <button
                             type="button"
                             onClick={handleCopy}
-                            className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-[11px] text-ink/80 hover:border-accent hover:text-accent transition-colors shrink-0"
+                            className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2.5 sm:px-3 py-1 sm:py-1.5 font-mono text-[10px] sm:text-[11px] text-ink/80 hover:border-accent hover:text-accent transition-colors shrink-0"
                             aria-label="Copy Command"
                         >
                             {copied ? (
                                 <>
-                                    <Check className="h-3.5 w-3.5 text-accent-emerald" />
-                                    <span>Copied!</span>
+                                    <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-accent-emerald" />
+                                    <span>Copied</span>
                                 </>
                             ) : (
                                 <>
-                                    <Copy className="h-3.5 w-3.5" />
+                                    <Copy className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                                     <span>Copy</span>
                                 </>
                             )}
@@ -184,7 +184,7 @@ export function LiveTerminal() {
                     </div>
 
                     {/* Output Lines with stream effect */}
-                    <div className="space-y-2.5">
+                    <div className="space-y-2 text-xs sm:text-sm">
                         {currentPreset.outputLines.slice(0, visibleLines).map((line, i) => {
                             let colorClass = "text-ink/80";
                             if (line.color === "accent") colorClass = "text-accent font-semibold";
@@ -193,7 +193,7 @@ export function LiveTerminal() {
                             if (line.color === "muted") colorClass = "text-ink/40";
 
                             return (
-                                <div key={i} className={`leading-relaxed ${colorClass}`}>
+                                <div key={i} className={`leading-relaxed break-words ${colorClass}`}>
                                     {line.text}
                                 </div>
                             );
@@ -201,23 +201,23 @@ export function LiveTerminal() {
 
                         {/* Blinking Cursor */}
                         {visibleLines === currentPreset.outputLines.length && (
-                            <div className="flex items-center gap-2 pt-2 text-accent">
+                            <div className="flex items-center gap-2 pt-2 text-accent text-xs">
                                 <span>✔ Ready for next task</span>
-                                <span className="inline-block h-4 w-2 bg-accent animate-pulse" />
+                                <span className="inline-block h-3.5 w-2 bg-accent animate-pulse" />
                             </div>
                         )}
                     </div>
                 </div>
 
                 {/* Bottom Status Ribbon */}
-                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 bg-background/60 px-6 py-3 font-mono text-[11px] text-ink/60">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 border-t border-white/10 bg-background/60 px-4 sm:px-6 py-2.5 sm:py-3 font-mono text-[10px] sm:text-[11px] text-ink/60">
                     <div className="flex items-center gap-2">
                         <span className="h-2 w-2 rounded-full bg-accent-emerald animate-ping" />
-                        <span className="text-ink">Cluster Health: 100% Operational</span>
+                        <span className="text-ink">Cluster: 100% Operational</span>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4 text-ink/50">
                         <span>Node: ap-south-1</span>
-                        <span>SSL: TLS 1.3 / Verified</span>
+                        <span>SSL: TLS 1.3 Active</span>
                     </div>
                 </div>
             </div>

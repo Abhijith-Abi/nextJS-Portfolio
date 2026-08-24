@@ -159,17 +159,17 @@ export default function AlgoBizPage() {
                             Premier custom software development, AI engineering, ERP solutions, and full-stack web applications for global brands and fast-growing enterprises.
                         </p>
 
-                        <div className="mt-8 flex flex-wrap items-center gap-4">
+                        <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
                             <Link
                                 href="/contact"
-                                className="hero-btn-primary group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight shadow-glow-sm"
+                                className="hero-btn-primary group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight shadow-glow-sm w-full sm:w-auto"
                             >
                                 <span>Request a Quote</span>
-                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                <ArrowRight className="h-4 w-4 text-white/80 group-hover:text-white transition-colors" />
                             </Link>
                             <Link
                                 href="/projects"
-                                className="hero-btn-ghost inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
+                                className="hero-btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold w-full sm:w-auto"
                             >
                                 <span>Explore Client Work</span>
                             </Link>
@@ -241,10 +241,10 @@ export default function AlgoBizPage() {
                                 Talk directly with founder & lead architect Abhijith P A to discuss your architecture and timeline.
                             </p>
 
-                            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
                                 <Link
                                     href="/contact"
-                                    className="hero-btn-primary inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold tracking-tight shadow-glow-sm"
+                                    className="hero-btn-primary inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold tracking-tight shadow-glow-sm w-full sm:w-auto"
                                 >
                                     <span>Contact Us</span>
                                     <ArrowRight className="h-4 w-4" />
@@ -253,7 +253,7 @@ export default function AlgoBizPage() {
                                     href="https://wa.me/919961316468?text=Hi%20Abi%20Solutions,%20I'd%20like%20to%20discuss%20a%20project"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hero-btn-ghost inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold"
+                                    className="hero-btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold w-full sm:w-auto"
                                 >
                                     <Phone className="h-4 w-4" />
                                     <span>WhatsApp Discussion</span>

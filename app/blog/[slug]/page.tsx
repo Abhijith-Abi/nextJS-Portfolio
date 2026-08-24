@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Navbar } from "../../../components/Navbar";
 import { BlogPostView } from "../../../components/BlogPostView";
+import { Footer } from "../../../components/Footer";
 import { blogPosts, getBlogPost, getAllBlogSlugs } from "../../../lib/blog";
 
 type Props = {
@@ -103,6 +104,7 @@ export default function BlogPostPage({ params }: Props) {
             <Navbar />
             <div className="pt-24">
                 <BlogPostView post={post} />
+                <Footer />
             </div>
         </main>
     );

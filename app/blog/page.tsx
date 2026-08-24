@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { SectionWrapper } from "../../components/SectionWrapper";
 import { BlogList } from "../../components/BlogList";
+import { Footer } from "../../components/Footer";
 import { blogPosts } from "../../lib/blog";
 
 export const metadata: Metadata = {
@@ -155,12 +156,12 @@ export default function BlogPage() {
             <Navbar />
             <div className="pt-24">
                 <SectionWrapper id="blog" index="07" label="Blog">
-                    <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
-                        <h1 className="font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                    <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.1fr_0.9fr]">
+                        <h1 className="font-display text-[clamp(2rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
                             <span className="block">ARTICLES &</span>
                             <span className="block ghost-text">INSIGHTS.</span>
                         </h1>
-                        <p className="text-sm leading-relaxed text-ink/65 sm:text-base md:text-right lg:text-lg">
+                        <p className="text-xs sm:text-sm md:text-base leading-relaxed text-ink/65 md:text-right lg:text-lg">
                             Lessons from building production software at Tegain and
                             Ribos. React, Next.js, Django, AI
                             automation, ERP systems, and everything in between.
@@ -168,6 +169,7 @@ export default function BlogPage() {
                     </div>
                     <BlogList posts={blogPosts} />
                 </SectionWrapper>
+                <Footer />
             </div>
         </main>
     );

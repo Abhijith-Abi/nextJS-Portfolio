@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../../components/Navbar";
 import { SectionWrapper } from "../../../components/SectionWrapper";
+import { Footer } from "../../../components/Footer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Tegain — Company & Community Hub | Abhijith P A",
@@ -208,6 +210,7 @@ export default function TegainPage() {
                         </section>
                     </article>
                 </SectionWrapper>
+                <Footer />
             </div>
         </main>
     );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../../components/Navbar";
 import { SectionWrapper } from "../../../components/SectionWrapper";
+import { Footer } from "../../../components/Footer";
 
 export const metadata: Metadata = {
     title: "Somans Leisure Tours — Travel Platform | Abhijith P A",
@@ -203,6 +204,7 @@ export default function SomansPage() {
                         </section>
                     </article>
                 </SectionWrapper>
+                <Footer />
             </div>
         </main>
     );

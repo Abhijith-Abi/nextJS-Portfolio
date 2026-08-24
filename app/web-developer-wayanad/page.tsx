@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { SectionWrapper } from "../../components/SectionWrapper";
+import { Footer } from "../../components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -476,16 +477,16 @@ export default function WebDeveloperWayanadPage() {
                                 Get a free consultation for your web development project in Wayanad.
                                 Call or WhatsApp for immediate response.
                             </p>
-                            <div className="mt-4 flex flex-wrap items-center gap-4">
+                            <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                                 <a
                                     href="tel:+919961316468"
-                                    className="btn-primary rounded-lg px-5 py-2.5 text-sm font-semibold"
+                                    className="btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold text-center"
                                 >
                                     Call: +91 99613 16468
                                 </a>
                                 <Link
                                     href="/contact"
-                                    className="btn-ghost rounded-lg px-5 py-2.5 text-sm font-medium"
+                                    className="btn-ghost rounded-xl px-5 py-2.5 text-sm font-medium text-center"
                                 >
                                     Send a Message
                                 </Link>
@@ -493,6 +494,7 @@ export default function WebDeveloperWayanadPage() {
                         </div>
                     </article>
                 </SectionWrapper>
+                <Footer />
             </div>
         </main>
     );

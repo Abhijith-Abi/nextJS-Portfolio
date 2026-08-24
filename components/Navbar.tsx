@@ -51,20 +51,21 @@ export function Navbar() {
                 ease: [0.22, 1, 0.36, 1],
                 delay: 1.2,
             }}
-            className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
+            className="fixed top-3 sm:top-4 left-0 right-0 z-50 flex justify-center px-3 sm:px-4"
         >
             <nav
-                className={`relative flex w-full max-w-4xl items-center justify-between rounded-2xl border px-3.5 py-2.5 transition-all duration-300 ${
+                className={`relative flex w-full max-w-4xl items-center justify-between rounded-2xl border px-3 sm:px-3.5 py-2 sm:py-2.5 transition-all duration-300 ${
                     scrolled
-                        ? "border-white/10 bg-background/80 shadow-soft backdrop-blur-2xl"
-                        : "border-white/[0.08] bg-surface/75 backdrop-blur-xl"
+                        ? "border-white/10 bg-background/85 shadow-soft backdrop-blur-2xl"
+                        : "border-white/[0.08] bg-surface/80 backdrop-blur-xl"
                 }`}
             >
                 <Link
                     href="/"
-                    className="group flex items-center gap-2.5 pl-1.5 transition-transform duration-200 hover:scale-105"
+                    onClick={() => setOpen(false)}
+                    className="group flex items-center gap-2 sm:gap-2.5 pl-0.5 sm:pl-1.5 transition-transform duration-200 hover:scale-105"
                 >
-                    <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-accent/50 bg-surface2 shadow-glow-sm">
+                    <span className="relative flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-accent/50 bg-surface2 shadow-glow-sm">
                         <Image
                             src="/avatar.jpg"
                             alt="Abhijith P A Logo"
@@ -74,7 +75,7 @@ export function Navbar() {
                             priority
                         />
                     </span>
-                    <span className="hidden font-display text-sm font-bold tracking-tight text-ink sm:block">
+                    <span className="font-display text-xs sm:text-sm font-bold tracking-tight text-ink">
                         Abhijith P A
                     </span>
                 </Link>
@@ -86,13 +87,13 @@ export function Navbar() {
                                 <button
                                     type="button"
                                     onClick={() => handleClick(item)}
-                                    className="group relative rounded-xl px-3 py-1.5 text-[13px] font-medium text-ink-muted transition hover:text-ink"
+                                    className="group relative rounded-xl px-3 py-1.5 text-[13px] font-medium text-ink-muted transition hover:text-ink cursor-pointer"
                                 >
                                     <span className="relative z-10">
                                         {item.label}
                                     </span>
                                     <span className="absolute inset-0 rounded-xl bg-white/0 transition group-hover:bg-white/[0.05]" />
-                                    <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-5 shadow-[0_0_8px_rgba(139,92,246,0.8)]" />
+                                    <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-5 shadow-[0_0_8px_rgba(47,107,255,0.8)]" />
                                 </button>
                             </li>
                         ) : (
@@ -105,19 +106,19 @@ export function Navbar() {
                                         {item.label}
                                     </span>
                                     <span className="absolute inset-0 rounded-xl bg-white/0 transition group-hover:bg-white/[0.05]" />
-                                    <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-5 shadow-[0_0_8px_rgba(139,92,246,0.8)]" />
+                                    <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-5 shadow-[0_0_8px_rgba(47,107,255,0.8)]" />
                                 </Link>
                             </li>
                         ),
                     )}
                 </ul>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                     {isHome ? (
                         <button
                             type="button"
                             onClick={() => scrollToSection("contact")}
-                            className="hidden items-center gap-2 rounded-xl bg-accent/10 border border-accent/30 px-3.5 py-1.5 text-[12px] font-semibold text-accent transition-all duration-200 hover:bg-accent hover:text-black hover:shadow-glow-sm md:inline-flex"
+                            className="hidden items-center gap-2 rounded-xl bg-accent/10 border border-accent/30 px-3.5 py-1.5 text-[12px] font-semibold text-accent transition-all duration-200 hover:bg-accent hover:text-black hover:shadow-glow-sm md:inline-flex cursor-pointer"
                         >
                             <span className="relative flex h-2 w-2">
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
@@ -140,7 +141,7 @@ export function Navbar() {
 
                     <button
                         type="button"
-                        className="surface inline-flex h-9 w-9 items-center justify-center rounded-xl text-ink transition hover:border-accent/40 md:hidden"
+                        className="surface inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl text-ink transition hover:border-accent/40 md:hidden cursor-pointer"
                         onClick={() => setOpen((v) => !v)}
                         aria-label="Toggle navigation"
                     >
@@ -170,7 +171,7 @@ export function Navbar() {
                         initial={{ opacity: 0, y: -10, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -10, scale: 0.98 }}
-                        className="surface-card absolute left-0 right-0 top-full mt-2 rounded-2xl border border-white/10 p-3 shadow-2xl backdrop-blur-2xl md:hidden"
+                        className="surface-card absolute left-0 right-0 top-full mt-2 rounded-2xl border border-white/10 p-3 shadow-2xl backdrop-blur-2xl md:hidden z-50 max-h-[80vh] overflow-y-auto"
                     >
                         <ul className="space-y-1 text-sm font-medium text-ink">
                             {navItems.map((item) =>
@@ -179,7 +180,7 @@ export function Navbar() {
                                         <button
                                             type="button"
                                             onClick={() => handleClick(item)}
-                                            className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition hover:bg-white/[0.06] hover:text-accent"
+                                            className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition hover:bg-white/[0.06] hover:text-accent cursor-pointer"
                                         >
                                             <span className="font-medium">
                                                 {item.label}
@@ -206,6 +207,19 @@ export function Navbar() {
                                     </li>
                                 ),
                             )}
+                            <li className="pt-2 border-t border-white/[0.08]">
+                                <Link
+                                    href="/contact"
+                                    onClick={() => setOpen(false)}
+                                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent/15 border border-accent/30 py-2.5 text-xs font-mono font-semibold text-accent"
+                                >
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
+                                        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
+                                    </span>
+                                    <span>Available for Hire</span>
+                                </Link>
+                            </li>
                         </ul>
                     </motion.div>
                 )}

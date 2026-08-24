@@ -144,42 +144,42 @@ export function ExperienceSection() {
 
     return (
         <SectionWrapper id="experience" index="06" label="Career Path">
-            <div className="grid gap-10 lg:grid-cols-[340px_1fr] lg:gap-14 xl:grid-cols-[380px_1fr] items-start">
+            <div className="grid gap-8 sm:gap-10 lg:grid-cols-[320px_1fr] lg:gap-12 xl:grid-cols-[360px_1fr] items-start">
                 {/* LEFT: interactive 3D profile flip card */}
                 <FadeIn>
                     <div className="lg:sticky lg:top-28">
-                        <div className="surface relative overflow-hidden rounded-3xl p-6 sm:p-7 border border-white/[0.08] shadow-glow-sm">
+                        <div className="surface relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.08] shadow-glow-sm">
                             {/* Flip Card */}
-                            <div className="flip-card relative mx-auto aspect-[4/5] w-full max-w-[280px]">
+                            <div className="flip-card relative mx-auto aspect-[4/5] w-full max-w-[260px] sm:max-w-[280px]">
                                 <div className="flip-card-inner h-full w-full">
                                     {/* FRONT */}
-                                    <div className="flip-face flex flex-col justify-between rounded-[2rem] border border-white/10 bg-background/95 p-6">
+                                    <div className="flip-face flex flex-col justify-between rounded-[1.8rem] sm:rounded-[2rem] border border-white/10 bg-background/95 p-5 sm:p-6">
                                         <div className="flex items-start justify-between">
-                                            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent font-bold">
+                                            <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.24em] text-accent font-bold">
                                                 · Profile
                                             </span>
-                                            <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-ink/40 bg-white/[0.05] px-2 py-0.5 rounded-full">
+                                            <span className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-ink/40 bg-white/[0.05] px-2 py-0.5 rounded-full">
                                                 Hover Photo
                                             </span>
                                         </div>
 
                                         <div>
-                                            <p className="font-display text-2xl font-black leading-tight text-ink sm:text-[1.75rem]">
+                                            <p className="font-display text-xl sm:text-2xl font-black leading-tight text-ink">
                                                 Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2">intelligent</span> software.
                                             </p>
-                                            <p className="mt-3 text-xs leading-relaxed text-ink/70">
+                                            <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink/70">
                                                 Full Stack Developer & AI Engineer based in Kerala, India. React, Next.js, Django, AWS & AI Automation.
                                             </p>
                                         </div>
 
-                                        <div className="flex items-center justify-between border-t border-white/[0.08] pt-3 font-mono text-[10px] text-ink/50">
+                                        <div className="flex items-center justify-between border-t border-white/[0.08] pt-2.5 sm:pt-3 font-mono text-[9.5px] sm:text-[10px] text-ink/50">
                                             <span>Abi Solutions · 2026</span>
                                             <span className="text-accent">↻ Flip</span>
                                         </div>
                                     </div>
 
                                     {/* BACK: photo */}
-                                    <div className="flip-face flip-face-back overflow-hidden rounded-[2rem] bg-background border border-white/10">
+                                    <div className="flip-face flip-face-back overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] bg-background border border-white/10">
                                         <Image
                                             src="/me.jpeg"
                                             alt="Abhijith P A"
@@ -187,11 +187,11 @@ export function ExperienceSection() {
                                             sizes="(max-width: 1024px) 280px, 320px"
                                             className="object-cover"
                                         />
-                                        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent p-5 pt-16">
-                                            <p className="font-display text-base font-bold text-ink">
+                                        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent p-4 sm:p-5 pt-12 sm:pt-16">
+                                            <p className="font-display text-sm sm:text-base font-bold text-ink">
                                                 Abhijith P A
                                             </p>
-                                            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                                            <p className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] text-accent">
                                                 Full Stack & AI Engineer
                                             </p>
                                         </div>
@@ -199,29 +199,29 @@ export function ExperienceSection() {
                                 </div>
                             </div>
 
-                            <div className="mt-6 text-center">
-                                <h3 className="font-display text-xl font-black tracking-tight text-ink">
+                            <div className="mt-5 sm:mt-6 text-center">
+                                <h3 className="font-display text-lg sm:text-xl font-black tracking-tight text-ink">
                                     Abhijith P A
                                 </h3>
-                                <p className="mt-1 font-mono text-xs text-accent">
+                                <p className="mt-1 font-mono text-[11px] sm:text-xs text-accent">
                                     Founder @ Abi Solutions
                                 </p>
                             </div>
 
                             {/* Local Time Widget */}
-                            <div className="mt-4 flex items-center justify-center gap-2 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-2.5 font-mono text-[11px] text-ink/70">
-                                <Clock className="h-3.5 w-3.5 text-accent" />
-                                <span>Kerala (IST): {currentTime || "GMT+5:30"}</span>
+                            <div className="mt-3.5 sm:mt-4 flex items-center justify-center gap-2 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-2 sm:p-2.5 font-mono text-[10.5px] sm:text-[11px] text-ink/70">
+                                <Clock className="h-3.5 w-3.5 text-accent shrink-0" />
+                                <span className="truncate">Kerala (IST): {currentTime || "GMT+5:30"}</span>
                             </div>
 
                             {/* Social Connectors */}
-                            <div className="mt-5 flex items-center justify-center gap-2.5">
+                            <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2.5">
                                 <a
                                     href="https://github.com/Abhijith-Abi"
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label="GitHub"
-                                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
+                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
                                 >
                                     <IconGithub className="h-4 w-4" />
                                 </a>
@@ -230,14 +230,14 @@ export function ExperienceSection() {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label="LinkedIn"
-                                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
+                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
                                 >
                                     <IconLinkedin className="h-4 w-4" />
                                 </a>
                                 <a
                                     href="mailto:abhijithabhijith1999@gmail.com"
                                     aria-label="Email"
-                                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
+                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
                                 >
                                     <IconMail className="h-4 w-4" />
                                 </a>
@@ -253,7 +253,7 @@ export function ExperienceSection() {
                             <Briefcase className="h-3 w-3" />
                             Work History & Roles
                         </div>
-                        <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                        <h2 className="font-display text-[clamp(2rem,6vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
                             <span className="block">{years}+ YEARS OF</span>
                             <span className="block text-accent">
                                 PROFESSIONAL CRAFT.
@@ -262,7 +262,7 @@ export function ExperienceSection() {
                     </FadeIn>
 
                     {/* Timeline Bento Grid */}
-                    <div className="mt-8 sm:mt-10 grid auto-rows-[minmax(160px,auto)] grid-cols-1 gap-4 lg:grid-cols-4">
+                    <div className="mt-8 sm:mt-10 grid auto-rows-[minmax(160px,auto)] grid-cols-1 gap-3.5 sm:gap-4 lg:grid-cols-4">
                         {experiences.map((exp, i) => (
                             <FadeIn
                                 key={`${exp.company}-${i}`}
@@ -270,43 +270,43 @@ export function ExperienceSection() {
                                 className={exp.span}
                             >
                                 <article
-                                    className={`bento-card group relative flex h-full flex-col justify-between rounded-3xl p-6 sm:p-7 ${
+                                    className={`bento-card group relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl p-5 sm:p-7 ${
                                         exp.featured ? "lg:p-8" : ""
                                     }`}
                                 >
                                     {/* Top row */}
                                     <div>
-                                        <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] pb-3.5">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 border-b border-white/[0.06] pb-3 sm:pb-3.5">
                                             <div className="flex items-center gap-2">
-                                                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/40">
+                                                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] text-ink/40">
                                                     0{i + 1}
                                                 </span>
                                                 {exp.isCurrent && (
-                                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/40 bg-accent-emerald/10 px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-accent-emerald font-semibold">
+                                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/40 bg-accent-emerald/10 px-2 sm:px-2.5 py-0.5 font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.18em] text-accent-emerald font-semibold">
                                                         <span className="h-1.5 w-1.5 animate-ping rounded-full bg-accent-emerald" />
                                                         Current
                                                     </span>
                                                 )}
                                             </div>
-                                            <span className="font-mono text-[10px] text-ink/40">
+                                            <span className="font-mono text-[9.5px] sm:text-[10px] text-ink/40">
                                                 {exp.timeframe}
                                             </span>
                                         </div>
 
-                                        <div className="pt-4">
+                                        <div className="pt-3.5 sm:pt-4">
                                             <h3
                                                 className={`font-display font-extrabold tracking-tight text-ink group-hover:text-accent transition-colors ${
                                                     exp.featured
-                                                        ? "text-2xl sm:text-3xl"
-                                                        : "text-lg sm:text-xl"
+                                                        ? "text-xl sm:text-2xl lg:text-3xl"
+                                                        : "text-base sm:text-lg lg:text-xl"
                                                 }`}
                                             >
                                                 {exp.company}
                                             </h3>
-                                            <p className="mt-1 font-mono text-xs font-semibold text-accent2">
+                                            <p className="mt-1 font-mono text-[11px] sm:text-xs font-semibold text-accent2">
                                                 {exp.title}
                                             </p>
-                                            <p className="mt-3 text-xs leading-relaxed text-ink/70 sm:text-sm">
+                                            <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink/70 sm:text-sm">
                                                 {exp.description}
                                             </p>
                                         </div>
@@ -314,11 +314,11 @@ export function ExperienceSection() {
 
                                     {/* Skill pills */}
                                     {exp.skills && (
-                                        <div className="mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+                                        <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
                                             {exp.skills.map((s) => (
                                                 <span
                                                     key={s}
-                                                    className="inline-flex items-center rounded-lg border border-white/[0.08] bg-background/80 px-2 py-0.5 font-mono text-[9px] text-ink/70"
+                                                    className="inline-flex items-center rounded-lg border border-white/[0.08] bg-background/80 px-2 py-0.5 font-mono text-[8.5px] sm:text-[9px] text-ink/70"
                                                 >
                                                     {s}
                                                 </span>

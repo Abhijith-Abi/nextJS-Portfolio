@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { SkillsSection } from "../../components/SkillsSection";
 import { WorkflowSection } from "../../components/WorkflowSection";
+import { Footer } from "../../components/Footer";
 
 export const metadata: Metadata = {
     title: "Services — Hire Abhijith P A | AlgoBiz | React, Django, AI, ERP Development",
@@ -237,6 +238,7 @@ export default function ServicesPage() {
                 <SkillsSection />
                 <WorkflowSection />
             </div>
+            <Footer />
         </main>
     );
 }

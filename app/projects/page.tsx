@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { ProjectsSection } from "../../components/ProjectsSection";
+import { Footer } from "../../components/Footer";
 
 export const metadata: Metadata = {
     title: "Projects — Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync | Abhijith P A & Abi Solutions",
@@ -196,6 +197,7 @@ export default function ProjectsPage() {
             <div className="pt-24">
                 <ProjectsSection />
             </div>
+            <Footer />
         </main>
     );
 }

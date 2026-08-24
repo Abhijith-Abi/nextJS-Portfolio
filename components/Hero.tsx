@@ -86,13 +86,13 @@ export function Hero() {
                 className="container-width relative z-10 w-full flex flex-col justify-center"
             >
                 {/* Top status bar */}
-                <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
-                    <div className="hero-eyebrow surface inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 opacity-0 border border-white/10 shadow-glow-sm backdrop-blur-md">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8">
+                    <div className="hero-eyebrow surface inline-flex items-center gap-2 sm:gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 opacity-0 border border-white/10 shadow-glow-sm backdrop-blur-md">
                         <span className="relative flex h-2 w-2">
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
                             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
                         </span>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-ink/90 sm:text-[10px] sm:tracking-[0.28em] lg:text-[11px]">
+                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink/90 sm:text-[10px] sm:tracking-[0.28em] lg:text-[11px]">
                             Available for new projects · 2026
                         </span>
                     </div>
@@ -104,15 +104,15 @@ export function Hero() {
                 </div>
 
                 {/* Main 2-Column Hero Grid */}
-                <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 xl:gap-16 items-center">
+                <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 xl:gap-16 items-center">
                     {/* Left Column: Headlines, Bio, Tech Stack & CTAs */}
-                    <div className="space-y-6">
+                    <div className="space-y-5 sm:space-y-6">
                         <div>
-                            <p className="hero-left-item font-mono text-xs font-semibold uppercase tracking-[0.28em] text-accent opacity-0 sm:text-sm mb-3">
+                            <p className="hero-left-item font-mono text-xs font-semibold uppercase tracking-[0.28em] text-accent opacity-0 sm:text-sm mb-2.5 sm:mb-3">
                                 <AnimeText text="Hi, I'm Abhijith P A" delay={200} />
                             </p>
 
-                            <h1 className="font-display text-[clamp(2.5rem,6.5vw,5.5rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-ink">
+                            <h1 className="font-display text-[clamp(2.1rem,6.8vw,5.5rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-ink">
                                 <span className="sr-only">
                                     Abhijith P A — Full Stack Developer & AI Engineer | Abi Solutions
                                 </span>
@@ -128,12 +128,12 @@ export function Hero() {
                             </h1>
                         </div>
 
-                        <p className="hero-left-item max-w-xl text-sm leading-relaxed text-ink/80 sm:text-base lg:text-lg opacity-0">
+                        <p className="hero-left-item max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-ink/80 lg:text-lg opacity-0">
                             Founder of <strong className="text-white font-bold">Abi Solutions</strong>. 4+ years engineering high-performance ERP platforms, autonomous AI workflows, and modern web applications with React, Next.js, Django & AWS.
                         </p>
 
                         {/* Tech Chips */}
-                        <div className="hero-left-item flex flex-wrap gap-2 opacity-0">
+                        <div className="hero-left-item flex flex-wrap gap-1.5 sm:gap-2 opacity-0">
                             {[
                                 "React 18 / 19",
                                 "Next.js 14",
@@ -144,7 +144,7 @@ export function Hero() {
                             ].map((chip) => (
                                 <span
                                     key={chip}
-                                    className="inline-flex items-center rounded-xl border border-white/10 bg-surface/90 px-3 py-1.5 font-mono text-[11px] text-ink/80 backdrop-blur-md hover:border-accent/50 hover:text-accent transition-colors"
+                                    className="inline-flex items-center rounded-xl border border-white/10 bg-surface/90 px-2.5 sm:px-3 py-1 sm:py-1.5 font-mono text-[10px] sm:text-[11px] text-ink/80 backdrop-blur-md hover:border-accent/50 hover:text-accent transition-colors"
                                 >
                                     {chip}
                                 </span>
@@ -152,19 +152,19 @@ export function Hero() {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="hero-left-item pt-2 flex flex-wrap items-center gap-3.5 opacity-0">
+                        <div className="hero-left-item pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 opacity-0">
                             <button
                                 type="button"
                                 onClick={() => scrollToSection("projects")}
-                                className="hero-btn-primary group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight shadow-glow-sm cursor-pointer"
+                                className="hero-btn-primary group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-bold tracking-tight shadow-glow-sm cursor-pointer"
                             >
                                 <span>Explore Projects</span>
-                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                <ArrowRight className="h-4 w-4 text-white/80 group-hover:text-white transition-colors" />
                             </button>
                             <button
                                 type="button"
                                 onClick={() => scrollToSection("contact")}
-                                className="hero-btn-ghost inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold cursor-pointer"
+                                className="hero-btn-ghost inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-semibold cursor-pointer"
                             >
                                 <span>Start a Project</span>
                             </button>
@@ -173,14 +173,14 @@ export function Hero() {
 
                     {/* Right Column: Clean, Elegant Portrait Showcase Card */}
                     <div className="hero-photo-card opacity-0 flex justify-center lg:justify-end">
-                        <div className="surface relative w-full max-w-[420px] overflow-hidden rounded-[2.5rem] border border-white/15 p-4 sm:p-5 shadow-glow">
+                        <div className="surface relative w-full max-w-[360px] sm:max-w-[420px] overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-white/15 p-3.5 sm:p-5 shadow-glow">
                             {/* Photo Container with subtle inner border and rounded corners */}
-                            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[2rem] bg-surface2 border border-white/10">
+                            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[1.6rem] sm:rounded-[2rem] bg-surface2 border border-white/10">
                                 <Image
                                     src="/photos/abhijith-pa-founder-portrait.jpg"
                                     alt="Abhijith P A — Founder of Abi Solutions"
                                     fill
-                                    sizes="(max-width: 1024px) 100vw, 420px"
+                                    sizes="(max-width: 640px) 340px, (max-width: 1024px) 400px, 420px"
                                     className="object-cover object-top filter contrast-105"
                                     quality={95}
                                     priority
@@ -189,38 +189,38 @@ export function Hero() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
 
                                 {/* Floating Top Badge */}
-                                <div className="absolute top-4 left-4 z-10">
-                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-background/80 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-accent backdrop-blur-md font-semibold">
+                                <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10">
+                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-background/80 px-2.5 sm:px-3 py-1 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-accent backdrop-blur-md font-semibold">
                                         <Sparkles className="h-3 w-3" />
                                         Abi Solutions
                                     </span>
                                 </div>
 
                                 {/* Bottom Name & Title Overlay */}
-                                <div className="absolute inset-x-0 bottom-0 p-5 z-10">
-                                    <h2 className="font-display text-2xl font-black text-white">
+                                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-10">
+                                    <h2 className="font-display text-xl sm:text-2xl font-black text-white">
                                         Abhijith P A
                                     </h2>
-                                    <p className="mt-1 font-mono text-xs text-accent flex items-center gap-1.5">
-                                        <MapPin className="h-3.5 w-3.5 text-accent" />
-                                        Kerala, India · Founder & Engineer
+                                    <p className="mt-1 font-mono text-[11px] sm:text-xs text-accent flex items-center gap-1.5">
+                                        <MapPin className="h-3.5 w-3.5 text-accent shrink-0" />
+                                        <span>Kerala, India · Founder & Engineer</span>
                                     </p>
                                 </div>
                             </div>
 
                             {/* Meta Info Strip Below Photo */}
-                            <div className="mt-3.5 grid grid-cols-3 gap-2 text-center">
-                                <div className="rounded-2xl border border-white/[0.06] bg-background/70 p-2.5">
-                                    <p className="font-mono text-[8px] uppercase tracking-wider text-accent font-semibold">Company</p>
-                                    <p className="mt-0.5 font-display text-xs font-bold text-ink truncate">Abi Solutions</p>
+                            <div className="mt-3 grid grid-cols-3 gap-1.5 sm:gap-2 text-center">
+                                <div className="rounded-xl sm:rounded-2xl border border-white/[0.06] bg-background/70 p-2 sm:p-2.5">
+                                    <p className="font-mono text-[7.5px] sm:text-[8px] uppercase tracking-wider text-accent font-semibold truncate">Company</p>
+                                    <p className="mt-0.5 font-display text-[11px] sm:text-xs font-bold text-ink truncate">Abi Solutions</p>
                                 </div>
-                                <div className="rounded-2xl border border-white/[0.06] bg-background/70 p-2.5">
-                                    <p className="font-mono text-[8px] uppercase tracking-wider text-accent font-semibold">Location</p>
-                                    <p className="mt-0.5 font-display text-xs font-bold text-ink">Kerala, IN</p>
+                                <div className="rounded-xl sm:rounded-2xl border border-white/[0.06] bg-background/70 p-2 sm:p-2.5">
+                                    <p className="font-mono text-[7.5px] sm:text-[8px] uppercase tracking-wider text-accent font-semibold truncate">Location</p>
+                                    <p className="mt-0.5 font-display text-[11px] sm:text-xs font-bold text-ink truncate">Kerala, IN</p>
                                 </div>
-                                <div className="rounded-2xl border border-white/[0.06] bg-background/70 p-2.5">
-                                    <p className="font-mono text-[8px] uppercase tracking-wider text-accent font-semibold">Focus</p>
-                                    <p className="mt-0.5 font-display text-xs font-bold text-accent">Full Stack & AI</p>
+                                <div className="rounded-xl sm:rounded-2xl border border-white/[0.06] bg-background/70 p-2 sm:p-2.5">
+                                    <p className="font-mono text-[7.5px] sm:text-[8px] uppercase tracking-wider text-accent font-semibold truncate">Focus</p>
+                                    <p className="mt-0.5 font-display text-[11px] sm:text-xs font-bold text-accent truncate">Full Stack & AI</p>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +228,7 @@ export function Hero() {
                 </div>
 
                 {/* Bottom Stats Matrix */}
-                <div className="mt-14 sm:mt-16 lg:mt-20 grid w-full grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-4">
+                <div className="mt-12 sm:mt-16 lg:mt-20 grid w-full grid-cols-2 gap-2.5 sm:gap-4 sm:grid-cols-4">
                     {[
                         { v: 4, suffix: "+", l: "Years Shipping", icon: Flame },
                         { v: 20, suffix: "+", l: "Production Builds", icon: Code2 },
@@ -239,17 +239,17 @@ export function Hero() {
                         return (
                             <div
                                 key={s.l}
-                                className="hero-stat surface relative overflow-hidden rounded-3xl p-5 sm:p-6 opacity-0 border border-white/[0.08] hover:border-accent/40 transition-all duration-300 hover:shadow-glow-sm backdrop-blur-md"
+                                className="hero-stat surface relative overflow-hidden rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 opacity-0 border border-white/[0.08] hover:border-accent/40 transition-all duration-300 hover:shadow-glow-sm backdrop-blur-md"
                             >
                                 <div className="flex items-center justify-between">
                                     <p className="font-display text-2xl font-black text-ink sm:text-3xl lg:text-4xl">
                                         <AnimeCounter to={s.v} suffix={s.suffix} />
                                     </p>
-                                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                                        <Icon className="h-4 w-4" />
+                                    <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-accent/10 text-accent shrink-0">
+                                        <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                                     </span>
                                 </div>
-                                <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.24em] text-ink/70 sm:text-[10px] sm:tracking-[0.28em]">
+                                <p className="mt-2 font-mono text-[8.5px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.28em] text-ink/70 truncate">
                                     {s.l}
                                 </p>
                             </div>

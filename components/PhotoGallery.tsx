@@ -157,10 +157,10 @@ export function PhotoGallery() {
                         <button
                             type="button"
                             onClick={() => setSelectedPhotoIndex(null)}
-                            className="absolute top-6 right-6 z-20 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/80 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
+                            className="absolute top-4 sm:top-6 right-4 sm:right-6 z-30 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/90 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
                             aria-label="Close image preview"
                         >
-                            <X className="h-5 w-5" />
+                            <X className="h-4 w-4 sm:h-5 sm:w-5" />
                         </button>
 
                         {/* Navigation Buttons */}
@@ -170,10 +170,10 @@ export function PhotoGallery() {
                                 e.stopPropagation();
                                 handlePrev();
                             }}
-                            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/80 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
+                            className="absolute left-2 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/90 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
                             aria-label="Previous photo"
                         >
-                            <ChevronLeft className="h-6 w-6" />
+                            <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
                         </button>
 
                         <button
@@ -182,10 +182,10 @@ export function PhotoGallery() {
                                 e.stopPropagation();
                                 handleNext();
                             }}
-                            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/80 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
+                            className="absolute right-2 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-2xl border border-white/15 bg-[#0e121d]/90 text-ink shadow-lg backdrop-blur-xl transition hover:border-accent hover:bg-accent hover:text-white hover:scale-105"
                             aria-label="Next photo"
                         >
-                            <ChevronRight className="h-6 w-6" />
+                            <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
                         </button>
 
                         {/* Modal Container */}
@@ -195,9 +195,9 @@ export function PhotoGallery() {
                             exit={{ scale: 0.95, opacity: 0, y: 10 }}
                             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative max-h-[88vh] max-w-4xl overflow-hidden rounded-[2rem] border border-white/15 bg-[#0a0d16]/90 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.9),0_0_0_1px_rgba(47,107,255,0.2)] backdrop-blur-3xl"
+                            className="relative max-h-[85vh] sm:max-h-[88vh] max-w-4xl overflow-hidden rounded-[1.6rem] sm:rounded-[2rem] border border-white/15 bg-[#0a0d16]/90 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.9),0_0_0_1px_rgba(47,107,255,0.2)] backdrop-blur-3xl mx-6 sm:mx-auto"
                         >
-                            <div className="relative h-[60vh] sm:h-[70vh] w-[85vw] max-w-3xl bg-black/40">
+                            <div className="relative h-[48vh] sm:h-[65vh] w-[88vw] sm:w-[80vw] max-w-3xl bg-black/40">
                                 <Image
                                     src={selectedPhoto.src}
                                     alt={selectedPhoto.alt}
@@ -209,21 +209,21 @@ export function PhotoGallery() {
                             </div>
 
                             {/* Caption Footer */}
-                            <div className="border-t border-white/[0.08] bg-black/50 p-4 sm:p-6 backdrop-blur-2xl">
-                                <div className="flex flex-wrap items-center justify-between gap-3">
+                            <div className="border-t border-white/[0.08] bg-black/60 p-3.5 sm:p-6 backdrop-blur-2xl max-h-[28vh] overflow-y-auto">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
                                     <div>
-                                        <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/15 px-3 py-0.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent font-semibold">
+                                        <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent/15 px-2.5 py-0.5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-accent font-semibold">
                                             {selectedPhoto.category} · {selectedPhoto.year}
                                         </span>
-                                        <h3 className="mt-1 font-display text-lg font-bold text-white">
+                                        <h3 className="mt-1 font-display text-base sm:text-lg font-bold text-white">
                                             {selectedPhoto.title}
                                         </h3>
-                                        <p className="mt-1 text-xs text-ink/75 sm:text-sm max-w-xl">
+                                        <p className="mt-0.5 text-xs text-ink/75 sm:text-sm max-w-xl line-clamp-2 sm:line-clamp-none">
                                             {selectedPhoto.caption}
                                         </p>
                                     </div>
-                                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-ink/70">
-                                        <MapPin className="h-3.5 w-3.5 text-accent" />
+                                    <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] sm:text-xs text-ink/70 self-start sm:self-auto shrink-0">
+                                        <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-accent" />
                                         <span>{selectedPhoto.location}</span>
                                     </div>
                                 </div>

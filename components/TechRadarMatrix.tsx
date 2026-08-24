@@ -125,13 +125,13 @@ export function TechRadarMatrix() {
     return (
         <SectionWrapper id="tech-matrix" index="08" label="Matrix">
             {/* Header */}
-            <div className="mb-12 grid items-end gap-6 sm:mb-16 md:grid-cols-[1.1fr_0.9fr]">
+            <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.1fr_0.9fr]">
                 <div>
                     <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
                         <Activity className="h-3 w-3" />
                         Deep-Dive Capabilities
                     </div>
-                    <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                    <h2 className="font-display text-[clamp(2rem,6vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
                         <span className="block">TECHNICAL PROFICIENCY &</span>
                         <span className="block text-accent">
                             STACK RADAR.
@@ -139,14 +139,14 @@ export function TechRadarMatrix() {
                     </h2>
                 </div>
                 <FadeIn>
-                    <p className="text-sm leading-relaxed text-ink/75 sm:text-base md:text-right lg:text-lg">
+                    <p className="text-xs sm:text-sm md:text-base leading-relaxed text-ink/75 md:text-right lg:text-lg">
                         Benchmark metrics, production experience levels, and architectural competencies across each tier of modern full stack engineering.
                     </p>
                 </FadeIn>
             </div>
 
-            {/* Category Filter Pills */}
-            <div className="mb-8 flex flex-wrap gap-2 rounded-2xl bg-surface/80 p-1.5 border border-white/[0.08] backdrop-blur-md">
+            {/* Category Filter Pills (Responsive scroll on mobile) */}
+            <div className="mb-6 sm:mb-8 flex gap-1.5 sm:gap-2 rounded-2xl bg-surface/80 p-1 sm:p-1.5 border border-white/[0.08] backdrop-blur-md overflow-x-auto no-scrollbar">
                 {domains.map((dom) => {
                     const DomIcon = dom.icon;
                     const isSelected = activeTab === dom.id;
@@ -155,13 +155,13 @@ export function TechRadarMatrix() {
                             key={dom.id}
                             type="button"
                             onClick={() => setActiveTab(dom.id)}
-                            className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 font-mono text-xs transition-all cursor-pointer ${
+                            className={`inline-flex items-center gap-2 rounded-xl px-3 sm:px-4 py-2 sm:py-2.5 font-mono text-[11px] sm:text-xs transition-all cursor-pointer shrink-0 ${
                                 isSelected
                                     ? "bg-accent text-white font-bold shadow-glow-sm"
                                     : "text-ink/60 hover:text-ink hover:bg-white/[0.05]"
                             }`}
                         >
-                            <DomIcon className="h-4 w-4" />
+                            <DomIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             <span>{dom.label}</span>
                         </button>
                     );
@@ -169,45 +169,45 @@ export function TechRadarMatrix() {
             </div>
 
             {/* Active Matrix Content */}
-            <div className="surface relative overflow-hidden rounded-[2.5rem] p-6 sm:p-10 border border-white/[0.08] shadow-glow">
+            <div className="surface relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-8 lg:p-10 border border-white/[0.08] shadow-glow">
                 <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
                     {/* Left: Skill Proficiency Bars */}
                     <div>
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/15 border border-accent/30 text-accent">
+                        <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-accent/15 border border-accent/30 text-accent shrink-0">
                                 <Icon className="h-5 w-5" />
                             </div>
-                            <div>
-                                <h3 className="font-display text-lg font-bold text-ink">
+                            <div className="min-w-0">
+                                <h3 className="font-display text-base sm:text-lg font-bold text-ink truncate">
                                     {currentDomain.label}
                                 </h3>
-                                <p className="font-mono text-[11px] text-accent">
+                                <p className="font-mono text-[10px] sm:text-[11px] text-accent">
                                     Verified Production Stack
                                 </p>
                             </div>
                         </div>
 
-                        <p className="text-xs sm:text-sm text-ink/75 leading-relaxed mb-8">
+                        <p className="text-xs sm:text-sm text-ink/75 leading-relaxed mb-6 sm:mb-8">
                             {currentDomain.summary}
                         </p>
 
                         {/* Skill Progress Items */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             {currentDomain.skills.map((skill) => (
                                 <div
                                     key={skill.name}
-                                    className="rounded-2xl border border-white/[0.06] bg-background/60 p-3.5"
+                                    className="rounded-2xl border border-white/[0.06] bg-background/60 p-3 sm:p-3.5"
                                 >
                                     <div className="flex items-center justify-between gap-2 mb-2">
-                                        <div className="flex items-center gap-2">
-                                            <span className="font-display text-xs font-bold text-ink">
+                                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 min-w-0">
+                                            <span className="font-display text-xs sm:text-sm font-bold text-ink truncate">
                                                 {skill.name}
                                             </span>
-                                            <span className="font-mono text-[9px] uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded-md">
+                                            <span className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-wider text-accent bg-accent/10 px-1.5 sm:px-2 py-0.5 rounded-md">
                                                 {skill.experience}
                                             </span>
                                         </div>
-                                        <span className="font-mono text-xs font-bold text-accent">
+                                        <span className="font-mono text-xs font-bold text-accent shrink-0">
                                             {skill.proficiency}%
                                         </span>
                                     </div>
@@ -222,7 +222,7 @@ export function TechRadarMatrix() {
                                         />
                                     </div>
 
-                                    <p className="mt-2 font-mono text-[10px] text-ink/50">
+                                    <p className="mt-2 font-mono text-[9.5px] sm:text-[10px] text-ink/50 truncate">
                                         Focus: <strong className="text-ink/80">{skill.highlight}</strong>
                                     </p>
                                 </div>
@@ -231,23 +231,23 @@ export function TechRadarMatrix() {
                     </div>
 
                     {/* Right: Real-time Benchmark Metrics & Architectural Highlights */}
-                    <div className="space-y-6">
-                        <div className="rounded-3xl border border-white/[0.08] bg-background/80 p-6 sm:p-8">
-                            <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-6 font-bold flex items-center gap-2">
+                    <div className="space-y-5 sm:space-y-6">
+                        <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-background/80 p-5 sm:p-8">
+                            <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-4 sm:mb-6 font-bold flex items-center gap-2">
                                 <Zap className="h-3.5 w-3.5" />
                                 Verified Benchmark Metrics
                             </h4>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center">
                                 {currentDomain.metrics.map((m) => (
                                     <div
                                         key={m.label}
-                                        className="surface rounded-2xl p-4 border border-white/[0.06] shadow-glow-sm"
+                                        className="surface rounded-2xl p-3.5 sm:p-4 border border-white/[0.06] shadow-glow-sm"
                                     >
-                                        <p className="font-display text-2xl font-black text-ink">
+                                        <p className="font-display text-xl sm:text-2xl font-black text-ink">
                                             {m.value}
                                         </p>
-                                        <p className="font-mono text-[9px] uppercase tracking-wider text-ink/50 mt-1">
+                                        <p className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-wider text-ink/50 mt-1">
                                             {m.label}
                                         </p>
                                     </div>
@@ -255,12 +255,12 @@ export function TechRadarMatrix() {
                             </div>
                         </div>
 
-                        <div className="surface rounded-3xl border border-accent/30 p-6 sm:p-8 shadow-glow-sm">
+                        <div className="surface rounded-2xl sm:rounded-3xl border border-accent/30 p-5 sm:p-8 shadow-glow-sm">
                             <div className="flex items-center gap-2 text-accent font-mono text-xs font-bold uppercase tracking-wider mb-2">
-                                <Shield className="h-4 w-4" />
+                                <Shield className="h-4 w-4 shrink-0" />
                                 Production Guarantee
                             </div>
-                            <p className="text-xs text-ink/75 leading-relaxed">
+                            <p className="text-xs sm:text-sm text-ink/75 leading-relaxed">
                                 Every platform engineered by Abhijith P A undergoes strict TypeScript verification, automated CI/CD security audits, responsive viewport cross-browser testing, and SEO structured data indexing before delivery.
                             </p>
                         </div>

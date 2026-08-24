@@ -217,12 +217,11 @@ export function CommandPalette() {
     return (
         <>
             {/* Global Floating Trigger Button (Bottom Right) */}
-            {/* Global Floating Trigger Button (Bottom Right) */}
-            <div className="fixed bottom-6 right-6 z-40">
+            <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40">
                 <button
                     type="button"
                     onClick={toggleOpen}
-                    className="group flex items-center gap-2.5 rounded-full border border-white/15 bg-[#0e121d]/85 px-4 py-2.5 text-xs font-mono text-ink shadow-glow backdrop-blur-2xl transition-all duration-300 hover:border-accent hover:bg-accent/15 hover:shadow-glow-blue hover:scale-105"
+                    className="group flex items-center gap-2 sm:gap-2.5 rounded-full border border-white/15 bg-[#0e121d]/90 px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs font-mono text-ink shadow-glow backdrop-blur-2xl transition-all duration-300 hover:border-accent hover:bg-accent/15 hover:shadow-glow-blue hover:scale-105"
                     aria-label="Open Command Menu (⌘K)"
                 >
                     <span className="flex h-5 w-5 items-center justify-center rounded-lg bg-accent/25 text-accent font-bold text-[11px] shadow-sm">
@@ -241,7 +240,7 @@ export function CommandPalette() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setOpen(false)}
-                        className="fixed inset-0 z-[200] flex items-start justify-center bg-black/65 p-4 pt-[12vh] sm:p-6 backdrop-blur-2xl"
+                        className="fixed inset-0 z-[200] flex items-start justify-center bg-black/70 p-3 sm:p-6 pt-[6vh] sm:pt-[12vh] backdrop-blur-2xl"
                     >
                         <motion.div
                             initial={{ scale: 0.95, opacity: 0, y: -16 }}
@@ -249,14 +248,14 @@ export function CommandPalette() {
                             exit={{ scale: 0.95, opacity: 0, y: -16 }}
                             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative w-full max-w-2xl overflow-hidden rounded-[2rem] border border-white/15 bg-[#0a0d16]/85 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.9),0_0_0_1px_rgba(47,107,255,0.2)] backdrop-blur-3xl"
+                            className="relative w-full max-w-2xl overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] border border-white/15 bg-[#0a0d16]/90 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.9),0_0_0_1px_rgba(47,107,255,0.2)] backdrop-blur-3xl"
                         >
                             {/* Ambient Top Glow */}
                             <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-40 w-80 rounded-full bg-accent/20 blur-[60px]" />
 
                             {/* Search Header */}
-                            <div className="relative flex items-center border-b border-white/[0.08] px-5 py-4 bg-white/[0.02]">
-                                <Search className="h-5 w-5 text-accent shrink-0" />
+                            <div className="relative flex items-center border-b border-white/[0.08] px-4 sm:px-5 py-3 sm:py-4 bg-white/[0.02]">
+                                <Search className="h-4 w-4 sm:h-5 sm:w-5 text-accent shrink-0" />
                                 <input
                                     type="text"
                                     value={query}
@@ -264,8 +263,8 @@ export function CommandPalette() {
                                         setQuery(e.target.value);
                                         setSelectedIndex(0);
                                     }}
-                                    placeholder="Type a command or search (e.g. projects, resume, quote, ai)..."
-                                    className="w-full bg-transparent px-3.5 py-1 font-mono text-sm text-white placeholder-ink/40 outline-none"
+                                    placeholder="Type a command or search..."
+                                    className="w-full bg-transparent px-3 py-1 font-mono text-xs sm:text-sm text-white placeholder-ink/40 outline-none"
                                     autoFocus
                                 />
                                 {query && (
@@ -288,7 +287,7 @@ export function CommandPalette() {
                             </div>
 
                             {/* Command Results List */}
-                            <div className="max-h-[58vh] overflow-y-auto p-3 space-y-1">
+                            <div className="max-h-[55vh] sm:max-h-[58vh] overflow-y-auto p-2 sm:p-3 space-y-1">
                                 {filtered.length === 0 ? (
                                     <div className="py-12 text-center">
                                         <p className="font-mono text-xs text-ink/50">
@@ -305,15 +304,15 @@ export function CommandPalette() {
                                                 type="button"
                                                 onClick={() => handleSelect(idx)}
                                                 onMouseEnter={() => setSelectedIndex(idx)}
-                                                className={`group flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition-all duration-200 cursor-pointer ${
+                                                className={`group flex w-full items-center justify-between rounded-xl sm:rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 text-left transition-all duration-200 cursor-pointer ${
                                                     isSelected
                                                         ? "bg-accent/20 border border-accent/40 shadow-glow-sm"
                                                         : "border border-transparent hover:bg-white/[0.04]"
                                                 }`}
                                             >
-                                                <div className="flex items-center gap-3.5 min-w-0">
+                                                <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 pr-2">
                                                     <div
-                                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-200 ${
+                                                        className={`flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-200 ${
                                                             isSelected
                                                                 ? "bg-accent text-white shadow-glow-sm"
                                                                 : "border border-white/10 bg-white/5 text-ink/70 group-hover:text-accent group-hover:border-accent/30"
@@ -323,20 +322,20 @@ export function CommandPalette() {
                                                     </div>
                                                     <div className="min-w-0">
                                                         <p
-                                                            className={`font-display text-sm font-bold truncate ${
+                                                            className={`font-display text-xs sm:text-sm font-bold truncate ${
                                                                 isSelected ? "text-white" : "text-ink"
                                                             }`}
                                                         >
                                                             {item.title}
                                                         </p>
-                                                        <p className="font-mono text-[11px] text-ink/50 truncate">
+                                                        <p className="font-mono text-[10px] sm:text-[11px] text-ink/50 truncate">
                                                             {item.description}
                                                         </p>
                                                     </div>
                                                 </div>
 
-                                                <div className="flex items-center gap-2 shrink-0 ml-3">
-                                                    <span className="font-mono text-[9px] uppercase tracking-wider text-ink/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
+                                                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 ml-2">
+                                                    <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-wider text-ink/50 bg-white/5 border border-white/10 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full hidden xs:inline">
                                                         {item.category}
                                                     </span>
                                                     {item.shortcut && (
@@ -345,7 +344,7 @@ export function CommandPalette() {
                                                         </kbd>
                                                     )}
                                                     <ArrowRight
-                                                        className={`h-4 w-4 transition-all duration-200 ${
+                                                        className={`h-3.5 w-3.5 sm:h-4 sm:w-4 transition-all duration-200 ${
                                                             isSelected
                                                                 ? "translate-x-0.5 text-accent opacity-100"
                                                                 : "opacity-0"
@@ -359,14 +358,14 @@ export function CommandPalette() {
                             </div>
 
                             {/* Minimal Footer Navigation Hints */}
-                            <div className="flex items-center justify-between border-t border-white/[0.08] bg-black/40 px-5 py-3 font-mono text-[11px] text-ink/50">
-                                <div className="flex items-center gap-3.5">
-                                    <span><kbd className="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px]">↑↓</kbd> Navigate</span>
-                                    <span><kbd className="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px]">↵</kbd> Select</span>
-                                    <span><kbd className="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px]">esc</kbd> Dismiss</span>
+                            <div className="flex items-center justify-between border-t border-white/[0.08] bg-black/40 px-4 sm:px-5 py-2.5 sm:py-3 font-mono text-[10px] sm:text-[11px] text-ink/50">
+                                <div className="flex items-center gap-2 sm:gap-3.5">
+                                    <span><kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5 text-[9px] sm:text-[10px]">↑↓</kbd> Nav</span>
+                                    <span><kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5 text-[9px] sm:text-[10px]">↵</kbd> Select</span>
+                                    <span><kbd className="rounded border border-white/10 bg-white/5 px-1 py-0.5 text-[9px] sm:text-[10px]">esc</kbd> Close</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <span className="h-2 w-2 rounded-full bg-accent-emerald shadow-[0_0_6px_#10b981]" />
+                                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-accent-emerald shadow-[0_0_6px_#10b981]" />
                                     <span className="text-accent font-semibold">Abi OS</span>
                                 </div>
                             </div>

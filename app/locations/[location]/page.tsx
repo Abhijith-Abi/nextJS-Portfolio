@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Navbar } from "../../../components/Navbar";
 import { SectionWrapper } from "../../../components/SectionWrapper";
+import { Footer } from "../../../components/Footer";
 import Link from "next/link";
 import { getLocationData, locationsData, locationAliases } from "../../../lib/locations";
 import { JsonLd } from "../../../components/JsonLd";
@@ -215,24 +216,25 @@ export default async function LocationPage({ params }: PageProps) {
             {/* ─── Local FAQs ─── */}
             <SectionWrapper id="faq" index="02" label="Local FAQs">
                 <div className="mb-8">
-                    <h2 className="text-3xl font-bold mb-3">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">
                         Frequently Asked Questions ({loc.shortName})
                     </h2>
                 </div>
 
                 <div className="space-y-4 max-w-4xl">
                     {loc.faqs.map((faq, idx) => (
-                        <div key={idx} className="p-6 rounded-2xl border border-border/60 bg-card/60">
-                            <h3 className="text-lg font-bold text-foreground mb-2">
+                        <div key={idx} className="p-5 sm:p-6 rounded-2xl border border-border/60 bg-card/60">
+                            <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
                                 {faq.question}
                             </h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
+                            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                                 {faq.answer}
                             </p>
                         </div>
                     ))}
                 </div>
             </SectionWrapper>
+            <Footer />
         </main>
     );
 }

@@ -1,71 +1,57 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import {
     ButtonHTMLAttributes,
     MouseEvent,
     ReactNode,
-    useEffect,
     useRef,
     useState,
 } from "react";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: ReactNode;
-    strength?: number;
     className?: string;
 };
 
 export function MagneticButton({
     children,
-    strength = 0.3,
     className = "",
     ...props
 }: Props) {
     const ref = useRef<HTMLButtonElement>(null);
-    const [enabled, setEnabled] = useState(false);
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-    const sx = useSpring(x, { stiffness: 200, damping: 18, mass: 0.4 });
-    const sy = useSpring(y, { stiffness: 200, damping: 18, mass: 0.4 });
+    const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+    const [isHovered, setIsHovered] = useState(false);
 
-    useEffect(() => {
-        setEnabled(
-            window.matchMedia("(hover: hover) and (pointer: fine)").matches,
-        );
-    }, []);
-
-    const handleMove = (e: MouseEvent<HTMLButtonElement>) => {
-        if (!enabled) return;
+    const handleMouseMove = (e: MouseEvent<HTMLButtonElement>) => {
         const el = ref.current;
         if (!el) return;
         const rect = el.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        x.set((e.clientX - cx) * strength);
-        y.set((e.clientY - cy) * strength);
-    };
-
-    const handleLeave = () => {
-        x.set(0);
-        y.set(0);
+        const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+        const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+        setMousePos({ x: xPercent, y: yPercent });
     };
 
     return (
         <motion.button
             ref={ref}
-            onMouseMove={handleMove}
-            onMouseLeave={handleLeave}
-            style={{ x: sx, y: sy }}
-            className={className}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={`relative overflow-hidden ${className}`}
             {...(props as any)}
         >
-            <motion.span
-                className="inline-flex items-center gap-2"
-                style={{ x: sx, y: sy }}
-            >
+            {/* Interactive Color Glow Wave following the cursor inside button */}
+            <span
+                className="pointer-events-none absolute inset-0 transition-opacity duration-300 ease-out"
+                style={{
+                    opacity: isHovered ? 1 : 0,
+                    background: `radial-gradient(140px circle at ${mousePos.x}% ${mousePos.y}%, rgba(255, 255, 255, 0.35), transparent 70%)`,
+                }}
+            />
+            <span className="relative z-10 inline-flex items-center gap-2">
                 {children}
-            </motion.span>
+            </span>
         </motion.button>
     );
 }

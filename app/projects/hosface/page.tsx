@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../../components/Navbar";
 import { SectionWrapper } from "../../../components/SectionWrapper";
+import { Footer } from "../../../components/Footer";
 
 export const metadata: Metadata = {
     title: "Hosface — Healthcare Platform | Abhijith P A",
@@ -215,6 +216,7 @@ export default function HosfacePage() {
                         </section>
                     </article>
                 </SectionWrapper>
+                <Footer />
             </div>
         </main>
     );

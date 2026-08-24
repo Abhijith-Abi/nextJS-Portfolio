@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Navbar } from "../../../components/Navbar";
 import { SectionWrapper } from "../../../components/SectionWrapper";
+import { Footer } from "../../../components/Footer";
 import Link from "next/link";
 import { getServiceSEOData, servicesSEOData, serviceAliases } from "../../../lib/services-seo";
 import { JsonLd } from "../../../components/JsonLd";
@@ -250,19 +251,20 @@ export default async function ServicePage({ params }: PageProps) {
                         <Link
                             href="https://wa.me/919961316468?text=Hi%20Algobiz,%20I'd%20like%20to%20discuss%20"
                             target="_blank"
-                            className="px-8 py-4 rounded-xl bg-accent text-black font-semibold text-base hover:opacity-90 transition-all flex items-center gap-2 shadow-xl shadow-accent/20"
+                            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-accent text-black font-semibold text-sm sm:text-base hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-xl shadow-accent/20"
                         >
                             <span>WhatsApp Consultation (+91 9961316468)</span>
                         </Link>
                         <Link
                             href="/contact"
-                            className="px-8 py-4 rounded-xl border border-border bg-card hover:bg-muted text-foreground font-semibold text-base transition-all"
+                            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl border border-border bg-card hover:bg-muted text-foreground font-semibold text-sm sm:text-base transition-all flex items-center justify-center"
                         >
                             Contact Form
                         </Link>
                     </div>
                 </div>
             </section>
+            <Footer />
         </main>
     );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Navbar } from "../../components/Navbar";
 import { SectionWrapper } from "../../components/SectionWrapper";
+import { Footer } from "../../components/Footer";
 import Link from "next/link";
 import { getServiceSEOData, servicesSEOData, serviceAliases } from "../../lib/services-seo";
 import { getLocationData, locationsData, locationAliases, exactKeywordAliases } from "../../lib/locations";
@@ -252,6 +253,7 @@ export default async function SlugPage({ params }: PageProps) {
                         ))}
                     </div>
                 </SectionWrapper>
+                <Footer />
             </main>
         );
     }
@@ -393,6 +395,7 @@ export default async function SlugPage({ params }: PageProps) {
                         ))}
                     </div>
                 </SectionWrapper>
+                <Footer />
             </main>
         );
     }

@@ -140,25 +140,25 @@ export function ContactSection() {
     };
 
     const inputClasses =
-        "mt-2 w-full rounded-xl border border-white/10 bg-background/90 px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/30 focus:border-accent focus:ring-2 focus:ring-accent/20";
+        "mt-2 w-full rounded-xl border border-white/10 bg-background/90 px-3.5 sm:px-4 py-3 text-base sm:text-sm text-ink outline-none transition placeholder:text-ink/30 focus:border-accent focus:ring-2 focus:ring-accent/20";
 
     return (
         <SectionWrapper id="contact" index="07" label="Contact">
-            <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16 items-start">
+            <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16 items-start">
                 {/* Left Info Column */}
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                     <div>
                         <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
                             <Sparkles className="h-3 w-3" />
                             Start a Project or Collaboration
                         </div>
-                        <h2 className="font-display text-[clamp(2.2rem,6.5vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                        <h2 className="font-display text-[clamp(2rem,6vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
                             <span className="block">LET&apos;S ENGINEER</span>
                             <span className="block text-accent">
                                 SOMETHING REMARKABLE.
                             </span>
                         </h2>
-                        <FadeIn className="mt-4 max-w-md text-sm leading-relaxed text-ink/75 sm:text-base">
+                        <FadeIn className="mt-3.5 sm:mt-4 max-w-md text-xs sm:text-sm leading-relaxed text-ink/75 sm:text-base">
                             <p>
                                 Open for full-stack web applications, AI automation workflows, ERP engineering, and technical consulting.
                             </p>
@@ -171,30 +171,30 @@ export function ContactSection() {
                             href="https://wa.me/919961316468?text=Hi%20Abhijith,%20I%20would%20like%20to%20discuss%20a%20project"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="surface flex items-center justify-between rounded-2xl p-4 border border-accent-emerald/30 bg-accent-emerald/5 hover:bg-accent-emerald/10 transition-all duration-300 group"
+                            className="surface flex items-center justify-between rounded-2xl p-3.5 sm:p-4 border border-accent-emerald/30 bg-accent-emerald/5 hover:bg-accent-emerald/10 transition-all duration-300 group"
                         >
                             <div className="flex items-center gap-3">
-                                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-emerald/20 text-accent-emerald">
-                                    <MessageSquare className="h-5 w-5" />
+                                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-accent-emerald/20 text-accent-emerald shrink-0">
+                                    <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" />
                                 </span>
-                                <div>
-                                    <p className="font-display text-sm font-bold text-ink group-hover:text-accent-emerald transition-colors">
+                                <div className="min-w-0 pr-2">
+                                    <p className="font-display text-xs sm:text-sm font-bold text-ink group-hover:text-accent-emerald transition-colors truncate">
                                         Direct WhatsApp Chat
                                     </p>
-                                    <p className="font-mono text-[10px] text-ink/50">
+                                    <p className="font-mono text-[9.5px] sm:text-[10px] text-ink/50 truncate">
                                         Instant response · +91 99613 16468
                                     </p>
                                 </div>
                             </div>
-                            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent-emerald text-black font-bold text-xs group-hover:translate-x-0.5 transition-transform">
-                                <ArrowUpRight className="h-4 w-4" />
+                            <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-accent-emerald text-black font-bold text-xs group-hover:translate-x-0.5 transition-transform shrink-0">
+                                <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             </span>
                         </a>
                     </FadeIn>
 
                     {/* Contact Methods List */}
-                    <div className="surface rounded-2xl p-5 border border-white/[0.08]">
-                        <ul className="space-y-4 font-mono text-xs">
+                    <div className="surface rounded-2xl p-4 sm:p-5 border border-white/[0.08]">
+                        <ul className="space-y-3 sm:space-y-4 font-mono text-xs">
                             {[
                                 {
                                     k: "Email",
@@ -218,23 +218,23 @@ export function ContactSection() {
                                 return (
                                     <li
                                         key={item.k}
-                                        className="flex items-center justify-between gap-4 border-b border-white/[0.06] pb-3 last:border-b-0 last:pb-0"
+                                        className="flex flex-col xs:flex-row xs:items-center justify-between gap-1 xs:gap-4 border-b border-white/[0.06] pb-2.5 sm:pb-3 last:border-b-0 last:pb-0"
                                     >
                                         <div className="flex items-center gap-2 text-ink/50">
-                                            <Icon className="h-3.5 w-3.5 text-accent" />
-                                            <span className="text-[10px] uppercase tracking-[0.2em]">
+                                            <Icon className="h-3.5 w-3.5 text-accent shrink-0" />
+                                            <span className="text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em]">
                                                 {item.k}
                                             </span>
                                         </div>
                                         {item.href ? (
                                             <a
                                                 href={item.href}
-                                                className="text-ink transition hover:text-accent font-medium truncate"
+                                                className="text-ink transition hover:text-accent font-medium truncate text-xs sm:text-[13px]"
                                             >
                                                 {item.v}
                                             </a>
                                         ) : (
-                                            <span className="text-ink truncate">{item.v}</span>
+                                            <span className="text-ink truncate text-xs sm:text-[13px]">{item.v}</span>
                                         )}
                                     </li>
                                 );
@@ -242,8 +242,8 @@ export function ContactSection() {
                         </ul>
                     </div>
 
-                    <div className="flex items-center gap-2 font-mono text-[11px] text-ink/60">
-                        <Clock className="h-3.5 w-3.5 text-accent" />
+                    <div className="flex items-center gap-2 font-mono text-[10.5px] sm:text-[11px] text-ink/60">
+                        <Clock className="h-3.5 w-3.5 text-accent shrink-0" />
                         <span>Average response turnaround under 24 hours</span>
                     </div>
                 </div>
@@ -252,7 +252,7 @@ export function ContactSection() {
                 <FadeIn>
                     <form
                         onSubmit={handleSubmit}
-                        className="surface-card rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl backdrop-blur-2xl"
+                        className="surface-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-white/10 shadow-2xl backdrop-blur-2xl"
                     >
                         <div className="mb-6 flex items-center justify-between border-b border-white/[0.08] pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/40">
                             <span className="flex items-center gap-2">

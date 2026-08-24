@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { ContactSection } from "../../components/ContactSection";
+import { Footer } from "../../components/Footer";
 
 export const metadata: Metadata = {
     title: "Contact Abhijith P A — Hire AlgoBiz | Full Stack Developer & AI Engineer",
@@ -163,6 +164,7 @@ export default function ContactPage() {
             <div className="pt-24">
                 <ContactSection />
             </div>
+            <Footer />
         </main>
     );
 }

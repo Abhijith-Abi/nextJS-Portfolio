@@ -33,7 +33,39 @@ export async function generateStaticParams() {
 function getCustomHeading(slug?: string, locName?: string): string {
     if (!slug || !locName) return "Best Developer";
     const s = slug.toLowerCase();
-    if (s.includes("full-stack")) return `Best Full Stack Developer in ${locName}`;
+
+    // Town-level queries render the town first: "... in Kalpetta, Wayanad"
+    const towns: Array<[string, string]> = [
+        ["kalpetta", "Kalpetta, Wayanad"],
+        ["sulthan-bathery", "Sulthan Bathery, Wayanad"],
+        ["mananthavady", "Mananthavady, Wayanad"],
+        ["vythiri", "Vythiri, Wayanad"],
+        ["meppadi", "Meppadi, Wayanad"],
+    ];
+    for (const [town, label] of towns) {
+        if (s.includes(town)) locName = label;
+    }
+
+    if (s.includes("full-stack") || s.includes("fullstack")) return `Best Full Stack Developer in ${locName}`;
+    if (s.includes("website-developer")) return `Best Website Developer in ${locName}`;
+    if (s.includes("freelance") || s.includes("freelancer")) return `Freelance Web Developer in ${locName}`;
+    if (s.includes("web-development-company")) return `Custom Web Development Company in ${locName}`;
+    if (s.includes("software-developer")) return `Best Software Developer in ${locName}`;
+    if (s.includes("next-js")) return `Expert Next.js Developer in ${locName}`;
+    if (s.includes("node-js")) return `Expert Node.js Developer in ${locName}`;
+    if (s.includes("typescript")) return `Expert TypeScript Developer in ${locName}`;
+    if (s.includes("mobile-app")) return `Best Mobile App Developer in ${locName}`;
+    if (s.includes("app-developer")) return `Best App Developer in ${locName}`;
+    if (s.includes("ecommerce")) return `Best Ecommerce Website Developer in ${locName}`;
+    if (s.includes("ai-engineer")) return `AI Engineer in ${locName}`;
+    if (s.includes("ai-developer")) return `AI Developer in ${locName}`;
+    if (s.includes("chatbot")) return `Expert Chatbot Developer in ${locName}`;
+    if (s.includes("erp")) return `ERP Software Developer in ${locName}`;
+    if (s.includes("saas")) return `SaaS Developer in ${locName}`;
+    if (s.includes("web-designer") || s.includes("website-designer")) return `Best Web Designer & Website Developer in ${locName}`;
+    if (s.includes("hire")) return `Hire the Best Web Developer in ${locName}`;
+    if (s.includes("affordable")) return `Affordable Web Developer in ${locName}`;
+    if (s.includes("web-developer-in") || s.includes("best-web-developer")) return `Best Web Developer in ${locName}`;
     if (s.includes("react")) return `Best React Developer in ${locName}`;
     if (s.includes("python")) return `Best Python Developer in ${locName}`;
     if (s.includes("django")) return `Best Django Developer in ${locName}`;

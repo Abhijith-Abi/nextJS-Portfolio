@@ -122,29 +122,29 @@ export default function ResumePage() {
                     <article className="mx-auto max-w-4xl">
                         {/* Header */}
                         <div className="mb-12 border-b border-line pb-8">
-                            <h1 className="font-display text-[clamp(2.2rem,7vw,4rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                            <h1 className="font-display text-[clamp(2.2rem,7vw,4rem)] font-bold leading-[0.95] tracking-tight text-ink">
                                 Abhijith P A
                             </h1>
                             <p className="mt-3 text-lg font-medium text-accent">
                                 Full Stack Developer
                             </p>
-                            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-ink/60">
+                            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] tracking-[0.06em] text-ink-muted">
                                 <span>Kerala, India</span>
                                 <a
                                     href="mailto:abhijithabhijith1999@gmail.com"
-                                    className="hover:text-accent"
+                                    className="link-underline hover:text-accent"
                                 >
                                     abhijithabhijith1999@gmail.com
                                 </a>
                                 <a
                                     href="tel:+919961316468"
-                                    className="hover:text-accent"
+                                    className="link-underline hover:text-accent"
                                 >
                                     +91 99613 16468
                                 </a>
                                 <a
                                     href="https://abisolutions.online"
-                                    className="hover:text-accent"
+                                    className="link-underline hover:text-accent"
                                 >
                                     abisolutions.online
                                 </a>
@@ -152,7 +152,7 @@ export default function ResumePage() {
                                     href="https://github.com/Abhijith-Abi"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="hover:text-accent"
+                                    className="link-underline hover:text-accent"
                                 >
                                     GitHub
                                 </a>
@@ -160,7 +160,7 @@ export default function ResumePage() {
                                     href="https://www.linkedin.com/in/abhijith-pa/"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="hover:text-accent"
+                                    className="link-underline hover:text-accent"
                                 >
                                     LinkedIn
                                 </a>
@@ -172,7 +172,7 @@ export default function ResumePage() {
                             <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-tight text-ink">
                                 Summary
                             </h2>
-                            <p className="text-base leading-relaxed text-ink/70">
+                            <p className="text-base leading-relaxed text-ink/75">
                                 Full Stack Developer with 4+ years of experience
                                 building production-grade web applications
                                 across healthcare, ERP, e-learning, travel, and
@@ -196,14 +196,14 @@ export default function ResumePage() {
                                         <h3 className="font-display text-lg font-bold text-ink">
                                             Frontend Engineer
                                         </h3>
-                                        <span className="font-mono text-[11px] text-ink/50">
+                                        <span className="font-mono text-[11px] text-ink-muted">
                                             Jan 2026 – Present
                                         </span>
                                     </div>
                                     <p className="mt-1 font-medium text-accent">
                                         Algobiz
                                     </p>
-                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/70">
+                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/75">
                                         <li>
                                             • Building production-grade
                                             interfaces and AI-leaning workflows
@@ -224,14 +224,14 @@ export default function ResumePage() {
                                         <h3 className="font-display text-lg font-bold text-ink">
                                             UI Engineer · Level 2
                                         </h3>
-                                        <span className="font-mono text-[11px] text-ink/50">
+                                        <span className="font-mono text-[11px] text-ink-muted">
                                             May 2025 – Dec 2025
                                         </span>
                                     </div>
                                     <p className="mt-1 font-medium text-ink/80">
                                         Software Solutions Firm
                                     </p>
-                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/70">
+                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/75">
                                         <li>
                                             • Owned UI across product surfaces
                                             and refactored shared components
@@ -253,14 +253,14 @@ export default function ResumePage() {
                                             Software Engineer · Next.js
                                             Developer
                                         </h3>
-                                        <span className="font-mono text-[11px] text-ink/50">
+                                        <span className="font-mono text-[11px] text-ink-muted">
                                             Oct 2022 – Apr 2025
                                         </span>
                                     </div>
                                     <p className="mt-1 font-medium text-ink/80">
                                         Steyp
                                     </p>
-                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/70">
+                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/75">
                                         <li>
                                             • Led frontend builds for Hosface,
                                             Tegain, Enterprise ERP, and Somans
@@ -281,14 +281,14 @@ export default function ResumePage() {
                                         <h3 className="font-display text-lg font-bold text-ink">
                                             Software Engineer · Intern
                                         </h3>
-                                        <span className="font-mono text-[11px] text-ink/50">
+                                        <span className="font-mono text-[11px] text-ink-muted">
                                             Apr 2022 – Oct 2022
                                         </span>
                                     </div>
                                     <p className="mt-1 font-medium text-ink/80">
                                         Steyp
                                     </p>
-                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/70">
+                                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/75">
                                         <li>
                                             • Started with React, Redux, and
                                             Styled Components
@@ -397,13 +397,13 @@ export default function ResumePage() {
                                 ].map((p) => (
                                     <div
                                         key={p.name}
-                                        className="flex items-baseline justify-between gap-4 border-b border-line/50 pb-3"
+                                        className="flex items-baseline justify-between gap-4 border-b border-line pb-3"
                                     >
                                         <div>
                                             <span className="font-display font-bold text-ink">
                                                 {p.name}
                                             </span>
-                                            <span className="ml-2 text-sm text-ink/60">
+                                            <span className="ml-2 text-sm text-ink-muted">
                                                 — {p.desc}
                                             </span>
                                         </div>
@@ -411,7 +411,7 @@ export default function ResumePage() {
                                             href={p.url}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="shrink-0 font-mono text-[10px] text-accent hover:underline"
+                                            className="shrink-0 font-mono text-[10px] text-accent link-underline"
                                         >
                                             Live ↗
                                         </a>
@@ -429,7 +429,7 @@ export default function ResumePage() {
                                 <h3 className="font-display text-lg font-bold text-ink">
                                     Self-Taught + Steyp Program
                                 </h3>
-                                <p className="mt-1 text-sm text-ink/60">
+                                <p className="mt-1 text-sm text-ink-muted">
                                     Continuous learning through building
                                     production software since 2022
                                 </p>
@@ -437,16 +437,16 @@ export default function ResumePage() {
                         </section>
 
                         {/* CTA */}
-                        <div className="mt-12 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
+                        <div className="mt-12 rounded-2xl border border-line bg-surface-card p-6 text-center shadow-card">
                             <p className="font-display text-lg font-bold text-ink">
                                 Available for new opportunities
                             </p>
-                            <p className="mt-2 text-sm text-ink/60">
+                            <p className="mt-2 text-sm text-ink-muted">
                                 Remote-friendly · Full-time or Freelance
                             </p>
                             <a
                                 href="/contact"
-                                className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-accent/90"
+                                className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-background transition hover:bg-accent-ocean"
                             >
                                 Get in Touch →
                             </a>

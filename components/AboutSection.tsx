@@ -1,10 +1,14 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { SectionWrapper } from "./SectionWrapper";
-import { FadeIn } from "./motion/RevealText";
-import { Sparkles, MapPin, Terminal, Compass, CheckCircle2 } from "lucide-react";
+
+/**
+ * AboutSection — editorial architecture.
+ * Statement + philosophy on a 12-col grid, a bare hairline facts strip,
+ * and chapters as ghost-numbered editorial entries (no card matrix).
+ * Same copy and facts, new alignment and styling.
+ */
 
 const chapters = [
     {
@@ -12,21 +16,33 @@ const chapters = [
         kicker: "Origin & Vision",
         title: "Started with curiosity, engineered into mastery.",
         body: "I am Abhijith P A (also known as Abhijith PA or Abi). My journey began writing reactive user interfaces in 2022. Connecting frontend states with distributed cloud backends sparked my ambition, leading to the creation of Abi Solutions and architecting enterprise platforms.",
-        highlights: ["React & Next.js Core", "State Architecture", "Modern TypeScript"],
+        highlights: [
+            "React & Next.js Core",
+            "State Architecture",
+            "Modern TypeScript",
+        ],
     },
     {
         n: "02",
         kicker: "Engineering & Craft",
         title: "Four years of shipping mission-critical software.",
         body: "Engineered scalable platforms spanning Healthcare, ERP systems, FinTech, and Travel Management. Every project honed my ability to design resilient component trees, robust API pipelines, and fluid motion systems.",
-        highlights: ["Enterprise ERPs", "Automated Workflows", "Micro-frontends"],
+        highlights: [
+            "Enterprise ERPs",
+            "Automated Workflows",
+            "Micro-frontends",
+        ],
     },
     {
         n: "03",
         kicker: "Now & Horizon",
         title: "Full Stack Engineer & Founder at Abi Solutions.",
         body: "Directing UI architecture, AI automation pipelines, and full-stack solutions. Crafting high-performance web applications, Telegram/WhatsApp AI bots, and custom SaaS platforms that deliver measurable ROI.",
-        highlights: ["Autonomous AI Systems", "Next.js 14 App Router", "Cloud Architecture"],
+        highlights: [
+            "Autonomous AI Systems",
+            "Next.js 14 App Router",
+            "Cloud Architecture",
+        ],
     },
 ];
 
@@ -37,145 +53,134 @@ const facts = [
     { v: "100%", l: "Code Integrity", sub: "TypeScript strict" },
 ];
 
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export function AboutSection() {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start end", "end start"],
-    });
-
-    const lineHeight = useTransform(
-        scrollYProgress,
-        [0.15, 0.85],
-        ["0%", "100%"],
-    );
-
     return (
-        <SectionWrapper id="about" index="02" label="About">
-            <div
-                ref={ref}
-                className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 items-start"
-            >
-                {/* LEFT: sticky profile highlight */}
-                <div className="lg:sticky lg:top-28 space-y-6 sm:space-y-8">
-                    <div>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
-                            <Sparkles className="h-3 w-3" />
-                            Engineering Philosophy
-                        </div>
-                        <h2 className="font-display text-[clamp(2rem,6vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
-                            <span className="block">A DEVELOPER</span>
-                            <span className="block">WHO THINKS IN</span>
-                            <span className="block text-accent">
-                                SCALABLE SYSTEMS.
-                            </span>
-                        </h2>
-                        <p className="mt-4 text-xs sm:text-sm leading-relaxed text-ink/75 sm:text-base max-w-lg">
-                            Bridging elegant frontend aesthetics with industrial-grade full-stack architecture. Every component is crafted with performance, accessibility, and intuitive motion.
-                        </p>
-                    </div>
+        <SectionWrapper id="about" index="01" label="About">
+            {/* Statement row — 12 col editorial grid */}
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-14">
+                <motion.h2
+                    initial={{ opacity: 0, y: 22 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.85, ease }}
+                    className="font-display text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.06] tracking-tight text-ink lg:col-span-7"
+                >
+                    A developer who thinks in{" "}
+                    <span className="display-serif-italic text-accent">
+                        scalable systems.
+                    </span>
+                </motion.h2>
 
-                    {/* Stats Matrix */}
-                    <FadeIn>
-                        <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-                            {facts.map((f) => (
-                                <div
-                                    key={f.l}
-                                    className="surface relative overflow-hidden rounded-2xl p-3.5 sm:p-4 border border-white/[0.08] hover:border-accent/30 transition-all duration-300 group"
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <p className="font-display text-lg sm:text-xl font-black text-ink group-hover:text-accent transition-colors">
-                                            {f.v}
-                                        </p>
-                                        <span className="h-1.5 w-1.5 rounded-full bg-accent/40 group-hover:bg-accent transition-colors" />
-                                    </div>
-                                    <p className="mt-1 font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-ink/70 truncate">
-                                        {f.l}
-                                    </p>
-                                    <p className="font-mono text-[8px] text-ink/40 truncate">
-                                        {f.sub}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </FadeIn>
-
-                    {/* Quick Dev Badge */}
-                    <div className="surface flex items-center justify-between rounded-2xl p-3.5 sm:p-4 border border-white/[0.08]">
-                        <div className="flex items-center gap-3">
-                            <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-accent/10 text-accent shrink-0">
-                                <Terminal className="h-4 w-4 sm:h-5 sm:w-5" />
+                <motion.div
+                    initial={{ opacity: 0, y: 22 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.85, ease, delay: 0.12 }}
+                    className="lg:col-span-5"
+                >
+                    <p className="max-w-md text-sm sm:text-base leading-relaxed text-ink-muted">
+                        Bridging elegant frontend aesthetics with
+                        industrial-grade full-stack architecture. Every
+                        component is crafted with performance, accessibility,
+                        and intuitive motion.
+                    </p>
+                    {/* status line — was a boxed card, now bare type */}
+                    <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50 sm:text-[11px]">
+                        <span className="text-ink/80">Currently</span>
+                        <span className="text-accent">→</span>
+                        <span>Founder @ Abi Solutions</span>
+                        <span className="text-line2">/</span>
+                        <span className="inline-flex items-center gap-1.5 text-accent-emerald">
+                            <span className="relative flex h-1.5 w-1.5">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
+                                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-emerald" />
                             </span>
-                            <div>
-                                <p className="font-display text-xs font-bold text-ink">
-                                    Founder @ Abi Solutions
-                                </p>
-                                <p className="font-mono text-[9.5px] sm:text-[10px] text-ink/50 flex items-center gap-1">
-                                    <MapPin className="h-3 w-3 text-accent shrink-0" /> Wayanad, Kerala, India
-                                </p>
-                            </div>
-                        </div>
-                        <span className="font-mono text-[9px] sm:text-[10px] text-accent-emerald bg-accent-emerald/10 border border-accent-emerald/30 px-2 py-0.5 rounded-full shrink-0">
                             Active
                         </span>
+                    </p>
+                </motion.div>
+            </div>
+
+            {/* Facts strip — bare hairline cells, no cards */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.85, ease, delay: 0.1 }}
+                className="mt-12 grid grid-cols-2 border-y border-line sm:mt-16 sm:grid-cols-4"
+            >
+                {facts.map((f, i) => (
+                    <div
+                        key={f.l}
+                        className={`py-6 sm:py-8 ${
+                            i > 0 ? "border-l border-line" : ""
+                        } ${i > 1 ? "border-t border-line sm:border-t-0" : ""} ${
+                            i === 2 ? "sm:border-l-0" : ""
+                        } ${i === 3 ? "sm:border-l sm:border-l-border-line sm:border-line" : ""} group px-1 sm:px-2`}
+                    >
+                        <p className="font-display text-2xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent sm:text-3xl">
+                            {f.v}
+                        </p>
+                        <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted sm:text-[10px]">
+                            {f.l}
+                        </p>
+                        <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/40 sm:text-[9px]">
+                            {f.sub}
+                        </p>
                     </div>
-                </div>
+                ))}
+            </motion.div>
 
-                {/* RIGHT: timeline chapters */}
-                <div className="relative pl-0 sm:pl-2">
-                    {/* Animated vertical track */}
-                    <div className="absolute left-3.5 sm:left-6 top-3 bottom-3 w-[2px] bg-white/[0.08]">
-                        <motion.div
-                            style={{ height: lineHeight }}
-                            className="absolute left-0 top-0 w-[2px] bg-gradient-to-b from-accent via-accent2 to-accent-ocean shadow-[0_0_8px_rgba(47,107,255,0.8)]"
-                        />
-                    </div>
+            {/* Chapters — ghost-numbered editorial entries */}
+            <div className="mt-14 sm:mt-20">
+                {chapters.map((c, i) => (
+                    <motion.article
+                        key={c.n}
+                        initial={{ opacity: 0, y: 26 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.85, ease, delay: i * 0.06 }}
+                        className="group grid gap-5 border-t border-line py-10 transition-colors duration-300 hover:border-line2 sm:gap-10 sm:py-14 md:grid-cols-[132px_1fr] lg:grid-cols-[168px_1fr]"
+                    >
+                        {/* Ghost index */}
+                        <div className="flex items-start gap-4">
+                            <span
+                                aria-hidden
+                                className="font-display text-6xl font-bold leading-none tracking-tight text-accent/10 transition-colors duration-500 group-hover:text-accent/25 md:text-7xl lg:text-[5.5rem]"
+                            >
+                                {c.n}
+                            </span>
+                        </div>
 
-                    <div className="space-y-8 sm:space-y-12">
-                        {chapters.map((c, i) => (
-                            <FadeIn key={c.n} delay={i * 0.08}>
-                                <article className="relative pl-9 sm:pl-16 group">
-                                    {/* Timeline node */}
-                                    <div className="absolute left-3.5 sm:left-6 top-1.5 -translate-x-1/2 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full border border-white/20 bg-background shadow-glow-sm">
-                                        <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-accent group-hover:scale-125 transition-transform" />
-                                    </div>
+                        <div className="max-w-3xl">
+                            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent sm:text-[11px]">
+                                {c.kicker}
+                            </p>
+                            <h3 className="mt-3 font-display text-xl font-bold leading-snug tracking-tight text-ink sm:text-2xl">
+                                {c.title}
+                            </h3>
+                            <p className="mt-3.5 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
+                                {c.body}
+                            </p>
 
-                                    <div className="surface rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.08] group-hover:border-accent/40 group-hover:shadow-glow-sm transition-all duration-300">
-                                        <div className="flex items-center justify-between gap-2">
-                                            <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.24em] sm:tracking-[0.3em] text-accent font-semibold">
-                                                {c.n} · {c.kicker}
+                            {/* highlights as inline mono list */}
+                            <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 sm:text-[11px]">
+                                {c.highlights.map((h, hi) => (
+                                    <span key={h} className="flex items-center gap-3">
+                                        {hi > 0 && (
+                                            <span className="text-accent">
+                                                ·
                                             </span>
-                                            <span className="font-mono text-[8px] sm:text-[9px] text-ink/40 uppercase">
-                                                milestone
-                                            </span>
-                                        </div>
-
-                                        <h3 className="mt-2.5 font-display text-lg sm:text-xl md:text-2xl font-bold leading-tight text-ink group-hover:text-accent transition-colors">
-                                            {c.title}
-                                        </h3>
-
-                                        <p className="mt-2.5 text-xs sm:text-sm md:text-base leading-relaxed text-ink/70">
-                                            {c.body}
-                                        </p>
-
-                                        {/* Highlights pills */}
-                                        <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 pt-3.5 sm:pt-4 border-t border-white/[0.06]">
-                                            {c.highlights.map((h) => (
-                                                <span
-                                                    key={h}
-                                                    className="inline-flex items-center gap-1 rounded-lg border border-white/[0.08] bg-background/60 px-2 sm:px-2.5 py-0.5 sm:py-1 font-mono text-[9.5px] sm:text-[10px] text-ink/80"
-                                                >
-                                                    <CheckCircle2 className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-accent" />
-                                                    {h}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </article>
-                            </FadeIn>
-                        ))}
-                    </div>
-                </div>
+                                        )}
+                                        <span>{h}</span>
+                                    </span>
+                                ))}
+                            </p>
+                        </div>
+                    </motion.article>
+                ))}
             </div>
         </SectionWrapper>
     );

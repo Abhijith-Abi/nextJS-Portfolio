@@ -58,7 +58,7 @@ export function WorkflowSection() {
             </div>
 
             {/* Main Interactive Architecture Board */}
-            <div className="surface relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] p-4 sm:p-8 lg:p-12 border border-white/[0.08] shadow-glow">
+            <div className="surface relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] p-4 sm:p-8 lg:p-12 border border-line shadow-glow">
                 {/* Ambient Background Glows */}
                 <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-96 rounded-full bg-accent/15 blur-[120px]" />
                 <div className="pointer-events-none absolute -bottom-24 left-1/3 h-64 w-80 rounded-full bg-accent2/10 blur-[100px]" />
@@ -73,7 +73,7 @@ export function WorkflowSection() {
                         <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 group">
                             <BeamNode
                                 ref={designRef}
-                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-white/15 bg-background/90 text-accent transition-all duration-300 group-hover:border-accent group-hover:shadow-glow-sm group-hover:scale-105"
+                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-line bg-background/90 text-accent transition-all duration-300 group-hover:border-accent group-hover:shadow-glow-sm group-hover:scale-105"
                             >
                                 <Layout className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                             </BeamNode>
@@ -91,7 +91,7 @@ export function WorkflowSection() {
                         <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 group">
                             <BeamNode
                                 ref={codeRef}
-                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-white/15 bg-background/90 text-accent2 transition-all duration-300 group-hover:border-accent2 group-hover:shadow-glow-blue group-hover:scale-105"
+                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-line bg-background/90 text-accent2 transition-all duration-300 group-hover:border-accent2 group-hover:shadow-glow-blue group-hover:scale-105"
                             >
                                 <CodeXml className="h-5 w-5 sm:h-6 sm:w-6 text-accent2" />
                             </BeamNode>
@@ -109,7 +109,7 @@ export function WorkflowSection() {
                         <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 group">
                             <BeamNode
                                 ref={dataRef}
-                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-white/15 bg-background/90 text-accent transition-all duration-300 group-hover:border-accent group-hover:shadow-glow-blue group-hover:scale-105"
+                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-line bg-background/90 text-accent transition-all duration-300 group-hover:border-accent group-hover:shadow-glow-blue group-hover:scale-105"
                             >
                                 <Database className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                             </BeamNode>
@@ -127,11 +127,11 @@ export function WorkflowSection() {
                     {/* CENTER TIER: Abhijith P A / Abi Solutions Central Orchestrator */}
                     <div className="relative flex flex-col items-center gap-3 sm:gap-4 z-20 my-2 sm:my-4 lg:my-0">
                         {/* Animated Glow Rings */}
-                        <div className="absolute -inset-10 animate-pulse_glow rounded-full bg-gradient-to-r from-accent/25 via-accent2/20 to-accent/25 blur-2xl pointer-events-none" />
+                        <div className="absolute -inset-10 animate-pulse_glow rounded-full bg-accent/10 blur-2xl pointer-events-none" />
                         
                         <BeamNode
                             ref={userRef}
-                            className="relative h-28 w-28 sm:h-36 sm:w-36 rounded-3xl border-2 border-accent/60 bg-surface/95 p-2 sm:p-3 shadow-glow transition-all duration-500 hover:border-accent hover:shadow-[0_0_40px_rgba(47,107,255,0.45)] hover:scale-105"
+                            className="relative h-28 w-28 sm:h-36 sm:w-36 rounded-3xl border-2 border-accent/60 bg-surface/95 p-2 sm:p-3 shadow-glow transition-all duration-500 hover:border-accent hover:shadow-card hover:scale-105"
                         >
                             <div className="flex flex-col items-center text-center gap-1 sm:gap-1.5 w-full">
                                 {/* Profile Avatar with glowing ring */}
@@ -156,7 +156,7 @@ export function WorkflowSection() {
                             </div>
                         </BeamNode>
 
-                        <div className="flex items-center gap-2 rounded-full border border-white/10 bg-background/80 px-3 sm:px-3.5 py-1 backdrop-blur-md">
+                        <div className="flex items-center gap-2 rounded-full border border-line bg-background/80 px-3 sm:px-3.5 py-1 backdrop-blur-md">
                             <span className="relative flex h-2 w-2">
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
@@ -173,7 +173,7 @@ export function WorkflowSection() {
                         <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 group">
                             <BeamNode
                                 ref={aiRef}
-                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-white/15 bg-background/90 text-accent2 transition-all duration-300 group-hover:border-accent2 group-hover:shadow-glow-sky group-hover:scale-105"
+                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-line bg-background/90 text-accent2 transition-all duration-300 group-hover:border-accent2 group-hover:shadow-glow-sky group-hover:scale-105"
                             >
                                 <Bot className="h-5 w-5 sm:h-6 sm:w-6 text-accent2" />
                             </BeamNode>
@@ -191,7 +191,7 @@ export function WorkflowSection() {
                         <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 group">
                             <BeamNode
                                 ref={autoRef}
-                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-white/15 bg-background/90 text-accent transition-all duration-300 group-hover:border-accent group-hover:shadow-glow-sm group-hover:scale-105"
+                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-line bg-background/90 text-accent transition-all duration-300 group-hover:border-accent group-hover:shadow-glow-sm group-hover:scale-105"
                             >
                                 <Send className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
                             </BeamNode>
@@ -209,7 +209,7 @@ export function WorkflowSection() {
                         <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 group">
                             <BeamNode
                                 ref={deployRef}
-                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-white/15 bg-background/90 text-accent-emerald transition-all duration-300 group-hover:border-accent-emerald group-hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] group-hover:scale-105"
+                                className="h-13 w-13 sm:h-16 sm:w-16 rounded-2xl border border-line bg-background/90 text-accent-emerald transition-all duration-300 group-hover:border-accent-emerald group-hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] group-hover:scale-105"
                             >
                                 <Cloud className="h-5 w-5 sm:h-6 sm:w-6 text-accent-emerald" />
                             </BeamNode>
@@ -290,7 +290,7 @@ export function WorkflowSection() {
                 </div>
 
                 {/* TELEMETRY COMMAND CONSOLE & SYSTEM STATUS BAR */}
-                <div className="mt-8 sm:mt-10 border-t border-white/[0.08] pt-4 sm:pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 font-mono text-[10px] sm:text-xs">
+                <div className="mt-8 sm:mt-10 border-t border-line pt-4 sm:pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 font-mono text-[10px] sm:text-xs">
                     <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto min-w-0">
                         <Terminal className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent shrink-0" />
                         <p className="text-ink/80 truncate">

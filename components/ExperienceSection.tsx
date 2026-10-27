@@ -1,19 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { SectionWrapper } from "./SectionWrapper";
 import { FadeIn } from "./motion/RevealText";
-import {
-    Sparkles,
-    Briefcase,
-    Calendar,
-    ArrowUpRight,
-    MapPin,
-    Clock,
-    Flame,
-} from "lucide-react";
+import { Briefcase, Clock } from "lucide-react";
 
 /* Inline SVG icons */
 const IconGithub = (props: React.SVGProps<SVGSVGElement>) => (
@@ -143,43 +134,47 @@ export function ExperienceSection() {
     }, []);
 
     return (
-        <SectionWrapper id="experience" index="06" label="Career Path">
+        <SectionWrapper id="experience" index="04" label="Career Path">
             <div className="grid gap-8 sm:gap-10 lg:grid-cols-[320px_1fr] lg:gap-12 xl:grid-cols-[360px_1fr] items-start">
-                {/* LEFT: interactive 3D profile flip card */}
+                {/* LEFT: interactive profile flip card */}
                 <FadeIn>
                     <div className="lg:sticky lg:top-28">
-                        <div className="surface relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.08] shadow-glow-sm">
+                        <div className="surface relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-card">
                             {/* Flip Card */}
                             <div className="flip-card relative mx-auto aspect-[4/5] w-full max-w-[260px] sm:max-w-[280px]">
                                 <div className="flip-card-inner h-full w-full">
                                     {/* FRONT */}
-                                    <div className="flip-face flex flex-col justify-between rounded-[1.8rem] sm:rounded-[2rem] border border-white/10 bg-background/95 p-5 sm:p-6">
+                                    <div className="flip-face flex flex-col justify-between rounded-[1.8rem] sm:rounded-[2rem] border border-line bg-surface-card p-5 sm:p-6">
                                         <div className="flex items-start justify-between">
-                                            <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.24em] text-accent font-bold">
+                                            <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.24em] text-accent">
                                                 · Profile
                                             </span>
-                                            <span className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-ink/40 bg-white/[0.05] px-2 py-0.5 rounded-full">
+                                            <span className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-ink/50 border border-line bg-background px-2 py-0.5 rounded-full">
                                                 Hover Photo
                                             </span>
                                         </div>
 
                                         <div>
-                                            <p className="font-display text-xl sm:text-2xl font-black leading-tight text-ink">
-                                                Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2">intelligent</span> software.
+                                            <p className="font-display text-xl sm:text-2xl font-bold leading-snug tracking-tight text-ink">
+                                                Crafting{" "}
+                                                <span className="display-serif-italic text-accent">
+                                                    intelligent
+                                                </span>{" "}
+                                                software.
                                             </p>
-                                            <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink/70">
+                                            <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink-muted">
                                                 Full Stack Developer & AI Engineer based in Kerala, India. React, Next.js, Django, AWS & AI Automation.
                                             </p>
                                         </div>
 
-                                        <div className="flex items-center justify-between border-t border-white/[0.08] pt-2.5 sm:pt-3 font-mono text-[9.5px] sm:text-[10px] text-ink/50">
+                                        <div className="flex items-center justify-between border-t border-line pt-2.5 sm:pt-3 font-mono text-[9.5px] sm:text-[10px] text-ink-muted">
                                             <span>Abi Solutions · 2026</span>
                                             <span className="text-accent">↻ Flip</span>
                                         </div>
                                     </div>
 
                                     {/* BACK: photo */}
-                                    <div className="flip-face flip-face-back overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] bg-background border border-white/10">
+                                    <div className="flip-face flip-face-back overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] bg-background border border-line">
                                         <Image
                                             src="/me.jpeg"
                                             alt="Abhijith P A"
@@ -191,7 +186,7 @@ export function ExperienceSection() {
                                             <p className="font-display text-sm sm:text-base font-bold text-ink">
                                                 Abhijith P A
                                             </p>
-                                            <p className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] text-accent">
+                                            <p className="mt-0.5 font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] text-accent">
                                                 Full Stack & AI Engineer
                                             </p>
                                         </div>
@@ -200,7 +195,7 @@ export function ExperienceSection() {
                             </div>
 
                             <div className="mt-5 sm:mt-6 text-center">
-                                <h3 className="font-display text-lg sm:text-xl font-black tracking-tight text-ink">
+                                <h3 className="font-display text-lg sm:text-xl font-bold tracking-tight text-ink">
                                     Abhijith P A
                                 </h3>
                                 <p className="mt-1 font-mono text-[11px] sm:text-xs text-accent">
@@ -209,7 +204,7 @@ export function ExperienceSection() {
                             </div>
 
                             {/* Local Time Widget */}
-                            <div className="mt-3.5 sm:mt-4 flex items-center justify-center gap-2 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-2 sm:p-2.5 font-mono text-[10.5px] sm:text-[11px] text-ink/70">
+                            <div className="mt-3.5 sm:mt-4 flex items-center justify-center gap-2 rounded-full border border-line bg-background p-2 sm:p-2.5 font-mono text-[10.5px] sm:text-[11px] text-ink-muted">
                                 <Clock className="h-3.5 w-3.5 text-accent shrink-0" />
                                 <span className="truncate">Kerala (IST): {currentTime || "GMT+5:30"}</span>
                             </div>
@@ -221,7 +216,7 @@ export function ExperienceSection() {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label="GitHub"
-                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
+                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-line text-ink-muted transition hover:-translate-y-[2px] hover:border-accent hover:text-accent"
                                 >
                                     <IconGithub className="h-4 w-4" />
                                 </a>
@@ -230,14 +225,14 @@ export function ExperienceSection() {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label="LinkedIn"
-                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
+                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-line text-ink-muted transition hover:-translate-y-[2px] hover:border-accent hover:text-accent"
                                 >
                                     <IconLinkedin className="h-4 w-4" />
                                 </a>
                                 <a
                                     href="mailto:abhijithabhijith1999@gmail.com"
                                     aria-label="Email"
-                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink/80 transition hover:border-accent hover:bg-accent hover:text-black"
+                                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-line text-ink-muted transition hover:-translate-y-[2px] hover:border-accent hover:text-accent"
                                 >
                                     <IconMail className="h-4 w-4" />
                                 </a>
@@ -246,22 +241,22 @@ export function ExperienceSection() {
                     </div>
                 </FadeIn>
 
-                {/* RIGHT: timeline headline + experience bento cards */}
+                {/* RIGHT: headline + experience cards */}
                 <div>
                     <FadeIn>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                        <span className="section-eyebrow mb-5 flex items-center gap-2">
                             <Briefcase className="h-3 w-3" />
                             Work History & Roles
-                        </div>
-                        <h2 className="font-display text-[clamp(2rem,6vw,4.2rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
-                            <span className="block">{years}+ YEARS OF</span>
-                            <span className="block text-accent">
-                                PROFESSIONAL CRAFT.
+                        </span>
+                        <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink">
+                            {years}+ years of{" "}
+                            <span className="display-serif-italic text-accent">
+                                professional craft.
                             </span>
                         </h2>
                     </FadeIn>
 
-                    {/* Timeline Bento Grid */}
+                    {/* Timeline cards */}
                     <div className="mt-8 sm:mt-10 grid auto-rows-[minmax(160px,auto)] grid-cols-1 gap-3.5 sm:gap-4 lg:grid-cols-4">
                         {experiences.map((exp, i) => (
                             <FadeIn
@@ -276,26 +271,26 @@ export function ExperienceSection() {
                                 >
                                     {/* Top row */}
                                     <div>
-                                        <div className="flex items-center justify-between gap-2 sm:gap-3 border-b border-white/[0.06] pb-3 sm:pb-3.5">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 border-b border-line pb-3 sm:pb-3.5">
                                             <div className="flex items-center gap-2">
-                                                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] text-ink/40">
+                                                <span className="font-mono text-[9.5px] sm:text-[10px] tracking-[0.3em] text-ink/40">
                                                     0{i + 1}
                                                 </span>
                                                 {exp.isCurrent && (
-                                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/40 bg-accent-emerald/10 px-2 sm:px-2.5 py-0.5 font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.18em] text-accent-emerald font-semibold">
+                                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-emerald/40 bg-accent-emerald/10 px-2.5 py-0.5 font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.18em] text-accent-emerald">
                                                         <span className="h-1.5 w-1.5 animate-ping rounded-full bg-accent-emerald" />
                                                         Current
                                                     </span>
                                                 )}
                                             </div>
-                                            <span className="font-mono text-[9.5px] sm:text-[10px] text-ink/40">
+                                            <span className="font-mono text-[9.5px] sm:text-[10px] text-ink-muted">
                                                 {exp.timeframe}
                                             </span>
                                         </div>
 
                                         <div className="pt-3.5 sm:pt-4">
                                             <h3
-                                                className={`font-display font-extrabold tracking-tight text-ink group-hover:text-accent transition-colors ${
+                                                className={`font-display font-bold tracking-tight text-ink transition-colors group-hover:text-accent ${
                                                     exp.featured
                                                         ? "text-xl sm:text-2xl lg:text-3xl"
                                                         : "text-base sm:text-lg lg:text-xl"
@@ -303,10 +298,10 @@ export function ExperienceSection() {
                                             >
                                                 {exp.company}
                                             </h3>
-                                            <p className="mt-1 font-mono text-[11px] sm:text-xs font-semibold text-accent2">
+                                            <p className="mt-1 font-mono text-[11px] sm:text-xs text-accent">
                                                 {exp.title}
                                             </p>
-                                            <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink/70 sm:text-sm">
+                                            <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink-muted sm:text-sm">
                                                 {exp.description}
                                             </p>
                                         </div>
@@ -314,11 +309,11 @@ export function ExperienceSection() {
 
                                     {/* Skill pills */}
                                     {exp.skills && (
-                                        <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+                                        <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 border-t border-line pt-3">
                                             {exp.skills.map((s) => (
                                                 <span
                                                     key={s}
-                                                    className="inline-flex items-center rounded-lg border border-white/[0.08] bg-background/80 px-2 py-0.5 font-mono text-[8.5px] sm:text-[9px] text-ink/70"
+                                                    className="inline-flex items-center rounded-full border border-line bg-background/80 px-2.5 py-0.5 font-mono text-[8.5px] sm:text-[9px] text-ink-muted"
                                                 >
                                                     {s}
                                                 </span>

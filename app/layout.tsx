@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Mono, Instrument_Serif } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SmoothScroll } from "../components/SmoothScroll";
+import { SwCleanup } from "../components/SwCleanup";
 import { Loader } from "../components/Loader";
 import { CursorFollower } from "../components/CursorFollower";
 import { CommandPalette } from "../components/CommandPalette";
@@ -14,20 +15,23 @@ const inter = Inter({
     display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
+const spaceMono = Space_Mono({
     subsets: ["latin"],
-    variable: "--font-jetbrains",
-    display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-    subsets: ["latin"],
+    weight: ["400", "700"],
     variable: "--font-space",
     display: "swap",
 });
 
+const instrumentSerif = Instrument_Serif({
+    subsets: ["latin"],
+    weight: "400",
+    style: ["normal", "italic"],
+    variable: "--font-serif",
+    display: "swap",
+});
+
 export const viewport = {
-    themeColor: "#07080c",
+    themeColor: "#0A0A0B",
 };
 
 export const metadata: Metadata = {
@@ -189,14 +193,27 @@ export const metadata: Metadata = {
     },
     other: {
         "google-site-verification": "google008d788f2689e4cb",
-        "theme-color": "#070406",
-        "msapplication-TileColor": "#070406",
+        "theme-color": "#0A0A0B",
+        "msapplication-TileColor": "#0A0A0B",
     },
 };
 
 const globalJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": "https://abisolutions.online/#website",
+            url: "https://abisolutions.online",
+            name: "Abhijith P A — Abi Solutions",
+            description:
+                "Portfolio of Abhijith P A — Full Stack Developer & AI Engineer, Founder of Abi Solutions.",
+            publisher: {
+                "@type": "Person",
+                "@id": "https://abisolutions.online/#person",
+            },
+            inLanguage: "en",
+        },
         {
             "@type": "Person",
             "@id": "https://abisolutions.online/#person",
@@ -221,6 +238,20 @@ const globalJsonLd = {
                 ),
             ],
             jobTitle: "Full Stack Developer & AI Engineer",
+            knowsAbout: [
+                "Full Stack Development",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Django",
+                "Python",
+                "AWS",
+                "ERP Development",
+                "SaaS Development",
+                "AI Automation",
+                "Telegram Bots",
+                "WhatsApp Bots",
+            ],
             description:
                 "Abhijith P A is a Full Stack Developer & AI Engineer, Founder of AlgoBiz, Kerala. Specializing in React, Next.js, Django, Python, AWS, and AI systems.",
             email: "abhijithabhijith1999@gmail.com",
@@ -298,9 +329,17 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className={`dark ${inter.variable} ${jetbrains.variable} ${spaceGrotesk.variable}`}
+            style={{
+                colorScheme: "dark",
+                // Hard lock: graphite survives even if cached CSS goes stale
+                backgroundColor: "#0A0A0B",
+            }}
+            className={`${inter.variable} ${spaceMono.variable} ${instrumentSerif.variable}`}
         >
-            <body className="bg-background font-sans text-ink antialiased">
+            <body
+                className="bg-background font-sans text-ink antialiased"
+                style={{ backgroundColor: "#0A0A0B" }}
+            >
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -308,6 +347,7 @@ export default function RootLayout({
                     }}
                 />
                 <Loader />
+                <SwCleanup />
                 <CommandPalette />
                 <div className="ambient-glow" aria-hidden />
                 <div className="grain-overlay" aria-hidden />

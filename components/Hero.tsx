@@ -1,12 +1,41 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
-import anime from "animejs";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { AnimeText } from "./motion/AnimeText";
+import { ArrowRight, ArrowUpRight, MapPin, Terminal } from "lucide-react";
 import { AnimeCounter } from "./motion/AnimeCounter";
-import { ArrowRight, Code2, Cpu, Flame, Layers, MapPin, Sparkles } from "lucide-react";
+import Marquee from "./ui/Marquee";
+import { MovingBorderButton } from "./ui/MovingBorder";
+
+/**
+ * Hero — "portrait editorial" model.
+ * A confident split composition: oversized founder type on the left,
+ * a full-bleed B&W studio portrait on the right framed by hairlines and
+ * lime registration marks. No fullscreen effect layers — every element
+ * is local, cheap to composite, and renders identically everywhere.
+ */
+
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const TICKER_ITEMS = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Django & Python",
+    "AWS",
+    "AI Automation",
+    "ERP Systems",
+    "PostgreSQL",
+    "Three.js",
+    "Motion Design",
+];
+
+const FIGURES = [
+    { v: 4, suffix: "+", label: "Years in production" },
+    { v: 20, suffix: "+", label: "Systems shipped" },
+    { v: 5, suffix: "+", label: "Sectors served" },
+    { v: 100, suffix: "%", label: "Founder attention" },
+];
 
 function scrollToSection(id: string) {
     const el = document.getElementById(id);
@@ -15,247 +44,232 @@ function scrollToSection(id: string) {
 }
 
 export function Hero() {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end start"],
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
-    const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
-
-    useEffect(() => {
-        anime
-            .timeline({ easing: "cubicBezier(.22,1,.36,1)" })
-            .add({
-                targets: ".hero-eyebrow",
-                translateY: [16, 0],
-                opacity: [0, 1],
-                duration: 800,
-                delay: 600,
-            })
-            .add(
-                {
-                    targets: ".hero-left-item",
-                    translateY: [16, 0],
-                    opacity: [0, 1],
-                    duration: 700,
-                    delay: anime.stagger(70, { start: 0 }),
-                },
-                "-=400",
-            )
-            .add(
-                {
-                    targets: ".hero-photo-card",
-                    scale: [0.95, 1],
-                    opacity: [0, 1],
-                    duration: 900,
-                },
-                "-=500",
-            )
-            .add(
-                {
-                    targets: ".hero-stat",
-                    translateY: [20, 0],
-                    opacity: [0, 1],
-                    duration: 700,
-                    delay: anime.stagger(60, { start: 0 }),
-                },
-                "-=300",
-            );
-    }, []);
-
     return (
         <section
             id="home"
-            ref={ref}
-            className="relative isolate min-h-[100svh] w-full overflow-hidden flex items-center bg-background pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24"
+            className="relative isolate flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background pt-16 sm:pt-20 lg:pt-16"
         >
-            {/* Ambient Radial Background Glows */}
-            <div
-                className="pointer-events-none absolute top-1/4 left-1/3 h-[500px] w-[500px] rounded-full bg-accent/10 blur-[140px] animate-pulse_glow"
-                aria-hidden
-            />
-            <div
-                className="pointer-events-none absolute top-1/2 right-10 h-[450px] w-[450px] rounded-full bg-accent2/10 blur-[150px] animate-pulse_glow"
-                aria-hidden
-            />
+            <div className="container-width relative z-10 flex w-full flex-1 flex-col">
+                <div className="grid flex-1 items-center gap-10 py-8 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:py-8">
+                    {/* LEFT — editorial founder block */}
+                    <div className="flex min-w-0 flex-col items-start justify-center">
+                        <motion.p
+                            initial={{ opacity: 0, y: 14 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease, delay: 0.15 }}
+                            className="section-eyebrow mb-5"
+                        >
+                            Founder · Lead Engineer
+                        </motion.p>
 
-            <motion.div
-                style={{ y, opacity }}
-                className="container-width relative z-10 w-full flex flex-col justify-center"
-            >
-                {/* Top status bar */}
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8">
-                    <div className="hero-eyebrow surface inline-flex items-center gap-2 sm:gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 opacity-0 border border-white/10 shadow-glow-sm backdrop-blur-md">
-                        <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
-                        </span>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink/90 sm:text-[10px] sm:tracking-[0.28em] lg:text-[11px]">
-                            Available for new projects · 2026
-                        </span>
-                    </div>
-
-                    <div className="hidden items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-ink/60 sm:flex">
-                        <span className="text-accent">●</span>
-                        <span>Full Stack Developer & AI Engineer</span>
-                    </div>
-                </div>
-
-                {/* Main 2-Column Hero Grid */}
-                <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 xl:gap-16 items-center">
-                    {/* Left Column: Headlines, Bio, Tech Stack & CTAs */}
-                    <div className="space-y-5 sm:space-y-6">
-                        <div>
-                            <p className="hero-left-item font-mono text-xs font-semibold uppercase tracking-[0.28em] text-accent opacity-0 sm:text-sm mb-2.5 sm:mb-3">
-                                <AnimeText text="Hi, I'm Abhijith P A" delay={200} />
-                            </p>
-
-                            <h1 className="font-display text-[clamp(2.1rem,6.8vw,5.5rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-ink">
-                                <span className="sr-only">
-                                    Abhijith P A — Full Stack Developer & AI Engineer | Abi Solutions
+                        <h1 className="w-full">
+                            <span className="sr-only">
+                                Abhijith P A — Full Stack Developer &amp; AI
+                                Engineer, founder of Abi Solutions, Wayanad,
+                                Kerala
+                            </span>
+                            <span aria-hidden="true">
+                                <span className="reveal-mask block">
+                                    <motion.span
+                                        initial={{ y: "110%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{
+                                            duration: 0.8,
+                                            ease,
+                                            delay: 0.28,
+                                        }}
+                                        className="block font-display text-[clamp(2.5rem,6.4vw,4.6rem)] font-bold leading-[1.02] tracking-[-0.02em] text-ink"
+                                    >
+                                        ABHIJITH
+                                    </motion.span>
                                 </span>
-                                <span className="block text-white" aria-hidden="true">
-                                    <AnimeText text="FULL STACK" delay={300} />
+                                <span className="reveal-mask block">
+                                    <motion.span
+                                        initial={{ y: "110%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{
+                                            duration: 0.8,
+                                            ease,
+                                            delay: 0.4,
+                                        }}
+                                        className="block font-display text-[clamp(2.5rem,6.4vw,4.6rem)] font-bold leading-[1.02] tracking-[-0.02em] text-ink"
+                                    >
+                                        P A
+                                        <span className="text-accent">.</span>
+                                    </motion.span>
                                 </span>
-                                <span className="block text-accent" aria-hidden="true">
-                                    <AnimeText text="DEVELOPER &" delay={500} />
+                                <span className="reveal-mask mt-2 block">
+                                    <motion.span
+                                        initial={{ y: "110%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{
+                                            duration: 0.8,
+                                            ease,
+                                            delay: 0.52,
+                                        }}
+                                        className="display-serif-italic block text-[clamp(1.25rem,2.9vw,2.05rem)] leading-tight text-accent"
+                                    >
+                                        builds quietly, ships boldly.
+                                    </motion.span>
                                 </span>
-                                <span className="block text-white" aria-hidden="true">
-                                    <AnimeText text="AI ENGINEER." delay={700} stagger={20} />
-                                </span>
-                            </h1>
-                        </div>
+                            </span>
+                        </h1>
 
-                        <p className="hero-left-item max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-ink/80 lg:text-lg opacity-0">
-                            Founder of <strong className="text-white font-bold">Abi Solutions</strong>. 4+ years engineering high-performance ERP platforms, autonomous AI workflows, and modern web applications with React, Next.js, Django & AWS.
-                        </p>
+                        <motion.p
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease, delay: 0.68 }}
+                            className="mt-5 max-w-xl text-base leading-relaxed text-ink/70 sm:text-lg"
+                        >
+                            ERP platforms, high-performance web applications
+                            and AI workflows that quietly run businesses —{" "}
+                            <strong className="font-semibold text-ink">
+                                Abi Solutions
+                            </strong>
+                            , from Wayanad, Kerala to wherever the work goes.
+                        </motion.p>
 
-                        {/* Tech Chips */}
-                        <div className="hero-left-item flex flex-wrap gap-1.5 sm:gap-2 opacity-0">
-                            {[
-                                "React 18 / 19",
-                                "Next.js 14",
-                                "TypeScript",
-                                "Django & Python",
-                                "AWS Cloud",
-                                "AI Automation",
-                            ].map((chip) => (
-                                <span
-                                    key={chip}
-                                    className="inline-flex items-center rounded-xl border border-white/10 bg-surface/90 px-2.5 sm:px-3 py-1 sm:py-1.5 font-mono text-[10px] sm:text-[11px] text-ink/80 backdrop-blur-md hover:border-accent/50 hover:text-accent transition-colors"
-                                >
-                                    {chip}
-                                </span>
-                            ))}
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="hero-left-item pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 opacity-0">
+                        <motion.div
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease, delay: 0.84 }}
+                            className="mt-6 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:items-center"
+                        >
                             <button
                                 type="button"
                                 onClick={() => scrollToSection("projects")}
-                                className="hero-btn-primary group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-bold tracking-tight shadow-glow-sm cursor-pointer"
+                                className="btn-primary group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-sm"
                             >
-                                <span>Explore Projects</span>
-                                <ArrowRight className="h-4 w-4 text-white/80 group-hover:text-white transition-colors" />
+                                <span>View selected work</span>
+                                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                             </button>
-                            <button
+                            <MovingBorderButton
                                 type="button"
                                 onClick={() => scrollToSection("contact")}
-                                className="hero-btn-ghost inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-semibold cursor-pointer"
                             >
-                                <span>Start a Project</span>
-                            </button>
-                        </div>
+                                <span>Start a commission</span>
+                                <ArrowUpRight className="h-4 w-4" />
+                            </MovingBorderButton>
+                        </motion.div>
+
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8, ease, delay: 1 }}
+                            className="mt-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.24em] text-ink/40 sm:text-[10px]"
+                        >
+                            <MapPin className="h-3 w-3 shrink-0 text-accent" />
+                            11.6854° N, 76.132° E — Wayanad, Kerala
+                        </motion.p>
                     </div>
 
-                    {/* Right Column: Clean, Elegant Portrait Showcase Card */}
-                    <div className="hero-photo-card opacity-0 flex justify-center lg:justify-end">
-                        <div className="surface relative w-full max-w-[360px] sm:max-w-[420px] overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-white/15 p-3.5 sm:p-5 shadow-glow">
-                            {/* Photo Container with subtle inner border and rounded corners */}
-                            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[1.6rem] sm:rounded-[2rem] bg-surface2 border border-white/10">
+                    {/* RIGHT — portrait plate */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 26 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, ease, delay: 0.45 }}
+                        className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
+                    >
+                        {/* lime registration marks */}
+                        <span
+                            aria-hidden
+                            className="absolute -left-3 -top-3 h-6 w-6 border-l-2 border-t-2 border-accent"
+                        />
+                        <span
+                            aria-hidden
+                            className="absolute -bottom-3 -right-3 h-6 w-6 border-b-2 border-r-2 border-accent"
+                        />
+
+                        {/* portrait frame */}
+                        <div className="group relative overflow-hidden rounded-2xl border border-line bg-surface2">
+                            <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:h-[min(52vh,520px)]">
                                 <Image
                                     src="/photos/abhijith-pa-founder-portrait.jpg"
-                                    alt="Abhijith P A — Founder of Abi Solutions"
+                                    alt="Abhijith P A — Full Stack Developer & AI Engineer"
                                     fill
-                                    sizes="(max-width: 640px) 340px, (max-width: 1024px) 400px, 420px"
-                                    className="object-cover object-top filter contrast-105"
-                                    quality={95}
                                     priority
+                                    sizes="(max-width: 1024px) 90vw, 520px"
+                                    className="object-cover object-[50%_18%] grayscale transition-all duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0"
                                 />
-                                {/* Bottom soft dark gradient for text legibility */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-
-                                {/* Floating Top Badge */}
-                                <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10">
-                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-background/80 px-2.5 sm:px-3 py-1 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-accent backdrop-blur-md font-semibold">
-                                        <Sparkles className="h-3 w-3" />
-                                        Abi Solutions
-                                    </span>
-                                </div>
-
-                                {/* Bottom Name & Title Overlay */}
-                                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-10">
-                                    <h2 className="font-display text-xl sm:text-2xl font-black text-white">
-                                        Abhijith P A
-                                    </h2>
-                                    <p className="mt-1 font-mono text-[11px] sm:text-xs text-accent flex items-center gap-1.5">
-                                        <MapPin className="h-3.5 w-3.5 text-accent shrink-0" />
-                                        <span>Kerala, India · Founder & Engineer</span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Meta Info Strip Below Photo */}
-                            <div className="mt-3 grid grid-cols-3 gap-1.5 sm:gap-2 text-center">
-                                <div className="rounded-xl sm:rounded-2xl border border-white/[0.06] bg-background/70 p-2 sm:p-2.5">
-                                    <p className="font-mono text-[7.5px] sm:text-[8px] uppercase tracking-wider text-accent font-semibold truncate">Company</p>
-                                    <p className="mt-0.5 font-display text-[11px] sm:text-xs font-bold text-ink truncate">Abi Solutions</p>
-                                </div>
-                                <div className="rounded-xl sm:rounded-2xl border border-white/[0.06] bg-background/70 p-2 sm:p-2.5">
-                                    <p className="font-mono text-[7.5px] sm:text-[8px] uppercase tracking-wider text-accent font-semibold truncate">Location</p>
-                                    <p className="mt-0.5 font-display text-[11px] sm:text-xs font-bold text-ink truncate">Kerala, IN</p>
-                                </div>
-                                <div className="rounded-xl sm:rounded-2xl border border-white/[0.06] bg-background/70 p-2 sm:p-2.5">
-                                    <p className="font-mono text-[7.5px] sm:text-[8px] uppercase tracking-wider text-accent font-semibold truncate">Focus</p>
-                                    <p className="mt-0.5 font-display text-[11px] sm:text-xs font-bold text-accent truncate">Full Stack & AI</p>
-                                </div>
+                                {/* subtle bottom fade for depth */}
+                                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
                             </div>
                         </div>
-                    </div>
+
+                        {/* floating status card */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 14 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease, delay: 1.1 }}
+                            className="surface absolute -bottom-6 -left-4 z-10 flex items-center gap-3 rounded-2xl p-3 pr-5 shadow-card sm:-left-8"
+                        >
+                            <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
+                                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
+                            </span>
+                            <span>
+                                <span className="block font-display text-[13px] font-bold leading-tight text-ink">
+                                    Open for projects
+                                </span>
+                                <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted">
+                                    Booking Q2 · Remote / On-site
+                                </span>
+                            </span>
+                        </motion.div>
+                    </motion.div>
                 </div>
 
-                {/* Bottom Stats Matrix */}
-                <div className="mt-12 sm:mt-16 lg:mt-20 grid w-full grid-cols-2 gap-2.5 sm:gap-4 sm:grid-cols-4">
-                    {[
-                        { v: 4, suffix: "+", l: "Years Shipping", icon: Flame },
-                        { v: 20, suffix: "+", l: "Production Builds", icon: Code2 },
-                        { v: 5, suffix: "+", l: "Industry Sectors", icon: Layers },
-                        { v: 100, suffix: "%", l: "Client Commitment", icon: Cpu },
-                    ].map((s) => {
-                        const Icon = s.icon;
-                        return (
-                            <div
-                                key={s.l}
-                                className="hero-stat surface relative overflow-hidden rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 opacity-0 border border-white/[0.08] hover:border-accent/40 transition-all duration-300 hover:shadow-glow-sm backdrop-blur-md"
-                            >
-                                <div className="flex items-center justify-between">
-                                    <p className="font-display text-2xl font-black text-ink sm:text-3xl lg:text-4xl">
-                                        <AnimeCounter to={s.v} suffix={s.suffix} />
-                                    </p>
-                                    <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-accent/10 text-accent shrink-0">
-                                        <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                                    </span>
-                                </div>
-                                <p className="mt-2 font-mono text-[8.5px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.28em] text-ink/70 truncate">
-                                    {s.l}
-                                </p>
-                            </div>
-                        );
-                    })}
-                </div>
+                {/* Figures strip */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9, ease, delay: 1.05 }}
+                    className="mt-10 grid grid-cols-2 border-t border-line sm:mt-12 sm:grid-cols-4"
+                >
+                    {FIGURES.map((f, i) => (
+                        <div
+                            key={f.label}
+                            className={`px-1 py-5 sm:px-7 sm:py-6 ${
+                                i % 2 === 1 ? "border-l border-line" : ""
+                            } ${
+                                i > 0
+                                    ? "border-t border-line sm:border-t-0"
+                                    : ""
+                            } ${i === 2 ? "sm:border-l" : ""}`}
+                        >
+                            <p className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.6rem]">
+                                <AnimeCounter to={f.v} suffix={f.suffix} />
+                            </p>
+                            <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted sm:text-[10px]">
+                                {f.label}
+                            </p>
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
+
+            {/* Skills ticker */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease, delay: 1.15 }}
+                className="relative z-10 mt-8 flex w-full items-center gap-4 border-y border-line bg-surface2/60 lg:mt-10"
+            >
+                <span className="hidden shrink-0 items-center gap-2 border-r border-line px-5 py-4 font-mono text-[10px] uppercase tracking-[0.26em] text-accent sm:flex">
+                    <Terminal className="h-3.5 w-3.5" />
+                    Stack
+                </span>
+                <Marquee className="marquee-fade py-3.5" pauseOnHover>
+                    {TICKER_ITEMS.map((item) => (
+                        <span
+                            key={item}
+                            className="mx-5 inline-flex items-baseline gap-5 font-mono text-xs uppercase tracking-[0.18em] text-ink/60 sm:text-[13px]"
+                        >
+                            {item}
+                            <span className="text-accent">///</span>
+                        </span>
+                    ))}
+                </Marquee>
             </motion.div>
         </section>
     );

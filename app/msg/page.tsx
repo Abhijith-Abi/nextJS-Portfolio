@@ -171,7 +171,7 @@ export default function MessagesPage() {
     if (checkingAuth) {
         return (
             <main className="min-h-screen flex items-center justify-center">
-                <p className="text-sm text-muted">Checking access…</p>
+                <p className="text-sm text-ink-muted">Checking access…</p>
             </main>
         );
     }
@@ -179,22 +179,22 @@ export default function MessagesPage() {
     if (!isAuthed) {
         return (
             <main className="min-h-screen flex items-center justify-center">
-                <div className="card-surface w-full max-w-sm p-6 space-y-4">
-                    <h1 className="text-lg font-semibold">
+                <div className="w-full max-w-sm rounded-2xl border border-line bg-surface-card p-6 space-y-4 shadow-card">
+                    <h1 className="font-display text-lg font-bold text-ink">
                         Messages Dashboard
                     </h1>
-                    <p className="text-xs text-muted">
+                    <p className="text-xs text-ink-muted">
                         Enter the admin password to view contact form
                         submissions.
                     </p>
                     <form onSubmit={handleLogin} className="space-y-3">
                         <div className="space-y-1.5">
-                            <label className="block text-xs font-medium text-slate-200">
+                            <label className="block text-xs font-medium text-ink-muted">
                                 Password
                             </label>
                             <input
                                 type="password"
-                                className="mt-1 w-full rounded-lg border border-slate-800 bg-black/60 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                                className="mt-1 w-full rounded-lg border border-line bg-background px-3 py-2 text-sm text-ink outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/20"
                                 value={passwordInput}
                                 onChange={(e) =>
                                     setPasswordInput(e.target.value)
@@ -202,11 +202,11 @@ export default function MessagesPage() {
                             />
                         </div>
                         {error && (
-                            <p className="text-xs text-rose-400">{error}</p>
+                            <p className="text-xs text-rose-600">{error}</p>
                         )}
                         <button
                             type="submit"
-                            className="inline-flex w-full items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+                            className="inline-flex w-full items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-semibold text-background shadow-card transition hover:bg-accent-ocean"
                         >
                             Enter
                         </button>
@@ -221,10 +221,10 @@ export default function MessagesPage() {
             <div className="container-width space-y-6">
                 <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                        <h1 className="text-2xl font-semibold">
+                        <h1 className="font-display text-2xl font-bold text-ink">
                             Contact Messages
                         </h1>
-                        <p className="text-xs text-muted">
+                        <p className="text-xs text-ink-muted">
                             Search and filter all messages sent from your
                             portfolio contact form.
                         </p>
@@ -239,16 +239,16 @@ export default function MessagesPage() {
                             }
                             setIsAuthed(false);
                         }}
-                        className="inline-flex items-center justify-center rounded-full border border-slate-700 px-4 py-1.5 text-xs font-medium text-slate-200 hover:border-accent hover:text-accent"
+                        className="inline-flex items-center justify-center rounded-full border border-line px-4 py-1.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent"
                     >
                         Log out
                     </button>
                 </header>
 
-                <section className="card-surface p-4 sm:p-5 space-y-4">
+                <section className="rounded-xl border border-line bg-surface-card p-4 sm:p-5 space-y-4 shadow-card">
                     <div className="grid gap-3 sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)]">
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-medium text-slate-300">
+                            <label className="text-[11px] font-medium text-ink-muted">
                                 Search
                             </label>
                             <input
@@ -256,38 +256,38 @@ export default function MessagesPage() {
                                 placeholder="Search name, email, or message…"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
-                                className="w-full rounded-lg border border-slate-800 bg-black/60 px-3 py-1.5 text-xs text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                                className="w-full rounded-lg border border-line bg-background px-3 py-1.5 text-xs text-ink outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/20"
                             />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-medium text-slate-300">
+                            <label className="text-[11px] font-medium text-ink-muted">
                                 From date
                             </label>
                             <input
                                 type="date"
                                 value={fromDate}
                                 onChange={(e) => setFromDate(e.target.value)}
-                                className="w-full rounded-lg border border-slate-800 bg-black/60 px-3 py-1.5 text-xs text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                                className="w-full rounded-lg border border-line bg-background px-3 py-1.5 text-xs text-ink outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/20"
                             />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-medium text-slate-300">
+                            <label className="text-[11px] font-medium text-ink-muted">
                                 To date
                             </label>
                             <input
                                 type="date"
                                 value={toDate}
                                 onChange={(e) => setToDate(e.target.value)}
-                                className="w-full rounded-lg border border-slate-800 bg-black/60 px-3 py-1.5 text-xs text-slate-100 outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/30"
+                                className="w-full rounded-lg border border-line bg-background px-3 py-1.5 text-xs text-ink outline-none ring-0 transition focus:border-accent focus:ring-2 focus:ring-accent/20"
                             />
                         </div>
                     </div>
 
-                    {error && <p className="text-xs text-rose-400">{error}</p>}
+                    {error && <p className="text-xs text-rose-600">{error}</p>}
 
-                    <div className="overflow-x-auto rounded-lg border border-slate-800/80">
+                    <div className="overflow-x-auto rounded-lg border border-line">
                         <table className="min-w-full text-left text-xs">
-                            <thead className="bg-slate-900/60 text-[11px] uppercase tracking-wide text-slate-400">
+                            <thead className="bg-surface2 text-[11px] uppercase tracking-wide text-ink-muted">
                                 <tr>
                                     <th className="px-3 py-2.5 font-medium">
                                         Name
@@ -311,7 +311,7 @@ export default function MessagesPage() {
                                     <tr>
                                         <td
                                             colSpan={5}
-                                            className="px-3 py-4 text-center text-xs text-muted"
+                                            className="px-3 py-4 text-center text-xs text-ink-muted"
                                         >
                                             Loading messages…
                                         </td>
@@ -320,7 +320,7 @@ export default function MessagesPage() {
                                     <tr>
                                         <td
                                             colSpan={5}
-                                            className="px-3 py-4 text-center text-xs text-muted"
+                                            className="px-3 py-4 text-center text-xs text-ink-muted"
                                         >
                                             No messages found.
                                         </td>
@@ -329,14 +329,14 @@ export default function MessagesPage() {
                                     filteredMessages.map((m) => (
                                         <tr
                                             key={m.id}
-                                            className="border-t border-slate-800/70 odd:bg-slate-950/20"
+                                            className="border-t border-line odd:bg-surface2/70"
                                         >
-                                            <td className="px-3 py-2 align-top text-slate-100">
+                                            <td className="px-3 py-2 align-top text-ink">
                                                 <div className="font-medium">
                                                     {m.name}
                                                 </div>
                                             </td>
-                                            <td className="px-3 py-2 align-top text-slate-300">
+                                            <td className="px-3 py-2 align-top text-ink-muted">
                                                 <a
                                                     href={`mailto:${m.email}`}
                                                     className="hover:text-accent"
@@ -344,12 +344,12 @@ export default function MessagesPage() {
                                                     {m.email}
                                                 </a>
                                             </td>
-                                            <td className="px-3 py-2 align-top text-slate-300 max-w-xs">
+                                            <td className="px-3 py-2 align-top text-ink-muted max-w-xs">
                                                 <p className="line-clamp-3 whitespace-pre-wrap">
                                                     {m.message}
                                                 </p>
                                             </td>
-                                            <td className="px-3 py-2 align-top text-slate-400 whitespace-nowrap">
+                                            <td className="px-3 py-2 align-top whitespace-nowrap text-ink-muted">
                                                 {formatDateTime(m.createdAt)}
                                             </td>
                                             <td className="px-3 py-2 align-top text-right">
@@ -361,7 +361,7 @@ export default function MessagesPage() {
                                                     disabled={
                                                         deletingId === m.id
                                                     }
-                                                    className="inline-flex items-center rounded-full border border-rose-500/60 px-3 py-1 text-[11px] font-medium text-rose-300 hover:bg-rose-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                    className="inline-flex items-center rounded-full border border-rose-300 px-3 py-1 text-[11px] font-medium text-rose-600 hover:bg-rose-50 disabled:opacity-50 disabled:cursor-not-allowed"
                                                 >
                                                     {deletingId === m.id
                                                         ? "Deleting…"

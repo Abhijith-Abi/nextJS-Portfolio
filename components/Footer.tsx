@@ -1,15 +1,42 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MessageSquare, ArrowUpRight, Rss, MapPin, Mail, Phone } from "lucide-react";
+import {
+    ArrowUpRight,
+    Rss,
+    MapPin,
+    Mail,
+    Phone,
+    MessageSquare,
+} from "lucide-react";
 
 export function Footer() {
     return (
-        <footer className="relative border-t border-white/[0.08] bg-surface/80 backdrop-blur-2xl pt-12 sm:pt-16 pb-10 sm:pb-12 font-sans text-sm">
-            <div className="container-width grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
+        <footer className="relative border-t border-line bg-background/60 font-sans text-sm">
+            {/* Big CTA band */}
+            <div className="container-width flex flex-col gap-6 border-b border-line py-16 sm:py-20 lg:flex-row lg:items-end lg:justify-between lg:py-24">
+                <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-accent sm:text-[11px]">
+                        Have an idea on your mind?
+                    </p>
+                    <h2 className="display-hero mt-4 !text-[clamp(2.25rem,6vw,4.75rem)]">
+                        Let&rsquo;s build it{" "}
+                        <span className="display-serif-italic">together</span>
+                    </h2>
+                </div>
+                <Link
+                    href="/contact"
+                    className="btn-primary group inline-flex shrink-0 items-center gap-3 px-8 py-4 text-sm font-semibold"
+                >
+                    <span>Start a conversation</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+            </div>
+
+            <div className="container-width grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 sm:py-16 lg:grid-cols-4">
                 {/* Column 1: Company Profile */}
                 <div>
-                    <div className="flex items-center gap-2.5 mb-3.5 sm:mb-4">
-                        <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-accent/50 bg-surface2 shadow-glow-sm">
+                    <div className="mb-4 flex items-center gap-2.5">
+                        <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-line bg-surface2">
                             <Image
                                 src="/avatar.jpg"
                                 alt="Abi Solutions Logo"
@@ -18,24 +45,28 @@ export function Footer() {
                                 className="h-full w-full object-cover object-center"
                             />
                         </span>
-                        <h3 className="text-sm sm:text-base font-bold text-ink font-mono tracking-wider">
+                        <h3 className="font-mono text-sm font-bold tracking-wider text-ink">
                             ABI SOLUTIONS
                         </h3>
                     </div>
-                    <p className="text-xs text-ink-muted leading-relaxed mb-4">
-                        Premier custom software development, AI engineering, ERP solutions, and full stack web engineering agency based in Kerala, India. Founded by Abhijith P A.
+                    <p className="mb-4 text-xs leading-relaxed text-ink-muted">
+                        Custom software development, AI engineering, ERP
+                        solutions and full stack web engineering from Kerala,
+                        India. Founded by Abhijith P A.
                     </p>
-                    <div className="text-xs text-ink-muted space-y-2 font-mono">
+                    <div className="space-y-2 font-mono text-xs text-ink-muted">
                         <p className="flex items-center gap-2">
-                            <MapPin className="h-3.5 w-3.5 text-accent shrink-0" />
+                            <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" />
                             <span>Wayanad · Kozhikode · Kochi, Kerala</span>
                         </p>
                         <p className="flex items-center gap-2">
-                            <Mail className="h-3.5 w-3.5 text-accent shrink-0" />
-                            <span className="truncate">abhijithabhijith1999@gmail.com</span>
+                            <Mail className="h-3.5 w-3.5 shrink-0 text-accent" />
+                            <span className="truncate">
+                                abhijithabhijith1999@gmail.com
+                            </span>
                         </p>
                         <p className="flex items-center gap-2">
-                            <Phone className="h-3.5 w-3.5 text-accent shrink-0" />
+                            <Phone className="h-3.5 w-3.5 shrink-0 text-accent" />
                             <span>+91 99613 16468</span>
                         </p>
                     </div>
@@ -43,42 +74,63 @@ export function Footer() {
 
                 {/* Column 2: Core Engineering Services */}
                 <div>
-                    <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3.5 sm:mb-4 font-bold">
+                    <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
                         Engineering Services
                     </h4>
                     <ul className="space-y-2 text-xs text-ink-muted">
                         <li>
-                            <Link href="/services/web-development" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/services/web-development"
+                                className="link-underline hover:text-ink"
+                            >
                                 Custom Web Development
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services/software-development" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/services/software-development"
+                                className="link-underline hover:text-ink"
+                            >
                                 Enterprise Software Engineering
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services/full-stack-development" className="hover:text-accent transition-colors">
-                                Full Stack React & Django
+                            <Link
+                                href="/services/full-stack-development"
+                                className="link-underline hover:text-ink"
+                            >
+                                Full Stack React &amp; Django
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services/nextjs-development" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/services/nextjs-development"
+                                className="link-underline hover:text-ink"
+                            >
                                 Next.js 14 Development
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services/ai-development" className="hover:text-accent transition-colors">
-                                Artificial Intelligence & LLM RAG
+                            <Link
+                                href="/services/ai-development"
+                                className="link-underline hover:text-ink"
+                            >
+                                AI &amp; LLM Integration
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services/erp-development" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/services/erp-development"
+                                className="link-underline hover:text-ink"
+                            >
                                 Custom ERP Systems
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services/saas-development" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/services/saas-development"
+                                className="link-underline hover:text-ink"
+                            >
                                 SaaS Product Architecture
                             </Link>
                         </li>
@@ -87,42 +139,63 @@ export function Footer() {
 
                 {/* Column 3: Regional Hubs */}
                 <div>
-                    <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3.5 sm:mb-4 font-bold">
+                    <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
                         Kerala Regional Hubs
                     </h4>
                     <ul className="space-y-2 text-xs text-ink-muted">
                         <li>
-                            <Link href="/locations/wayanad" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/locations/wayanad"
+                                className="link-underline hover:text-ink"
+                            >
                                 Wayanad Web Developer
                             </Link>
                         </li>
                         <li>
-                            <Link href="/locations/kozhikode" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/locations/kozhikode"
+                                className="link-underline hover:text-ink"
+                            >
                                 Kozhikode (Calicut) Developer
                             </Link>
                         </li>
                         <li>
-                            <Link href="/locations/kochi" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/locations/kochi"
+                                className="link-underline hover:text-ink"
+                            >
                                 Ernakulam / Kochi Developer
                             </Link>
                         </li>
                         <li>
-                            <Link href="/locations/thrissur" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/locations/thrissur"
+                                className="link-underline hover:text-ink"
+                            >
                                 Thrissur Software Developer
                             </Link>
                         </li>
                         <li>
-                            <Link href="/locations/malappuram" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/locations/malappuram"
+                                className="link-underline hover:text-ink"
+                            >
                                 Malappuram Web Developer
                             </Link>
                         </li>
                         <li>
-                            <Link href="/locations/kannur" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/locations/kannur"
+                                className="link-underline hover:text-ink"
+                            >
                                 Kannur Software Agency
                             </Link>
                         </li>
                         <li>
-                            <Link href="/locations/thiruvananthapuram" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/locations/thiruvananthapuram"
+                                className="link-underline hover:text-ink"
+                            >
                                 Thiruvananthapuram Technopark
                             </Link>
                         </li>
@@ -131,39 +204,52 @@ export function Footer() {
 
                 {/* Column 4: Quick Connect & Resources */}
                 <div>
-                    <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3.5 sm:mb-4 font-bold">
-                        Resources & Connect
+                    <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                        Resources &amp; Connect
                     </h4>
-                    <ul className="space-y-2 text-xs text-ink-muted mb-5 sm:mb-6">
+                    <ul className="mb-6 space-y-2 text-xs text-ink-muted">
                         <li>
-                            <Link href="/about" className="hover:text-accent transition-colors">
-                                About Abhijith & Abi Solutions
+                            <Link
+                                href="/about"
+                                className="link-underline hover:text-ink"
+                            >
+                                About Abhijith &amp; Abi Solutions
                             </Link>
                         </li>
                         <li>
-                            <Link href="/projects" className="hover:text-accent transition-colors">
-                                Client Case Studies & Work
+                            <Link
+                                href="/projects"
+                                className="link-underline hover:text-ink"
+                            >
+                                Client Case Studies &amp; Work
                             </Link>
                         </li>
                         <li>
-                            <Link href="/blog" className="hover:text-accent transition-colors">
+                            <Link
+                                href="/blog"
+                                className="link-underline hover:text-ink"
+                            >
                                 Technical Engineering Blog
                             </Link>
                         </li>
                         <li>
-                            <Link href="/feed.xml" target="_blank" className="hover:text-accent transition-colors inline-flex items-center gap-1.5">
-                                <Rss className="h-3 w-3 text-orange-400" />
+                            <Link
+                                href="/feed.xml"
+                                target="_blank"
+                                className="inline-flex items-center gap-1.5 hover:text-ink"
+                            >
+                                <Rss className="h-3 w-3 text-accent" />
                                 <span>RSS 2.0 Feed</span>
                             </Link>
                         </li>
                     </ul>
 
-                    <div className="pt-3 border-t border-white/[0.08]">
+                    <div className="border-t border-line pt-3">
                         <a
                             href="https://wa.me/919961316468?text=Hi%20Abhijith,%20I'd%20like%20to%20discuss%20a%20project"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded-xl bg-accent/10 border border-accent/30 text-accent font-mono text-xs hover:bg-accent hover:text-white transition-all duration-200"
+                            className="btn-ghost inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 font-mono text-xs sm:w-auto"
                         >
                             <MessageSquare className="h-3.5 w-3.5" />
                             <span>WhatsApp (+91 99613 16468)</span>
@@ -172,11 +258,16 @@ export function Footer() {
                 </div>
             </div>
 
-            <div className="container-width border-t border-white/[0.08] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[10.5px] sm:text-[11px] text-ink-muted text-center sm:text-left">
-                <p>© {new Date().getFullYear()} Abi Solutions · All rights reserved.</p>
+            <div className="container-width flex flex-col items-center justify-between gap-3 border-t border-line py-6 text-center font-mono text-[10.5px] text-ink-muted sm:flex-row sm:text-left">
+                <p>
+                    © {new Date().getFullYear()} Abi Solutions · All rights
+                    reserved.
+                </p>
                 <p className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent-emerald" />
-                    <span>Engineered with Next.js 14 · TypeScript · Tailwind CSS</span>
+                    <span>
+                        Engineered with Next.js 14 · TypeScript · Tailwind CSS
+                    </span>
                 </p>
             </div>
         </footer>

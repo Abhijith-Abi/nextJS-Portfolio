@@ -21,29 +21,34 @@ export function SectionWrapper({
     return (
         <section
             id={id}
-            className={`container-width relative py-16 sm:py-20 lg:py-24 ${className}`}
+            className={`container-width relative py-20 sm:py-24 lg:py-32 ${className}`}
         >
             {(index || label) && (
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     viewport={{ once: true, amount: 0.5 }}
-                    className="mb-10 flex items-center gap-3 sm:mb-14 sm:gap-4 lg:mb-20"
+                    className="mb-12 sm:mb-16 lg:mb-20"
                 >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-accent sm:text-[11px] sm:tracking-[0.32em]">
-                        {index ?? ""}
-                    </span>
+                    <div className="flex items-baseline gap-4">
+                        <span className="font-mono text-[11px] font-bold tracking-[0.2em] text-accent sm:text-xs">
+                            {index ?? ""}
+                        </span>
+                        <span className="hairline h-px w-10 shrink-0" />
+                        <span className="section-eyebrow">{label ?? ""}</span>
+                    </div>
                     <motion.span
                         initial={{ scaleX: 0, originX: 0 }}
                         whileInView={{ scaleX: 1 }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{
+                            duration: 1,
+                            ease: [0.22, 1, 0.36, 1],
+                            delay: 0.15,
+                        }}
                         viewport={{ once: true, amount: 0.5 }}
-                        className="hairline flex-1 origin-left"
+                        className="mt-5 block h-px w-full bg-line lg:mt-6"
                     />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/50 sm:text-[11px] sm:tracking-[0.32em]">
-                        {label ?? ""}
-                    </span>
                 </motion.div>
             )}
             {children}

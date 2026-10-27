@@ -157,11 +157,11 @@ export default function BlogPage() {
             <div className="pt-24">
                 <SectionWrapper id="blog" index="07" label="Blog">
                     <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.1fr_0.9fr]">
-                        <h1 className="font-display text-[clamp(2rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                        <h1 className="font-display font-bold leading-[0.95] text-ink text-[clamp(2.75rem,8.5vw,7.5rem)] tracking-[-0.03em]">
                             <span className="block">ARTICLES &</span>
-                            <span className="block ghost-text">INSIGHTS.</span>
+                            <span className="block display-serif-italic tracking-[-0.01em]">INSIGHTS.</span>
                         </h1>
-                        <p className="text-xs sm:text-sm md:text-base leading-relaxed text-ink/65 md:text-right lg:text-lg">
+                        <p className="text-xs sm:text-sm md:text-base leading-relaxed text-ink-muted md:text-right lg:text-lg">
                             Lessons from building production software at Tegain and
                             Ribos. React, Next.js, Django, AI
                             automation, ERP systems, and everything in between.

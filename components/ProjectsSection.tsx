@@ -1,31 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SectionWrapper } from "./SectionWrapper";
-import { FadeIn } from "./motion/RevealText";
-import {
-    ArrowUpRight,
-    Sparkles,
-    Globe,
-    ShoppingBag,
-    Users,
-    Activity,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-
-const IconGithub = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        {...props}
-    >
-        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </svg>
-);
+import { SectionWrapper } from "./SectionWrapper";
 
 type Project = {
     name: string;
@@ -80,195 +58,121 @@ const projects: Project[] = [
     },
 ];
 
-const openSourceProjects = [
-    {
-        name: "React Admin Dashboard",
-        description:
-            "Modular, high-performance admin template pre-built with dark mode, Recharts telemetry, and accessible components.",
-        tech: ["React", "TypeScript", "Tailwind", "Recharts"],
-        link: "https://github.com/Abhijith-Abi/react-admin-dashboard",
-    },
-    {
-        name: "Tailwind Component Library",
-        description:
-            "Accessible WAI-ARIA compliant UI components and custom utility plugins for production Tailwind projects.",
-        tech: ["Tailwind CSS", "Radix UI", "React"],
-        link: "https://github.com/Abhijith-Abi/tailwind-component-library",
-    },
-    {
-        name: "Next.js Starter Boilerplate",
-        description:
-            "Production boilerplate configured with App Router, strict TypeScript, dynamic XML sitemaps, and Schema.org SEO.",
-        tech: ["Next.js 14", "TypeScript", "Tailwind", "SEO"],
-        link: "https://github.com/Abhijith-Abi/nextjs-starter",
-    },
-    {
-        name: "React Vite SPA Boilerplate",
-        description:
-            "Lightweight single page app skeleton with Vite, Zustand state, Tailwind variables, and Vitest test runner.",
-        tech: ["React", "Vite", "Zustand", "Tailwind"],
-        link: "https://github.com/Abhijith-Abi/react-boilerplate",
-    },
-    {
-        name: "Django Backend Skeleton",
-        description:
-            "Scalable Django architecture with JWT auth, PostgreSQL schemas, Celery tasks, and Docker setup.",
-        tech: ["Django", "Python", "PostgreSQL", "Docker"],
-        link: "https://github.com/Abhijith-Abi/django-boilerplate",
-    },
-    {
-        name: "Authentication Template",
-        description:
-            "Passwordless multi-provider authentication flow configured with NextAuth (Auth.js) and token storage.",
-        tech: ["Auth.js", "Next.js", "TypeScript", "PostgreSQL"],
-        link: "https://github.com/Abhijith-Abi/auth-template",
-    },
-];
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function ProjectsSection() {
     return (
-        <SectionWrapper id="projects" index="05" label="Selected Work">
-            {/* Minimal Header */}
-            <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div>
-                    <span className="font-mono text-xs uppercase tracking-[0.24em] text-accent font-semibold">
-                        // Featured Case Studies
+        <SectionWrapper id="projects" index="03" label="Selected Work">
+            {/* Header */}
+            <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-14 sm:mb-16">
+                <motion.h2
+                    initial={{ opacity: 0, y: 22 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.85, ease }}
+                    className="font-display text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.06] tracking-tight text-ink lg:col-span-7"
+                >
+                    Selected{" "}
+                    <span className="display-serif-italic text-accent">
+                        projects.
                     </span>
-                    <h2 className="mt-2 font-display text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold tracking-tight text-white">
-                        Selected Projects<span className="text-accent">.</span>
-                    </h2>
-                </div>
-                <p className="max-w-md text-sm sm:text-base text-ink-muted leading-relaxed">
-                    Production platforms and consumer digital products built with modern stacks, sub-second performance, and verified reliability.
-                </p>
+                </motion.h2>
+                <motion.p
+                    initial={{ opacity: 0, y: 22 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.85, ease, delay: 0.12 }}
+                    className="max-w-md text-sm sm:text-base leading-relaxed text-ink-muted lg:col-span-5"
+                >
+                    Production platforms and consumer digital products built
+                    with modern stacks, sub-second performance, and verified
+                    reliability.
+                </motion.p>
             </div>
 
-            {/* Clean Minimal 2-Column Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-                {projects.map((p, i) => (
-                    <FadeIn key={p.name} delay={i * 0.1}>
-                        <a
-                            href={p.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block rounded-3xl border border-white/10 bg-[#0c0f18]/80 p-5 sm:p-6 backdrop-blur-xl transition-all duration-300 hover:border-accent/40 hover:bg-[#111624]/90 hover:shadow-glow hover:-translate-y-1"
+            {/* Feature case blocks — large showcase images, alternating */}
+            <div>
+                {projects.map((p, i) => {
+                    const flip = i % 2 === 1;
+                    return (
+                        <motion.article
+                            key={p.name}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.25 }}
+                            transition={{ duration: 0.9, ease, delay: 0.05 }}
+                            className="group grid gap-6 border-t border-line py-12 sm:py-16 lg:grid-cols-12 lg:items-center lg:gap-12 last:border-b last:border-line"
                         >
-                            {/* Project Visual Preview */}
-                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40">
-                                <Image
-                                    src={p.image}
-                                    alt={`${p.name} Preview`}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                    className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
-                                    priority={i < 2}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover:opacity-10 transition-opacity" />
-
-                                {/* Floating Live Badge */}
-                                <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/70 px-3 py-1 text-[11px] font-mono text-white backdrop-blur-md transition group-hover:bg-accent group-hover:border-accent">
-                                    <span>Visit</span>
-                                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                            {/* Showcase image */}
+                            <a
+                                href={p.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Visit ${p.name}`}
+                                className={`relative block overflow-hidden rounded-2xl border border-line bg-surface2 transition-all duration-500 hover:border-line2 hover:shadow-card lg:col-span-7 ${
+                                    flip ? "lg:order-2" : ""
+                                }`}
+                            >
+                                <div className="relative aspect-[16/10] w-full">
+                                    <Image
+                                        src={p.image}
+                                        alt={`${p.name} Preview`}
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 760px"
+                                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                                        priority={i < 2}
+                                    />
+                                    {/* visit chip */}
+                                    <div className="absolute bottom-4 left-4 translate-y-2 rounded-full border border-accent/50 bg-background/80 px-4 py-2 opacity-0 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                                        <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                                            Visit live site
+                                            <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
 
-                            {/* Project Information */}
-                            <div className="mt-5">
-                                <div className="flex items-center justify-between gap-2">
-                                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-accent transition-colors">
-                                        {p.name}
-                                    </h3>
-                                    <span className="font-mono text-[11px] text-accent font-medium">
-                                        {p.domain}
-                                    </span>
-                                </div>
-
-                                <p className="mt-2.5 text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-2">
+                            {/* Case meta */}
+                            <div
+                                className={`lg:col-span-5 ${
+                                    flip ? "lg:order-1" : ""
+                                }`}
+                            >
+                                <span
+                                    aria-hidden
+                                    className="font-display text-6xl font-bold leading-none tracking-tight text-accent/10 transition-colors duration-500 group-hover:text-accent/25 sm:text-7xl"
+                                >
+                                    0{i + 1}
+                                </span>
+                                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink-muted sm:text-[11px]">
+                                    {p.domain}
+                                </p>
+                                <h3 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink transition-colors duration-300 group-hover:text-accent sm:text-4xl">
+                                    {p.name}
+                                </h3>
+                                <p className="mt-3.5 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
                                     {p.description}
                                 </p>
-
-                                {/* Tech Tags */}
-                                <div className="mt-4 flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+                                <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 sm:text-[11px]">
+                                    <span className="text-accent">
+                                        {p.role}
+                                    </span>
                                     {p.tech.map((t) => (
                                         <span
                                             key={t}
-                                            className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[10px] text-ink/70"
+                                            className="flex items-center gap-3"
                                         >
-                                            {t}
+                                            <span className="text-line2">
+                                                ·
+                                            </span>
+                                            <span>{t}</span>
                                         </span>
                                     ))}
-                                </div>
+                                </p>
                             </div>
-                        </a>
-                    </FadeIn>
-                ))}
-            </div>
-
-            {/* Open Source Ecosystem Section */}
-            <div className="mt-20 sm:mt-24">
-                <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                    <div>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-accent-emerald/20 bg-accent-emerald/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent-emerald mb-3">
-                            <IconGithub className="h-3 w-3" />
-                            Open Source Ecosystem
-                        </div>
-                        <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-ink sm:text-3xl">
-                            Developer Boilerplates &{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-emerald">
-                                Starter Kits
-                            </span>
-                        </h3>
-                    </div>
-                    <a
-                        href="https://github.com/Abhijith-Abi"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 font-mono text-xs text-accent hover:underline"
-                    >
-                        <span>View GitHub Profile</span>
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {openSourceProjects.map((repo, idx) => (
-                        <FadeIn key={repo.name} delay={idx * 0.05}>
-                            <a
-                                href={repo.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="surface group flex h-full flex-col justify-between rounded-3xl border border-white/[0.08] p-6 transition-all duration-300 hover:border-accent/40 hover:shadow-glow-sm"
-                            >
-                                <div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-lg">
-                                            Open Source
-                                        </span>
-                                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/[0.04] text-ink/60 group-hover:text-accent group-hover:bg-accent/10 transition-colors">
-                                            <ArrowUpRight className="h-3.5 w-3.5" />
-                                        </span>
-                                    </div>
-                                    <h4 className="mt-4 font-display text-base font-bold text-ink group-hover:text-accent transition-colors">
-                                        {repo.name}
-                                    </h4>
-                                    <p className="mt-2 text-xs leading-relaxed text-ink/65">
-                                        {repo.description}
-                                    </p>
-                                </div>
-                                <div className="mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
-                                    {repo.tech.map((t) => (
-                                        <span
-                                            key={t}
-                                            className="rounded-md bg-background border border-white/[0.06] px-2 py-0.5 font-mono text-[9px] text-ink/60"
-                                        >
-                                            {t}
-                                        </span>
-                                    ))}
-                                </div>
-                            </a>
-                        </FadeIn>
-                    ))}
-                </div>
+                        </motion.article>
+                    );
+                })}
             </div>
         </SectionWrapper>
     );

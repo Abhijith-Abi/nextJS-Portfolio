@@ -2,11 +2,7 @@ import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { AboutSection } from "../components/AboutSection";
 import { SkillsSection } from "../components/SkillsSection";
-import { TechRadarMatrix } from "../components/TechRadarMatrix";
-import { WorkflowSection } from "../components/WorkflowSection";
 import { ProjectsSection } from "../components/ProjectsSection";
-import { ProjectEstimator } from "../components/ProjectEstimator";
-import { LiveTerminal } from "../components/LiveTerminal";
 import { ExperienceSection } from "../components/ExperienceSection";
 import { TestimonialsSection } from "../components/TestimonialsSection";
 import { ContactSection } from "../components/ContactSection";
@@ -411,11 +407,7 @@ export default function HomePage() {
             <Hero />
             <AboutSection />
             <SkillsSection />
-            <TechRadarMatrix />
-            <WorkflowSection />
             <ProjectsSection />
-            <ProjectEstimator />
-            <LiveTerminal />
             <ExperienceSection />
             <TestimonialsSection />
             <ContactSection />

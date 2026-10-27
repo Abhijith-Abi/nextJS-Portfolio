@@ -131,27 +131,21 @@ export default function AlgoBizPage() {
             />
             <Navbar />
 
-            {/* Ambient Background Glows */}
-            <div
-                className="pointer-events-none absolute top-24 right-1/4 h-[500px] w-[500px] rounded-full bg-accent/15 blur-[140px] animate-pulse_glow"
-                aria-hidden
-            />
-
             {/* HERO */}
-            <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 border-b border-white/[0.06]">
+            <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 border-b border-line">
                 <div className="container-width">
                     <div className="max-w-3xl">
-                        <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs font-mono uppercase tracking-[0.24em] text-accent mb-6 shadow-glow-sm">
+                        <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface-card px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6 shadow-card">
                             <Sparkles className="h-3 w-3" />
                             Enterprise Software Agency
                         </div>
 
-                        <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.9] tracking-[-0.03em] text-ink">
+                        <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.95] tracking-tight text-ink">
                             <span className="block">ABI</span>
-                            <span className="block text-accent">SOLUTIONS.</span>
+                            <span className="display-serif-italic block text-accent">SOLUTIONS.</span>
                         </h1>
 
-                        <p className="mt-4 font-mono text-sm font-semibold uppercase tracking-[0.28em] text-accent2">
+                        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-muted">
                             Founded by Abhijith P A · Kerala, India
                         </p>
 
@@ -162,14 +156,14 @@ export default function AlgoBizPage() {
                         <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
                             <Link
                                 href="/contact"
-                                className="hero-btn-primary group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight shadow-glow-sm w-full sm:w-auto"
+                                className="btn-primary group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold tracking-tight w-full sm:w-auto"
                             >
                                 <span>Request a Quote</span>
-                                <ArrowRight className="h-4 w-4 text-white/80 group-hover:text-white transition-colors" />
+                                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                             </Link>
                             <Link
                                 href="/projects"
-                                className="hero-btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold w-full sm:w-auto"
+                                className="btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold w-full sm:w-auto"
                             >
                                 <span>Explore Client Work</span>
                             </Link>
@@ -179,16 +173,16 @@ export default function AlgoBizPage() {
             </section>
 
             {/* SERVICES MATRIX */}
-            <section className="py-20 sm:py-28 border-b border-white/[0.06]">
+            <section className="py-20 sm:py-24 lg:py-32 border-b border-line">
                 <div className="container-width">
                     <div className="mb-12">
-                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                        <div className="section-eyebrow mb-4 flex items-center gap-2 text-[10px] tracking-[0.3em]">
                             <Briefcase className="h-3 w-3" />
                             What We Build
                         </div>
-                        <h2 className="font-display text-[clamp(2.2rem,6vw,3.8rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink">
+                        <h2 className="font-display text-[clamp(2.2rem,6vw,3.8rem)] font-bold uppercase leading-[0.95] tracking-tight text-ink">
                             <span className="block">COMPREHENSIVE</span>
-                            <span className="block text-accent">ENGINEERING SERVICES.</span>
+                            <span className="display-serif-italic block text-accent">ENGINEERING SERVICES.</span>
                         </h2>
                     </div>
 
@@ -210,11 +204,11 @@ export default function AlgoBizPage() {
                                             </p>
                                         </div>
 
-                                        <div className="pt-5 border-t border-white/[0.08] flex flex-wrap gap-2">
+                                        <div className="pt-5 border-t border-line flex flex-wrap gap-2">
                                             {srv.features.map((f) => (
                                                 <span
                                                     key={f}
-                                                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-background/80 px-2.5 py-1 font-mono text-[10px] text-ink/80"
+                                                    className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface-card px-2.5 py-1 font-mono text-[10px] text-ink-muted"
                                                 >
                                                     <CheckCircle2 className="h-3 w-3 text-accent" />
                                                     {f}
@@ -230,11 +224,11 @@ export default function AlgoBizPage() {
             </section>
 
             {/* CTA */}
-            <section className="py-24 sm:py-32">
+            <section className="py-20 sm:py-24 lg:py-32">
                 <div className="container-width">
-                    <div className="surface relative overflow-hidden rounded-[3rem] p-8 sm:p-14 border border-white/15 text-center shadow-glow">
+                    <div className="surface relative overflow-hidden rounded-[3rem] p-8 sm:p-14 text-center shadow-soft">
                         <div className="relative z-10 max-w-2xl mx-auto">
-                            <h2 className="font-display text-3xl sm:text-5xl font-black uppercase leading-tight text-ink">
+                            <h2 className="font-display text-3xl sm:text-5xl font-bold uppercase leading-tight text-ink">
                                 READY TO BUILD WITH ABI SOLUTIONS?
                             </h2>
                             <p className="mt-4 text-sm sm:text-base leading-relaxed text-ink/75">
@@ -244,7 +238,7 @@ export default function AlgoBizPage() {
                             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
                                 <Link
                                     href="/contact"
-                                    className="hero-btn-primary inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold tracking-tight shadow-glow-sm w-full sm:w-auto"
+                                    className="btn-primary inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-semibold tracking-tight w-full sm:w-auto"
                                 >
                                     <span>Contact Us</span>
                                     <ArrowRight className="h-4 w-4" />
@@ -253,7 +247,7 @@ export default function AlgoBizPage() {
                                     href="https://wa.me/919961316468?text=Hi%20Abi%20Solutions,%20I'd%20like%20to%20discuss%20a%20project"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hero-btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold w-full sm:w-auto"
+                                    className="btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold w-full sm:w-auto"
                                 >
                                     <Phone className="h-4 w-4" />
                                     <span>WhatsApp Discussion</span>

@@ -20,7 +20,7 @@ export function AnimatedBeamDemo() {
             <h2 className="text-xl font-bold mb-4">AI Agent Workflow</h2>
             <BeamContainer
                 ref={containerRef}
-                className="mx-auto flex w-full max-w-2xl items-center justify-between rounded-xl border bg-slate-950/50 p-10 shadow-2xl backdrop-blur-sm"
+                className="mx-auto flex w-full max-w-2xl items-center justify-between rounded-xl border bg-surface p-10 shadow-2xl backdrop-blur-sm"
             >
                 <div className="flex flex-col items-center gap-2">
                     <BeamNode
@@ -29,7 +29,7 @@ export function AnimatedBeamDemo() {
                     >
                         <User className="h-6 w-6 text-blue-400" />
                     </BeamNode>
-                    <span className="font-medium text-[10px] text-slate-400 uppercase tracking-widest">
+                    <span className="font-medium text-[10px] text-ink-muted uppercase tracking-widest">
                         User
                     </span>
                 </div>
@@ -41,7 +41,7 @@ export function AnimatedBeamDemo() {
                     >
                         <Bot className="h-8 w-8 text-purple-400" />
                     </BeamNode>
-                    <span className="font-medium text-[10px] text-slate-400 uppercase tracking-widest">
+                    <span className="font-medium text-[10px] text-ink-muted uppercase tracking-widest">
                         AI Agent
                     </span>
                 </div>
@@ -54,7 +54,7 @@ export function AnimatedBeamDemo() {
                         >
                             <Search className="h-5 w-5 text-amber-400" />
                         </BeamNode>
-                        <span className="font-medium text-[10px] text-slate-400 uppercase tracking-widest">
+                        <span className="font-medium text-[10px] text-ink-muted uppercase tracking-widest">
                             Search
                         </span>
                     </div>
@@ -66,7 +66,7 @@ export function AnimatedBeamDemo() {
                         >
                             <Zap className="h-5 w-5 text-emerald-400" />
                         </BeamNode>
-                        <span className="font-medium text-[10px] text-slate-400 uppercase tracking-widest">
+                        <span className="font-medium text-[10px] text-ink-muted uppercase tracking-widest">
                             Result
                         </span>
                     </div>

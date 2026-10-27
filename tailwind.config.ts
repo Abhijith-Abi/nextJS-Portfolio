@@ -9,22 +9,22 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Zentra Luxury Dark & Electric Royal Blue Theme
-                background: "#07080c",
-                surface: "rgba(15, 18, 26, 0.85)",
-                surface2: "#131622",
-                "surface-card": "rgba(20, 24, 36, 0.9)",
-                ink: "#ffffff",
-                "ink-muted": "#9098aa",
-                line: "rgba(255, 255, 255, 0.08)",
-                line2: "rgba(47, 107, 255, 0.3)",
-                accent: "#2f6bff", // electric royal blue
-                accent2: "#60a5fa", // luminous sky / ice blue
-                "accent-ocean": "#1d4ed8", // deep cobalt
-                "accent-abyss": "#0b1020", // cosmic navy slate
-                "accent-emerald": "#10b981", // active live emerald
-                muted: "#838c9e",
-                paper: "#ffffff",
+                // Dark Premium Studio — graphite, white type, electric lime accent
+                background: "#0A0A0B", // graphite
+                surface: "rgba(20, 20, 23, 0.6)",
+                surface2: "#101013",
+                "surface-card": "rgba(24, 24, 27, 0.8)",
+                ink: "#F5F5F3", // light type on graphite
+                "ink-muted": "#9B9B94",
+                line: "rgba(255, 255, 255, 0.1)",
+                line2: "rgba(198, 242, 78, 0.35)",
+                accent: "#C6F24E", // electric lime
+                accent2: "#E3FF8A", // pale lime for serif-italic accents
+                "accent-ocean": "#94C227", // deep lime (hover)
+                "accent-abyss": "#08080A",
+                "accent-emerald": "#34D399", // active live emerald
+                muted: "#7A7A73",
+                paper: "#FFFFFF",
             },
             fontFamily: {
                 sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -33,17 +33,19 @@ const config: Config = {
                     "var(--font-inter)",
                     "sans-serif",
                 ],
-                mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
+                serif: ["var(--font-serif)", "Georgia", "serif"],
+                mono: ["var(--font-space)", "ui-monospace", "monospace"],
             },
             boxShadow: {
-                soft: "0 24px 64px -12px rgba(7,8,12,0.95)",
-                glow: "0 0 0 1px rgba(47,107,255,0.35), 0 16px 48px -12px rgba(47,107,255,0.4)",
+                soft: "0 24px 64px -24px rgba(25,23,19,0.18)",
+                card: "0 2px 24px -8px rgba(25,23,19,0.10)",
+                glow: "0 0 0 1px rgba(39,66,228,0.16), 0 16px 48px -16px rgba(39,66,228,0.28)",
                 "glow-sm":
-                    "0 0 0 1px rgba(47,107,255,0.25), 0 8px 24px -8px rgba(47,107,255,0.35)",
+                    "0 0 0 1px rgba(39,66,228,0.12), 0 8px 24px -8px rgba(39,66,228,0.2)",
                 "glow-blue":
-                    "0 0 0 1px rgba(47,107,255,0.4), 0 16px 48px -12px rgba(47,107,255,0.5)",
+                    "0 0 0 1px rgba(39,66,228,0.2), 0 16px 48px -16px rgba(39,66,228,0.3)",
                 "glow-sky":
-                    "0 0 0 1px rgba(96,165,250,0.35), 0 16px 48px -12px rgba(96,165,250,0.4)",
+                    "0 0 0 1px rgba(124,147,255,0.25), 0 16px 48px -16px rgba(124,147,255,0.25)",
             },
             borderRadius: {
                 xl: "1rem",

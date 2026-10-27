@@ -213,23 +213,13 @@ export default function AbhijithPAPage() {
             />
             <Navbar />
 
-            {/* Glowing Ambient Crimson Orbs */}
-            <div
-                className="pointer-events-none absolute top-20 left-1/4 h-[500px] w-[500px] rounded-full bg-accent/15 blur-[140px] animate-pulse_glow"
-                aria-hidden
-            />
-            <div
-                className="pointer-events-none absolute top-1/2 right-10 h-[450px] w-[450px] rounded-full bg-accent2/10 blur-[150px] animate-pulse_glow"
-                aria-hidden
-            />
-
             {/* HERO SECTION */}
-            <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 border-b border-white/[0.06]">
+            <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 border-b border-line">
                 <div className="container-width">
                     <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
                         {/* Left Intro */}
                         <div>
-                            <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs font-mono uppercase tracking-[0.24em] text-accent mb-6 shadow-glow-sm">
+                            <div className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface-card px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6 shadow-card">
                                 <span className="relative flex h-2 w-2">
                                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
                                     <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
@@ -237,12 +227,12 @@ export default function AbhijithPAPage() {
                                 Available for Projects · 2026
                             </div>
 
-                            <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.9] tracking-[-0.03em] text-ink">
+                            <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.95] tracking-tight text-ink">
                                 <span className="block">ABHIJITH</span>
-                                <span className="block text-accent">P A.</span>
+                                <span className="display-serif-italic block text-accent">P A.</span>
                             </h1>
 
-                            <p className="mt-4 font-mono text-sm font-semibold uppercase tracking-[0.28em] text-accent2">
+                            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-muted">
                                 Founder of Abi Solutions · Full Stack & AI Engineer
                             </p>
 
@@ -254,14 +244,14 @@ export default function AbhijithPAPage() {
                             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
                                 <Link
                                     href="/contact"
-                                    className="hero-btn-primary group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight shadow-glow-sm w-full sm:w-auto"
+                                    className="btn-primary group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold tracking-tight w-full sm:w-auto"
                                 >
                                     <span>Start a Project</span>
-                                    <ArrowRight className="h-4 w-4 text-white/80 group-hover:text-white transition-colors" />
+                                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                                 </Link>
                                 <Link
                                     href="/projects"
-                                    className="hero-btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold w-full sm:w-auto"
+                                    className="btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold w-full sm:w-auto"
                                 >
                                     <span>View Case Studies</span>
                                     <ExternalLink className="h-4 w-4" />
@@ -271,8 +261,8 @@ export default function AbhijithPAPage() {
 
                         {/* Right Portrait & Profile Card */}
                         <FadeIn>
-                            <div className="surface relative overflow-hidden rounded-[2.5rem] p-6 sm:p-8 border border-white/15 shadow-glow">
-                                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/10 bg-background">
+                            <div className="surface relative overflow-hidden rounded-[2.5rem] p-6 sm:p-8 shadow-card">
+                                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-line bg-background">
                                     <Image
                                         src="/photos/abhijith-pa-founder-portrait.jpg"
                                         alt="Abhijith P A — Founder of Abi Solutions"
@@ -281,27 +271,27 @@ export default function AbhijithPAPage() {
                                         className="object-cover object-center scale-105 transition-transform duration-700 hover:scale-100"
                                         priority
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/25 to-transparent" />
                                     <div className="absolute inset-x-0 bottom-0 p-6">
-                                        <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent font-bold">
+                                        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-paper/70">
                                             Executive Profile
                                         </span>
-                                        <h2 className="mt-1 font-display text-2xl font-black text-ink">
+                                        <h2 className="mt-1 font-display text-2xl font-bold text-paper">
                                             Abhijith P A
                                         </h2>
-                                        <p className="mt-1 font-mono text-xs text-ink/70 flex items-center gap-1.5">
-                                            <MapPin className="h-3.5 w-3.5 text-accent" />
+                                        <p className="mt-1 font-mono text-xs text-paper/80 flex items-center gap-1.5">
+                                            <MapPin className="h-3.5 w-3.5 text-accent2" />
                                             Wayanad, Kerala, India · Remote Worldwide
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="mt-6 grid grid-cols-2 gap-3">
-                                    <div className="rounded-2xl border border-white/[0.08] bg-background/60 p-3.5">
+                                    <div className="rounded-2xl border border-line bg-surface-card p-3.5">
                                         <p className="font-mono text-[9px] uppercase tracking-wider text-ink/50">Organization</p>
                                         <p className="mt-1 font-display text-sm font-bold text-ink">Abi Solutions</p>
                                     </div>
-                                    <div className="rounded-2xl border border-white/[0.08] bg-background/60 p-3.5">
+                                    <div className="rounded-2xl border border-line bg-surface-card p-3.5">
                                         <p className="font-mono text-[9px] uppercase tracking-wider text-ink/50">Specialty</p>
                                         <p className="mt-1 font-display text-sm font-bold text-accent">Full Stack & AI</p>
                                     </div>
@@ -314,14 +304,14 @@ export default function AbhijithPAPage() {
                     <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
                         {highlights.map((stat, idx) => (
                             <FadeIn key={stat.label} delay={idx * 0.08}>
-                                <div className="surface rounded-3xl p-5 sm:p-6 border border-white/[0.08] hover:border-accent/40 transition-colors shadow-glow-sm">
+                                <div className="surface surface-hover rounded-3xl p-5 sm:p-6 shadow-card">
                                     <div className="flex items-center justify-between">
                                         <p className="font-display text-3xl sm:text-4xl font-black text-ink">
                                             {stat.number}
                                         </p>
                                         <Flame className="h-5 w-5 text-accent" />
                                     </div>
-                                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.24em] text-accent font-semibold">
+                                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.3em] text-accent font-semibold">
                                         {stat.label}
                                     </p>
                                     <p className="font-mono text-[9px] text-ink/50 mt-0.5">
@@ -335,16 +325,16 @@ export default function AbhijithPAPage() {
             </section>
 
             {/* TECHNICAL CAPABILITIES MATRIX */}
-            <section className="py-20 sm:py-28 border-b border-white/[0.06]">
+            <section className="py-20 sm:py-24 lg:py-32 border-b border-line">
                 <div className="container-width">
                     <div className="mb-12">
-                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                        <div className="section-eyebrow mb-4 flex items-center gap-2 text-[10px] tracking-[0.3em]">
                             <Sparkles className="h-3 w-3" />
                             Core Competencies
                         </div>
-                        <h2 className="font-display text-[clamp(2.2rem,6vw,3.8rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink">
+                        <h2 className="font-display text-[clamp(2.2rem,6vw,3.8rem)] font-bold uppercase leading-[0.95] tracking-tight text-ink">
                             <span className="block">ENGINEERED FOR</span>
-                            <span className="block text-accent">SCALE & RELIABILITY.</span>
+                            <span className="display-serif-italic block text-accent">SCALE & RELIABILITY.</span>
                         </h2>
                     </div>
 
@@ -365,7 +355,7 @@ export default function AbhijithPAPage() {
                                                 {domain.techs.map((t) => (
                                                     <span
                                                         key={t}
-                                                        className="inline-flex items-center rounded-lg border border-white/[0.08] bg-background/80 px-2.5 py-1 font-mono text-[10px] text-ink/80"
+                                                        className="inline-flex items-center rounded-lg border border-line bg-surface-card px-2.5 py-1 font-mono text-[10px] text-ink-muted"
                                                     >
                                                         {t}
                                                     </span>
@@ -381,24 +371,24 @@ export default function AbhijithPAPage() {
             </section>
 
             {/* CAREER MILESTONES & HISTORY */}
-            <section className="py-20 sm:py-28 border-b border-white/[0.06]">
+            <section className="py-20 sm:py-24 lg:py-32 border-b border-line">
                 <div className="container-width">
                     <div className="mb-12">
-                        <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                        <div className="section-eyebrow mb-4 flex items-center gap-2 text-[10px] tracking-[0.3em]">
                             <Briefcase className="h-3 w-3" />
                             Work Track Record
                         </div>
-                        <h2 className="font-display text-[clamp(2.2rem,6vw,3.8rem)] font-extrabold uppercase leading-[0.9] tracking-tight text-ink">
+                        <h2 className="font-display text-[clamp(2.2rem,6vw,3.8rem)] font-bold uppercase leading-[0.95] tracking-tight text-ink">
                             <span className="block">PROVEN LEADERSHIP</span>
-                            <span className="block text-accent">& INDUSTRY EXPERIENCE.</span>
+                            <span className="display-serif-italic block text-accent">& INDUSTRY EXPERIENCE.</span>
                         </h2>
                     </div>
 
                     <div className="space-y-6">
                         {careerMilestones.map((m, idx) => (
                             <FadeIn key={m.company} delay={idx * 0.08}>
-                                <div className="surface rounded-3xl p-6 sm:p-8 border border-white/[0.08] hover:border-accent/40 transition-all duration-300 shadow-glow-sm">
-                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.06] pb-4">
+                                <div className="surface surface-hover rounded-3xl p-6 sm:p-8 shadow-card">
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line pb-4">
                                         <div>
                                             <div className="flex items-center gap-3">
                                                 <h3 className="font-display text-xl font-bold text-ink">
@@ -411,7 +401,7 @@ export default function AbhijithPAPage() {
                                                     </span>
                                                 )}
                                             </div>
-                                            <p className="mt-1 font-mono text-xs font-semibold text-accent2">
+                                            <p className="mt-1 font-mono text-xs font-semibold text-accent">
                                                 {m.company}
                                             </p>
                                         </div>
@@ -428,7 +418,7 @@ export default function AbhijithPAPage() {
                                         {m.skills.map((s) => (
                                             <span
                                                 key={s}
-                                                className="inline-flex items-center gap-1 rounded-lg border border-white/[0.08] bg-background/80 px-2.5 py-1 font-mono text-[10px] text-ink/80"
+                                                className="inline-flex items-center gap-1 rounded-lg border border-line bg-surface-card px-2.5 py-1 font-mono text-[10px] text-ink-muted"
                                             >
                                                 <CheckCircle2 className="h-3 w-3 text-accent" />
                                                 {s}
@@ -443,22 +433,22 @@ export default function AbhijithPAPage() {
             </section>
 
             {/* INTERACTIVE MEDIA GALLERY */}
-            <section className="py-20 sm:py-28 border-b border-white/[0.06]">
+            <section className="py-20 sm:py-24 lg:py-32 border-b border-line">
                 <div className="container-width">
                     <PhotoGallery />
                 </div>
             </section>
 
             {/* HIGH CONVERTING CALL TO ACTION */}
-            <section className="py-24 sm:py-32">
+            <section className="py-20 sm:py-24 lg:py-32">
                 <div className="container-width">
-                    <div className="surface relative overflow-hidden rounded-[3rem] p-8 sm:p-14 border border-white/15 text-center shadow-glow">
+                    <div className="surface relative overflow-hidden rounded-[3rem] p-8 sm:p-14 text-center shadow-soft">
                         <div className="relative z-10 max-w-2xl mx-auto">
-                            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3.5 py-1.5 text-xs font-mono uppercase tracking-[0.24em] text-accent mb-6">
+                            <div className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-accent mb-6">
                                 <Send className="h-3.5 w-3.5" />
                                 Collaboration & Inquiries
                             </div>
-                            <h2 className="font-display text-3xl sm:text-5xl font-black uppercase leading-tight text-ink">
+                            <h2 className="font-display text-3xl sm:text-5xl font-bold uppercase leading-tight text-ink">
                                 HAVE A VISION FOR YOUR PRODUCT?
                             </h2>
                             <p className="mt-4 text-sm sm:text-base leading-relaxed text-ink/75">
@@ -468,7 +458,7 @@ export default function AbhijithPAPage() {
                             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
                                 <Link
                                     href="/contact"
-                                    className="hero-btn-primary inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold tracking-tight shadow-glow-sm w-full sm:w-auto"
+                                    className="btn-primary inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-sm font-semibold tracking-tight w-full sm:w-auto"
                                 >
                                     <span>Get in Touch with Abhijith</span>
                                     <ArrowRight className="h-4 w-4" />
@@ -477,7 +467,7 @@ export default function AbhijithPAPage() {
                                     href="https://wa.me/919961316468?text=Hi%20Abhijith,%20I'd%20like%20to%20discuss%20a%20project"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hero-btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold w-full sm:w-auto"
+                                    className="btn-ghost inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold w-full sm:w-auto"
                                 >
                                     <span>WhatsApp Chat</span>
                                 </a>

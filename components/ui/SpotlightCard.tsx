@@ -11,7 +11,7 @@ type SpotlightCardProps = {
 export function SpotlightCard({
     children,
     className = "",
-    spotlightColor = "rgba(255, 46, 81, 0.18)",
+    spotlightColor = "rgba(198, 242, 78, 0.10)",
 }: SpotlightCardProps) {
     const divRef = useRef<HTMLDivElement>(null);
     const [isFocused, setIsFocused] = useState(false);
@@ -51,7 +51,7 @@ export function SpotlightCard({
             onBlur={handleBlur}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-6 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:shadow-glow-sm ${className}`}
+            className={`relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-[3px] hover:border-line2 hover:shadow-card ${className}`}
         >
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300"

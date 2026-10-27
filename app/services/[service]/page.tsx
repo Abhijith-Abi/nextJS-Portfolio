@@ -141,25 +141,24 @@ export default async function ServicePage({ params }: PageProps) {
     ];
 
     return (
-        <main className="min-h-screen bg-canvas text-canvas-fg selection:bg-accent selection:text-black font-sans">
+        <main className="relative min-h-screen bg-background text-ink selection:bg-accent selection:text-white font-sans">
             <JsonLd data={jsonLdData} />
 
             <Navbar />
 
             {/* ─── Hero Header ─── */}
-            <section className="relative pt-32 pb-20 overflow-hidden border-b border-border/40">
-                <div className="absolute inset-0 bg-radial-glow opacity-30 pointer-events-none" />
+            <section className="relative pt-32 pb-16 sm:pb-20 overflow-hidden border-b border-line">
                 <div className="container-width relative z-10">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-xs font-mono mb-6">
-                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                        Services / {item.serviceName}
+                    <div className="inline-flex items-center gap-2.5 mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-pulse" />
+                        <span className="section-eyebrow">Services / {item.serviceName}</span>
                     </div>
 
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground max-w-4xl leading-[1.15] mb-6">
+                    <h1 className="font-display font-bold tracking-tight text-ink max-w-4xl leading-[0.98] text-[clamp(2.25rem,6.5vw,5.5rem)] mb-6">
                         {item.h1}
                     </h1>
 
-                    <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-8">
+                    <p className="text-lg sm:text-xl text-ink-muted max-w-3xl leading-relaxed mb-8">
                         {item.metaDescription}
                     </p>
 
@@ -167,7 +166,7 @@ export default async function ServicePage({ params }: PageProps) {
                         <Link
                             href="https://wa.me/919961316468?text=Hi%20Algobiz,%20I'm%20interested%20in%20"
                             target="_blank"
-                            className="px-6 py-3.5 rounded-xl bg-accent text-black font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-accent/20"
+                            className="btn-primary px-6 py-3.5 text-sm flex items-center gap-2"
                         >
                             <span>Hire Algobiz Engineers</span>
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -176,7 +175,7 @@ export default async function ServicePage({ params }: PageProps) {
                         </Link>
                         <Link
                             href="/contact"
-                            className="px-6 py-3.5 rounded-xl border border-border bg-card hover:bg-muted text-foreground font-semibold text-sm transition-all"
+                            className="btn-ghost px-6 py-3.5 text-sm font-semibold"
                         >
                             Get Custom Estimate
                         </Link>
@@ -186,30 +185,30 @@ export default async function ServicePage({ params }: PageProps) {
 
             {/* ─── Featured Answer & AI Overview Box ─── */}
             <SectionWrapper id="summary" index="01" label="Overview & Architecture">
-                <div className="p-6 sm:p-8 rounded-3xl border border-accent/30 bg-accent/5 backdrop-blur-md mb-12">
-                    <h2 className="text-xl sm:text-2xl font-bold mb-3">
+                <div className="p-6 sm:p-8 rounded-3xl border border-line2 bg-accent/5 mb-12">
+                    <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-ink mb-3">
                         {item.h2List[0]}
                     </h2>
-                    <p className="text-sm sm:text-base text-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-ink leading-relaxed">
                         {item.featuredSnippetAnswer}
                     </p>
                 </div>
 
-                <div className="prose prose-invert max-w-none space-y-8">
+                <div className="max-w-none space-y-8">
                     <div>
-                        <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink mb-4">
                             {item.h2List[1]}
                         </h2>
-                        <p className="text-base text-muted-foreground leading-relaxed">
+                        <p className="text-base text-ink-muted leading-relaxed">
                             {item.introContent}
                         </p>
                     </div>
 
-                    <div className="p-8 rounded-2xl border border-border/60 bg-card/40">
-                        <h3 className="text-xl font-bold text-foreground mb-3">
+                    <div className="p-6 sm:p-8 rounded-2xl border border-line bg-surface">
+                        <h3 className="text-xl font-bold tracking-tight text-ink mb-3">
                             {item.h3List[0]}
                         </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-sm text-ink-muted leading-relaxed">
                             {item.architectureContent}
                         </p>
                     </div>
@@ -219,18 +218,18 @@ export default async function ServicePage({ params }: PageProps) {
             {/* ─── Frequently Asked Questions ─── */}
             <SectionWrapper id="faq" index="02" label="Technical FAQs">
                 <div className="mb-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink mb-3">
                         {item.h2List[6]}
                     </h2>
                 </div>
 
                 <div className="space-y-4 max-w-4xl">
                     {item.faqs.map((faq, idx) => (
-                        <div key={idx} className="p-6 rounded-2xl border border-border/60 bg-card/60">
-                            <h3 className="text-lg font-bold text-foreground mb-2">
+                        <div key={idx} className="p-6 rounded-2xl bento-card">
+                            <h3 className="text-lg font-bold tracking-tight text-ink mb-2">
                                 {faq.question}
                             </h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
+                            <p className="text-sm text-ink-muted leading-relaxed">
                                 {faq.answer}
                             </p>
                         </div>
@@ -239,25 +238,25 @@ export default async function ServicePage({ params }: PageProps) {
             </SectionWrapper>
 
             {/* ─── CTA ─── */}
-            <section className="py-20 border-t border-border/40 bg-card/20">
+            <section className="py-20 sm:py-24 lg:py-32 border-t border-line">
                 <div className="container-width text-center max-w-3xl">
-                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                    <h2 className="font-display font-bold tracking-tight text-ink text-3xl sm:text-4xl mb-4">
                         Ready to Build Your {item.serviceName} Project?
                     </h2>
-                    <p className="text-muted-foreground text-base mb-8">
+                    <p className="text-ink-muted text-base mb-8">
                         Connect with our engineering team at Algobiz Innovations LLP for technical consultation and cost estimates.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link
                             href="https://wa.me/919961316468?text=Hi%20Algobiz,%20I'd%20like%20to%20discuss%20"
                             target="_blank"
-                            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-accent text-black font-semibold text-sm sm:text-base hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-xl shadow-accent/20"
+                            className="btn-primary w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base flex items-center justify-center gap-2"
                         >
                             <span>WhatsApp Consultation (+91 9961316468)</span>
                         </Link>
                         <Link
                             href="/contact"
-                            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl border border-border bg-card hover:bg-muted text-foreground font-semibold text-sm sm:text-base transition-all flex items-center justify-center"
+                            className="btn-ghost w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold flex items-center justify-center"
                         >
                             Contact Form
                         </Link>

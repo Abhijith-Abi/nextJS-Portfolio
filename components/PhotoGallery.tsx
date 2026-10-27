@@ -32,9 +32,9 @@ export function PhotoGallery() {
     };
 
     return (
-        <section id="gallery" className="relative py-16 sm:py-20">
+        <section id="gallery" className="relative">
             {/* Header */}
-            <div className="mb-10 sm:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="mb-12 sm:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
                     <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
                         <Camera className="h-3 w-3" />
@@ -52,7 +52,7 @@ export function PhotoGallery() {
                 </div>
 
                 {/* Filter Pills */}
-                <div className="flex flex-wrap gap-1.5 p-1 rounded-2xl bg-surface/80 border border-white/[0.08] backdrop-blur-md">
+                <div className="flex flex-wrap gap-1.5 p-1 rounded-2xl bg-surface/80 border border-line backdrop-blur-md">
                     {categories.map((cat) => (
                         <button
                             key={cat}
@@ -64,7 +64,7 @@ export function PhotoGallery() {
                             className={`rounded-xl px-3.5 py-1.5 font-mono text-xs transition-all duration-200 cursor-pointer ${
                                 activeCategory === cat
                                     ? "bg-accent text-white font-semibold shadow-glow-sm"
-                                    : "text-ink/60 hover:text-ink hover:bg-white/[0.05]"
+                                    : "text-ink/60 hover:text-ink hover:bg-ink/[0.05]"
                             }`}
                         >
                             {cat}
@@ -81,7 +81,7 @@ export function PhotoGallery() {
                             itemScope
                             itemType="https://schema.org/ImageObject"
                             onClick={() => setSelectedPhotoIndex(idx)}
-                            className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/[0.08] bg-surface transition-all duration-300 hover:border-accent/50 hover:shadow-glow-sm"
+                            className="group relative cursor-pointer overflow-hidden rounded-3xl border border-line bg-surface transition-all duration-300 hover:border-accent/50 hover:shadow-card"
                         >
                             <meta itemProp="contentUrl" content={photo.src} />
                             <meta itemProp="name" content={photo.title} />

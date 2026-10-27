@@ -286,7 +286,7 @@ export default function WebDeveloperWayanadPage() {
             <div className="pt-24">
                 <SectionWrapper id="web-developer-wayanad">
                     <article className="mx-auto max-w-3xl">
-                        <h1 className="font-display text-[clamp(1.8rem,5vw,3.5rem)] font-extrabold leading-[0.95] tracking-tight text-ink">
+                        <h1 className="font-display text-[clamp(1.8rem,5vw,3.5rem)] font-bold leading-[0.95] tracking-tight text-ink">
                             Best Web Developer in Wayanad
                         </h1>
                         <p className="mt-3 font-mono text-sm uppercase tracking-wide text-accent">
@@ -296,7 +296,7 @@ export default function WebDeveloperWayanadPage() {
                         <div className="mt-8 space-y-5 text-base leading-relaxed text-ink/80 lg:text-lg">
                             <p>
                                 Looking for the <strong>best web developer in Wayanad</strong>?{" "}
-                                <Link href="/abhijith-pa" className="text-accent hover:underline">
+                                <Link href="/abhijith-pa" className="text-accent link-underline">
                                     Abhijith P A
                                 </Link>{" "}
                                 is a Full Stack Developer and AI Engineer based in Wayanad, Kerala
@@ -306,7 +306,7 @@ export default function WebDeveloperWayanadPage() {
                             </p>
                             <p>
                                 As the lead developer at{" "}
-                                <Link href="/algobiz" className="text-accent hover:underline">
+                                <Link href="/algobiz" className="text-accent link-underline">
                                     AlgoBiz
                                 </Link>
                                 , he delivers custom website development, web applications,
@@ -469,7 +469,7 @@ export default function WebDeveloperWayanadPage() {
                             <p><strong>Tegain</strong> — Community platform with recruitment features</p>
                         </div>
 
-                        <div className="mt-12 rounded-2xl border border-accent/20 bg-accent/5 p-6 sm:p-8">
+                        <div className="mt-12 rounded-2xl border border-line bg-surface-card p-6 sm:p-8 shadow-card">
                             <h3 className="font-display text-xl font-bold text-ink">
                                 Ready to build your website?
                             </h3>
@@ -480,13 +480,13 @@ export default function WebDeveloperWayanadPage() {
                             <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                                 <a
                                     href="tel:+919961316468"
-                                    className="btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold text-center"
+                                    className="btn-primary px-5 py-2.5 text-sm font-semibold text-center"
                                 >
                                     Call: +91 99613 16468
                                 </a>
                                 <Link
                                     href="/contact"
-                                    className="btn-ghost rounded-xl px-5 py-2.5 text-sm font-medium text-center"
+                                    className="btn-ghost px-5 py-2.5 text-sm font-medium text-center"
                                 >
                                     Send a Message
                                 </Link>

@@ -1,16 +1,33 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
 
 /**
- * Cyber-Crimson Blob cursor with smooth spring physics & interactive state expansion.
+ * Orbit cursor — a lime probe.
+ * A small solid core rides the pointer exactly; a hairline lime ring trails
+ * behind it on a spring with a tiny satellite orbiting the ring; a wide
+ * soft lime spotlight breathes beneath everything (Aceternity-style mouse
+ * spotlight, page-wide). Grows on interactive elements.
  */
 export function CursorFollower() {
-    const blobRef = useRef<HTMLDivElement>(null);
-    const dotRef = useRef<HTMLDivElement>(null);
     const [enabled, setEnabled] = useState(false);
     const [hovering, setHovering] = useState(false);
+
+    const mx = useMotionValue(-200);
+    const my = useMotionValue(-200);
+
+    // Core rides the pointer almost 1:1.
+    const coreX = useSpring(mx, { stiffness: 1400, damping: 60, mass: 0.3 });
+    const coreY = useSpring(my, { stiffness: 1400, damping: 60, mass: 0.3 });
+
+    // Ring trails behind.
+    const ringX = useSpring(mx, { stiffness: 320, damping: 30, mass: 0.7 });
+    const ringY = useSpring(my, { stiffness: 320, damping: 30, mass: 0.7 });
+
+    // Spotlight drifts lazily.
+    const glowX = useSpring(mx, { stiffness: 90, damping: 24, mass: 1.1 });
+    const glowY = useSpring(my, { stiffness: 90, damping: 24, mass: 1.1 });
 
     useEffect(() => {
         const finePointer = window.matchMedia(
@@ -24,61 +41,16 @@ export function CursorFollower() {
 
     useEffect(() => {
         if (!enabled) return;
-
-        const blob = blobRef.current;
-        const dot = dotRef.current;
-        if (!blob || !dot) return;
-
-        const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        const pos = { x: mouse.x, y: mouse.y };
-
-        gsap.set([blob, dot], { xPercent: -50, yPercent: -50, opacity: 0 });
-        const setDotX = gsap.quickSetter(dot, "x", "px");
-        const setDotY = gsap.quickSetter(dot, "y", "px");
-
-        let visible = false;
-
         const onMove = (e: PointerEvent) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-            (setDotX as any)(e.clientX);
-            (setDotY as any)(e.clientY);
-
-            if (!visible) {
-                visible = true;
-                gsap.to([blob, dot], { opacity: 1, duration: 0.3 });
-            }
+            mx.set(e.clientX);
+            my.set(e.clientY);
         };
+        window.addEventListener("pointermove", onMove);
+        return () => window.removeEventListener("pointermove", onMove);
+    }, [enabled, mx, my]);
 
-        const tick = () => {
-            const dx = mouse.x - pos.x;
-            const dy = mouse.y - pos.y;
-
-            const ease = 0.2;
-            pos.x += dx * ease;
-            pos.y += dy * ease;
-
-            const vx = dx * ease;
-            const vy = dy * ease;
-            const speed = Math.sqrt(vx * vx + vy * vy);
-
-            const angle = (Math.atan2(vy, vx) * 180) / Math.PI;
-
-            const stretch = Math.min(speed / 28, 0.65);
-            const scaleX = 1 + stretch;
-            const scaleY = 1 - stretch * 0.5;
-
-            gsap.set(blob, {
-                x: pos.x,
-                y: pos.y,
-                rotation: angle,
-                scaleX,
-                scaleY,
-            });
-        };
-
-        const ticker = gsap.ticker.add(tick);
-
+    useEffect(() => {
+        if (!enabled) return;
         const interactiveSel =
             'a, button, input, textarea, select, [role="button"], [data-cursor="hover"]';
         const onOver = (e: MouseEvent) => {
@@ -92,82 +64,88 @@ export function CursorFollower() {
                 if (!r || !r.closest(interactiveSel)) setHovering(false);
             }
         };
-
-        const onLeaveWindow = () => {
-            visible = false;
-            gsap.to([blob, dot], { opacity: 0, duration: 0.2 });
-        };
-        const onEnterWindow = () => {
-            visible = true;
-            gsap.to([blob, dot], { opacity: 1, duration: 0.2 });
-        };
-
-        window.addEventListener("pointermove", onMove);
         window.addEventListener("mouseover", onOver);
         window.addEventListener("mouseout", onOut);
-        document.addEventListener("mouseleave", onLeaveWindow);
-        document.addEventListener("mouseenter", onEnterWindow);
-
         return () => {
-            gsap.ticker.remove(ticker);
-            window.removeEventListener("pointermove", onMove);
             window.removeEventListener("mouseover", onOver);
             window.removeEventListener("mouseout", onOut);
-            document.removeEventListener("mouseleave", onLeaveWindow);
-            document.removeEventListener("mouseenter", onEnterWindow);
         };
     }, [enabled]);
-
-    useEffect(() => {
-        const blob = blobRef.current;
-        if (!blob) return;
-        gsap.to(blob, {
-            width: hovering ? 68 : 38,
-            height: hovering ? 68 : 38,
-            backgroundColor: hovering
-                ? "rgba(47, 107, 255, 0.35)"
-                : "rgba(47, 107, 255, 0.18)",
-            boxShadow: hovering
-                ? "0 0 32px rgba(47, 107, 255, 0.5), inset 0 0 16px rgba(96, 165, 250, 0.4)"
-                : "0 0 20px rgba(47, 107, 255, 0.25), inset 0 0 10px rgba(96, 165, 250, 0.2)",
-            duration: 0.3,
-            ease: "power3.out",
-        });
-    }, [hovering]);
 
     if (!enabled) return null;
 
     return (
         <>
-            <div
-                ref={blobRef}
+            {/* Page-wide mouse spotlight */}
+            <motion.div
                 aria-hidden
-                className="pointer-events-none fixed left-0 top-0 z-[200] hidden lg:block"
+                className="pointer-events-none fixed left-0 top-0 z-[90] hidden h-[560px] w-[560px] lg:block"
                 style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: "9999px",
-                    background: "rgba(47, 107, 255, 0.18)",
-                    filter: "blur(1.5px)",
-                    boxShadow:
-                        "0 0 20px rgba(47, 107, 255, 0.25), inset 0 0 10px rgba(96, 165, 250, 0.2)",
-                    willChange: "transform, width, height",
+                    x: glowX,
+                    y: glowY,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                    background:
+                        "radial-gradient(circle, rgba(198,242,78,0.07) 0%, rgba(198,242,78,0.03) 35%, transparent 70%)",
                     mixBlendMode: "screen",
                 }}
             />
-            <div
-                ref={dotRef}
+
+            {/* Trailing ring + orbiting satellite */}
+            <motion.div
+                aria-hidden
+                className="pointer-events-none fixed left-0 top-0 z-[200] hidden lg:block"
+                style={{ x: ringX, y: ringY, translateX: "-50%", translateY: "-50%" }}
+            >
+                <motion.div
+                    animate={{
+                        width: hovering ? 64 : 34,
+                        height: hovering ? 64 : 34,
+                        borderColor: hovering
+                            ? "rgba(198,242,78,0.9)"
+                            : "rgba(245,245,243,0.55)",
+                        backgroundColor: hovering
+                            ? "rgba(198,242,78,0.10)"
+                            : "rgba(198,242,78,0)",
+                    }}
+                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative flex items-center justify-center rounded-full border"
+                    style={{
+                        boxShadow: hovering
+                            ? "0 0 28px rgba(198,242,78,0.25)"
+                            : "0 0 14px rgba(198,242,78,0.10)",
+                    }}
+                >
+                    {/* orbiting satellite */}
+                    <motion.div
+                        className="absolute inset-[-9px]"
+                        animate={{ rotate: hovering ? 45 : 360 }}
+                        transition={{
+                            duration: 3.2,
+                            ease: "linear",
+                            repeat: Infinity,
+                        }}
+                    >
+                        <span className="absolute left-1/2 top-0 h-[5px] w-[5px] -translate-x-1/2 rounded-full bg-accent" />
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+
+            {/* Precise core */}
+            <motion.div
                 aria-hidden
                 className="pointer-events-none fixed left-0 top-0 z-[201] hidden lg:block"
-                style={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "9999px",
-                    background: "#2f6bff",
-                    boxShadow: "0 0 14px rgba(47, 107, 255, 0.95)",
-                    willChange: "transform",
-                }}
-            />
+                style={{ x: coreX, y: coreY, translateX: "-50%", translateY: "-50%" }}
+            >
+                <motion.span
+                    animate={{
+                        scale: hovering ? 0.4 : 1,
+                        opacity: hovering ? 0.85 : 1,
+                    }}
+                    transition={{ duration: 0.2 }}
+                    className="block h-[6px] w-[6px] rounded-full bg-accent shadow-[0_0_10px_rgba(198,242,78,0.8)]"
+                />
+            </motion.div>
         </>
     );
 }

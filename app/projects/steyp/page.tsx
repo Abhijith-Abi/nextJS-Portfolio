@@ -98,7 +98,7 @@ export default function SteypPage() {
                             <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">
                                 E-Learning · 2023
                             </p>
-                            <h1 className="mt-4 font-display text-[clamp(2.2rem,7vw,4.5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-ink">
+                            <h1 className="mt-4 font-display text-[clamp(2.2rem,7vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-tight text-ink">
                                 Steyp
                             </h1>
                             <p className="mt-4 text-lg leading-relaxed text-ink/70 lg:text-xl">
@@ -110,7 +110,7 @@ export default function SteypPage() {
                                 href="https://steyp.com/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-6 inline-flex items-center gap-2 font-mono text-sm text-accent transition hover:underline"
+                                className="mt-6 inline-flex items-center gap-2 font-mono text-sm text-accent link-underline"
                             >
                                 Visit Live Site →
                             </a>
@@ -188,7 +188,7 @@ export default function SteypPage() {
                                 ].map((r) => (
                                     <div
                                         key={r.label}
-                                        className="surface rounded-2xl p-5"
+                                        className="surface rounded-2xl p-5 shadow-card"
                                     >
                                         <p className="font-display text-3xl font-extrabold text-accent">
                                             {r.metric}

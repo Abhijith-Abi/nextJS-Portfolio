@@ -221,14 +221,14 @@ export function CommandPalette() {
                 <button
                     type="button"
                     onClick={toggleOpen}
-                    className="group flex items-center gap-2 sm:gap-2.5 rounded-full border border-white/15 bg-[#0e121d]/90 px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs font-mono text-ink shadow-glow backdrop-blur-2xl transition-all duration-300 hover:border-accent hover:bg-accent/15 hover:shadow-glow-blue hover:scale-105"
+                    className="group flex items-center gap-2 sm:gap-2.5 rounded-full border border-accent bg-accent px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs font-mono text-background shadow-soft backdrop-blur-2xl transition-all duration-300 hover:border-accent2 hover:bg-accent2 hover:scale-105"
                     aria-label="Open Command Menu (⌘K)"
                 >
-                    <span className="flex h-5 w-5 items-center justify-center rounded-lg bg-accent/25 text-accent font-bold text-[11px] shadow-sm">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-lg bg-background/15 text-background font-bold text-[11px]">
                         ⌘
                     </span>
-                    <span className="hidden sm:inline text-ink/80 group-hover:text-white font-medium">Command Menu</span>
-                    <span className="rounded-md border border-white/10 bg-white/10 px-1.5 py-0.5 text-[10px] text-ink/70 font-mono">K</span>
+                    <span className="hidden sm:inline text-background/80 group-hover:text-background font-medium">Command Menu</span>
+                    <span className="rounded-md border border-background/25 bg-background/15 px-1.5 py-0.5 text-[10px] text-background/80 font-mono">K</span>
                 </button>
             </div>
 

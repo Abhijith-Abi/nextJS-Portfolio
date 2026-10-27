@@ -131,32 +131,31 @@ export default async function LocationPage({ params }: PageProps) {
     ];
 
     return (
-        <main className="min-h-screen bg-canvas text-canvas-fg selection:bg-accent selection:text-black font-sans">
+        <main className="min-h-screen bg-background text-ink selection:bg-accent selection:text-background font-sans">
             <JsonLd data={jsonLdData} />
 
             <Navbar />
 
             {/* ─── Hero Header ─── */}
-            <section className="relative pt-32 pb-20 overflow-hidden border-b border-border/40">
-                <div className="absolute inset-0 bg-radial-glow opacity-30 pointer-events-none" />
+            <section className="relative pt-32 pb-20 overflow-hidden border-b border-line">
                 <div className="container-width relative z-10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-xs font-mono mb-6">
-                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-line bg-surface-card text-accent font-mono text-[10px] uppercase tracking-[0.3em] mb-6">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
                         Locations / {loc.shortName}
                     </div>
 
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground max-w-4xl leading-[1.15] mb-6">
+                    <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink max-w-4xl leading-[1.05] mb-6">
                         {loc.tagline}
                     </h1>
 
-                    <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-8">
+                    <p className="text-lg sm:text-xl text-ink-muted max-w-3xl leading-relaxed mb-8">
                         {loc.heroSubtitle}
                     </p>
 
                     <div className="flex flex-wrap gap-2 mb-10">
-                        <span className="text-xs text-muted-foreground py-1 font-mono uppercase tracking-wider">Nearby Towns & Cities:</span>
+                        <span className="text-xs font-mono text-[10px] text-ink-muted py-1 uppercase tracking-[0.3em]">Nearby Towns & Cities:</span>
                         {loc.nearbyCities.map((city) => (
-                            <span key={city} className="px-3 py-1 rounded-md bg-secondary text-secondary-foreground text-xs font-medium">
+                            <span key={city} className="px-3 py-1 rounded-md border border-line bg-surface-card text-xs font-medium text-ink-muted">
                                 {city}
                             </span>
                         ))}
@@ -166,13 +165,13 @@ export default async function LocationPage({ params }: PageProps) {
                         <Link
                             href="https://wa.me/919961316468?text=Hi%20Algobiz,%20I'm%20looking%20for%20a%20developer%20in%20"
                             target="_blank"
-                            className="px-6 py-3.5 rounded-xl bg-accent text-black font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-accent/20"
+                            className="btn-primary flex items-center gap-2 px-6 py-3.5 text-sm font-semibold"
                         >
                             <span>WhatsApp Consultation</span>
                         </Link>
                         <Link
                             href="/contact"
-                            className="px-6 py-3.5 rounded-xl border border-border bg-card hover:bg-muted text-foreground font-semibold text-sm transition-all"
+                            className="btn-ghost px-6 py-3.5 text-sm font-semibold"
                         >
                             Get Free Proposal
                         </Link>
@@ -183,30 +182,30 @@ export default async function LocationPage({ params }: PageProps) {
             {/* ─── Services in Location ─── */}
             <SectionWrapper id="services" index="01" label={`Services in ${loc.shortName}`}>
                 <div className="mb-10">
-                    <h2 className="text-3xl font-bold mb-3">
+                    <h2 className="font-display text-3xl font-bold text-ink mb-3">
                         Software & Web Engineering in {loc.shortName}
                     </h2>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-muted">
                         Custom software development, ERP, SaaS, mobile apps, and Next.js web applications tailored for enterprises in {loc.district}.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="p-6 rounded-2xl border border-border/60 bg-card/50">
-                        <h3 className="text-lg font-bold mb-2">Web & SaaS Development</h3>
-                        <p className="text-sm text-muted-foreground">
+                    <div className="p-6 rounded-2xl border border-line bg-surface-card shadow-card">
+                        <h3 className="text-lg font-bold text-ink mb-2">Web & SaaS Development</h3>
+                        <p className="text-sm text-ink-muted">
                             Fast, responsive Next.js and React web applications built to rank #1 on Google in {loc.shortName}.
                         </p>
                     </div>
-                    <div className="p-6 rounded-2xl border border-border/60 bg-card/50">
-                        <h3 className="text-lg font-bold mb-2">Custom ERP & CRM Software</h3>
-                        <p className="text-sm text-muted-foreground">
+                    <div className="p-6 rounded-2xl border border-line bg-surface-card shadow-card">
+                        <h3 className="text-lg font-bold text-ink mb-2">Custom ERP & CRM Software</h3>
+                        <p className="text-sm text-ink-muted">
                             Tailored Django and Python business platforms, inventory management, and lead tracking for {loc.shortName} companies.
                         </p>
                     </div>
-                    <div className="p-6 rounded-2xl border border-border/60 bg-card/50">
-                        <h3 className="text-lg font-bold mb-2">AI & Mobile Apps</h3>
-                        <p className="text-sm text-muted-foreground">
+                    <div className="p-6 rounded-2xl border border-line bg-surface-card shadow-card">
+                        <h3 className="text-lg font-bold text-ink mb-2">AI & Mobile Apps</h3>
+                        <p className="text-sm text-ink-muted">
                             Intelligent AI chatbots, RAG search engines, and cross-platform React Native / Flutter apps.
                         </p>
                     </div>
@@ -216,18 +215,18 @@ export default async function LocationPage({ params }: PageProps) {
             {/* ─── Local FAQs ─── */}
             <SectionWrapper id="faq" index="02" label="Local FAQs">
                 <div className="mb-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+                    <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink mb-3">
                         Frequently Asked Questions ({loc.shortName})
                     </h2>
                 </div>
 
                 <div className="space-y-4 max-w-4xl">
                     {loc.faqs.map((faq, idx) => (
-                        <div key={idx} className="p-5 sm:p-6 rounded-2xl border border-border/60 bg-card/60">
-                            <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
+                        <div key={idx} className="p-5 sm:p-6 rounded-2xl border border-line bg-surface-card shadow-card">
+                            <h3 className="text-base sm:text-lg font-bold text-ink mb-2">
                                 {faq.question}
                             </h3>
-                            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                            <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
                                 {faq.answer}
                             </p>
                         </div>

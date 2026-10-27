@@ -37,11 +37,11 @@ export const viewport = {
 export const metadata: Metadata = {
     metadataBase: new URL("https://abisolutions.online"),
     title: {
-        default: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
+        default: "Abhijith P A — Web Developer in Wayanad, Kerala | Full Stack & AI Engineer | Abi Solutions",
         template: "%s | Abhijith P A",
     },
     description:
-        "Abhijith P A is a Full Stack Developer & AI Engineer, Founder of Abi Solutions, Kerala, India. React, Next.js, Django, AWS, ERP, SaaS & AI automation.",
+        "Hire Abhijith P A (Abi Solutions) — the best web developer in Wayanad, Kerala. Full Stack Developer & AI Engineer building React & Next.js websites, ERP systems, SaaS platforms and AI automation. Serving Kalpetta, Sulthan Bathery, Mananthavady, Kozhikode, Kochi & remote worldwide.",
     keywords: [
         "Abhijith P A",
         "Abhijith PA",
@@ -126,9 +126,9 @@ export const metadata: Metadata = {
         locale: "en_US",
         url: "https://abisolutions.online",
         siteName: "Abhijith P A — Abi Solutions",
-        title: "Abhijith P A | Full Stack Developer & AI Engineer | Founder of Abi Solutions",
+        title: "Abhijith P A | Web Developer in Wayanad, Kerala | Founder of Abi Solutions",
         description:
-            "Full Stack Developer from Wayanad, Kerala. Founder of Abi Solutions. Ex-Steyp, Tegain & Ribos. Building ERP, SaaS, AI automation & web products with React, Next.js, Django & AWS.",
+            "Best web developer in Wayanad, Kerala. Founder of Abi Solutions. Building custom websites, ERP, SaaS & AI automation for businesses in Kalpetta, Sulthan Bathery, Mananthavady, Kozhikode & across Kerala. React, Next.js, Django & AWS.",
         images: [
             {
                 url: "https://abisolutions.online/og-image.jpg",
@@ -150,9 +150,9 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@abhijith",
         creator: "@abhijith",
-        title: "Abhijith P A | Full Stack Developer & AI Engineer | Founder of Abi Solutions",
+        title: "Abhijith P A | Web Developer in Wayanad, Kerala | Founder of Abi Solutions",
         description:
-            "Full Stack Developer from Wayanad, Kerala. Founder of Abi Solutions. Ex-Steyp, Tegain & Ribos. Building ERP, SaaS, AI automation & web products with React, Next.js, Django & AWS.",
+            "Best web developer in Wayanad, Kerala. Founder of Abi Solutions. Building custom websites, ERP, SaaS & AI automation for businesses in Kalpetta, Sulthan Bathery, Mananthavady, Kozhikode & across Kerala. React, Next.js, Django & AWS.",
         images: [
             {
                 url: "https://abisolutions.online/og-image.jpg",
@@ -213,6 +213,85 @@ const globalJsonLd = {
                 "@id": "https://abisolutions.online/#person",
             },
             inLanguage: "en",
+        },
+        {
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": "https://abisolutions.online/#localbusiness",
+            name: "Abi Solutions",
+            alternateName: [
+                "Abi Solutions Wayanad",
+                "Web Developer in Wayanad",
+                "Web Developer Wayanad",
+                "Website Development Wayanad",
+                "Software Company Wayanad",
+                "Freelance Web Developer Wayanad",
+            ],
+            url: "https://abisolutions.online",
+            description:
+                "Abi Solutions is a web development and software company in Wayanad, Kerala, founded by Abhijith P A. Custom website development, ERP systems, SaaS platforms, AI automation, ecommerce and mobile apps for businesses in Kalpetta, Sulthan Bathery, Mananthavady, Vythiri, Kozhikode, Kochi and remote worldwide.",
+            email: "abhijithabhijith1999@gmail.com",
+            telephone: "+919961316468",
+            priceRange: "₹₹",
+            image: "https://abisolutions.online/og-image.jpg",
+            logo: "https://abisolutions.online/icon-512.png",
+            founder: {
+                "@type": "Person",
+                "@id": "https://abisolutions.online/#person",
+            },
+            address: {
+                "@type": "PostalAddress",
+                addressLocality: "Wayanad",
+                addressRegion: "Kerala",
+                addressCountry: "IN",
+            },
+            geo: {
+                "@type": "GeoCoordinates",
+                latitude: 11.6854,
+                longitude: 76.132,
+            },
+            hasMap: "https://www.google.com/maps/place/Wayanad,+Kerala",
+            areaServed: [
+                { "@type": "Place", name: "Wayanad, Kerala" },
+                { "@type": "Place", name: "Kalpetta" },
+                { "@type": "Place", name: "Sulthan Bathery" },
+                { "@type": "Place", name: "Mananthavady" },
+                { "@type": "Place", name: "Vythiri" },
+                { "@type": "Place", name: "Meppadi" },
+                { "@type": "Place", name: "Kozhikode, Kerala" },
+                { "@type": "Place", name: "Kochi, Kerala" },
+                { "@type": "Place", name: "Kerala, India" },
+            ],
+            serviceType: [
+                "Website Development",
+                "Custom Web Application Development",
+                "Full Stack Development",
+                "React & Next.js Development",
+                "ERP Software Development",
+                "SaaS Platform Development",
+                "AI Automation & Chatbots",
+                "Ecommerce Development",
+                "Mobile App Development",
+                "SEO & Digital Presence",
+            ],
+            openingHoursSpecification: [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                    ],
+                    opens: "09:00",
+                    closes: "19:00",
+                },
+            ],
+            sameAs: [
+                "https://github.com/Abhijith-Abi",
+                "https://www.linkedin.com/in/abhijith-pa/",
+            ],
         },
         {
             "@type": "Person",

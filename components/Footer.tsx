@@ -51,8 +51,10 @@ export function Footer() {
                     </div>
                     <p className="mb-4 text-xs leading-relaxed text-ink-muted">
                         Custom software development, AI engineering, ERP
-                        solutions and full stack web engineering from Kerala,
-                        India. Founded by Abhijith P A.
+                        solutions and full stack web engineering from Wayanad,
+                        Kerala — serving Kalpetta, Sulthan Bathery,
+                        Mananthavady, Kozhikode, Kochi and remote clients
+                        worldwide. Founded by Abhijith P A.
                     </p>
                     <div className="space-y-2 font-mono text-xs text-ink-muted">
                         <p className="flex items-center gap-2">
@@ -143,6 +145,14 @@ export function Footer() {
                         Kerala Regional Hubs
                     </h4>
                     <ul className="space-y-2 text-xs text-ink-muted">
+                        <li>
+                            <Link
+                                href="/web-developer-wayanad"
+                                className="link-underline hover:text-ink"
+                            >
+                                Web Developer in Wayanad
+                            </Link>
+                        </li>
                         <li>
                             <Link
                                 href="/locations/wayanad"

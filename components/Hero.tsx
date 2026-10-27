@@ -64,9 +64,12 @@ export function Hero() {
 
                         <h1 className="w-full">
                             <span className="sr-only">
-                                Abhijith P A — Full Stack Developer &amp; AI
-                                Engineer, founder of Abi Solutions, Wayanad,
-                                Kerala
+                                Abhijith P A — web developer in Wayanad,
+                                Kerala. Full Stack Developer &amp; AI
+                                Engineer, founder of Abi Solutions. Building
+                                websites, ERP systems and AI automation for
+                                Kalpetta, Sulthan Bathery, Mananthavady,
+                                Kozhikode, Kochi and remote clients worldwide.
                             </span>
                             <span aria-hidden="true">
                                 <span className="reveal-mask block">
@@ -185,7 +188,7 @@ export function Hero() {
                             <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:h-[min(52vh,520px)]">
                                 <Image
                                     src="/photos/abhijith-pa-founder-portrait.jpg"
-                                    alt="Abhijith P A — Full Stack Developer & AI Engineer"
+                                    alt="Abhijith P A — web developer in Wayanad, Kerala | Full Stack Developer & AI Engineer"
                                     fill
                                     priority
                                     sizes="(max-width: 1024px) 90vw, 520px"

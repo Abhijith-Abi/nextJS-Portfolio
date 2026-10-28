@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight, MapPin, Terminal } from "lucide-react";
 import { AnimeCounter } from "./motion/AnimeCounter";
 import Marquee from "./ui/Marquee";
-import { MovingBorderButton } from "./ui/MovingBorder";
+import { MovingBorderInner } from "./ui/MovingBorder";
 
 /**
  * Hero — "portrait editorial" model.
@@ -37,10 +37,13 @@ const FIGURES = [
     { v: 100, suffix: "%", label: "Founder attention" },
 ];
 
-function scrollToSection(id: string) {
+/** Smooth-scroll for in-page anchors; the href still works without JS. */
+function smoothScroll(event: React.MouseEvent<HTMLAnchorElement>, id: string) {
     const el = document.getElementById(id);
     if (!el) return;
+    event.preventDefault();
     el.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", `#${id}`);
 }
 
 export function Hero() {
@@ -53,24 +56,20 @@ export function Hero() {
                 <div className="grid flex-1 items-center gap-10 py-8 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:py-8">
                     {/* LEFT — editorial founder block */}
                     <div className="flex min-w-0 flex-col items-start justify-center">
-                        <motion.p
+                        <motion.div
                             initial={{ opacity: 0, y: 14 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, ease, delay: 0.15 }}
                             className="section-eyebrow mb-5"
                         >
                             Founder · Lead Engineer
-                        </motion.p>
+                        </motion.div>
 
                         <h1 className="w-full">
                             <span className="sr-only">
-                                Abhijith P A — web developer in Wayanad,
-                                Kerala. Full Stack Developer &amp; AI
-                                Engineer, founder of Abi Solutions. Building
-                                websites, ERP systems and AI automation for
-                                Kalpetta, Sulthan Bathery, Mananthavady,
-                                Kozhikode, Kochi and remote clients worldwide.
-                            </span>
+                                Abhijith P A, web developer and AI engineer
+                                in Wayanad, Kerala.
+                            </span>{" "}
                             <span aria-hidden="true">
                                 <span className="reveal-mask block">
                                     <motion.span
@@ -85,7 +84,7 @@ export function Hero() {
                                     >
                                         ABHIJITH
                                     </motion.span>
-                                </span>
+                                </span>{" "}
                                 <span className="reveal-mask block">
                                     <motion.span
                                         initial={{ y: "110%" }}
@@ -100,7 +99,7 @@ export function Hero() {
                                         P A
                                         <span className="text-accent">.</span>
                                     </motion.span>
-                                </span>
+                                </span>{" "}
                                 <span className="reveal-mask mt-2 block">
                                     <motion.span
                                         initial={{ y: "110%" }}
@@ -119,17 +118,20 @@ export function Hero() {
                         </h1>
 
                         <motion.p
+                            id="hero-summary"
                             initial={{ opacity: 0, y: 18 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease, delay: 0.68 }}
                             className="mt-5 max-w-xl text-base leading-relaxed text-ink/70 sm:text-lg"
                         >
-                            ERP platforms, high-performance web applications
-                            and AI workflows that quietly run businesses —{" "}
+                            Abhijith P A is a full stack developer and AI
+                            engineer in Wayanad, Kerala, and the founder of{" "}
                             <strong className="font-semibold text-ink">
                                 Abi Solutions
                             </strong>
-                            , from Wayanad, Kerala to wherever the work goes.
+                            . He builds ERP platforms, fast web apps and AI
+                            workflows for businesses in Kerala and around the
+                            world.
                         </motion.p>
 
                         <motion.div
@@ -138,21 +140,24 @@ export function Hero() {
                             transition={{ duration: 0.8, ease, delay: 0.84 }}
                             className="mt-6 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:items-center"
                         >
-                            <button
-                                type="button"
-                                onClick={() => scrollToSection("projects")}
+                            <a
+                                href="#projects"
+                                onClick={(e) => smoothScroll(e, "projects")}
                                 className="btn-primary group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-sm"
                             >
                                 <span>View selected work</span>
                                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                            </button>
-                            <MovingBorderButton
-                                type="button"
-                                onClick={() => scrollToSection("contact")}
+                            </a>
+                            <a
+                                href="#contact"
+                                onClick={(e) => smoothScroll(e, "contact")}
+                                className="group relative inline-flex cursor-pointer overflow-hidden rounded-full p-px"
                             >
-                                <span>Start a commission</span>
-                                <ArrowUpRight className="h-4 w-4" />
-                            </MovingBorderButton>
+                                <MovingBorderInner>
+                                    <span>Start a commission</span>
+                                    <ArrowUpRight className="h-4 w-4" />
+                                </MovingBorderInner>
+                            </a>
                         </motion.div>
 
                         <motion.p
@@ -187,7 +192,7 @@ export function Hero() {
                         <div className="group relative overflow-hidden rounded-2xl border border-line bg-surface2">
                             <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:h-[min(52vh,520px)]">
                                 <Image
-                                    src="/photos/abhijith-pa-founder-portrait.jpg"
+                                    src="/photos/abhijith-pa-founder-portrait.webp"
                                     alt="Abhijith P A — web developer in Wayanad, Kerala | Full Stack Developer & AI Engineer"
                                     fill
                                     priority

@@ -1,0 +1,26 @@
+# Abhijith P A — Abi Solutions
+
+> Abhijith P A is a full stack developer and AI engineer in Wayanad, Kerala, India, and the founder of Abi Solutions. He builds websites, web apps, ERP systems, SaaS platforms and AI automation (WhatsApp and Telegram bots, LLM integrations) with React, Next.js, TypeScript, Django, Python, Node.js, PostgreSQL and AWS. He works with businesses in Wayanad (Kalpetta, Sulthan Bathery, Mananthavady), Kozhikode, Kochi and with remote clients worldwide.
+
+Contact: abhijithabhijith1999@gmail.com · +91 99613 16468 · WhatsApp https://wa.me/919961316468 · usual reply time under 24 hours.
+
+## Core pages
+
+- [Home](https://abisolutions.online/): Overview, skills, selected projects, experience, testimonials, FAQ and contact form
+- [About](https://abisolutions.online/about): Background and career history
+- [Services](https://abisolutions.online/services): Web, full stack, Next.js, ERP, SaaS and AI development services
+- [Projects](https://abisolutions.online/projects): Case studies and client work
+- [Resume](https://abisolutions.online/resume): Experience and skills
+- [Contact](https://abisolutions.online/contact): Start a project
+
+## Writing
+
+- [Blog](https://abisolutions.online/blog): Engineering articles on React, Next.js, Django, AI agents, ERP and SaaS
+- [RSS feed](https://abisolutions.online/feed.xml)
+
+## Optional
+
+- [Web developer in Wayanad](https://abisolutions.online/web-developer-wayanad)
+- [Privacy Policy](https://abisolutions.online/privacy)
+- [Terms of Use](https://abisolutions.online/terms)
+- [Sitemap](https://abisolutions.online/sitemap.xml)

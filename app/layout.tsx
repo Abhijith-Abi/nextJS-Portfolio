@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Space_Mono, Instrument_Serif } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+import { GoogleAnalytics } from "../components/GoogleAnalytics";
+import { CONTACT, SAME_AS, SCHEMA_IDS, SITE_URL } from "../lib/site";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { SwCleanup } from "../components/SwCleanup";
 import { Loader } from "../components/Loader";
@@ -37,11 +38,11 @@ export const viewport = {
 export const metadata: Metadata = {
     metadataBase: new URL("https://abisolutions.online"),
     title: {
-        default: "Abhijith P A — Web Developer in Wayanad, Kerala | Full Stack & AI Engineer | Abi Solutions",
+        default: "Abhijith P A — Web Developer in Wayanad | Abi Solutions",
         template: "%s | Abhijith P A",
     },
     description:
-        "Hire Abhijith P A (Abi Solutions) — the best web developer in Wayanad, Kerala. Full Stack Developer & AI Engineer building React & Next.js websites, ERP systems, SaaS platforms and AI automation. Serving Kalpetta, Sulthan Bathery, Mananthavady, Kozhikode, Kochi & remote worldwide.",
+        "Abhijith P A is a full stack developer and AI engineer in Wayanad, Kerala. Founder of Abi Solutions, building websites, ERP systems and AI automation.",
     keywords: [
         "Abhijith P A",
         "Abhijith PA",
@@ -144,9 +145,8 @@ export const metadata: Metadata = {
     publisher: "Abi Solutions",
     category: "technology",
     verification: { google: "google008d788f2689e4cb" },
-    alternates: {
-        canonical: "https://abisolutions.online",
-    },
+    // Canonical/hreflang are set per page. A canonical here would be inherited
+    // by any page without its own and wrongly point it at the homepage.
     openGraph: {
         type: "website",
         locale: "en_US",
@@ -224,25 +224,173 @@ export const metadata: Metadata = {
     },
 };
 
+const postalAddress = {
+    "@type": "PostalAddress",
+    addressLocality: "Wayanad",
+    addressRegion: "Kerala",
+    addressCountry: "IN",
+};
+
+/**
+ * Site-wide entity graph. Every cross-reference uses a bare `{ "@id" }` so
+ * validators resolve it to the full node instead of reading a nameless stub.
+ */
 const globalJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
         {
             "@type": "WebSite",
-            "@id": "https://abisolutions.online/#website",
-            url: "https://abisolutions.online",
+            "@id": SCHEMA_IDS.website,
+            url: SITE_URL,
             name: "Abhijith P A — Abi Solutions",
+            alternateName: "Abi Solutions",
             description:
-                "Portfolio of Abhijith P A — Full Stack Developer & AI Engineer, Founder of Abi Solutions.",
-            publisher: {
-                "@type": "Person",
-                "@id": "https://abisolutions.online/#person",
-            },
+                "Portfolio and business website of Abhijith P A, full stack developer and AI engineer, founder of Abi Solutions in Wayanad, Kerala.",
+            publisher: { "@id": SCHEMA_IDS.person },
             inLanguage: "en",
+            potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: `${SITE_URL}/blog?q={search_term_string}`,
+                },
+                "query-input": "required name=search_term_string",
+            },
+        },
+        {
+            "@type": "Person",
+            "@id": SCHEMA_IDS.person,
+            name: "Abhijith P A",
+            alternateName: [
+                "Abhijith PA",
+                "Abhijith",
+                "Abijith",
+                "Abi",
+                "Abhi",
+                "Abhi Developer",
+                "Abi Developer",
+                "Abhijith P A Developer",
+                "Abhijith PA Developer",
+            ],
+            url: SITE_URL,
+            image: [
+                `${SITE_URL}/profile.jpg`,
+                `${SITE_URL}/avatar.jpg`,
+                ...portfolioPhotos.map((p) => `${SITE_URL}${p.src}`),
+            ],
+            jobTitle: "Full Stack Developer & AI Engineer",
+            description:
+                "Abhijith P A is a full stack developer and AI engineer from Wayanad, Kerala, and the founder of Abi Solutions. He builds websites, ERP systems, SaaS platforms and AI automation with React, Next.js, Django, Python and AWS.",
+            email: CONTACT.email,
+            telephone: CONTACT.phone,
+            address: postalAddress,
+            nationality: { "@type": "Country", name: "India" },
+            knowsAbout: [
+                "Full Stack Development",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Django",
+                "Python",
+                "Node.js",
+                "PostgreSQL",
+                "AWS",
+                "ERP Development",
+                "SaaS Development",
+                "AI Automation",
+                "LLM Integration",
+                "WhatsApp Bots",
+                "Telegram Bots",
+            ],
+            hasOccupation: [
+                {
+                    "@type": "Occupation",
+                    name: "Full Stack Developer",
+                    occupationalCategory: "15-1252.00",
+                    skills: "React, Next.js, TypeScript, Django, Python, Node.js, PostgreSQL, AWS",
+                },
+                {
+                    "@type": "Occupation",
+                    name: "AI Engineer",
+                    occupationalCategory: "15-2051.00",
+                    skills: "AI automation, LLM integration, OpenAI API, WhatsApp and Telegram bots",
+                },
+            ],
+            sameAs: [...SAME_AS, SITE_URL],
+            alumniOf: [
+                {
+                    "@type": "Organization",
+                    name: "Steyp",
+                    url: "https://steyp.com/",
+                    description:
+                        "Coding education and software company where Abhijith P A worked as a software engineer from 2022 to 2025.",
+                },
+                {
+                    "@type": "Organization",
+                    name: "Tegain",
+                    url: "https://tegain.com/",
+                    description:
+                        "Technology company whose platform Abhijith P A helped engineer.",
+                },
+                {
+                    "@type": "Organization",
+                    name: "AlgoBiz",
+                    url: "https://algobiz.in/",
+                    description:
+                        "Software development company associated with Abhijith P A's web, ERP and AI work.",
+                },
+                {
+                    "@type": "Organization",
+                    name: "Talrop",
+                    url: "https://www.talrop.com/",
+                    description:
+                        "Technology company where Abhijith P A contributed as a full stack developer.",
+                },
+            ],
+            worksFor: { "@id": SCHEMA_IDS.organization },
+        },
+        {
+            "@type": "Organization",
+            "@id": SCHEMA_IDS.organization,
+            name: "Abi Solutions",
+            alternateName: [
+                "AbiSolutions",
+                "AlgoBiz",
+                "Algobiz",
+                "AlgoBiz LLP",
+                "AlgoBiz Technologies",
+            ],
+            url: SITE_URL,
+            logo: {
+                "@type": "ImageObject",
+                url: `${SITE_URL}/icon-512.png`,
+                width: 512,
+                height: 512,
+            },
+            image: `${SITE_URL}/og-image.jpg`,
+            description:
+                "Abi Solutions is a web development and AI engineering studio in Wayanad, Kerala, founded by Abhijith P A. It builds custom websites, ERP systems, SaaS platforms, AI automation and React and Next.js applications.",
+            founder: { "@id": SCHEMA_IDS.person },
+            foundingLocation: {
+                "@type": "Place",
+                name: "Wayanad, Kerala, India",
+            },
+            address: postalAddress,
+            email: CONTACT.email,
+            telephone: CONTACT.phone,
+            contactPoint: {
+                "@type": "ContactPoint",
+                telephone: CONTACT.phone,
+                email: CONTACT.email,
+                contactType: "customer service",
+                areaServed: ["IN", "Worldwide"],
+                availableLanguage: ["English", "Malayalam"],
+            },
+            sameAs: SAME_AS,
         },
         {
             "@type": ["LocalBusiness", "ProfessionalService"],
-            "@id": "https://abisolutions.online/#localbusiness",
+            "@id": SCHEMA_IDS.localBusiness,
             name: "Abi Solutions",
             alternateName: [
                 "Abi Solutions Wayanad",
@@ -252,24 +400,17 @@ const globalJsonLd = {
                 "Software Company Wayanad",
                 "Freelance Web Developer Wayanad",
             ],
-            url: "https://abisolutions.online",
+            url: SITE_URL,
             description:
                 "Abi Solutions is a web development and software company in Wayanad, Kerala, founded by Abhijith P A. Custom website development, ERP systems, SaaS platforms, AI automation, ecommerce and mobile apps for businesses in Kalpetta, Sulthan Bathery, Mananthavady, Vythiri, Kozhikode, Kochi and remote worldwide.",
-            email: "abhijithabhijith1999@gmail.com",
-            telephone: "+919961316468",
+            email: CONTACT.email,
+            telephone: CONTACT.phone,
             priceRange: "₹₹",
-            image: "https://abisolutions.online/og-image.jpg",
-            logo: "https://abisolutions.online/icon-512.png",
-            founder: {
-                "@type": "Person",
-                "@id": "https://abisolutions.online/#person",
-            },
-            address: {
-                "@type": "PostalAddress",
-                addressLocality: "Wayanad",
-                addressRegion: "Kerala",
-                addressCountry: "IN",
-            },
+            image: `${SITE_URL}/og-image.jpg`,
+            logo: `${SITE_URL}/icon-512.png`,
+            founder: { "@id": SCHEMA_IDS.person },
+            parentOrganization: { "@id": SCHEMA_IDS.organization },
+            address: postalAddress,
             geo: {
                 "@type": "GeoCoordinates",
                 latitude: 11.6854,
@@ -299,6 +440,7 @@ const globalJsonLd = {
                 "Mobile App Development",
                 "SEO & Digital Presence",
             ],
+            openingHours: "Mo-Sa 09:00-19:00",
             openingHoursSpecification: [
                 {
                     "@type": "OpeningHoursSpecification",
@@ -314,114 +456,7 @@ const globalJsonLd = {
                     closes: "19:00",
                 },
             ],
-            sameAs: [
-                "https://github.com/Abhijith-Abi",
-                "https://www.linkedin.com/in/abhijith-pa/",
-            ],
-        },
-        {
-            "@type": "Person",
-            "@id": "https://abisolutions.online/#person",
-            name: "Abhijith P A",
-            alternateName: [
-                "Abhijith PA",
-                "Abhijith",
-                "Abijith",
-                "Abi",
-                "Abhi",
-                "Abhi Developer",
-                "Abi Developer",
-                "Abhijith P A Developer",
-                "Abhijith PA Developer",
-            ],
-            url: "https://abisolutions.online",
-            image: [
-                "https://abisolutions.online/avatar.jpg",
-                "https://abisolutions.online/profile.jpg",
-                ...portfolioPhotos.map(
-                    (p) => `https://abisolutions.online${p.src}`,
-                ),
-            ],
-            jobTitle: "Full Stack Developer & AI Engineer",
-            knowsAbout: [
-                "Full Stack Development",
-                "React",
-                "Next.js",
-                "TypeScript",
-                "Django",
-                "Python",
-                "AWS",
-                "ERP Development",
-                "SaaS Development",
-                "AI Automation",
-                "Telegram Bots",
-                "WhatsApp Bots",
-            ],
-            description:
-                "Abhijith P A is a Full Stack Developer & AI Engineer, Founder of AlgoBiz, Kerala. Specializing in React, Next.js, Django, Python, AWS, and AI systems.",
-            email: "abhijithabhijith1999@gmail.com",
-            telephone: "+919961316468",
-            address: {
-                "@type": "PostalAddress",
-                addressLocality: "Wayanad",
-                addressRegion: "Kerala",
-                addressCountry: "IN",
-            },
-            sameAs: [
-                "https://github.com/Abhijith-Abi",
-                "https://www.linkedin.com/in/abhijith-pa/",
-                "https://abisolutions.online",
-            ],
-            alumniOf: [
-                {
-                    "@type": "Organization",
-                    name: "AlgoBiz",
-                    url: "https://algobiz.in/",
-                },
-                {
-                    "@type": "Organization",
-                    name: "Steyp",
-                    url: "https://steyp.com/",
-                },
-                {
-                    "@type": "Organization",
-                    name: "Tegain",
-                    url: "https://tegain.com/",
-                },
-                {
-                    "@type": "Organization",
-                    name: "Talrop",
-                    url: "https://www.talrop.com/",
-                },
-            ],
-            worksFor: {
-                "@type": "Organization",
-                "@id": "https://abisolutions.online/#organization",
-            },
-        },
-        {
-            "@type": "Organization",
-            "@id": "https://abisolutions.online/#organization",
-            name: "Abi Solutions",
-            alternateName: [
-                "AbiSolutions",
-                "AlgoBiz",
-                "Algobiz",
-                "AlgoBiz LLP",
-                "AlgoBiz Technologies",
-            ],
-            url: "https://abisolutions.online",
-            logo: "https://abisolutions.online/icon-512.png",
-            description:
-                "Abi Solutions (and AlgoBiz) is a software development and AI engineering agency founded by Abhijith P A. Custom ERP systems, SaaS platforms, AI automated systems, and high-performance React & Next.js applications.",
-            founder: {
-                "@type": "Person",
-                "@id": "https://abisolutions.online/#person",
-            },
-            sameAs: [
-                "https://github.com/Abhijith-Abi",
-                "https://www.linkedin.com/in/abhijith-pa/",
-            ],
+            sameAs: SAME_AS,
         },
     ],
 };
@@ -441,10 +476,24 @@ export default function RootLayout({
             }}
             className={`${inter.variable} ${spaceMono.variable} ${instrumentSerif.variable}`}
         >
+            <head>
+                <link
+                    rel="sitemap"
+                    type="application/xml"
+                    title="Sitemap"
+                    href="/sitemap.xml"
+                />
+            </head>
             <body
                 className="bg-background font-sans text-ink antialiased"
                 style={{ backgroundColor: "#0A0A0B" }}
             >
+                <a
+                    href="#main-content"
+                    className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-accent focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-background focus:outline-none focus:ring-2 focus:ring-ink"
+                >
+                    Skip to main content
+                </a>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -458,8 +507,8 @@ export default function RootLayout({
                 <div className="grain-overlay" aria-hidden />
                 <CursorFollower />
                 <SmoothScroll>{children}</SmoothScroll>
+                <GoogleAnalytics gaId="G-T08NBY5C52" />
             </body>
-            <GoogleAnalytics gaId="G-T08NBY5C52" />
         </html>
     );
 }

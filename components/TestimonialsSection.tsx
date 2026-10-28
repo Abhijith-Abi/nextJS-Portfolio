@@ -55,7 +55,12 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsSection() {
     return (
-        <SectionWrapper id="testimonials" index="05" label="Reviews">
+        <SectionWrapper
+            id="testimonials"
+            index="05"
+            label="Reviews"
+            labelledBy="testimonials-heading"
+        >
             {/* Header */}
             <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.2fr_0.8fr]">
                 <div>
@@ -63,7 +68,10 @@ export function TestimonialsSection() {
                         <Star className="h-3 w-3 fill-accent text-accent" />
                         Client Trust & Delivery
                     </span>
-                    <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink">
+                    <h2
+                        id="testimonials-heading"
+                        className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink"
+                    >
                         Proven impact,{" "}
                         <span className="display-serif-italic text-accent">
                             client words.
@@ -72,7 +80,7 @@ export function TestimonialsSection() {
                 </div>
                 <FadeIn>
                     <p className="text-sm md:text-base leading-relaxed text-ink-muted">
-                        Delivering scalable software systems that accelerate revenue, eliminate operational friction, and stand up to rigorous enterprise production demands.
+                        Software that helps teams earn more, waste less time and handle real traffic without breaking. Here is what clients say.
                     </p>
                 </FadeIn>
             </div>

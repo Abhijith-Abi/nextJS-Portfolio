@@ -9,6 +9,8 @@ type SectionWrapperProps = {
     className?: string;
     index?: string;
     label?: string;
+    /** id of the section's heading, exposed as the region's accessible name. */
+    labelledBy?: string;
 };
 
 export function SectionWrapper({
@@ -17,10 +19,12 @@ export function SectionWrapper({
     className = "",
     index,
     label,
+    labelledBy,
 }: SectionWrapperProps) {
     return (
         <section
             id={id}
+            aria-labelledby={labelledBy}
             className={`container-width relative py-20 sm:py-24 lg:py-32 ${className}`}
         >
             {(index || label) && (

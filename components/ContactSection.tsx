@@ -26,6 +26,25 @@ type FormState = {
 
 const initialState: FormState = { name: "", email: "", message: "" };
 
+/** Extra SubmitEvent members added by WebMCP (Chrome early preview). */
+type AgentSubmitEvent = {
+    agentInvoked?: boolean;
+    respondWith?: (result: Promise<unknown>) => void;
+};
+
+/**
+ * WebMCP declarative attributes. They are not in React's DOM typings yet,
+ * so they are spread as plain attributes (React passes them through).
+ */
+const formToolAttrs = {
+    toolname: "send_message_to_abhijith",
+    tooldescription:
+        "Send a project enquiry or question to Abhijith P A (Abi Solutions). He replies by email, usually within 24 hours.",
+} as Record<string, string>;
+
+const paramAttr = (description: string) =>
+    ({ toolparamdescription: description }) as Record<string, string>;
+
 export function ContactSection() {
     const [form, setForm] = useState<FormState>(initialState);
     const [errors, setErrors] = useState<Partial<FormState>>({});
@@ -45,15 +64,33 @@ export function ContactSection() {
         return next;
     };
 
-    const handleSubmit = async (event: FormEvent) => {
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        // WebMCP: when an AI agent submits the form (after the user clicks
+        // Submit), report the outcome back to the agent as the tool result.
+        const native = event.nativeEvent as SubmitEvent & AgentSubmitEvent;
         const validationErrors = validate(form);
         setErrors(validationErrors);
         setSubmitError(null);
         if (Object.keys(validationErrors).length > 0) {
             setSubmitted(false);
+            if (!native.agentInvoked) return;
+            native.respondWith?.(
+                Promise.resolve(
+                    `Not sent. Fix these fields: ${Object.entries(
+                        validationErrors,
+                    )
+                        .map(([k, v]) => `${k} (${v})`)
+                        .join(", ")}`,
+                ),
+            );
             return;
         }
+        const result = sendMessage();
+        if (native.agentInvoked) native.respondWith?.(result);
+    };
+
+    const sendMessage = async (): Promise<string> => {
         try {
             setSubmitting(true);
             let emailSent = false;
@@ -122,10 +159,12 @@ export function ContactSection() {
 
             setSubmitted(true);
             setForm(initialState);
+            return "Message sent to Abhijith P A. He usually replies within 24 hours.";
         } catch (error) {
             console.error("Error:", error);
             setSubmitError("Something went wrong. Please try again later.");
             setSubmitted(false);
+            return "Message could not be sent. Try again later, or email abhijithabhijith1999@gmail.com.";
         } finally {
             setSubmitting(false);
         }
@@ -144,6 +183,7 @@ export function ContactSection() {
     return (
         <section
             id="contact"
+            aria-labelledby="contact-heading"
             className="relative bg-background text-ink py-20 sm:py-24 lg:py-32"
         >
             <div className="container-width relative">
@@ -167,7 +207,10 @@ export function ContactSection() {
                                 <Sparkles className="h-3 w-3 text-accent" />
                                 Start a Project or Collaboration
                             </span>
-                            <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink">
+                            <h2
+                                id="contact-heading"
+                                className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink"
+                            >
                                 Let&apos;s engineer{" "}
                                 <span className="display-serif-italic text-accent2">
                                     something remarkable.
@@ -266,7 +309,12 @@ export function ContactSection() {
                     {/* Right Form Column — paper card on the ink band */}
                     <FadeIn>
                         <form
+                            id="contact-form"
+                            name="contact"
+                            aria-label="Contact form"
                             onSubmit={handleSubmit}
+                            noValidate
+                            {...formToolAttrs}
                             className="rounded-2xl sm:rounded-3xl bg-surface-card border border-line p-5 sm:p-8 shadow-soft"
                         >
                             <div className="mb-6 flex items-center justify-between border-b border-line pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/45">
@@ -287,7 +335,13 @@ export function ContactSection() {
                                     </label>
                                     <input
                                         id="name"
+                                        name="name"
                                         type="text"
+                                        autoComplete="name"
+                                        required
+                                        {...paramAttr(
+                                            "Full name of the person sending the message.",
+                                        )}
                                         value={form.name}
                                         onChange={(e) =>
                                             handleChange("name", e.target.value)
@@ -311,7 +365,13 @@ export function ContactSection() {
                                     </label>
                                     <input
                                         id="email"
+                                        name="email"
                                         type="email"
+                                        autoComplete="email"
+                                        required
+                                        {...paramAttr(
+                                            "Email address where Abhijith should send his reply.",
+                                        )}
                                         value={form.email}
                                         onChange={(e) =>
                                             handleChange("email", e.target.value)
@@ -335,7 +395,12 @@ export function ContactSection() {
                                     </label>
                                     <textarea
                                         id="message"
+                                        name="message"
                                         rows={4}
+                                        required
+                                        {...paramAttr(
+                                            "What the project is about: goals, features, timeline and budget if known.",
+                                        )}
                                         value={form.message}
                                         onChange={(e) =>
                                             handleChange("message", e.target.value)

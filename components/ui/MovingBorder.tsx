@@ -23,6 +23,25 @@ export function MovingBorderButton({
             {...props}
             className={`group relative cursor-pointer overflow-hidden rounded-full p-px ${className}`}
         >
+            <MovingBorderInner duration={duration}>{children}</MovingBorderInner>
+        </button>
+    );
+}
+
+/**
+ * The orbiting light + pill content on its own, so any interactive wrapper
+ * (e.g. an <a>) can use it. The wrapper needs:
+ * `group relative overflow-hidden rounded-full p-px`.
+ */
+export function MovingBorderInner({
+    children,
+    duration = 6,
+}: {
+    children: ReactNode;
+    duration?: number;
+}) {
+    return (
+        <>
             {/* orbiting border light */}
             <motion.span
                 aria-hidden
@@ -38,6 +57,6 @@ export function MovingBorderButton({
             <span className="relative flex items-center justify-center gap-2 rounded-full border border-line bg-background px-7 py-3.5 text-sm text-ink transition-colors duration-300 group-hover:border-accent/40 group-hover:bg-[rgba(198,242,78,0.06)] group-hover:text-accent2">
                 {children}
             </span>
-        </button>
+        </>
     );
 }

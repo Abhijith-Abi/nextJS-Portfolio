@@ -88,7 +88,12 @@ const marqueeSkills = [
 
 export function SkillsSection() {
     return (
-        <SectionWrapper id="skills" index="02" label="What I Build">
+        <SectionWrapper
+            id="skills"
+            index="02"
+            label="What I Build"
+            labelledBy="skills-heading"
+        >
             {/* Header */}
             <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.2fr_0.8fr]">
                 <div>
@@ -96,7 +101,10 @@ export function SkillsSection() {
                         <Sparkles className="h-3 w-3" />
                         Production Capabilities
                     </span>
-                    <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink">
+                    <h2
+                        id="skills-heading"
+                        className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink"
+                    >
                         What I build with{" "}
                         <span className="display-serif-italic text-accent">
                             the toolkit.
@@ -105,7 +113,7 @@ export function SkillsSection() {
                 </div>
                 <FadeIn>
                     <p className="text-sm md:text-base leading-relaxed text-ink-muted">
-                        TypeScript-strict, modular architectures, and high-performance libraries. Designed for enterprise stability and responsive speed.
+                        These are the tools I use every day. I pick proven, well-supported tech so your product stays fast, stable and easy to grow.
                     </p>
                 </FadeIn>
             </div>
@@ -122,7 +130,13 @@ export function SkillsSection() {
 
                             {/* Title + description */}
                             <div>
-                                <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
+                                <h3
+                                    id={`skills-${cat.title
+                                        .toLowerCase()
+                                        .replace(/[^a-z0-9]+/g, "-")
+                                        .replace(/(^-|-$)/g, "")}`}
+                                    className="font-display text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent"
+                                >
                                     {cat.title}
                                 </h3>
                                 <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-muted">

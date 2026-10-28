@@ -15,7 +15,7 @@ const chapters = [
         n: "01",
         kicker: "Origin & Vision",
         title: "Started with curiosity, engineered into mastery.",
-        body: "I am Abhijith P A (also known as Abhijith PA or Abi). My journey began writing reactive user interfaces in 2022. Connecting frontend states with distributed cloud backends sparked my ambition, leading to the creation of Abi Solutions and architecting enterprise platforms.",
+        body: "I'm Abhijith P A, though most people call me Abi. I started building user interfaces in 2022. Linking those screens to cloud backends got me hooked, and that path led me to start Abi Solutions and build platforms for real businesses.",
         highlights: [
             "React & Next.js Core",
             "State Architecture",
@@ -26,7 +26,7 @@ const chapters = [
         n: "02",
         kicker: "Engineering & Craft",
         title: "Four years of shipping mission-critical software.",
-        body: "Engineered scalable platforms spanning Healthcare, ERP systems, FinTech, and Travel Management. Every project honed my ability to design resilient component trees, robust API pipelines, and fluid motion systems.",
+        body: "I have built platforms for healthcare, ERP, finance and travel. Each project taught me how to keep code simple to change, keep APIs reliable, and keep the interface smooth to use.",
         highlights: [
             "Enterprise ERPs",
             "Automated Workflows",
@@ -37,7 +37,7 @@ const chapters = [
         n: "03",
         kicker: "Now & Horizon",
         title: "Full Stack Engineer & Founder at Abi Solutions.",
-        body: "Directing UI architecture, AI automation pipelines, and full-stack solutions. Crafting high-performance web applications, Telegram/WhatsApp AI bots, and custom SaaS platforms that deliver measurable ROI.",
+        body: "Today I lead design, build and AI work at Abi Solutions. I make fast web apps, WhatsApp and Telegram AI bots, and custom SaaS tools that save teams time and money.",
         highlights: [
             "Autonomous AI Systems",
             "Next.js 14 App Router",
@@ -57,10 +57,16 @@ const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function AboutSection() {
     return (
-        <SectionWrapper id="about" index="01" label="About">
+        <SectionWrapper
+            id="about"
+            index="01"
+            label="About"
+            labelledBy="about-heading"
+        >
             {/* Statement row — 12 col editorial grid */}
             <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-14">
                 <motion.h2
+                    id="about-heading"
                     initial={{ opacity: 0, y: 22 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
@@ -81,10 +87,9 @@ export function AboutSection() {
                     className="lg:col-span-5"
                 >
                     <p className="max-w-md text-sm sm:text-base leading-relaxed text-ink-muted">
-                        Bridging elegant frontend aesthetics with
-                        industrial-grade full-stack architecture. Every
-                        component is crafted with performance, accessibility,
-                        and intuitive motion.
+                        I pair clean, good-looking interfaces with solid
+                        backend systems. Every part is built to load fast,
+                        work for everyone and feel smooth to use.
                     </p>
                     {/* status line — was a boxed card, now bare type */}
                     <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50 sm:text-[11px]">
@@ -103,8 +108,8 @@ export function AboutSection() {
                 </motion.div>
             </div>
 
-            {/* Facts strip — bare hairline cells, no cards */}
-            <motion.div
+            {/* Facts strip — a definition list (term = label, value = fact) */}
+            <motion.dl
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
@@ -114,24 +119,24 @@ export function AboutSection() {
                 {facts.map((f, i) => (
                     <div
                         key={f.l}
-                        className={`py-6 sm:py-8 ${
+                        className={`flex flex-col py-6 sm:py-8 ${
                             i > 0 ? "border-l border-line" : ""
                         } ${i > 1 ? "border-t border-line sm:border-t-0" : ""} ${
                             i === 2 ? "sm:border-l-0" : ""
                         } ${i === 3 ? "sm:border-l sm:border-l-border-line sm:border-line" : ""} group px-1 sm:px-2`}
                     >
-                        <p className="font-display text-2xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent sm:text-3xl">
-                            {f.v}
-                        </p>
-                        <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted sm:text-[10px]">
+                        <dt className="order-2 mt-2 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted sm:text-[10px]">
                             {f.l}
-                        </p>
-                        <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/40 sm:text-[9px]">
+                        </dt>
+                        <dd className="order-1 font-display text-2xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent sm:text-3xl">
+                            {f.v}
+                        </dd>
+                        <dd className="order-3 mt-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/40 sm:text-[9px]">
                             {f.sub}
-                        </p>
+                        </dd>
                     </div>
                 ))}
-            </motion.div>
+            </motion.dl>
 
             {/* Chapters — ghost-numbered editorial entries */}
             <div className="mt-14 sm:mt-20">
@@ -158,7 +163,10 @@ export function AboutSection() {
                             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent sm:text-[11px]">
                                 {c.kicker}
                             </p>
-                            <h3 className="mt-3 font-display text-xl font-bold leading-snug tracking-tight text-ink sm:text-2xl">
+                            <h3
+                                id={`about-chapter-${c.n}`}
+                                className="mt-3 font-display text-xl font-bold leading-snug tracking-tight text-ink sm:text-2xl"
+                            >
                                 {c.title}
                             </h3>
                             <p className="mt-3.5 text-sm leading-relaxed text-ink-muted sm:text-[15px]">

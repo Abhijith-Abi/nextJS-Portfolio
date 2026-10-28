@@ -15,10 +15,16 @@ const navItems = [
     { id: "contact", href: "/contact", label: "Contact", num: "06" },
 ];
 
-function scrollToSection(id: string) {
+/** Smooth-scroll for in-page anchors; the href still works without JS. */
+function scrollToSection(
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+) {
     const el = document.getElementById(id);
     if (!el) return;
+    event.preventDefault();
     el.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", id === "home" ? "/" : `#${id}`);
 }
 
 export function Navbar() {
@@ -32,10 +38,11 @@ export function Navbar() {
         setScrolled(latest > 20);
     });
 
-    const handleClick = (item: (typeof navItems)[number]) => {
-        if (isHome && item.id !== "blog" && item.id !== "services") {
-            scrollToSection(item.id);
-        }
+    const handleClick = (
+        event: React.MouseEvent<HTMLAnchorElement>,
+        item: (typeof navItems)[number],
+    ) => {
+        scrollToSection(event, item.id);
         setOpen(false);
     };
 
@@ -45,6 +52,7 @@ export function Navbar() {
         ) !== undefined;
 
     return (
+        <>
         <motion.header
             initial={{ y: -60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -59,7 +67,10 @@ export function Navbar() {
                     : "border-b border-transparent"
             }`}
         >
-            <nav className="container-width relative flex items-center justify-between py-3.5 sm:py-4">
+            <nav
+                aria-label="Primary"
+                className="container-width relative flex items-center justify-between py-3.5 sm:py-4"
+            >
                 <Link
                     href="/"
                     onClick={() => setOpen(false)}
@@ -67,12 +78,11 @@ export function Navbar() {
                 >
                     <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-line bg-surface2">
                         <Image
-                            src="/avatar.jpg"
+                            src="/avatar.webp"
                             alt="Abhijith P A Logo"
                             width={32}
                             height={32}
                             className="h-full w-full object-cover object-center"
-                            priority
                         />
                     </span>
                     <span className="font-display text-sm font-bold tracking-tight text-ink">
@@ -88,16 +98,16 @@ export function Navbar() {
                         return (
                             <li key={item.id}>
                                 {scrollTarget ? (
-                                    <button
-                                        type="button"
-                                        onClick={() => handleClick(item)}
+                                    <a
+                                        href={`#${item.id}`}
+                                        onClick={(e) => handleClick(e, item)}
                                         className="group relative rounded-full px-3.5 py-1.5 text-[13px] font-medium text-ink-muted transition hover:text-ink cursor-pointer"
                                     >
                                         <span className="relative z-10">
                                             {item.label}
                                         </span>
                                         <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-4" />
-                                    </button>
+                                    </a>
                                 ) : (
                                     <Link
                                         href={item.href}
@@ -116,9 +126,9 @@ export function Navbar() {
 
                 <div className="flex items-center gap-2">
                     {isHome ? (
-                        <button
-                            type="button"
-                            onClick={() => scrollToSection("contact")}
+                        <a
+                            href="#contact"
+                            onClick={(e) => scrollToSection(e, "contact")}
                             className="btn-primary hidden items-center gap-2 px-4 py-2 text-[12px] md:inline-flex cursor-pointer"
                         >
                             <span className="relative flex h-1.5 w-1.5">
@@ -126,7 +136,7 @@ export function Navbar() {
                                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-emerald" />
                             </span>
                             Available for work
-                        </button>
+                        </a>
                     ) : (
                         <Link
                             href="/contact"
@@ -180,9 +190,9 @@ export function Navbar() {
                                 item.id !== "blog" &&
                                 item.id !== "services" ? (
                                     <li key={item.id}>
-                                        <button
-                                            type="button"
-                                            onClick={() => handleClick(item)}
+                                        <a
+                                            href={`#${item.id}`}
+                                            onClick={(e) => handleClick(e, item)}
                                             className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition hover:bg-ink/[0.04] hover:text-accent cursor-pointer"
                                         >
                                             <span className="font-medium">
@@ -191,7 +201,7 @@ export function Navbar() {
                                             <span className="font-mono text-[10px] text-ink/40">
                                                 {item.num}
                                             </span>
-                                        </button>
+                                        </a>
                                     </li>
                                 ) : (
                                     <li key={item.id}>
@@ -228,5 +238,8 @@ export function Navbar() {
                 )}
             </nav>
         </motion.header>
+        {/* Target for the layout's "Skip to main content" link */}
+        <span id="main-content" tabIndex={-1} className="sr-only" />
+        </>
     );
 }

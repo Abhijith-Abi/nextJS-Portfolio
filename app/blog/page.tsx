@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { SectionWrapper } from "../../components/SectionWrapper";
+import { Suspense } from "react";
 import { BlogList } from "../../components/BlogList";
+import { BlogSearch } from "../../components/BlogSearch";
 import { Footer } from "../../components/Footer";
 import { blogPosts } from "../../lib/blog";
 
@@ -167,7 +169,10 @@ export default function BlogPage() {
                             automation, ERP systems, and everything in between.
                         </p>
                     </div>
-                    <BlogList posts={blogPosts} />
+                    {/* Static HTML keeps the full list; ?q= filters on the client */}
+                    <Suspense fallback={<BlogList posts={blogPosts} />}>
+                        <BlogSearch posts={blogPosts} />
+                    </Suspense>
                 </SectionWrapper>
                 <Footer />
             </div>

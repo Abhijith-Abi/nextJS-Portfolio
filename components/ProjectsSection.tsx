@@ -22,7 +22,7 @@ const projects: Project[] = [
         role: "Lead Full Stack Architect",
         description:
             "Global digital visa processing platform with AI eligibility scoring, multi-country requirement engines, and automated application tracking.",
-        image: "/projects/startvisa.jpg",
+        image: "/projects/startvisa.webp",
         url: "https://www.startvisa.com/",
         tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "PostgreSQL", "Cloudflare"],
     },
@@ -32,7 +32,7 @@ const projects: Project[] = [
         role: "Lead Frontend Engineer",
         description:
             "High-end fashion and lifestyle storefront built with sub-second checkout speeds, dynamic product filtering, and persistent cart architecture.",
-        image: "/projects/houseofvaz.jpg",
+        image: "/projects/houseofvaz.webp",
         url: "https://houseofvaz.com/",
         tech: ["Next.js", "React", "Tailwind CSS", "Zustand", "Stripe"],
     },
@@ -42,7 +42,7 @@ const projects: Project[] = [
         role: "Full Stack Developer",
         description:
             "Social empowerment portal supporting volunteer onboarding, community events, feedback funnels, and real-time engagement telemetry.",
-        image: "/projects/yuvaparipalan.jpg",
+        image: "/projects/yuvaparipalan.webp",
         url: "https://www.yuvaparipalan.com/",
         tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Vercel"],
     },
@@ -52,7 +52,7 @@ const projects: Project[] = [
         role: "Healthcare Systems Lead",
         description:
             "Clinical rehabilitation portal synchronizing patient telemetry, neurological therapy progress, and direct specialist booking funnels.",
-        image: "/projects/palananeurosync.jpg",
+        image: "/projects/palananeurosync.webp",
         url: "https://palananeurosync.com/",
         tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
     },
@@ -62,10 +62,16 @@ const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function ProjectsSection() {
     return (
-        <SectionWrapper id="projects" index="03" label="Selected Work">
+        <SectionWrapper
+            id="projects"
+            index="03"
+            label="Selected Work"
+            labelledBy="projects-heading"
+        >
             {/* Header */}
             <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-14 sm:mb-16">
                 <motion.h2
+                    id="projects-heading"
                     initial={{ opacity: 0, y: 22 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
@@ -84,9 +90,9 @@ export function ProjectsSection() {
                     transition={{ duration: 0.85, ease, delay: 0.12 }}
                     className="max-w-md text-sm sm:text-base leading-relaxed text-ink-muted lg:col-span-5"
                 >
-                    Production platforms and consumer digital products built
-                    with modern stacks, sub-second performance, and verified
-                    reliability.
+                    Live platforms and online stores built with modern tools.
+                    Each one is fast, reliable and used by real customers
+                    every day.
                 </motion.p>
             </div>
 
@@ -120,7 +126,7 @@ export function ProjectsSection() {
                                         fill
                                         sizes="(max-width: 1024px) 100vw, 760px"
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                                        priority={i < 2}
+                                        loading="lazy"
                                     />
                                     {/* visit chip */}
                                     <div className="absolute bottom-4 left-4 translate-y-2 rounded-full border border-accent/50 bg-background/80 px-4 py-2 opacity-0 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
@@ -147,7 +153,12 @@ export function ProjectsSection() {
                                 <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink-muted sm:text-[11px]">
                                     {p.domain}
                                 </p>
-                                <h3 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink transition-colors duration-300 group-hover:text-accent sm:text-4xl">
+                                <h3
+                                    id={`project-${p.name
+                                        .toLowerCase()
+                                        .replace(/[^a-z0-9]+/g, "-")}`}
+                                    className="mt-2 font-display text-3xl font-bold tracking-tight text-ink transition-colors duration-300 group-hover:text-accent sm:text-4xl"
+                                >
                                     {p.name}
                                 </h3>
                                 <p className="mt-3.5 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
@@ -173,6 +184,62 @@ export function ProjectsSection() {
                         </motion.article>
                     );
                 })}
+            </div>
+
+            {/* Overview table — the same projects at a glance */}
+            <div className="mt-14 overflow-x-auto rounded-2xl border border-line sm:mt-20">
+                <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+                    <caption className="border-b border-line px-5 py-4 text-left font-mono text-[10px] uppercase tracking-[0.28em] text-accent sm:text-[11px]">
+                        Project overview: sector, role and main stack
+                    </caption>
+                    <thead>
+                        <tr className="border-b border-line bg-surface2/60 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted sm:text-[11px]">
+                            <th scope="col" className="px-5 py-3 font-medium">
+                                Project
+                            </th>
+                            <th scope="col" className="px-5 py-3 font-medium">
+                                Sector
+                            </th>
+                            <th scope="col" className="px-5 py-3 font-medium">
+                                Role
+                            </th>
+                            <th scope="col" className="px-5 py-3 font-medium">
+                                Main stack
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {projects.map((p) => (
+                            <tr
+                                key={p.name}
+                                className="border-b border-line last:border-b-0"
+                            >
+                                <th
+                                    scope="row"
+                                    className="px-5 py-3.5 font-display font-bold text-ink"
+                                >
+                                    <a
+                                        href={p.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="link-underline hover:text-accent"
+                                    >
+                                        {p.name}
+                                    </a>
+                                </th>
+                                <td className="px-5 py-3.5 text-ink-muted">
+                                    {p.domain}
+                                </td>
+                                <td className="px-5 py-3.5 text-ink-muted">
+                                    {p.role}
+                                </td>
+                                <td className="px-5 py-3.5 font-mono text-xs text-ink/70">
+                                    {p.tech.slice(0, 3).join(", ")}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </SectionWrapper>
     );

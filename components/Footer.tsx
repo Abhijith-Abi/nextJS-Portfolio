@@ -8,6 +8,7 @@ import {
     Phone,
     MessageSquare,
 } from "lucide-react";
+import { SITE_UPDATED, formatSiteDate } from "../lib/site";
 
 export function Footer() {
     return (
@@ -38,7 +39,7 @@ export function Footer() {
                     <div className="mb-4 flex items-center gap-2.5">
                         <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-line bg-surface2">
                             <Image
-                                src="/avatar.jpg"
+                                src="/avatar.webp"
                                 alt="Abi Solutions Logo"
                                 width={32}
                                 height={32}
@@ -63,13 +64,18 @@ export function Footer() {
                         </p>
                         <p className="flex items-center gap-2">
                             <Mail className="h-3.5 w-3.5 shrink-0 text-accent" />
-                            <span className="truncate">
+                            <a
+                                href="mailto:abhijithabhijith1999@gmail.com"
+                                className="truncate hover:text-ink"
+                            >
                                 abhijithabhijith1999@gmail.com
-                            </span>
+                            </a>
                         </p>
                         <p className="flex items-center gap-2">
                             <Phone className="h-3.5 w-3.5 shrink-0 text-accent" />
-                            <span>+91 99613 16468</span>
+                            <a href="tel:+919961316468" className="hover:text-ink">
+                                +91 99613 16468
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -272,6 +278,32 @@ export function Footer() {
                 <p>
                     © {new Date().getFullYear()} Abi Solutions · All rights
                     reserved.
+                </p>
+                <nav aria-label="Legal">
+                    <ul className="flex items-center gap-4">
+                        <li>
+                            <Link
+                                href="/privacy"
+                                className="link-underline hover:text-ink"
+                            >
+                                Privacy Policy
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/terms"
+                                className="link-underline hover:text-ink"
+                            >
+                                Terms of Use
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+                <p>
+                    Site updated{" "}
+                    <time dateTime={SITE_UPDATED}>
+                        {formatSiteDate(SITE_UPDATED)}
+                    </time>
                 </p>
                 <p className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent-emerald" />

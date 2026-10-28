@@ -134,7 +134,12 @@ export function ExperienceSection() {
     }, []);
 
     return (
-        <SectionWrapper id="experience" index="04" label="Career Path">
+        <SectionWrapper
+            id="experience"
+            index="04"
+            label="Career Path"
+            labelledBy="experience-heading"
+        >
             <div className="grid gap-8 sm:gap-10 lg:grid-cols-[320px_1fr] lg:gap-12 xl:grid-cols-[360px_1fr] items-start">
                 {/* LEFT: interactive profile flip card */}
                 <FadeIn>
@@ -176,7 +181,7 @@ export function ExperienceSection() {
                                     {/* BACK: photo */}
                                     <div className="flip-face flip-face-back overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] bg-background border border-line">
                                         <Image
-                                            src="/me.jpeg"
+                                            src="/me.webp"
                                             alt="Abhijith P A"
                                             fill
                                             sizes="(max-width: 1024px) 280px, 320px"
@@ -248,7 +253,10 @@ export function ExperienceSection() {
                             <Briefcase className="h-3 w-3" />
                             Work History & Roles
                         </span>
-                        <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink">
+                        <h2
+                            id="experience-heading"
+                            className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink"
+                        >
                             {years}+ years of{" "}
                             <span className="display-serif-italic text-accent">
                                 professional craft.

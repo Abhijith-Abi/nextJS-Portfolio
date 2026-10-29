@@ -60,15 +60,38 @@ export function Hero() {
                             initial={{ opacity: 0, y: 14 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, ease, delay: 0.15 }}
-                            className="section-eyebrow mb-5"
+                            className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-2"
                         >
-                            Founder · Lead Engineer
+                            {/* Mirrors the BreadcrumbList in the page JSON-LD */}
+                            <nav
+                                aria-label="Breadcrumb"
+                                className="breadcrumb font-mono text-[10px] uppercase tracking-[0.24em] text-ink/45 sm:text-[11px]"
+                            >
+                                <ol className="flex items-center gap-2">
+                                    <li>
+                                        <a
+                                            href="/"
+                                            aria-current="page"
+                                            className="transition-colors hover:text-accent"
+                                        >
+                                            Home
+                                        </a>
+                                    </li>
+                                </ol>
+                            </nav>
+                            <span aria-hidden className="text-line2">
+                                /
+                            </span>
+                            <span className="section-eyebrow">
+                                Founder · Lead Engineer
+                            </span>
                         </motion.div>
 
-                        <h1 className="w-full">
+                        <h1 id="hero-title" className="w-full">
                             <span className="sr-only">
                                 Abhijith P A, web developer and AI engineer
-                                in Wayanad, Kerala.
+                                in Wayanad, Kerala, and founder of Abi
+                                Solutions.
                             </span>{" "}
                             <span aria-hidden="true">
                                 <span className="reveal-mask block">
@@ -129,9 +152,8 @@ export function Hero() {
                             <strong className="font-semibold text-ink">
                                 Abi Solutions
                             </strong>
-                            . He builds ERP platforms, fast web apps and AI
-                            workflows for businesses in Kerala and around the
-                            world.
+                            . He builds ERP tools, fast web apps and AI bots
+                            for firms in Kerala and around the world.
                         </motion.p>
 
                         <motion.div
@@ -160,7 +182,7 @@ export function Hero() {
                             </a>
                         </motion.div>
 
-                        <motion.p
+                        <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, ease, delay: 1 }}
@@ -168,7 +190,7 @@ export function Hero() {
                         >
                             <MapPin className="h-3 w-3 shrink-0 text-accent" />
                             11.6854° N, 76.132° E — Wayanad, Kerala
-                        </motion.p>
+                        </motion.div>
                     </div>
 
                     {/* RIGHT — portrait plate */}
@@ -196,6 +218,7 @@ export function Hero() {
                                     alt="Abhijith P A — web developer in Wayanad, Kerala | Full Stack Developer & AI Engineer"
                                     fill
                                     priority
+                                    unoptimized
                                     sizes="(max-width: 1024px) 90vw, 520px"
                                     className="object-cover object-[50%_18%] grayscale transition-all duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0"
                                 />
@@ -245,12 +268,12 @@ export function Hero() {
                                     : ""
                             } ${i === 2 ? "sm:border-l" : ""}`}
                         >
-                            <p className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.6rem]">
+                            <div className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.6rem]">
                                 <AnimeCounter to={f.v} suffix={f.suffix} />
-                            </p>
-                            <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted sm:text-[10px]">
+                            </div>
+                            <div className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted sm:text-[10px]">
                                 {f.label}
-                            </p>
+                            </div>
                         </div>
                     ))}
                 </motion.div>

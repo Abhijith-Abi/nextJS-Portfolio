@@ -12,7 +12,10 @@ import { SITE_UPDATED, formatSiteDate } from "../lib/site";
 
 export function Footer() {
     return (
-        <footer className="relative border-t border-line bg-background/60 font-sans text-sm">
+        <footer
+            role="contentinfo"
+            className="relative border-t border-line bg-background/60 font-sans text-sm"
+        >
             {/* Big CTA band */}
             <div className="container-width flex flex-col gap-6 border-b border-line py-16 sm:py-20 lg:flex-row lg:items-end lg:justify-between lg:py-24">
                 <div>
@@ -43,6 +46,8 @@ export function Footer() {
                                 alt="Abi Solutions Logo"
                                 width={32}
                                 height={32}
+                                unoptimized
+                                loading="lazy"
                                 className="h-full w-full object-cover object-center"
                             />
                         </span>

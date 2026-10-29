@@ -15,7 +15,7 @@ const categories: SkillCategory[] = [
     {
         title: "Frontend Engineering",
         description:
-            "Design systems, interactive component trees, state management, and fluid motion language.",
+            "Clean, fast screens built from reusable parts. I set up design systems, manage app state and add smooth motion that helps people use the app.",
         skills: [
             { name: "React 18 / 19", level: "Mastery", isCore: true },
             { name: "Next.js 14 (App Router)", level: "Mastery", isCore: true },
@@ -30,7 +30,7 @@ const categories: SkillCategory[] = [
     {
         title: "Backend & Systems",
         description:
-            "High-throughput REST & GraphQL APIs, data schemas, authentication, and background workers.",
+            "Solid REST and GraphQL APIs, data models and login flows that stay fast under load. Background jobs handle slow work, like reports and emails, out of sight.",
         skills: [
             { name: "Python & Django", level: "Advanced", isCore: true },
             { name: "Node.js & Express", level: "Advanced", isCore: true },
@@ -43,7 +43,7 @@ const categories: SkillCategory[] = [
     {
         title: "AI & Automation",
         description:
-            "Autonomous agents, LLM integrations, WhatsApp/Telegram business bots, and RAG pipelines.",
+            "AI agents, LLM features and business bots for WhatsApp and Telegram. RAG search lets a bot answer from your own files and data.",
         skills: [
             { name: "OpenAI API / Claude", level: "Advanced", isCore: true },
             { name: "WhatsApp Automation", level: "Mastery", isCore: true },
@@ -55,7 +55,7 @@ const categories: SkillCategory[] = [
     {
         title: "Cloud, DevOps & Tooling",
         description:
-            "Automated CI/CD pipelines, containerization, performance audits, and cloud deployment.",
+            "Code that ships itself. CI/CD pipelines test and deploy each change, Docker keeps setups the same, and speed checks keep pages quick in the cloud.",
         skills: [
             { name: "AWS (S3, EC2, CloudFront)", level: "Advanced", isCore: true },
             { name: "Docker & Containers", level: "Advanced", isCore: true },

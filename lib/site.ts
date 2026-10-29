@@ -7,7 +7,7 @@ export const SITE_URL = "https://abisolutions.online";
 /** First public release of the site (first commit). */
 export const SITE_PUBLISHED = "2025-12-01";
 /** Last meaningful homepage content update. */
-export const SITE_UPDATED = "2026-10-28";
+export const SITE_UPDATED = "2026-10-29";
 
 export const CONTACT = {
     email: "abhijithabhijith1999@gmail.com",

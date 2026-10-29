@@ -9,7 +9,6 @@ import { TestimonialsSection } from "../components/TestimonialsSection";
 import { ContactSection } from "../components/ContactSection";
 import { FAQSection } from "../components/FAQSection";
 import { Footer } from "../components/Footer";
-import { WebMcpTools } from "../components/WebMcpTools";
 import { faqAnswerText, homeFaqs } from "../lib/faq";
 import {
     SCHEMA_IDS,
@@ -53,6 +52,7 @@ const jsonLd = {
                 caption:
                     "Abhijith P A, web developer in Wayanad, Kerala",
             },
+            dateCreated: SITE_PUBLISHED,
             datePublished: SITE_PUBLISHED,
             dateModified: SITE_UPDATED,
             breadcrumb: { "@id": SCHEMA_IDS.homeBreadcrumb },
@@ -79,17 +79,33 @@ const jsonLd = {
             "@id": SCHEMA_IDS.homeFaq,
             url: `${SITE_URL}/#faq`,
             name: "Frequently asked questions about Abhijith P A and Abi Solutions",
+            description:
+                "Short answers about Abhijith P A, web developer and AI engineer in Wayanad, Kerala, and his studio Abi Solutions: services, technologies, projects, areas served and how to start a project.",
             inLanguage: "en",
             isPartOf: { "@id": SCHEMA_IDS.homePage },
-            mainEntity: homeFaqs.map((f) => ({
-                "@type": "Question",
-                name: f.question,
-                url: `${SITE_URL}/#${f.id}`,
-                acceptedAnswer: {
-                    "@type": "Answer",
-                    text: faqAnswerText(f),
-                },
-            })),
+            datePublished: SITE_PUBLISHED,
+            dateModified: SITE_UPDATED,
+            mainEntity: homeFaqs.map((f) => {
+                const answerId = `${SITE_URL}/#${f.id}-answer`;
+                return {
+                    "@type": "Question",
+                    name: f.question,
+                    text: f.question,
+                    url: `${SITE_URL}/#${f.id}`,
+                    dateCreated: SITE_PUBLISHED,
+                    // The site's own answer, endorsed by its author. The page
+                    // has no public voting, so this is a fixed count of one.
+                    upvoteCount: 1,
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        "@id": answerId,
+                        text: faqAnswerText(f),
+                        author: { "@id": SCHEMA_IDS.person },
+                    },
+                    // Same answer node: it is the only suggested answer too.
+                    suggestedAnswer: { "@id": answerId },
+                };
+            }),
         },
     ],
 };
@@ -105,17 +121,20 @@ export default function HomePage() {
             />
             <Navbar />
             <main className="relative min-h-screen">
-                <Hero />
-                <AboutSection />
-                <SkillsSection />
-                <ProjectsSection />
-                <ExperienceSection />
-                <TestimonialsSection />
-                <ContactSection />
-                <FAQSection />
+                {/* The whole profile is one self-contained composition;
+                    project, role and FAQ entries nest inside it. */}
+                <article aria-labelledby="hero-title">
+                    <Hero />
+                    <AboutSection />
+                    <SkillsSection />
+                    <ProjectsSection />
+                    <ExperienceSection />
+                    <TestimonialsSection />
+                    <ContactSection />
+                    <FAQSection />
+                </article>
             </main>
             <Footer />
-            <WebMcpTools />
         </>
     );
 }

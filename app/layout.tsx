@@ -8,7 +8,9 @@ import { SwCleanup } from "../components/SwCleanup";
 import { Loader } from "../components/Loader";
 import { CursorFollower } from "../components/CursorFollower";
 import { CommandPalette } from "../components/CommandPalette";
+import { HydrationCleanup } from "../components/HydrationCleanup";
 import { portfolioPhotos } from "../lib/photos";
+import { WEBMCP_SCRIPT } from "../lib/webmcp";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -144,6 +146,14 @@ export const metadata: Metadata = {
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     category: "technology",
+    appleWebApp: {
+        capable: true,
+        title: "Abi Solutions",
+        statusBarStyle: "black-translucent",
+    },
+    // Phone numbers and emails are already real tel:/mailto: links; stop
+    // mobile Safari from re-linking other numbers (dates, coordinates).
+    formatDetection: { telephone: false, email: false, address: false },
     verification: { google: "google008d788f2689e4cb" },
     // Canonical/hreflang are set per page. A canonical here would be inherited
     // by any page without its own and wrongly point it at the homepage.
@@ -219,6 +229,8 @@ export const metadata: Metadata = {
     },
     other: {
         "google-site-verification": "google008d788f2689e4cb",
+        // Standard name; Next 14 only emits the legacy apple-* variant.
+        "mobile-web-app-capable": "yes",
         "theme-color": "#0A0A0B",
         "msapplication-TileColor": "#0A0A0B",
     },
@@ -317,30 +329,32 @@ const globalJsonLd = {
                 },
             ],
             sameAs: [...SAME_AS, SITE_URL],
+            // Former employers and companies, typed as Corporation (a business
+            // Organization). Their logo/contact/address are not ours to state.
             alumniOf: [
                 {
-                    "@type": "Organization",
+                    "@type": "Corporation",
                     name: "Steyp",
                     url: "https://steyp.com/",
                     description:
                         "Coding education and software company where Abhijith P A worked as a software engineer from 2022 to 2025.",
                 },
                 {
-                    "@type": "Organization",
+                    "@type": "Corporation",
                     name: "Tegain",
                     url: "https://tegain.com/",
                     description:
                         "Technology company whose platform Abhijith P A helped engineer.",
                 },
                 {
-                    "@type": "Organization",
+                    "@type": "Corporation",
                     name: "AlgoBiz",
                     url: "https://algobiz.in/",
                     description:
                         "Software development company associated with Abhijith P A's web, ERP and AI work.",
                 },
                 {
-                    "@type": "Organization",
+                    "@type": "Corporation",
                     name: "Talrop",
                     url: "https://www.talrop.com/",
                     description:
@@ -483,6 +497,19 @@ export default function RootLayout({
                     title="Sitemap"
                     href="/sitemap.xml"
                 />
+                {/* Site-wide entity graph lives in <head> so it stays out of
+                    the page body's markup weight. */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(globalJsonLd),
+                    }}
+                />
+                {/* WebMCP tools for in-browser AI agents (see lib/webmcp.ts) */}
+                <script
+                    id="webmcp-tools"
+                    dangerouslySetInnerHTML={{ __html: WEBMCP_SCRIPT }}
+                />
             </head>
             <body
                 className="bg-background font-sans text-ink antialiased"
@@ -494,12 +521,6 @@ export default function RootLayout({
                 >
                     Skip to main content
                 </a>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(globalJsonLd),
-                    }}
-                />
                 <Loader />
                 <SwCleanup />
                 <CommandPalette />
@@ -508,6 +529,7 @@ export default function RootLayout({
                 <CursorFollower />
                 <SmoothScroll>{children}</SmoothScroll>
                 <GoogleAnalytics gaId="G-T08NBY5C52" />
+                <HydrationCleanup />
             </body>
         </html>
     );

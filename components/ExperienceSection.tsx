@@ -69,7 +69,7 @@ const experiences: Experience[] = [
         timeframe: "Jan 2026 – Present",
         type: "Full-time",
         description:
-            "Directing technical architecture and product builds across AI automation, custom ERP platforms, and enterprise React/Next.js systems. Mentoring engineering workflows and maintaining client delivery standards.",
+            "I lead the tech plans and product builds for AI bots, custom ERP tools and large React and Next.js apps. I also guide how the team works and keep client delivery on track.",
         skills: ["Next.js 14", "TypeScript", "Django", "AWS", "OpenAI APIs", "PostgreSQL"],
         isCurrent: true,
         span: "lg:col-span-4",
@@ -81,7 +81,7 @@ const experiences: Experience[] = [
         timeframe: "May 2025 – Dec 2025",
         type: "Full-time",
         description:
-            "Led frontend engineering across modular enterprise suites. Refactored high-traffic dashboards, improved rendering benchmarks by 40%, and established strict TypeScript design systems.",
+            "I led front end work across a set of large business apps. I rebuilt busy dashboards, raised render speed by 40% and set up strict TypeScript design systems.",
         skills: ["React", "TypeScript", "Next.js", "Zustand", "Tailwind"],
         span: "lg:col-span-2",
     },
@@ -91,7 +91,7 @@ const experiences: Experience[] = [
         timeframe: "Oct 2022 – Apr 2025",
         type: "Full-time",
         description:
-            "Engineered core web platforms including Hosface, Tegain, and Enterprise ERP. Established reusable component standards and implemented responsive UI flows across multiple products.",
+            "I built core web platforms, including Hosface, Tegain and an ERP system. I set shared rules for reusable parts and made the screens work well on every device.",
         skills: ["Next.js", "React", "Redux", "Tailwind", "REST APIs"],
         span: "lg:col-span-2",
     },
@@ -101,7 +101,7 @@ const experiences: Experience[] = [
         timeframe: "Apr 2022 – Oct 2022",
         type: "Internship",
         description:
-            "Gained deep foundation in React component trees, data flow paradigms, and interface motion. Converted to full-time engineer following rapid feature deliveries.",
+            "I learned React in depth: how parts fit together, how data flows and how motion guides the eye. Fast feature work led to a full-time role.",
         skills: ["JavaScript", "React", "CSS3", "Git"],
         span: "lg:col-span-4",
     },
@@ -160,16 +160,16 @@ export function ExperienceSection() {
                                         </div>
 
                                         <div>
-                                            <p className="font-display text-xl sm:text-2xl font-bold leading-snug tracking-tight text-ink">
+                                            <div className="font-display text-xl sm:text-2xl font-bold leading-snug tracking-tight text-ink">
                                                 Crafting{" "}
                                                 <span className="display-serif-italic text-accent">
                                                     intelligent
                                                 </span>{" "}
                                                 software.
-                                            </p>
-                                            <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink-muted">
+                                            </div>
+                                            <div className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink-muted">
                                                 Full Stack Developer & AI Engineer based in Kerala, India. React, Next.js, Django, AWS & AI Automation.
-                                            </p>
+                                            </div>
                                         </div>
 
                                         <div className="flex items-center justify-between border-t border-line pt-2.5 sm:pt-3 font-mono text-[9.5px] sm:text-[10px] text-ink-muted">
@@ -186,14 +186,16 @@ export function ExperienceSection() {
                                             fill
                                             sizes="(max-width: 1024px) 280px, 320px"
                                             className="object-cover"
+                                            loading="lazy"
+                                            unoptimized
                                         />
                                         <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent p-4 sm:p-5 pt-12 sm:pt-16">
-                                            <p className="font-display text-sm sm:text-base font-bold text-ink">
+                                            <div className="font-display text-sm sm:text-base font-bold text-ink">
                                                 Abhijith P A
-                                            </p>
-                                            <p className="mt-0.5 font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] text-accent">
+                                            </div>
+                                            <div className="mt-0.5 font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.2em] text-accent">
                                                 Full Stack & AI Engineer
-                                            </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -203,9 +205,9 @@ export function ExperienceSection() {
                                 <h3 className="font-display text-lg sm:text-xl font-bold tracking-tight text-ink">
                                     Abhijith P A
                                 </h3>
-                                <p className="mt-1 font-mono text-[11px] sm:text-xs text-accent">
+                                <div className="mt-1 font-mono text-[11px] sm:text-xs text-accent">
                                     Founder @ Abi Solutions
-                                </p>
+                                </div>
                             </div>
 
                             {/* Local Time Widget */}
@@ -306,9 +308,9 @@ export function ExperienceSection() {
                                             >
                                                 {exp.company}
                                             </h3>
-                                            <p className="mt-1 font-mono text-[11px] sm:text-xs text-accent">
+                                            <div className="mt-1 font-mono text-[11px] sm:text-xs text-accent">
                                                 {exp.title}
-                                            </p>
+                                            </div>
                                             <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink-muted sm:text-sm">
                                                 {exp.description}
                                             </p>

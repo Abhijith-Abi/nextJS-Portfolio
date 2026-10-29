@@ -1,9 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db } from "../lib/firebase";
-import emailjs from "@emailjs/browser";
+import { sendVisitorMessage } from "../lib/send-message";
 import { FadeIn } from "./motion/RevealText";
 import { MagneticButton } from "./motion/MagneticButton";
 import {
@@ -93,70 +91,12 @@ export function ContactSection() {
     const sendMessage = async (): Promise<string> => {
         try {
             setSubmitting(true);
-            let emailSent = false;
-            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-            const autoReplyTemplateId =
-                process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID;
-            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-            if (serviceId && templateId && publicKey) {
-                try {
-                    await emailjs.send(
-                        serviceId,
-                        templateId,
-                        {
-                            name: form.name,
-                            from_name: form.name,
-                            user_name: form.name,
-                            email: form.email,
-                            from_email: form.email,
-                            user_email: form.email,
-                            subject: "New Contact Form Submission",
-                            message: form.message,
-                        },
-                        publicKey,
-                    );
-                    emailSent = true;
-                    if (autoReplyTemplateId) {
-                        emailjs
-                            .send(
-                                serviceId,
-                                autoReplyTemplateId,
-                                {
-                                    to_name: form.name,
-                                    to_email: form.email,
-                                    name: form.name,
-                                    email: form.email,
-                                    subject: "Thank you for contacting me",
-                                    message: form.message,
-                                },
-                                publicKey,
-                            )
-                            .catch((err) =>
-                                console.warn("Auto-reply failed:", err),
-                            );
-                    }
-                } catch (emailError) {
-                    console.error("EmailJS Error:", emailError);
-                    throw new Error("Failed to send email.");
-                }
-            }
-
-            try {
-                await addDoc(collection(db, "contacts"), {
-                    name: form.name,
-                    email: form.email,
-                    message: form.message,
-                    createdAt: serverTimestamp(),
-                });
-            } catch (firebaseError) {
-                console.error("Firebase Error:", firebaseError);
-                if (!emailSent && !serviceId) {
-                    throw new Error("Failed to save message.");
-                }
-            }
-
+            await sendVisitorMessage({
+                name: form.name,
+                email: form.email,
+                message: form.message,
+                subject: "New Contact Form Submission",
+            });
             setSubmitted(true);
             setForm(initialState);
             return "Message sent to Abhijith P A. He usually replies within 24 hours.";
@@ -218,7 +158,10 @@ export function ContactSection() {
                             </h2>
                             <FadeIn className="mt-4 max-w-md text-xs sm:text-sm leading-relaxed text-ink-muted sm:text-base">
                                 <p>
-                                    Open for full-stack web applications, AI automation workflows, ERP engineering, and technical consulting.
+                                    I am open for new work: full stack web
+                                    apps, AI bots and workflows, ERP builds
+                                    and tech advice. Tell me what you need
+                                    and I will reply within a day.
                                 </p>
                             </FadeIn>
                         </div>
@@ -236,12 +179,12 @@ export function ContactSection() {
                                         <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" />
                                     </span>
                                     <div className="min-w-0 pr-2">
-                                        <p className="font-display text-xs sm:text-sm font-bold tracking-tight text-ink truncate transition-colors group-hover:text-accent-emerald">
+                                        <span className="block font-display text-xs sm:text-sm font-bold tracking-tight text-ink truncate transition-colors group-hover:text-accent-emerald">
                                             Direct WhatsApp Chat
-                                        </p>
-                                        <p className="mt-0.5 font-mono text-[9.5px] sm:text-[10px] text-ink-muted truncate">
+                                        </span>
+                                        <span className="mt-0.5 block font-mono text-[9.5px] sm:text-[10px] text-ink-muted truncate">
                                             Instant response · +91 99613 16468
-                                        </p>
+                                        </span>
                                     </div>
                                 </div>
                                 <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-accent-emerald text-background text-xs font-bold transition-transform group-hover:translate-x-0.5 shrink-0">

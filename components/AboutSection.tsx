@@ -92,7 +92,7 @@ export function AboutSection() {
                         work for everyone and feel smooth to use.
                     </p>
                     {/* status line — was a boxed card, now bare type */}
-                    <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50 sm:text-[11px]">
+                    <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50 sm:text-[11px]">
                         <span className="text-ink/80">Currently</span>
                         <span className="text-accent">→</span>
                         <span>Founder @ Abi Solutions</span>
@@ -104,7 +104,7 @@ export function AboutSection() {
                             </span>
                             Active
                         </span>
-                    </p>
+                    </div>
                 </motion.div>
             </div>
 
@@ -160,9 +160,9 @@ export function AboutSection() {
                         </div>
 
                         <div className="max-w-3xl">
-                            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent sm:text-[11px]">
+                            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent sm:text-[11px]">
                                 {c.kicker}
-                            </p>
+                            </div>
                             <h3
                                 id={`about-chapter-${c.n}`}
                                 className="mt-3 font-display text-xl font-bold leading-snug tracking-tight text-ink sm:text-2xl"
@@ -174,7 +174,7 @@ export function AboutSection() {
                             </p>
 
                             {/* highlights as inline mono list */}
-                            <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 sm:text-[11px]">
+                            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 sm:text-[11px]">
                                 {c.highlights.map((h, hi) => (
                                     <span key={h} className="flex items-center gap-3">
                                         {hi > 0 && (
@@ -185,7 +185,7 @@ export function AboutSection() {
                                         <span>{h}</span>
                                     </span>
                                 ))}
-                            </p>
+                            </div>
                         </div>
                     </motion.article>
                 ))}

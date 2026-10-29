@@ -21,7 +21,7 @@ const projects: Project[] = [
         domain: "AI Immigration & Visa Platform",
         role: "Lead Full Stack Architect",
         description:
-            "Global digital visa processing platform with AI eligibility scoring, multi-country requirement engines, and automated application tracking.",
+            "A global visa platform. AI scores each person's chances, rules for many countries guide every form, and people can track their application from start to finish.",
         image: "/projects/startvisa.webp",
         url: "https://www.startvisa.com/",
         tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "PostgreSQL", "Cloudflare"],
@@ -31,7 +31,7 @@ const projects: Project[] = [
         domain: "Luxury E-Commerce & Retail",
         role: "Lead Frontend Engineer",
         description:
-            "High-end fashion and lifestyle storefront built with sub-second checkout speeds, dynamic product filtering, and persistent cart architecture.",
+            "A high-end fashion and lifestyle store. Checkout takes under a second, shoppers can filter products on the fly, and the cart is saved between visits.",
         image: "/projects/houseofvaz.webp",
         url: "https://houseofvaz.com/",
         tech: ["Next.js", "React", "Tailwind CSS", "Zustand", "Stripe"],
@@ -41,7 +41,7 @@ const projects: Project[] = [
         domain: "Youth Empowerment Platform",
         role: "Full Stack Developer",
         description:
-            "Social empowerment portal supporting volunteer onboarding, community events, feedback funnels, and real-time engagement telemetry.",
+            "A youth portal for social good. It helps sign up volunteers, run community events, collect feedback and show live numbers on how people take part.",
         image: "/projects/yuvaparipalan.webp",
         url: "https://www.yuvaparipalan.com/",
         tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Vercel"],
@@ -51,7 +51,7 @@ const projects: Project[] = [
         domain: "Clinical Healthcare & Telemetry",
         role: "Healthcare Systems Lead",
         description:
-            "Clinical rehabilitation portal synchronizing patient telemetry, neurological therapy progress, and direct specialist booking funnels.",
+            "A rehab portal for a neuro clinic. It keeps patient data in sync, tracks therapy progress over time and lets patients book a specialist directly.",
         image: "/projects/palananeurosync.webp",
         url: "https://palananeurosync.com/",
         tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
@@ -127,6 +127,7 @@ export function ProjectsSection() {
                                         sizes="(max-width: 1024px) 100vw, 760px"
                                         className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                                         loading="lazy"
+                                        unoptimized
                                     />
                                     {/* visit chip */}
                                     <div className="absolute bottom-4 left-4 translate-y-2 rounded-full border border-accent/50 bg-background/80 px-4 py-2 opacity-0 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
@@ -150,9 +151,9 @@ export function ProjectsSection() {
                                 >
                                     0{i + 1}
                                 </span>
-                                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink-muted sm:text-[11px]">
+                                <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink-muted sm:text-[11px]">
                                     {p.domain}
-                                </p>
+                                </div>
                                 <h3
                                     id={`project-${p.name
                                         .toLowerCase()
@@ -164,7 +165,7 @@ export function ProjectsSection() {
                                 <p className="mt-3.5 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
                                     {p.description}
                                 </p>
-                                <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 sm:text-[11px]">
+                                <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 sm:text-[11px]">
                                     <span className="text-accent">
                                         {p.role}
                                     </span>
@@ -179,7 +180,7 @@ export function ProjectsSection() {
                                             <span>{t}</span>
                                         </span>
                                     ))}
-                                </p>
+                                </div>
                             </div>
                         </motion.article>
                     );

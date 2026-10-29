@@ -4,7 +4,6 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 
 const navItems = [
     { id: "home", href: "/", label: "Home", num: "01" },
@@ -54,6 +53,7 @@ export function Navbar() {
     return (
         <>
         <motion.header
+            role="banner"
             initial={{ y: -60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
@@ -76,15 +76,14 @@ export function Navbar() {
                     onClick={() => setOpen(false)}
                     className="group flex items-center gap-2.5 transition-opacity duration-200 hover:opacity-70"
                 >
-                    <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-line bg-surface2">
-                        <Image
-                            src="/avatar.webp"
-                            alt="Abhijith P A Logo"
-                            width={32}
-                            height={32}
-                            className="h-full w-full object-cover object-center"
-                        />
-                    </span>
+                    {/* Decorative: the name next to it is the link text. A
+                        background keeps the hero portrait as the page's
+                        first (eager, LCP) image. */}
+                    <span
+                        aria-hidden
+                        className="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full border border-line bg-surface2 bg-cover bg-center"
+                        style={{ backgroundImage: "url(/avatar.webp)" }}
+                    />
                     <span className="font-display text-sm font-bold tracking-tight text-ink">
                         Abhijith P A
                         <span className="text-accent">.</span>

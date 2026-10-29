@@ -93,14 +93,13 @@ export function TestimonialsSection() {
                             <div>
                                 {/* Rating stars & category */}
                                 <div className="mb-4 flex items-center justify-between gap-2 border-b border-line pb-4 sm:mb-5">
-                                    <div className="flex items-center gap-1">
-                                        {[...Array(t.rating)].map((_, i) => (
-                                            <Star
-                                                key={i}
-                                                className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-accent text-accent"
-                                            />
-                                        ))}
-                                    </div>
+                                    <span
+                                        role="img"
+                                        aria-label={`${t.rating} out of 5 stars`}
+                                        className="text-sm leading-none tracking-[0.2em] text-accent sm:text-base"
+                                    >
+                                        {"★".repeat(t.rating)}
+                                    </span>
                                     <span className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-accent border border-line bg-background px-2.5 py-0.5 rounded-full">
                                         {t.category}
                                     </span>
@@ -116,12 +115,12 @@ export function TestimonialsSection() {
                             <figcaption className="mt-6 border-t border-line pt-4 sm:mt-8 sm:pt-5">
                                 <div className="flex items-center justify-between gap-3">
                                     <div className="min-w-0 pr-2">
-                                        <p className="font-display text-xs sm:text-sm font-bold tracking-tight text-ink truncate">
+                                        <div className="font-display text-xs sm:text-sm font-bold tracking-tight text-ink truncate">
                                             {t.author}
-                                        </p>
-                                        <p className="mt-0.5 font-mono text-[10px] sm:text-[11px] text-ink-muted truncate">
+                                        </div>
+                                        <div className="mt-0.5 font-mono text-[10px] sm:text-[11px] text-ink-muted truncate">
                                             {t.role} · <span className="text-accent">{t.company}</span>
-                                        </p>
+                                        </div>
                                     </div>
 
                                     {/* Metric */}

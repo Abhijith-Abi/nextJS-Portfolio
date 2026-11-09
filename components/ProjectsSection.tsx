@@ -76,12 +76,9 @@ export function ProjectsSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.85, ease }}
-                    className="font-display text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.06] tracking-tight text-ink lg:col-span-7"
+                    className="font-display text-[clamp(2.1rem,4.5vw,3.6rem)] font-bold leading-[1.08] tracking-tight text-ink lg:col-span-7"
                 >
-                    Selected{" "}
-                    <span className="display-serif-italic text-accent">
-                        projects.
-                    </span>
+                    Selected Work
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 22 }}
@@ -115,7 +112,7 @@ export function ProjectsSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={`Visit ${p.name}`}
-                                className={`relative block overflow-hidden rounded-2xl border border-line bg-surface2 transition-all duration-500 hover:border-line2 hover:shadow-card lg:col-span-7 ${
+                                className={`relative block overflow-hidden rounded-xl border border-line bg-surface transition-colors duration-300 hover:border-line2 lg:col-span-7 ${
                                     flip ? "lg:order-2" : ""
                                 }`}
                             >
@@ -125,15 +122,15 @@ export function ProjectsSection() {
                                         alt={`${p.name} Preview`}
                                         fill
                                         sizes="(max-width: 1024px) 100vw, 760px"
-                                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                                        className="object-cover object-top"
                                         loading="lazy"
                                         unoptimized
                                     />
                                     {/* visit chip */}
-                                    <div className="absolute bottom-4 left-4 translate-y-2 rounded-full border border-accent/50 bg-background/80 px-4 py-2 opacity-0 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                                        <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                                    <div className="absolute bottom-3 left-3 rounded border border-line bg-surface/90 px-2.5 py-1 text-[11px] font-mono text-ink opacity-90 transition-opacity">
+                                        <span className="inline-flex items-center gap-1.5 text-accent">
                                             Visit live site
-                                            <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                            <ArrowUpRight className="h-3 w-3" />
                                         </span>
                                     </div>
                                 </div>
@@ -147,37 +144,34 @@ export function ProjectsSection() {
                             >
                                 <span
                                     aria-hidden
-                                    className="font-display text-6xl font-bold leading-none tracking-tight text-accent/10 transition-colors duration-500 group-hover:text-accent/25 sm:text-7xl"
+                                    className="font-display tabular-nums text-4xl font-bold leading-none tracking-tight text-ink/20 sm:text-5xl"
                                 >
                                     0{i + 1}
                                 </span>
-                                <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink-muted sm:text-[11px]">
+                                <div className="mt-3 font-mono text-[11px] uppercase tracking-[0.1em] text-accent">
                                     {p.domain}
                                 </div>
                                 <h3
                                     id={`project-${p.name
                                         .toLowerCase()
                                         .replace(/[^a-z0-9]+/g, "-")}`}
-                                    className="mt-2 font-display text-3xl font-bold tracking-tight text-ink transition-colors duration-300 group-hover:text-accent sm:text-4xl"
+                                    className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl"
                                 >
                                     {p.name}
                                 </h3>
-                                <p className="mt-3.5 text-sm leading-relaxed text-ink-muted sm:text-[15px]">
+                                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
                                     {p.description}
                                 </p>
-                                <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 sm:text-[11px]">
-                                    <span className="text-accent">
+                                <div className="mt-4 flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                                    <span className="rounded border border-line bg-surface px-2 py-0.5 text-accent">
                                         {p.role}
                                     </span>
                                     {p.tech.map((t) => (
                                         <span
                                             key={t}
-                                            className="flex items-center gap-3"
+                                            className="rounded border border-line px-2 py-0.5 text-ink/60"
                                         >
-                                            <span className="text-line2">
-                                                ·
-                                            </span>
-                                            <span>{t}</span>
+                                            {t}
                                         </span>
                                     ))}
                                 </div>

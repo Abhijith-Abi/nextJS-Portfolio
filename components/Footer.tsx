@@ -17,22 +17,21 @@ export function Footer() {
             className="relative border-t border-line bg-background/60 font-sans text-sm"
         >
             {/* Big CTA band */}
-            <div className="container-width flex flex-col gap-6 border-b border-line py-16 sm:py-20 lg:flex-row lg:items-end lg:justify-between lg:py-24">
+            <div className="container-width flex flex-col gap-6 border-b border-line py-14 sm:py-16 lg:flex-row lg:items-end lg:justify-between lg:py-20">
                 <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-accent sm:text-[11px]">
-                        Have an idea on your mind?
+                    <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent">
+                        Have a project in mind?
                     </p>
-                    <h2 className="display-hero mt-4 !text-[clamp(2.25rem,6vw,4.75rem)]">
-                        Let&rsquo;s build it{" "}
-                        <span className="display-serif-italic">together</span>
+                    <h2 className="display-hero mt-3 !text-[clamp(2.25rem,5.5vw,4.25rem)]">
+                        Let&rsquo;s build it together
                     </h2>
                 </div>
                 <Link
                     href="/contact"
-                    className="btn-primary group inline-flex shrink-0 items-center gap-3 px-8 py-4 text-sm font-semibold"
+                    className="btn-primary group inline-flex shrink-0 items-center gap-2 px-6 py-3 text-sm font-medium"
                 >
                     <span>Start a conversation</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="h-4 w-4" />
                 </Link>
             </div>
 

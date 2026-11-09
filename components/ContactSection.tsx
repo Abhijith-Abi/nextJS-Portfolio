@@ -3,14 +3,12 @@
 import { FormEvent, useState } from "react";
 import { sendVisitorMessage } from "../lib/send-message";
 import { FadeIn } from "./motion/RevealText";
-import { MagneticButton } from "./motion/MagneticButton";
 import {
     Send,
     Mail,
     Phone,
     MapPin,
     MessageSquare,
-    Sparkles,
     CheckCircle2,
     Clock,
     ArrowUpRight,
@@ -118,7 +116,7 @@ export function ContactSection() {
     };
 
     const inputClasses =
-        "mt-2 w-full rounded-xl border border-line bg-background px-3.5 sm:px-4 py-3 text-base sm:text-sm text-ink outline-none transition placeholder:text-ink/30 focus:border-accent focus:ring-2 focus:ring-accent/20";
+        "mt-2 w-full rounded-md border border-line bg-surface px-3.5 py-2.5 text-base sm:text-sm text-ink outline-none transition placeholder:text-ink/30 focus:border-accent";
 
     return (
         <section
@@ -127,14 +125,14 @@ export function ContactSection() {
             className="relative bg-background text-ink py-20 sm:py-24 lg:py-32"
         >
             <div className="container-width relative">
-                {/* Section header — matches SectionWrapper pattern */}
+                {/* Section header */}
                 <div className="mb-12 sm:mb-16 lg:mb-20">
                     <div className="flex items-baseline gap-4">
-                        <span className="font-mono text-[11px] font-bold tracking-[0.2em] text-accent sm:text-xs">
+                        <span className="font-mono text-xs font-bold text-accent">
                             06
                         </span>
                         <span className="hairline h-px w-10 shrink-0" />
-                        <span className="section-eyebrow">Contact</span>
+                        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">Contact</span>
                     </div>
                     <span className="mt-5 block h-px w-full bg-line lg:mt-6" />
                 </div>
@@ -143,25 +141,20 @@ export function ContactSection() {
                     {/* Left Info Column */}
                     <div className="space-y-6 sm:space-y-8">
                         <div>
-                            <span className="mb-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.32em] text-ink-muted">
-                                <Sparkles className="h-3 w-3 text-accent" />
-                                Start a Project or Collaboration
+                            <span className="mb-3 block font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
+                                Start a Project
                             </span>
                             <h2
                                 id="contact-heading"
-                                className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink"
+                                className="font-display text-[clamp(2rem,4.2vw,3.2rem)] font-bold leading-[1.08] tracking-tight text-ink"
                             >
-                                Let&apos;s engineer{" "}
-                                <span className="display-serif-italic text-accent2">
-                                    something remarkable.
-                                </span>
+                                Let&apos;s build something solid.
                             </h2>
                             <FadeIn className="mt-4 max-w-md text-xs sm:text-sm leading-relaxed text-ink-muted sm:text-base">
                                 <p>
-                                    I am open for new work: full stack web
-                                    apps, AI bots and workflows, ERP builds
-                                    and tech advice. Tell me what you need
-                                    and I will reply within a day.
+                                    Available for technical builds: full stack web
+                                    applications, AI workflows, and ERP systems.
+                                    Send your project requirements and I will respond within 24 hours.
                                 </p>
                             </FadeIn>
                         </div>
@@ -172,29 +165,29 @@ export function ContactSection() {
                                 href="https://wa.me/919961316468?text=Hi%20Abhijith,%20I%20would%20like%20to%20discuss%20a%20project"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center justify-between rounded-2xl border border-line bg-accent-emerald/[0.08] p-3.5 sm:p-4 transition-all duration-300 hover:-translate-y-[3px] hover:border-accent-emerald/50 hover:bg-accent-emerald/[0.14]"
+                                className="group flex items-center justify-between rounded-xl border border-line bg-surface p-3.5 sm:p-4 transition-colors hover:border-line2"
                             >
                                 <div className="flex items-center gap-3">
-                                    <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-accent-emerald/30 bg-accent-emerald/15 text-accent-emerald shrink-0">
+                                    <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg border border-line bg-surface2 text-accent-emerald shrink-0">
                                         <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" />
                                     </span>
                                     <div className="min-w-0 pr-2">
-                                        <span className="block font-display text-xs sm:text-sm font-bold tracking-tight text-ink truncate transition-colors group-hover:text-accent-emerald">
-                                            Direct WhatsApp Chat
+                                        <span className="block font-display text-xs sm:text-sm font-bold tracking-tight text-ink truncate transition-colors group-hover:text-accent">
+                                            Direct WhatsApp
                                         </span>
-                                        <span className="mt-0.5 block font-mono text-[9.5px] sm:text-[10px] text-ink-muted truncate">
-                                            Instant response · +91 99613 16468
+                                        <span className="mt-0.5 block font-mono text-[10px] text-ink-muted truncate">
+                                            Quick response · +91 99613 16468
                                         </span>
                                     </div>
                                 </div>
-                                <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-accent-emerald text-background text-xs font-bold transition-transform group-hover:translate-x-0.5 shrink-0">
-                                    <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                                <span className="flex h-7 w-7 items-center justify-center rounded-md border border-line text-ink-muted text-xs transition-colors group-hover:text-accent shrink-0">
+                                    <ArrowUpRight className="h-3.5 w-3.5" />
                                 </span>
                             </a>
                         </FadeIn>
 
                         {/* Contact Methods List */}
-                        <div className="rounded-2xl border border-line bg-surface/70 p-4 sm:p-5">
+                        <div className="rounded-xl border border-line bg-surface p-4 sm:p-5">
                             <ul className="space-y-3 sm:space-y-4 font-mono text-xs">
                                 {[
                                     {
@@ -249,7 +242,7 @@ export function ContactSection() {
                         </div>
                     </div>
 
-                    {/* Right Form Column — paper card on the ink band */}
+                    {/* Right Form Column */}
                     <FadeIn>
                         <form
                             id="contact-form"
@@ -258,21 +251,21 @@ export function ContactSection() {
                             onSubmit={handleSubmit}
                             noValidate
                             {...formToolAttrs}
-                            className="rounded-2xl sm:rounded-3xl bg-surface-card border border-line p-5 sm:p-8 shadow-soft"
+                            className="rounded-xl bg-surface border border-line p-5 sm:p-7"
                         >
-                            <div className="mb-6 flex items-center justify-between border-b border-line pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-ink/45">
+                            <div className="mb-6 flex items-center justify-between border-b border-line pb-3 font-mono text-[11px] text-ink-muted">
                                 <span className="flex items-center gap-2">
-                                    <span className="h-2 w-2 rounded-full bg-accent" />
-                                    ~/contact_form.tsx
+                                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                                    Direct Message Form
                                 </span>
-                                <span className="text-accent">secure transmission</span>
+                                <span>24h reply</span>
                             </div>
 
                             <div className="space-y-4">
                                 <div>
                                     <label
                                         htmlFor="name"
-                                        className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/50"
+                                        className="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted"
                                     >
                                         Your Name
                                     </label>
@@ -293,7 +286,7 @@ export function ContactSection() {
                                         placeholder="Jane Doe"
                                     />
                                     {errors.name && (
-                                        <p className="mt-1 font-mono text-[11px] text-rose-600">
+                                        <p className="mt-1 font-mono text-[11px] text-rose-500">
                                             {errors.name}
                                         </p>
                                     )}
@@ -302,7 +295,7 @@ export function ContactSection() {
                                 <div>
                                     <label
                                         htmlFor="email"
-                                        className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/50"
+                                        className="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted"
                                     >
                                         Email Address
                                     </label>
@@ -323,7 +316,7 @@ export function ContactSection() {
                                         placeholder="jane@company.com"
                                     />
                                     {errors.email && (
-                                        <p className="mt-1 font-mono text-[11px] text-rose-600">
+                                        <p className="mt-1 font-mono text-[11px] text-rose-500">
                                             {errors.email}
                                         </p>
                                     )}
@@ -332,7 +325,7 @@ export function ContactSection() {
                                 <div>
                                     <label
                                         htmlFor="message"
-                                        className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/50"
+                                        className="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted"
                                     >
                                         Project Scope & Message
                                     </label>
@@ -352,29 +345,29 @@ export function ContactSection() {
                                         placeholder="Tell me about your product requirements, timeline, and goals..."
                                     />
                                     {errors.message && (
-                                        <p className="mt-1 font-mono text-[11px] text-rose-600">
+                                        <p className="mt-1 font-mono text-[11px] text-rose-500">
                                             {errors.message}
                                         </p>
                                     )}
                                 </div>
                             </div>
 
-                            <MagneticButton
+                            <button
                                 type="submit"
                                 disabled={submitting}
-                                className="btn-primary mt-6 inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 text-sm font-bold disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
+                                className="btn-primary mt-6 inline-flex w-full items-center justify-center gap-2 px-5 py-3 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
                             >
                                 {submitting ? (
-                                    <span className="font-mono text-xs uppercase tracking-[0.24em]">
-                                        Transmitting…
+                                    <span className="font-mono text-xs">
+                                        Sending...
                                     </span>
                                 ) : (
                                     <>
-                                        <span>Dispatch Message</span>
+                                        <span>Send message</span>
                                         <Send className="h-4 w-4" />
                                     </>
                                 )}
-                            </MagneticButton>
+                            </button>
 
                             {submitted && !submitError && (
                                 <div className="mt-4 flex items-center gap-2 rounded-xl bg-accent-emerald/10 border border-accent-emerald/30 p-3 font-mono text-xs text-accent-emerald">

@@ -2,8 +2,6 @@
 
 import { SectionWrapper } from "./SectionWrapper";
 import { FadeIn } from "./motion/RevealText";
-import { Sparkles } from "lucide-react";
-import Marquee from "./ui/Marquee";
 
 type SkillCategory = {
     title: string;
@@ -95,25 +93,21 @@ export function SkillsSection() {
             labelledBy="skills-heading"
         >
             {/* Header */}
-            <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.2fr_0.8fr]">
+            <div className="mb-10 sm:mb-14 grid items-end gap-6 md:grid-cols-[1.2fr_0.8fr]">
                 <div>
-                    <span className="section-eyebrow mb-5 flex items-center gap-2">
-                        <Sparkles className="h-3 w-3" />
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent mb-3 block">
                         Production Capabilities
                     </span>
                     <h2
                         id="skills-heading"
-                        className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink"
+                        className="font-display text-[clamp(2rem,4.2vw,3.2rem)] font-bold leading-[1.08] tracking-tight text-ink"
                     >
-                        What I build with{" "}
-                        <span className="display-serif-italic text-accent">
-                            the toolkit.
-                        </span>
+                        Tools & Engineering Stack
                     </h2>
                 </div>
                 <FadeIn>
                     <p className="text-sm md:text-base leading-relaxed text-ink-muted">
-                        These are the tools I use every day. I pick proven, well-supported tech so your product stays fast, stable and easy to grow.
+                        Core technical foundations used daily. Selected for reliability, long-term maintainability, and predictable performance under scale.
                     </p>
                 </FadeIn>
             </div>
@@ -121,10 +115,10 @@ export function SkillsSection() {
             {/* Editorial numbered rows */}
             <div className="border-t border-line">
                 {categories.map((cat, idx) => (
-                    <FadeIn key={cat.title} delay={idx * 0.06}>
-                        <div className="group grid gap-5 border-b border-line py-9 sm:py-12 md:grid-cols-[72px_0.9fr_1.1fr] md:gap-10 transition-all duration-300">
+                    <FadeIn key={cat.title} delay={idx * 0.04}>
+                        <div className="group grid gap-5 border-b border-line py-8 sm:py-10 md:grid-cols-[60px_0.9fr_1.1fr] md:gap-8 transition-colors">
                             {/* Index */}
-                            <span className="font-mono text-[11px] tracking-[0.3em] text-ink/40 transition-colors group-hover:text-accent md:pt-2">
+                            <span className="font-mono text-[11px] text-ink/40 md:pt-1">
                                 0{idx + 1}
                             </span>
 
@@ -135,23 +129,23 @@ export function SkillsSection() {
                                         .toLowerCase()
                                         .replace(/[^a-z0-9]+/g, "-")
                                         .replace(/(^-|-$)/g, "")}`}
-                                    className="font-display text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent"
+                                    className="font-display text-lg sm:text-xl font-bold tracking-tight text-ink"
                                 >
                                     {cat.title}
                                 </h3>
-                                <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-muted">
+                                <p className="mt-2 max-w-md text-sm leading-relaxed text-ink-muted">
                                     {cat.description}
                                 </p>
                             </div>
 
-                            {/* Mono chips */}
+                            {/* Mono chips with nested 6px radius */}
                             <div className="flex flex-wrap content-start gap-2">
                                 {cat.skills.map((skill) => (
                                     <span
                                         key={skill.name}
-                                        className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-[10px] sm:text-[11px] transition-colors duration-200 hover:-translate-y-[2px] ${
+                                        className={`inline-flex items-center gap-2 rounded border px-2.5 py-1 font-mono text-[11px] transition-colors ${
                                             skill.isCore
-                                                ? "border-line2 text-ink"
+                                                ? "border-line2 text-ink bg-surface"
                                                 : "border-line text-ink-muted"
                                         }`}
                                     >
@@ -168,21 +162,6 @@ export function SkillsSection() {
                         </div>
                     </FadeIn>
                 ))}
-            </div>
-
-            {/* Marquee technology ticker */}
-            <div className="mt-10 sm:mt-14 overflow-hidden rounded-full border border-line bg-surface/60 py-3.5 sm:py-4 backdrop-blur-md">
-                <Marquee pauseOnHover className="[--duration:28s]">
-                    {marqueeSkills.map((tech) => (
-                        <div
-                            key={tech}
-                            className="mx-3 sm:mx-5 flex items-center gap-2 font-mono text-[11px] sm:text-xs text-ink-muted transition-colors hover:text-accent"
-                        >
-                            <span className="text-accent">◈</span>
-                            <span>{tech}</span>
-                        </div>
-                    ))}
-                </Marquee>
             </div>
         </SectionWrapper>
     );

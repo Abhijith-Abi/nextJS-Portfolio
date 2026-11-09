@@ -100,22 +100,22 @@ export function Navbar() {
                                     <a
                                         href={`#${item.id}`}
                                         onClick={(e) => handleClick(e, item)}
-                                        className="group relative rounded-full px-3.5 py-1.5 text-[13px] font-medium text-ink-muted transition hover:text-ink cursor-pointer"
+                                        className="group relative rounded-md px-3 py-1.5 text-[13px] font-medium text-ink-muted transition hover:text-ink cursor-pointer"
                                     >
                                         <span className="relative z-10">
                                             {item.label}
                                         </span>
-                                        <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-4" />
+                                        <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-accent transition-all duration-200 group-hover:w-4" />
                                     </a>
                                 ) : (
                                     <Link
                                         href={item.href}
-                                        className="group relative rounded-full px-3.5 py-1.5 text-[13px] font-medium text-ink-muted transition hover:text-ink"
+                                        className="group relative rounded-md px-3 py-1.5 text-[13px] font-medium text-ink-muted transition hover:text-ink"
                                     >
                                         <span className="relative z-10">
                                             {item.label}
                                         </span>
-                                        <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-accent transition-all duration-300 group-hover:w-4" />
+                                        <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-accent transition-all duration-200 group-hover:w-4" />
                                     </Link>
                                 )}
                             </li>
@@ -128,30 +128,24 @@ export function Navbar() {
                         <a
                             href="#contact"
                             onClick={(e) => scrollToSection(e, "contact")}
-                            className="btn-primary hidden items-center gap-2 px-4 py-2 text-[12px] md:inline-flex cursor-pointer"
+                            className="btn-primary hidden items-center gap-2 px-3.5 py-1.5 text-xs md:inline-flex cursor-pointer"
                         >
-                            <span className="relative flex h-1.5 w-1.5">
-                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
-                                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-emerald" />
-                            </span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent-emerald shrink-0" />
                             Available for work
                         </a>
                     ) : (
                         <Link
                             href="/contact"
-                            className="btn-primary hidden items-center gap-2 px-4 py-2 text-[12px] md:inline-flex"
+                            className="btn-primary hidden items-center gap-2 px-3.5 py-1.5 text-xs md:inline-flex"
                         >
-                            <span className="relative flex h-1.5 w-1.5">
-                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
-                                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-emerald" />
-                            </span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent-emerald shrink-0" />
                             Available for work
                         </Link>
                     )}
 
                     <button
                         type="button"
-                        className="surface inline-flex h-9 w-9 items-center justify-center rounded-full text-ink transition hover:border-accent/40 lg:hidden cursor-pointer"
+                        className="surface inline-flex h-8 w-8 items-center justify-center rounded-md text-ink transition hover:border-accent/40 lg:hidden cursor-pointer"
                         onClick={() => setOpen((v) => !v)}
                         aria-label="Toggle navigation"
                     >

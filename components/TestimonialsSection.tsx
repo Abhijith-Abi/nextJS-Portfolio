@@ -1,8 +1,5 @@
 "use client";
 
-import {
-    Star,
-} from "lucide-react";
 import { SectionWrapper } from "./SectionWrapper";
 import { FadeIn } from "./motion/RevealText";
 
@@ -62,25 +59,21 @@ export function TestimonialsSection() {
             labelledBy="testimonials-heading"
         >
             {/* Header */}
-            <div className="mb-10 sm:mb-16 grid items-end gap-6 md:grid-cols-[1.2fr_0.8fr]">
+            <div className="mb-10 sm:mb-14 grid items-end gap-6 md:grid-cols-[1.2fr_0.8fr]">
                 <div>
-                    <span className="section-eyebrow mb-5 flex items-center gap-2">
-                        <Star className="h-3 w-3 fill-accent text-accent" />
-                        Client Trust & Delivery
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent mb-3 block">
+                        Client Testimonials
                     </span>
                     <h2
                         id="testimonials-heading"
-                        className="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-bold leading-[1.05] tracking-tight text-ink"
+                        className="font-display text-[clamp(2rem,4.2vw,3.2rem)] font-bold leading-[1.08] tracking-tight text-ink"
                     >
-                        Proven impact,{" "}
-                        <span className="display-serif-italic text-accent">
-                            client words.
-                        </span>
+                        Client Feedback & Impact
                     </h2>
                 </div>
                 <FadeIn>
                     <p className="text-sm md:text-base leading-relaxed text-ink-muted">
-                        Software that helps teams earn more, waste less time and handle real traffic without breaking. Here is what clients say.
+                        Production deployments that improved throughput, decreased operational friction, and supported measurable business expansion.
                     </p>
                 </FadeIn>
             </div>
@@ -88,47 +81,38 @@ export function TestimonialsSection() {
             {/* Testimonial cards */}
             <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
                 {testimonials.map((t, idx) => (
-                    <FadeIn key={t.author} delay={idx * 0.08}>
-                        <figure className="surface relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-8 transition-all duration-300 hover:-translate-y-[3px] hover:border-line2 hover:shadow-card">
+                    <FadeIn key={t.author} delay={idx * 0.05}>
+                        <figure className="surface flex h-full flex-col justify-between rounded-xl p-5 sm:p-6 border border-line transition-colors hover:border-line2">
                             <div>
-                                {/* Rating stars & category */}
-                                <div className="mb-4 flex items-center justify-between gap-2 border-b border-line pb-4 sm:mb-5">
-                                    <span
-                                        role="img"
-                                        aria-label={`${t.rating} out of 5 stars`}
-                                        className="text-sm leading-none tracking-[0.2em] text-accent sm:text-base"
-                                    >
-                                        {"★".repeat(t.rating)}
-                                    </span>
-                                    <span className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-accent border border-line bg-background px-2.5 py-0.5 rounded-full">
+                                <div className="mb-4 flex items-center justify-between gap-2 border-b border-line pb-3">
+                                    <span className="font-mono text-[11px] text-accent">
                                         {t.category}
                                     </span>
                                 </div>
 
-                                {/* Quote */}
-                                <blockquote className="font-serif text-sm sm:text-base italic leading-relaxed text-ink">
+                                <blockquote className="text-sm sm:text-[15px] leading-relaxed text-ink">
                                     “{t.quote}”
                                 </blockquote>
                             </div>
 
                             {/* Author & results metric footer */}
-                            <figcaption className="mt-6 border-t border-line pt-4 sm:mt-8 sm:pt-5">
+                            <figcaption className="mt-6 border-t border-line pt-4">
                                 <div className="flex items-center justify-between gap-3">
                                     <div className="min-w-0 pr-2">
-                                        <div className="font-display text-xs sm:text-sm font-bold tracking-tight text-ink truncate">
+                                        <div className="font-display text-sm font-bold tracking-tight text-ink truncate">
                                             {t.author}
                                         </div>
-                                        <div className="mt-0.5 font-mono text-[10px] sm:text-[11px] text-ink-muted truncate">
+                                        <div className="mt-0.5 font-mono text-[11px] text-ink-muted truncate">
                                             {t.role} · <span className="text-accent">{t.company}</span>
                                         </div>
                                     </div>
 
                                     {/* Metric */}
                                     <div className="text-right shrink-0">
-                                        <span className="block font-display text-base sm:text-lg font-bold leading-none text-accent">
+                                        <span className="block font-display tabular-nums text-base sm:text-lg font-bold leading-none text-accent">
                                             {t.metric}
                                         </span>
-                                        <span className="font-mono text-[7.5px] sm:text-[8px] uppercase tracking-[0.14em] text-ink/40">
+                                        <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-ink/40">
                                             {t.metricLabel}
                                         </span>
                                     </div>

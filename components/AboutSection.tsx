@@ -71,12 +71,9 @@ export function AboutSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.85, ease }}
-                    className="font-display text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.06] tracking-tight text-ink lg:col-span-7"
+                    className="font-display text-[clamp(2.1rem,4.5vw,3.6rem)] font-bold leading-[1.08] tracking-tight text-ink lg:col-span-7"
                 >
-                    A developer who thinks in{" "}
-                    <span className="display-serif-italic text-accent">
-                        scalable systems.
-                    </span>
+                    A developer who builds scalable, resilient systems.
                 </motion.h2>
 
                 <motion.div
@@ -87,21 +84,18 @@ export function AboutSection() {
                     className="lg:col-span-5"
                 >
                     <p className="max-w-md text-sm sm:text-base leading-relaxed text-ink-muted">
-                        I pair clean, good-looking interfaces with solid
-                        backend systems. Every part is built to load fast,
-                        work for everyone and feel smooth to use.
+                        I pair clean, maintainable frontend architectures with reliable
+                        backend infrastructure. Built for fast execution, predictable uptime,
+                        and low operational overhead.
                     </p>
-                    {/* status line — was a boxed card, now bare type */}
-                    <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50 sm:text-[11px]">
+                    {/* status line */}
+                    <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[11px] text-ink/50">
                         <span className="text-ink/80">Currently</span>
                         <span className="text-accent">→</span>
                         <span>Founder @ Abi Solutions</span>
                         <span className="text-line2">/</span>
                         <span className="inline-flex items-center gap-1.5 text-accent-emerald">
-                            <span className="relative flex h-1.5 w-1.5">
-                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
-                                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-emerald" />
-                            </span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent-emerald shrink-0" />
                             Active
                         </span>
                     </div>
@@ -125,13 +119,13 @@ export function AboutSection() {
                             i === 2 ? "sm:border-l-0" : ""
                         } ${i === 3 ? "sm:border-l sm:border-l-border-line sm:border-line" : ""} group px-1 sm:px-2`}
                     >
-                        <dt className="order-2 mt-2 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted sm:text-[10px]">
+                        <dt className="order-2 mt-2 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted">
                             {f.l}
                         </dt>
-                        <dd className="order-1 font-display text-2xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent sm:text-3xl">
+                        <dd className="order-1 font-display tabular-nums text-2xl font-bold tracking-tight text-ink sm:text-3xl">
                             {f.v}
                         </dd>
-                        <dd className="order-3 mt-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/40 sm:text-[9px]">
+                        <dd className="order-3 mt-0.5 font-mono text-[9px] text-ink/40">
                             {f.sub}
                         </dd>
                     </div>

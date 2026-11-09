@@ -44,16 +44,6 @@ html.lenis body {
 
 body {
     background-color: #0a0a0b;
-    background-image: radial-gradient(
-            ellipse 65% 40% at 50% -12%,
-            rgba(198, 242, 78, 0.05),
-            transparent 70%
-        ),
-        radial-gradient(
-            ellipse 55% 38% at 85% 8%,
-            rgba(84, 84, 95, 0.16),
-            transparent 65%
-        );
     color: #f5f5f3;
     overflow-x: hidden;
     width: 100%;
@@ -90,275 +80,111 @@ body {
     @apply mx-auto max-w-[1440px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 w-full;
 }
 
-/* ───────── Glass surfaces ───────── */
+/* ───────── Surfaces ───────── */
 .surface {
-    background: rgba(20, 20, 23, 0.6);
+    background: #121214;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
 }
 
 .surface-card {
-    background: rgba(24, 24, 27, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #161619;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .surface-hover {
     transition:
-        border-color 240ms ease,
-        background-color 240ms ease,
-        transform 240ms ease,
-        box-shadow 240ms ease;
+        border-color 200ms ease,
+        background-color 200ms ease;
 }
 .surface-hover:hover {
-    background: rgba(28, 28, 32, 0.85);
-    border-color: rgba(198, 242, 78, 0.4);
-    box-shadow: 0 12px 36px -12px rgba(0, 0, 0, 0.7);
+    background: #1a1a1e;
+    border-color: rgba(255, 255, 255, 0.16);
 }
 
 /* Hairline divider */
 .hairline {
     height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.22) 20%,
-        rgba(198, 242, 78, 0.35) 50%,
-        rgba(255, 255, 255, 0.22) 80%,
-        transparent
-    );
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .section-eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.32em] text-accent;
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-accent;
 }
 
-/* ───────── Buttons — lime pill & hairline ghost ───────── */
-@keyframes light-sheen-sweep {
-    0% {
-        transform: translateX(-150%) skewX(-20deg);
-    }
-    100% {
-        transform: translateX(250%) skewX(-20deg);
-    }
-}
-
+/* ───────── Buttons — architectural 8px radius ───────── */
 .btn-primary {
     position: relative;
-    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #c6f24e;
     color: #0a0a0b;
-    font-weight: 600;
-    border-radius: 999px;
+    font-weight: 500;
+    border-radius: 8px;
     transition:
-        background 400ms cubic-bezier(0.16, 1, 0.3, 1),
-        color 400ms ease,
-        transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 300ms ease;
+        background 200ms ease,
+        color 200ms ease,
+        border-color 200ms ease;
 }
 
 .btn-primary:hover {
-    background: #e3ff8a;
+    background: #d4f767;
     color: #0a0a0b;
-    transform: translateY(-2px);
-    box-shadow: 0 14px 40px -12px rgba(198, 242, 78, 0.45);
 }
 
 .btn-primary:active {
-    transform: translateY(0);
+    transform: translateY(1px);
 }
 
 .btn-ghost {
     position: relative;
-    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     color: #f5f5f3;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
     transition:
-        background 400ms ease,
-        border-color 300ms ease,
-        color 300ms ease,
-        transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+        background 200ms ease,
+        border-color 200ms ease,
+        color 200ms ease;
 }
 
 .btn-ghost:hover {
-    border-color: #c6f24e;
-    color: #c6f24e;
-    transform: translateY(-2px);
-    background: rgba(198, 242, 78, 0.05);
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.04);
 }
 
-/* ───────── Flip card (developer profile portrait) ───────── */
-.flip-card {
-    perspective: 1200px;
-}
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-.flip-face {
-    position: absolute;
-    inset: 0;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: inherit;
-    overflow: hidden;
-}
-.flip-face-back {
-    transform: rotateY(180deg);
+.btn-ghost:active {
+    transform: translateY(1px);
 }
 
-@property --bento-angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-}
-
+/* ───────── Cards ───────── */
 .bento-card {
     position: relative;
-    isolation: isolate;
-    background: rgba(20, 20, 23, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: #141417;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     transition:
-        transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 320ms ease,
-        background-color 320ms ease,
-        box-shadow 320ms ease;
-}
-.bento-card::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: conic-gradient(
-        from var(--bento-angle, 0deg),
-        transparent 0deg,
-        transparent 180deg,
-        rgba(198, 242, 78, 0.9) 240deg,
-        rgba(227, 255, 138, 0.7) 290deg,
-        rgba(255, 255, 255, 0.35) 340deg,
-        transparent 360deg
-    );
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 320ms ease;
-    pointer-events: none;
-    z-index: 1;
+        border-color 200ms ease,
+        background-color 200ms ease;
 }
 .bento-card:hover {
-    border-color: transparent;
-    background: rgba(26, 26, 30, 0.9);
-    transform: translateY(-3px);
-    box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.8);
-}
-.bento-card:hover::before {
-    opacity: 1;
-    animation: bento-rotate 3.5s linear infinite;
-}
-
-@keyframes bento-rotate {
-    from {
-        --bento-angle: 0deg;
-    }
-    to {
-        --bento-angle: 360deg;
-    }
-}
-
-/* Fallback for browsers without @property support */
-@supports not (background: conic-gradient(from 0deg, red 0deg)) {
-    .bento-card:hover::before {
-        background: linear-gradient(
-            135deg,
-            rgba(198, 242, 78, 0.55),
-            rgba(227, 255, 138, 0.35),
-            transparent
-        );
-    }
+    background: #18181c;
+    border-color: rgba(255, 255, 255, 0.16);
 }
 
 .ghost-text {
-    color: rgba(255, 255, 255, 0.14);
-    -webkit-text-stroke: 1px rgba(198, 242, 78, 0.4);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .gradient-text {
-    background: linear-gradient(120deg, #f5f5f3 10%, #c6f24e 90%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #f5f5f3;
 }
 
 .gradient-text-blue {
-    background: linear-gradient(120deg, #c6f24e 0%, #e3ff8a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ───────── Ambient glow — faint studio bloom on graphite ───────── */
-.ambient-glow {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-/* Static soft gradients — no blur filters, no will-change, no animation.
-   Radial gradients already fade to transparent, so blur is unnecessary. */
-.ambient-glow::before {
-    content: "";
-    position: absolute;
-    top: -15%;
-    right: -15%;
-    width: 62vw;
-    height: 62vh;
-    background: radial-gradient(
-        ellipse,
-        rgba(198, 242, 78, 0.06),
-        transparent 62%
-    );
-}
-.ambient-glow::after {
-    content: "";
-    position: absolute;
-    bottom: -15%;
-    left: -10%;
-    width: 54vw;
-    height: 54vh;
-    background: radial-gradient(
-        ellipse,
-        rgba(120, 120, 134, 0.05),
-        transparent 62%
-    );
-}
-
-/* Studio grain */
-.grain-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
-    background-size: 200px 200px;
-    opacity: 0.03;
+    color: #c6f24e;
 }
 
 /* ───────── anime.js text reveal helpers ───────── */
@@ -390,44 +216,31 @@ body {
 /* ───────── Hero buttons (match editorial pills) ───────── */
 .hero-btn-primary {
     position: relative;
-    overflow: hidden;
     background: #c6f24e;
     color: #0a0a0b;
-    font-weight: 600;
-    border-radius: 999px;
-    transition:
-        background 400ms cubic-bezier(0.16, 1, 0.3, 1),
-        color 400ms ease,
-        transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 300ms ease;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 200ms ease;
 }
 
 .hero-btn-primary:hover {
-    background: #e3ff8a;
-    color: #0a0a0b;
-    transform: translateY(-2px);
-    box-shadow: 0 14px 40px -12px rgba(198, 242, 78, 0.45);
+    background: #d4f767;
 }
 
 .hero-btn-ghost {
     position: relative;
-    overflow: hidden;
     background: transparent;
     color: #f5f5f3;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
     transition:
-        background 400ms ease,
-        border-color 300ms ease,
-        color 300ms ease,
-        transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+        border-color 200ms ease,
+        background 200ms ease;
 }
 
 .hero-btn-ghost:hover {
-    border-color: #c6f24e;
-    color: #c6f24e;
-    transform: translateY(-2px);
-    background: rgba(198, 242, 78, 0.05);
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 /* ───────── Editorial link underline reveal ───────── */

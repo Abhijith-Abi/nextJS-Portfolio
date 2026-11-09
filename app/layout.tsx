@@ -7,7 +7,6 @@ import { CONTACT, SAME_AS, SCHEMA_IDS, SITE_URL } from "../lib/site";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { SwCleanup } from "../components/SwCleanup";
 import { Loader } from "../components/Loader";
-import { CursorFollower } from "../components/CursorFollower";
 import { CommandPalette } from "../components/CommandPalette";
 import { HydrationCleanup } from "../components/HydrationCleanup";
 import { portfolioPhotos } from "../lib/photos";
@@ -525,9 +524,6 @@ export default function RootLayout({
                 <Loader />
                 <SwCleanup />
                 <CommandPalette />
-                <div className="ambient-glow" aria-hidden />
-                <div className="grain-overlay" aria-hidden />
-                <CursorFollower />
                 <SmoothScroll>{children}</SmoothScroll>
                 <GoogleAnalytics gaId="G-T08NBY5C52" />
                 <PreviewWidget />

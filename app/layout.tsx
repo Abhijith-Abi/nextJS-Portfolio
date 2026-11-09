@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "../components/GoogleAnalytics";
+import { PreviewWidget } from "../components/PreviewWidget";
 import { CONTACT, SAME_AS, SCHEMA_IDS, SITE_URL } from "../lib/site";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { SwCleanup } from "../components/SwCleanup";
@@ -529,6 +530,7 @@ export default function RootLayout({
                 <CursorFollower />
                 <SmoothScroll>{children}</SmoothScroll>
                 <GoogleAnalytics gaId="G-T08NBY5C52" />
+                <PreviewWidget />
                 <HydrationCleanup />
             </body>
         </html>

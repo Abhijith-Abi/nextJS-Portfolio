@@ -8,6 +8,29 @@ const nextConfig = {
     },
     async redirects() {
         return [
+            // Old domain 301 redirects for Google Search Console migration
+            {
+                source: "/:path*",
+                has: [
+                    {
+                        type: "host",
+                        value: "abisolutions.online",
+                    },
+                ],
+                destination: "https://abisolutions.in/:path*",
+                permanent: true,
+            },
+            {
+                source: "/:path*",
+                has: [
+                    {
+                        type: "host",
+                        value: "www.abisolutions.online",
+                    },
+                ],
+                destination: "https://abisolutions.in/:path*",
+                permanent: true,
+            },
             {
                 source: "/developer-calicut",
                 destination: "/developer-kozhikode",

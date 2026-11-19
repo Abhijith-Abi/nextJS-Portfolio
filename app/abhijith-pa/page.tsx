@@ -49,18 +49,18 @@ export const metadata: Metadata = {
         "AI Engineer India",
         "Abhijith P A Photos",
     ],
-    alternates: { canonical: "https://abisolutions.online/abhijith-pa" },
+    alternates: { canonical: "https://abisolutions.in/abhijith-pa" },
     openGraph: {
         type: "profile",
         locale: "en_US",
-        url: "https://abisolutions.online/abhijith-pa",
+        url: "https://abisolutions.in/abhijith-pa",
         siteName: "Abhijith P A — Abi Solutions",
         title: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
         description:
             "Full Stack Developer & AI Engineer, Founder of Abi Solutions. React, Next.js, Django, AWS, AI Automation from Kerala, India.",
         images: [
             {
-                url: "https://abisolutions.online/og-image.jpg",
+                url: "https://abisolutions.in/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
@@ -91,10 +91,10 @@ const jsonLd = [
         "@context": "https://schema.org",
         "@type": "ProfilePage",
         name: "Abhijith P A — Full Stack Developer & AI Engineer",
-        url: "https://abisolutions.online/abhijith-pa",
+        url: "https://abisolutions.in/abhijith-pa",
         mainEntity: {
             "@type": "Person",
-            "@id": "https://abisolutions.online/#person",
+            "@id": "https://abisolutions.in/#person",
             name: "Abhijith P A",
             alternateName: [
                 "Abi",
@@ -105,8 +105,8 @@ const jsonLd = [
                 "Abhijith Developer",
                 "Abhijith Full Stack Developer",
             ],
-            url: "https://abisolutions.online",
-            image: portfolioPhotos.map((p) => `https://abisolutions.online${p.src}`),
+            url: "https://abisolutions.in",
+            image: portfolioPhotos.map((p) => `https://abisolutions.in${p.src}`),
             jobTitle: "Full Stack Developer & AI Engineer",
             description:
                 "Abhijith P A is a Full Stack Developer and AI Engineer, Founder of Abi Solutions from Wayanad, Kerala, India. He specializes in React, Next.js, Django, Python, AWS, and AI automation.",
@@ -133,7 +133,7 @@ const jsonLd = [
             sameAs: [
                 "https://github.com/Abhijith-Abi",
                 "https://www.linkedin.com/in/abhijith-pa/",
-                "https://abisolutions.online",
+                "https://abisolutions.in",
             ],
             address: {
                 "@type": "PostalAddress",

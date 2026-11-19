@@ -38,7 +38,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://abisolutions.online"),
+    metadataBase: new URL("https://abisolutions.in"),
     title: {
         default: "Abhijith P A — Web Developer in Wayanad | Abi Solutions",
         template: "%s | Abhijith P A",
@@ -142,7 +142,7 @@ export const metadata: Metadata = {
         "website developer near Kalpetta",
         "website developer near Sulthan Bathery",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     category: "technology",
@@ -160,21 +160,21 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://abisolutions.online",
+        url: "https://abisolutions.in",
         siteName: "Abhijith P A — Abi Solutions",
         title: "Abhijith P A | Web Developer in Wayanad, Kerala | Founder of Abi Solutions",
         description:
             "Best web developer in Wayanad, Kerala. Founder of Abi Solutions. Building custom websites, ERP, SaaS & AI automation for businesses in Kalpetta, Sulthan Bathery, Mananthavady, Kozhikode & across Kerala. React, Next.js, Django & AWS.",
         images: [
             {
-                url: "https://abisolutions.online/og-image.jpg",
+                url: "https://abisolutions.in/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
                 type: "image/jpeg",
             },
             {
-                url: "https://abisolutions.online/profile.jpg",
+                url: "https://abisolutions.in/profile.jpg",
                 width: 800,
                 height: 800,
                 alt: "Abhijith P A - Full Stack Developer & AI Engineer",
@@ -191,13 +191,13 @@ export const metadata: Metadata = {
             "Best web developer in Wayanad, Kerala. Founder of Abi Solutions. Building custom websites, ERP, SaaS & AI automation for businesses in Kalpetta, Sulthan Bathery, Mananthavady, Kozhikode & across Kerala. React, Next.js, Django & AWS.",
         images: [
             {
-                url: "https://abisolutions.online/og-image.jpg",
+                url: "https://abisolutions.in/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Abhijith P A — Full Stack Developer Portfolio | Abi Solutions",
             },
             {
-                url: "https://abisolutions.online/profile.jpg",
+                url: "https://abisolutions.in/profile.jpg",
                 width: 800,
                 height: 800,
                 alt: "Abhijith P A - Full Stack Developer & AI Engineer",

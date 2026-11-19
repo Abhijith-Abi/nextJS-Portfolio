@@ -162,7 +162,7 @@ export const portfolioPhotos: PhotoItem[] = [
  * Generate Schema.org ImageGallery & ImageObject structured data for all portfolio photos
  * to achieve top Google Image Search ranking and rich snippets.
  */
-export function generatePhotoSchema(baseUrl = "https://abisolutions.online") {
+export function generatePhotoSchema(baseUrl = "https://abisolutions.in") {
     return {
         "@context": "https://schema.org",
         "@type": "ImageGallery",

@@ -53,7 +53,7 @@ const presets: CommandPreset[] = [
     {
         id: "audit-vitals",
         label: "Benchmark Core Web Vitals",
-        command: "abi-cli audit --url=https://abisolutions.online --device=mobile --strict",
+        command: "abi-cli audit --url=https://abisolutions.in --device=mobile --strict",
         icon: Activity,
         outputLines: [
             { text: "[1/3] 🔍 Running Lighthouse v11 headless performance engine...", color: "default" },

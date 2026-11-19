@@ -23,14 +23,14 @@ export const metadata: Metadata = {
         "Hire Abhijith P A",
         "Software Engineer Kerala CV",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
-    alternates: { canonical: "https://abisolutions.online/resume" },
+    alternates: { canonical: "https://abisolutions.in/resume" },
     openGraph: {
         type: "profile",
         locale: "en_US",
-        url: "https://abisolutions.online/resume",
+        url: "https://abisolutions.in/resume",
         siteName: "Abi Solutions",
         title: "Resume — Abhijith P A | Full Stack Developer",
         description:
@@ -73,7 +73,7 @@ const jsonLd = {
     "@type": "Person",
     name: "Abhijith P A",
     alternateName: ["Abi", "Abhijith PA", "AP Abhijith", "Abi Solutions"],
-    url: "https://abisolutions.online",
+    url: "https://abisolutions.in",
     jobTitle: "Full Stack Developer",
     worksFor: { "@type": "Organization", name: "Algobiz" },
     alumniOf: [
@@ -143,10 +143,10 @@ export default function ResumePage() {
                                     +91 99613 16468
                                 </a>
                                 <a
-                                    href="https://abisolutions.online"
+                                    href="https://abisolutions.in"
                                     className="link-underline hover:text-accent"
                                 >
-                                    abisolutions.online
+                                    abisolutions.in
                                 </a>
                                 <a
                                     href="https://github.com/Abhijith-Abi"
@@ -372,7 +372,7 @@ export default function ResumePage() {
                                     {
                                         name: "Enterprise ERP",
                                         desc: "Enterprise resource planning — inventory, finance, HR",
-                                        url: "https://abisolutions.online/projects/enterprise-erp",
+                                        url: "https://abisolutions.in/projects/enterprise-erp",
                                     },
                                     {
                                         name: "Hosface",

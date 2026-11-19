@@ -24,16 +24,16 @@ export const metadata: Metadata = {
         "Next.js Developer Kerala",
         "Full Stack Developer India",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     alternates: {
-        canonical: "https://abisolutions.online/projects",
+        canonical: "https://abisolutions.in/projects",
     },
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://abisolutions.online/projects",
+        url: "https://abisolutions.in/projects",
         siteName: "Abhijith P A — Abi Solutions",
         title: "Projects by Abhijith P A | Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync",
         description:
@@ -77,15 +77,15 @@ const jsonLd = [
         name: "Projects by Abhijith P A — Abi Solutions",
         description:
             "Selected production-grade web applications, e-commerce stores, visa processing platforms, and clinical systems built by Abhijith P A (Abi Solutions) using React, Next.js, TypeScript, Django, Python, and AWS.",
-        url: "https://abisolutions.online/projects",
+        url: "https://abisolutions.in/projects",
         author: {
             "@type": "Person",
-            "@id": "https://abisolutions.online/#person",
+            "@id": "https://abisolutions.in/#person",
             name: "Abhijith P A",
         },
         publisher: {
             "@type": "Organization",
-            "@id": "https://abisolutions.online/#organization",
+            "@id": "https://abisolutions.in/#organization",
             name: "Abi Solutions",
         },
         mainEntity: {
@@ -104,7 +104,7 @@ const jsonLd = [
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
-                            "@id": "https://abisolutions.online/#person",
+                            "@id": "https://abisolutions.in/#person",
                             name: "Abhijith P A",
                         },
                     },
@@ -122,7 +122,7 @@ const jsonLd = [
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
-                            "@id": "https://abisolutions.online/#person",
+                            "@id": "https://abisolutions.in/#person",
                             name: "Abhijith P A",
                         },
                     },
@@ -140,7 +140,7 @@ const jsonLd = [
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
-                            "@id": "https://abisolutions.online/#person",
+                            "@id": "https://abisolutions.in/#person",
                             name: "Abhijith P A",
                         },
                     },
@@ -158,7 +158,7 @@ const jsonLd = [
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
-                            "@id": "https://abisolutions.online/#person",
+                            "@id": "https://abisolutions.in/#person",
                             name: "Abhijith P A",
                         },
                     },
@@ -174,13 +174,13 @@ const jsonLd = [
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://abisolutions.online",
+                item: "https://abisolutions.in",
             },
             {
                 "@type": "ListItem",
                 position: 2,
                 name: "Projects",
-                item: "https://abisolutions.online/projects",
+                item: "https://abisolutions.in/projects",
             },
         ],
     },

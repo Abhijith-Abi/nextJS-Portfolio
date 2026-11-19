@@ -7,7 +7,7 @@ const UPDATED = "2026-10-28";
 export const metadata: Metadata = {
     title: "Terms of Use",
     description:
-        "The terms for using abisolutions.online, the website of Abhijith P A and Abi Solutions.",
+        "The terms for using abisolutions.in, the website of Abhijith P A and Abi Solutions.",
     alternates: { canonical: `${SITE_URL}/terms` },
     robots: { index: true, follow: true },
 };
@@ -16,7 +16,7 @@ export default function TermsPage() {
     return (
         <LegalPage
             title="Terms of Use"
-            intro="By using abisolutions.online you agree to these terms. They are short and plain on purpose."
+            intro="By using abisolutions.in you agree to these terms. They are short and plain on purpose."
             updated={UPDATED}
         >
             <section aria-labelledby="content">

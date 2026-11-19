@@ -5,7 +5,7 @@ import { servicesSEOData, serviceAliases } from "../lib/services-seo";
 import { portfolioPhotos } from "../lib/photos";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = "https://abisolutions.online";
+    const baseUrl = "https://abisolutions.in";
     const allPhotoUrls = portfolioPhotos.map((p) => `${baseUrl}${p.src}`);
 
     // Dynamic blog post entries

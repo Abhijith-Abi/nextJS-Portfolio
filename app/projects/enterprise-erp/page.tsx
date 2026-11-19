@@ -21,16 +21,16 @@ export const metadata: Metadata = {
         "HR management platform",
         "Abi Solutions project",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     alternates: {
-        canonical: "https://abisolutions.online/projects/enterprise-erp",
+        canonical: "https://abisolutions.in/projects/enterprise-erp",
     },
     openGraph: {
         type: "article",
         locale: "en_US",
-        url: "https://abisolutions.online/projects/enterprise-erp",
+        url: "https://abisolutions.in/projects/enterprise-erp",
         siteName: "Abi Solutions",
         title: "Enterprise ERP — Built by Abhijith P A | Next.js, TypeScript",
         description:
@@ -72,14 +72,14 @@ const jsonLd = {
     name: "Enterprise ERP",
     description:
         "Enterprise resource planning platform covering inventory, finance, and HR with real-time insights, granular permissions, and a unified design language.",
-    url: "https://abisolutions.online/projects/enterprise-erp",
+    url: "https://abisolutions.in/projects/enterprise-erp",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     creator: {
         "@type": "Person",
         name: "Abhijith P A",
         alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
+        url: "https://abisolutions.in",
     },
     offers: {
         "@type": "Offer",

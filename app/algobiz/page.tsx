@@ -37,11 +37,11 @@ export const metadata: Metadata = {
         "Django Development Kerala",
         "WhatsApp Automation Kerala",
     ],
-    alternates: { canonical: "https://abisolutions.online/algobiz" },
+    alternates: { canonical: "https://abisolutions.in/algobiz" },
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://abisolutions.online/algobiz",
+        url: "https://abisolutions.in/algobiz",
         siteName: "Abi Solutions",
         title: "Abi Solutions — Software Development, AI Engineering & ERP Company",
         description:
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://abisolutions.online/#organization",
+    "@id": "https://abisolutions.in/#organization",
     name: "Abi Solutions",
     alternateName: [
         "AbiSolutions",
@@ -69,14 +69,14 @@ const jsonLd = {
         "AlgoBiz Technologies",
         "AlgoBiz Solutions",
     ],
-    url: "https://abisolutions.online",
-    logo: "https://abisolutions.online/icon-512.png",
-    image: "https://abisolutions.online/og-image.jpg",
+    url: "https://abisolutions.in",
+    logo: "https://abisolutions.in/icon-512.png",
+    image: "https://abisolutions.in/og-image.jpg",
     description:
         "Abi Solutions is a software development and AI engineering agency founded by Abhijith P A. We build custom ERP systems, SaaS platforms, HRMS solutions, AI automation, and high-performance React & Next.js web applications.",
     founder: {
         "@type": "Person",
-        "@id": "https://abisolutions.online/#person",
+        "@id": "https://abisolutions.in/#person",
         name: "Abhijith P A",
         jobTitle: "Founder & Full Stack Engineer",
     },

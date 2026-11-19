@@ -31,23 +31,23 @@ export const metadata: Metadata = {
         "Abhijith P A Photos",
         "Abhijith Developer Images",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     alternates: {
-        canonical: "https://abisolutions.online/about",
+        canonical: "https://abisolutions.in/about",
     },
     openGraph: {
         type: "profile",
         locale: "en_US",
-        url: "https://abisolutions.online/about",
+        url: "https://abisolutions.in/about",
         siteName: "Abhijith P A — Abi Solutions",
         title: "About Abhijith P A — Full Stack Developer & AI Engineer | Abi Solutions",
         description:
             "4+ years shipping production web apps & AI products. Founder of Abi Solutions. React, Next.js, Django, AI specialist from Wayanad, Kerala.",
         images: [
             {
-                url: "https://abisolutions.online/og-image.jpg",
+                url: "https://abisolutions.in/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "About Abhijith P A — Full Stack Developer & AI Engineer | Founder of Abi Solutions",
@@ -91,10 +91,10 @@ const jsonLd = [
         name: "About Abhijith P A — Full Stack Developer & AI Engineer",
         description:
             "Abhijith P A is a Full Stack Developer and AI Engineer from Wayanad, Kerala, India. Founder of Abi Solutions. Specializing in React, Next.js, Django, Python, AWS, ERP development, SaaS products, and AI automation.",
-        url: "https://abisolutions.online/about",
+        url: "https://abisolutions.in/about",
         mainEntity: {
             "@type": "Person",
-            "@id": "https://abisolutions.online/#person",
+            "@id": "https://abisolutions.in/#person",
             name: "Abhijith P A",
             alternateName: [
                 "Abi",
@@ -109,8 +109,8 @@ const jsonLd = [
             jobTitle: "Full Stack Developer & AI Engineer",
             description:
                 "Full Stack Developer and AI Engineer with 4+ years of experience building production web applications, ERP systems, SaaS platforms, HRMS, and AI automation products. Founder of Abi Solutions.",
-            image: portfolioPhotos.map((p) => `https://abisolutions.online${p.src}`),
-            url: "https://abisolutions.online",
+            image: portfolioPhotos.map((p) => `https://abisolutions.in${p.src}`),
+            url: "https://abisolutions.in",
             email: "abhijithabhijith1999@gmail.com",
             telephone: "+919961316468",
             address: {
@@ -121,18 +121,18 @@ const jsonLd = [
             },
             worksFor: {
                 "@type": "Organization",
-                "@id": "https://abisolutions.online/#organization",
+                "@id": "https://abisolutions.in/#organization",
                 name: "Abi Solutions",
             },
             founder: {
                 "@type": "Organization",
-                "@id": "https://abisolutions.online/#organization",
+                "@id": "https://abisolutions.in/#organization",
                 name: "Abi Solutions",
             },
             sameAs: [
                 "https://github.com/Abhijith-Abi",
                 "https://www.linkedin.com/in/abhijith-pa/",
-                "https://abisolutions.online",
+                "https://abisolutions.in",
             ],
         },
     },
@@ -144,13 +144,13 @@ const jsonLd = [
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://abisolutions.online",
+                item: "https://abisolutions.in",
             },
             {
                 "@type": "ListItem",
                 position: 2,
                 name: "About Abhijith P A",
-                item: "https://abisolutions.online/about",
+                item: "https://abisolutions.in/about",
             },
         ],
     },

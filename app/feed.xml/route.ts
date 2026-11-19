@@ -1,7 +1,7 @@
 import { blogPosts } from "../../lib/blog";
 
 export async function GET() {
-    const baseUrl = "https://abisolutions.online";
+    const baseUrl = "https://abisolutions.in";
 
     const itemsXml = blogPosts
         .map(

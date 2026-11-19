@@ -23,7 +23,7 @@ function matches(post: BlogPost, terms: string[]): boolean {
 
 /**
  * Blog list with `?q=` filtering. Backs the WebSite SearchAction in the
- * root layout JSON-LD (https://abisolutions.online/blog?q={term}).
+ * root layout JSON-LD (https://abisolutions.in/blog?q={term}).
  */
 export function BlogSearch({ posts }: { posts: BlogPost[] }) {
     const query = (useSearchParams().get("q") ?? "").trim();

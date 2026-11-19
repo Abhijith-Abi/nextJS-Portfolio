@@ -7,7 +7,7 @@ const UPDATED = "2026-10-28";
 export const metadata: Metadata = {
     title: "Privacy Policy",
     description:
-        "How Abi Solutions (abisolutions.online) collects, uses and protects the information you share through the contact form and site analytics.",
+        "How Abi Solutions (abisolutions.in) collects, uses and protects the information you share through the contact form and site analytics.",
     alternates: { canonical: `${SITE_URL}/privacy` },
     robots: { index: true, follow: true },
 };
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
     return (
         <LegalPage
             title="Privacy Policy"
-            intro="This policy explains what information abisolutions.online collects, why it is collected and how you can ask for it to be removed."
+            intro="This policy explains what information abisolutions.in collects, why it is collected and how you can ask for it to be removed."
             updated={UPDATED}
         >
             <section aria-labelledby="who">

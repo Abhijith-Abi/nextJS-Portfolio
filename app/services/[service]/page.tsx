@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
-    const canonicalUrl = `https://abisolutions.online/services/${resolvedParams.service}`;
+    const canonicalUrl = `https://abisolutions.in/services/${resolvedParams.service}`;
     const allKeywords = [
         ...item.semanticKeywords,
         ...item.longTailKeywords,
@@ -76,7 +76,7 @@ export default async function ServicePage({ params }: PageProps) {
         notFound();
     }
 
-    const canonicalUrl = `https://abisolutions.online/services/${resolvedParams.service}`;
+    const canonicalUrl = `https://abisolutions.in/services/${resolvedParams.service}`;
 
     // Schema.org JSON-LD Structured Data
     const jsonLdData = [
@@ -96,7 +96,7 @@ export default async function ServicePage({ params }: PageProps) {
                 availableLanguage: ["English", "Malayalam"],
             },
             sameAs: [
-                "https://abisolutions.online",
+                "https://abisolutions.in",
                 "https://github.com/Abhijith-Abi",
                 "https://www.linkedin.com/in/abhijith-pa/",
             ],
@@ -121,8 +121,8 @@ export default async function ServicePage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.online" },
-                { "@type": "ListItem", position: 2, name: "Services", item: "https://abisolutions.online/services" },
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.in" },
+                { "@type": "ListItem", position: 2, name: "Services", item: "https://abisolutions.in/services" },
                 { "@type": "ListItem", position: 3, name: item.serviceName, item: canonicalUrl },
             ],
         },

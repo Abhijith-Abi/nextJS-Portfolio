@@ -2,7 +2,7 @@
  * Shared site facts used by metadata, JSON-LD and visible copy so they
  * never drift apart. Update SITE_UPDATED when homepage content changes.
  */
-export const SITE_URL = "https://abisolutions.online";
+export const SITE_URL = "https://abisolutions.in";
 
 /** First public release of the site (first commit). */
 export const SITE_PUBLISHED = "2025-12-01";

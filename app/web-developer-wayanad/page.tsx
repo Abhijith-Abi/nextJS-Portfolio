@@ -107,11 +107,11 @@ export const metadata: Metadata = {
         "AI automation developer Wayanad",
         "cloud application developer Wayanad",
     ],
-    alternates: { canonical: "https://abisolutions.online/web-developer-wayanad" },
+    alternates: { canonical: "https://abisolutions.in/web-developer-wayanad" },
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://abisolutions.online/web-developer-wayanad",
+        url: "https://abisolutions.in/web-developer-wayanad",
         siteName: "AlgoBiz — Wayanad",
         title: "Best Web Developer in Wayanad | Full Stack, React, Django, AI | AlgoBiz",
         description:
@@ -141,8 +141,8 @@ const jsonLd = [
         ],
         description:
             "AlgoBiz is the top web development and software company in Wayanad, Kerala. Founded by Abhijith P A, we provide custom website development, ERP systems, SaaS platforms, AI automation, mobile apps, ecommerce solutions, and digital transformation services to businesses in Kalpetta, Sulthan Bathery, Mananthavady, and across Wayanad district.",
-        url: "https://abisolutions.online/web-developer-wayanad",
-        image: "https://abisolutions.online/og-image.jpg",
+        url: "https://abisolutions.in/web-developer-wayanad",
+        image: "https://abisolutions.in/og-image.jpg",
         telephone: "+919961316468",
         email: "abhijithabhijith1999@gmail.com",
         address: {
@@ -186,12 +186,12 @@ const jsonLd = [
         openingHours: "Mo-Sa 09:00-18:00",
         founder: {
             "@type": "Person",
-            "@id": "https://abisolutions.online/#person",
+            "@id": "https://abisolutions.in/#person",
             name: "Abhijith P A",
             jobTitle: "Full Stack Developer & AI Engineer",
         },
         sameAs: [
-            "https://abisolutions.online",
+            "https://abisolutions.in",
             "https://github.com/Abhijith-Abi",
             "https://www.linkedin.com/in/abhijith-pa/",
         ],
@@ -246,8 +246,8 @@ const jsonLd = [
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.online" },
-            { "@type": "ListItem", position: 2, name: "Web Developer Wayanad", item: "https://abisolutions.online/web-developer-wayanad" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.in" },
+            { "@type": "ListItem", position: 2, name: "Web Developer Wayanad", item: "https://abisolutions.in/web-developer-wayanad" },
         ],
     },
     {

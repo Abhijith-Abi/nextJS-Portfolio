@@ -20,16 +20,16 @@ export const metadata: Metadata = {
         "Clinic setup platform",
         "Abi Solutions healthcare",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     alternates: {
-        canonical: "https://abisolutions.online/projects/hosface",
+        canonical: "https://abisolutions.in/projects/hosface",
     },
     openGraph: {
         type: "article",
         locale: "en_US",
-        url: "https://abisolutions.online/projects/hosface",
+        url: "https://abisolutions.in/projects/hosface",
         siteName: "Abi Solutions",
         title: "Hosface — Healthcare Platform by Abhijith P A",
         description:
@@ -78,7 +78,7 @@ const jsonLd = {
         "@type": "Person",
         name: "Abhijith P A",
         alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
+        url: "https://abisolutions.in",
     },
 };
 

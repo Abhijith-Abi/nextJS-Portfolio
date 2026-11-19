@@ -19,14 +19,14 @@ export const metadata: Metadata = {
         "Scheduling platform React",
         "Abi Solutions travel",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
-    alternates: { canonical: "https://abisolutions.online/projects/somans" },
+    alternates: { canonical: "https://abisolutions.in/projects/somans" },
     openGraph: {
         type: "article",
         locale: "en_US",
-        url: "https://abisolutions.online/projects/somans",
+        url: "https://abisolutions.in/projects/somans",
         siteName: "Abi Solutions",
         title: "Somans — Travel Management Platform by Abhijith P A",
         description:
@@ -75,7 +75,7 @@ const jsonLd = {
         "@type": "Person",
         name: "Abhijith P A",
         alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
+        url: "https://abisolutions.in",
     },
 };
 

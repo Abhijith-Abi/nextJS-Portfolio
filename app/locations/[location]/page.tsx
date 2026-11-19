@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
-    const canonicalUrl = `https://abisolutions.online/locations/${resolvedParams.location}`;
+    const canonicalUrl = `https://abisolutions.in/locations/${resolvedParams.location}`;
     const allKeywords = [
         ...loc.primaryKeywords,
         ...loc.techKeywords,
@@ -76,7 +76,7 @@ export default async function LocationPage({ params }: PageProps) {
         notFound();
     }
 
-    const canonicalUrl = `https://abisolutions.online/locations/${resolvedParams.location}`;
+    const canonicalUrl = `https://abisolutions.in/locations/${resolvedParams.location}`;
 
     // Schema.org JSON-LD Structured Data
     const jsonLdData = [
@@ -84,7 +84,7 @@ export default async function LocationPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: `Algobiz Innovations LLP — ${loc.shortName}`,
-            image: "https://abisolutions.online/og-image.jpg",
+            image: "https://abisolutions.in/og-image.jpg",
             url: canonicalUrl,
             telephone: "+919961316468",
             email: "abhijithabhijith1999@gmail.com",
@@ -111,8 +111,8 @@ export default async function LocationPage({ params }: PageProps) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.online" },
-                { "@type": "ListItem", position: 2, name: "Locations", item: "https://abisolutions.online/locations" },
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.in" },
+                { "@type": "ListItem", position: 2, name: "Locations", item: "https://abisolutions.in/locations" },
                 { "@type": "ListItem", position: 3, name: loc.shortName, item: canonicalUrl },
             ],
         },

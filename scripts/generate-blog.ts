@@ -252,7 +252,7 @@ async function main() {
         console.log("📌 Next steps:");
         console.log("   1. npm run build   (verify it builds)");
         console.log("   2. Deploy to see the new post live at:");
-        console.log(`      https://abisolutions.online/blog/${blog.slug}`);
+        console.log(`      https://abisolutions.in/blog/${blog.slug}`);
         console.log("");
     } catch (error) {
         console.error("❌ Error:", error);

@@ -35,16 +35,16 @@ export const metadata: Metadata = {
         "Tegain developer hire",
         "Ribos developer hire",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "AlgoBiz",
     alternates: {
-        canonical: "https://abisolutions.online/contact",
+        canonical: "https://abisolutions.in/contact",
     },
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://abisolutions.online/contact",
+        url: "https://abisolutions.in/contact",
         siteName: "Abhijith P A — AlgoBiz",
         title: "Contact Abhijith P A | Hire AlgoBiz — Full Stack & AI Development",
         description:
@@ -88,10 +88,10 @@ const jsonLd = [
         name: "Contact Abhijith P A — AlgoBiz",
         description:
             "Get in touch with Abhijith P A (AlgoBiz) for Full Stack Development, AI Engineering, ERP systems, SaaS platforms, HRMS, AI automation, WhatsApp bots, and Telegram bots. Available for freelance, contract, and full-time roles.",
-        url: "https://abisolutions.online/contact",
+        url: "https://abisolutions.in/contact",
         mainEntity: {
             "@type": "Person",
-            "@id": "https://abisolutions.online/#person",
+            "@id": "https://abisolutions.in/#person",
             name: "Abhijith P A",
             alternateName: [
                 "Abi",
@@ -102,7 +102,7 @@ const jsonLd = [
             email: "abhijithabhijith1999@gmail.com",
             telephone: "+919961316468",
             jobTitle: "Full Stack Developer & AI Engineer",
-            url: "https://abisolutions.online",
+            url: "https://abisolutions.in",
             address: {
                 "@type": "PostalAddress",
                 addressLocality: "Wayanad",
@@ -129,7 +129,7 @@ const jsonLd = [
             sameAs: [
                 "https://github.com/Abhijith-Abi",
                 "https://www.linkedin.com/in/abhijith-pa/",
-                "https://abisolutions.online",
+                "https://abisolutions.in",
             ],
         },
     },
@@ -141,13 +141,13 @@ const jsonLd = [
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://abisolutions.online",
+                item: "https://abisolutions.in",
             },
             {
                 "@type": "ListItem",
                 position: 2,
                 name: "Contact",
-                item: "https://abisolutions.online/contact",
+                item: "https://abisolutions.in/contact",
             },
         ],
     },

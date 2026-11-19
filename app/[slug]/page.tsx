@@ -84,7 +84,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // 1. Check if Service Page
     const service = getServiceSEOData(slug);
     if (service) {
-        const canonicalUrl = `https://abisolutions.online/${slug}`;
+        const canonicalUrl = `https://abisolutions.in/${slug}`;
         return {
             title: service.title,
             description: service.metaDescription,
@@ -111,7 +111,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // 2. Check if Location / Exact Keyword Page
     const loc = getLocationData(slug);
     if (loc) {
-        const canonicalUrl = `https://abisolutions.online/${slug}`;
+        const canonicalUrl = `https://abisolutions.in/${slug}`;
         const isStandardRoute = slug === loc.routeSlug || slug === loc.slug;
         const formattedTitle = isStandardRoute
             ? loc.metaTitle
@@ -156,7 +156,7 @@ export default async function SlugPage({ params }: PageProps) {
         notFound();
     }
 
-    const canonicalUrl = `https://abisolutions.online/${slug}`;
+    const canonicalUrl = `https://abisolutions.in/${slug}`;
 
     // ─── RENDER SERVICE PAGE ───
     if (service) {
@@ -170,7 +170,7 @@ export default async function SlugPage({ params }: PageProps) {
                 url: "https://algobiz.in",
                 logo: "https://algobiz.in/logo.png",
                 sameAs: [
-                    "https://abisolutions.online",
+                    "https://abisolutions.in",
                     "https://github.com/Abhijith-Abi",
                     "https://www.linkedin.com/in/abhijith-pa/",
                 ],
@@ -192,8 +192,8 @@ export default async function SlugPage({ params }: PageProps) {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                    { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.online" },
-                    { "@type": "ListItem", position: 2, name: "Services", item: "https://abisolutions.online/services" },
+                    { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.in" },
+                    { "@type": "ListItem", position: 2, name: "Services", item: "https://abisolutions.in/services" },
                     { "@type": "ListItem", position: 3, name: service.serviceName, item: canonicalUrl },
                 ],
             },
@@ -301,7 +301,7 @@ export default async function SlugPage({ params }: PageProps) {
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
                 name: `AlgoBiz — ${customHeading}`,
-                image: "https://abisolutions.online/og-image.jpg",
+                image: "https://abisolutions.in/og-image.jpg",
                 url: canonicalUrl,
                 telephone: "+919961316468",
                 address: {
@@ -327,7 +327,7 @@ export default async function SlugPage({ params }: PageProps) {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                    { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.online" },
+                    { "@type": "ListItem", position: 1, name: "Home", item: "https://abisolutions.in" },
                     { "@type": "ListItem", position: 2, name: customHeading, item: canonicalUrl },
                 ],
             },

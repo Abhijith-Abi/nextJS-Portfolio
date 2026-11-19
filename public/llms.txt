@@ -6,21 +6,21 @@ Contact: abhijithabhijith1999@gmail.com · +91 99613 16468 · WhatsApp https://w
 
 ## Core pages
 
-- [Home](https://abisolutions.online/): Overview, skills, selected projects, experience, testimonials, FAQ and contact form
-- [About](https://abisolutions.online/about): Background and career history
-- [Services](https://abisolutions.online/services): Web, full stack, Next.js, ERP, SaaS and AI development services
-- [Projects](https://abisolutions.online/projects): Case studies and client work
-- [Resume](https://abisolutions.online/resume): Experience and skills
-- [Contact](https://abisolutions.online/contact): Start a project
+- [Home](https://abisolutions.in/): Overview, skills, selected projects, experience, testimonials, FAQ and contact form
+- [About](https://abisolutions.in/about): Background and career history
+- [Services](https://abisolutions.in/services): Web, full stack, Next.js, ERP, SaaS and AI development services
+- [Projects](https://abisolutions.in/projects): Case studies and client work
+- [Resume](https://abisolutions.in/resume): Experience and skills
+- [Contact](https://abisolutions.in/contact): Start a project
 
 ## Writing
 
-- [Blog](https://abisolutions.online/blog): Engineering articles on React, Next.js, Django, AI agents, ERP and SaaS
-- [RSS feed](https://abisolutions.online/feed.xml)
+- [Blog](https://abisolutions.in/blog): Engineering articles on React, Next.js, Django, AI agents, ERP and SaaS
+- [RSS feed](https://abisolutions.in/feed.xml)
 
 ## Optional
 
-- [Web developer in Wayanad](https://abisolutions.online/web-developer-wayanad)
-- [Privacy Policy](https://abisolutions.online/privacy)
-- [Terms of Use](https://abisolutions.online/terms)
-- [Sitemap](https://abisolutions.online/sitemap.xml)
+- [Web developer in Wayanad](https://abisolutions.in/web-developer-wayanad)
+- [Privacy Policy](https://abisolutions.in/privacy)
+- [Terms of Use](https://abisolutions.in/terms)
+- [Sitemap](https://abisolutions.in/sitemap.xml)

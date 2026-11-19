@@ -54,16 +54,16 @@ export const metadata: Metadata = {
         "ERP developer Wayanad",
         "AI developer Wayanad",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "AlgoBiz",
     alternates: {
-        canonical: "https://abisolutions.online/services",
+        canonical: "https://abisolutions.in/services",
     },
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://abisolutions.online/services",
+        url: "https://abisolutions.in/services",
         siteName: "Abhijith P A — AlgoBiz",
         title: "Hire Abhijith P A | AlgoBiz — React, Django, AI & ERP Development Services",
         description:
@@ -104,7 +104,7 @@ const jsonLd = [
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "@id": "https://abisolutions.online/services/#service",
+        "@id": "https://abisolutions.in/services/#service",
         name: "AlgoBiz — Full Stack Development & AI Engineering Services",
         alternateName: [
             "AlgoBiz Web Development",
@@ -114,17 +114,17 @@ const jsonLd = [
         ],
         description:
             "Custom web application development, AI engineering, ERP systems, SaaS platforms, HRMS, payroll management, and AI automation by Abhijith P A. Technologies: React, Next.js, Django, Python, PostgreSQL, AWS, TypeScript.",
-        url: "https://abisolutions.online/services",
-        image: "https://abisolutions.online/og-image.jpg",
+        url: "https://abisolutions.in/services",
+        image: "https://abisolutions.in/og-image.jpg",
         provider: {
             "@type": "Person",
-            "@id": "https://abisolutions.online/#person",
+            "@id": "https://abisolutions.in/#person",
             name: "Abhijith P A",
             jobTitle: "Full Stack Developer & AI Engineer",
         },
         brand: {
             "@type": "Organization",
-            "@id": "https://abisolutions.online/#organization",
+            "@id": "https://abisolutions.in/#organization",
             name: "AlgoBiz",
         },
         serviceType: [
@@ -151,7 +151,7 @@ const jsonLd = [
         ],
         availableChannel: {
             "@type": "ServiceChannel",
-            serviceUrl: "https://abisolutions.online/contact",
+            serviceUrl: "https://abisolutions.in/contact",
             servicePhone: "+919961316468",
         },
         hasOfferCatalog: {
@@ -214,13 +214,13 @@ const jsonLd = [
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://abisolutions.online",
+                item: "https://abisolutions.in",
             },
             {
                 "@type": "ListItem",
                 position: 2,
                 name: "Services",
-                item: "https://abisolutions.online/services",
+                item: "https://abisolutions.in/services",
             },
         ],
     },

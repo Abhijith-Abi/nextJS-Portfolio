@@ -21,16 +21,16 @@ export const metadata: Metadata = {
         "Steyp coding platform",
         "Abi Solutions education",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
     alternates: {
-        canonical: "https://abisolutions.online/projects/steyp",
+        canonical: "https://abisolutions.in/projects/steyp",
     },
     openGraph: {
         type: "article",
         locale: "en_US",
-        url: "https://abisolutions.online/projects/steyp",
+        url: "https://abisolutions.in/projects/steyp",
         siteName: "Abi Solutions",
         title: "Steyp — Coding Education Platform by Abhijith P A",
         description:
@@ -79,7 +79,7 @@ const jsonLd = {
         "@type": "Person",
         name: "Abhijith P A",
         alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
+        url: "https://abisolutions.in",
     },
 };
 

@@ -46,9 +46,9 @@ export default function robots(): MetadataRoute.Robots {
             },
         ],
         sitemap: [
-            "https://abisolutions.online/sitemap.xml",
-            "https://abisolutions.online/image-sitemap.xml",
+            "https://abisolutions.in/sitemap.xml",
+            "https://abisolutions.in/image-sitemap.xml",
         ],
-        host: "https://abisolutions.online",
+        host: "https://abisolutions.in",
     };
 }

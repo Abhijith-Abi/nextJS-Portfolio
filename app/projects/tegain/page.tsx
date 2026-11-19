@@ -21,14 +21,14 @@ export const metadata: Metadata = {
         "Core Web Vitals optimization",
         "Abi Solutions community platform",
     ],
-    authors: [{ name: "Abhijith P A", url: "https://abisolutions.online" }],
+    authors: [{ name: "Abhijith P A", url: "https://abisolutions.in" }],
     creator: "Abhijith P A",
     publisher: "Abi Solutions",
-    alternates: { canonical: "https://abisolutions.online/projects/tegain" },
+    alternates: { canonical: "https://abisolutions.in/projects/tegain" },
     openGraph: {
         type: "article",
         locale: "en_US",
-        url: "https://abisolutions.online/projects/tegain",
+        url: "https://abisolutions.in/projects/tegain",
         siteName: "Abi Solutions",
         title: "Tegain — Community Platform by Abhijith P A",
         description:
@@ -75,7 +75,7 @@ const jsonLd = {
         "@type": "Person",
         name: "Abhijith P A",
         alternateName: ["Abi", "Abi Solutions"],
-        url: "https://abisolutions.online",
+        url: "https://abisolutions.in",
     },
 };
 

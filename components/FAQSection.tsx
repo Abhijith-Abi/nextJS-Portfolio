@@ -104,23 +104,36 @@ export function FAQSection() {
         }
         setAskStatus("sending");
         setAskError(null);
-        const result = sendVisitorMessage({
-            name: ask.name,
-            email: ask.email,
-            message: `[FAQ question] ${ask.question}`,
-            subject: "New FAQ Question",
-        })
-            .then(() => {
-                setAskStatus("sent");
-                setAsk(emptyAsk);
-                return "Question sent to Abhijith P A. He usually replies by email within 24 hours.";
-            })
-            .catch(() => {
-                setAskStatus("error");
-                setAskError("Something went wrong. Please try again later.");
-                return "Question could not be sent. Try again later, or use the contact form.";
-            });
-        if (native.agentInvoked) native.respondWith?.(result);
+
+        try {
+            const formattedQuestion = `Hi Abhijith, I have a question from your website FAQ.\n\n*Name:* ${ask.name.trim()}\n*Email:* ${ask.email.trim()}\n\n*Question:* \n${ask.question.trim()}`;
+            const url = `https://wa.me/919961316468?text=${encodeURIComponent(formattedQuestion)}`;
+
+            sendVisitorMessage({
+                name: ask.name,
+                email: ask.email,
+                message: `[FAQ question] ${ask.question}`,
+                subject: "New FAQ Question",
+            }).catch((err) => console.warn("Background notification note:", err));
+
+            if (typeof window !== "undefined") {
+                const opened = window.open(url, "_blank", "noopener,noreferrer");
+                if (!opened || opened.closed || typeof opened.closed === "undefined") {
+                    window.location.href = url;
+                }
+            }
+
+            setAskStatus("sent");
+            setAsk(emptyAsk);
+            if (native.agentInvoked) {
+                native.respondWith?.(
+                    Promise.resolve("Question prepared on WhatsApp."),
+                );
+            }
+        } catch {
+            setAskStatus("error");
+            setAskError("Could not launch WhatsApp. Please reach out via WhatsApp at +91 99613 16468.");
+        }
     };
 
     return (
@@ -384,8 +397,8 @@ export function FAQSection() {
                             >
                                 <span>
                                     {askStatus === "sending"
-                                        ? "Sending..."
-                                        : "Send question"}
+                                        ? "Opening WhatsApp..."
+                                        : "Ask on WhatsApp"}
                                 </span>
                                 <Send className="h-3.5 w-3.5" />
                             </button>
@@ -399,7 +412,7 @@ export function FAQSection() {
                                 }`}
                             >
                                 {askStatus === "sent" &&
-                                    "Question sent. You will receive a reply by email within 24 hours."}
+                                    "WhatsApp opened! Your question is ready to send."}
                                 {askStatus === "error" && askError}
                             </span>
                         </div>

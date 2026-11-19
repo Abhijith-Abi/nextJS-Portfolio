@@ -64,8 +64,8 @@ export async function sendVisitorMessage({
                     .catch((err) => console.warn("Auto-reply failed:", err));
             }
         } catch (emailError) {
-            console.error("EmailJS Error:", emailError);
-            throw new Error("Failed to send email.");
+            console.warn("EmailJS Error:", emailError);
+            // Do not throw; gracefully fall back to database logging
         }
     }
 
@@ -78,9 +78,7 @@ export async function sendVisitorMessage({
             createdAt: serverTimestamp(),
         });
     } catch (firebaseError) {
-        console.error("Firebase Error:", firebaseError);
-        if (!emailSent && !serviceId) {
-            throw new Error("Failed to save message.");
-        }
+        console.warn("Firebase Error:", firebaseError);
+        // Do not block user if Firebase is unconfigured
     }
 }

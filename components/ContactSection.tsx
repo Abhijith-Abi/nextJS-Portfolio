@@ -35,7 +35,7 @@ type AgentSubmitEvent = {
 const formToolAttrs = {
     toolname: "send_message_to_abhijith",
     tooldescription:
-        "Send a project enquiry or question to Abhijith P A (Abi Solutions). He replies by email, usually within 24 hours.",
+        "Send a project enquiry or question to Abhijith P A (Abi Solutions) directly via WhatsApp. Replies are immediate or within a few hours.",
 } as Record<string, string>;
 
 const paramAttr = (description: string) =>
@@ -47,6 +47,7 @@ export function ContactSection() {
     const [submitted, setSubmitted] = useState(false);
     const [submitting, setSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
+    const [whatsappLink, setWhatsappLink] = useState<string | null>(null);
 
     const validate = (values: FormState) => {
         const next: Partial<FormState> = {};
@@ -87,22 +88,40 @@ export function ContactSection() {
     };
 
     const sendMessage = async (): Promise<string> => {
+        setSubmitting(true);
+        setSubmitError(null);
         try {
-            setSubmitting(true);
-            await sendVisitorMessage({
+            const formattedMessage = `Hi Abhijith, I would like to discuss a project.\n\n*Name:* ${form.name.trim()}\n*Email:* ${form.email.trim()}\n\n*Project Scope & Message:*\n${form.message.trim()}`;
+
+            const url = `https://wa.me/919961316468?text=${encodeURIComponent(formattedMessage)}`;
+            setWhatsappLink(url);
+
+            // Background logging attempt (non-blocking)
+            sendVisitorMessage({
                 name: form.name,
                 email: form.email,
                 message: form.message,
                 subject: "New Contact Form Submission",
+            }).catch((err) => {
+                console.warn("Background notification note:", err);
             });
+
+            // Open WhatsApp
+            if (typeof window !== "undefined") {
+                const opened = window.open(url, "_blank", "noopener,noreferrer");
+                if (!opened || opened.closed || typeof opened.closed === "undefined") {
+                    window.location.href = url;
+                }
+            }
+
             setSubmitted(true);
             setForm(initialState);
-            return "Message sent to Abhijith P A. He usually replies within 24 hours.";
+            return "WhatsApp opened with your message ready to send.";
         } catch (error) {
-            console.error("Error:", error);
-            setSubmitError("Something went wrong. Please try again later.");
+            console.error("Error launching WhatsApp:", error);
+            setSubmitError("Could not launch WhatsApp. Please click the direct WhatsApp link above or try again.");
             setSubmitted(false);
-            return "Message could not be sent. Try again later, or email abhijithabhijith1999@gmail.com.";
+            return "Could not launch WhatsApp.";
         } finally {
             setSubmitting(false);
         }
@@ -258,7 +277,7 @@ export function ContactSection() {
                                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                                     Direct Message Form
                                 </span>
-                                <span>24h reply</span>
+                                <span>via WhatsApp · Quick reply</span>
                             </div>
 
                             <div className="space-y-4">
@@ -359,20 +378,35 @@ export function ContactSection() {
                             >
                                 {submitting ? (
                                     <span className="font-mono text-xs">
-                                        Sending...
+                                        Opening WhatsApp...
                                     </span>
                                 ) : (
                                     <>
-                                        <span>Send message</span>
-                                        <Send className="h-4 w-4" />
+                                        <span>Send via WhatsApp</span>
+                                        <MessageSquare className="h-4 w-4" />
                                     </>
                                 )}
                             </button>
 
                             {submitted && !submitError && (
-                                <div className="mt-4 flex items-center gap-2 rounded-xl bg-accent-emerald/10 border border-accent-emerald/30 p-3 font-mono text-xs text-accent-emerald">
-                                    <CheckCircle2 className="h-4 w-4" />
-                                    <span>Message successfully sent. I will respond within 24 hours.</span>
+                                <div className="mt-4 rounded-xl bg-accent-emerald/10 border border-accent-emerald/30 p-3.5 font-mono text-xs text-accent-emerald space-y-2">
+                                    <div className="flex items-center gap-2 font-medium">
+                                        <CheckCircle2 className="h-4 w-4 shrink-0" />
+                                        <span>WhatsApp opened! Your message is ready to send.</span>
+                                    </div>
+                                    {whatsappLink && (
+                                        <p className="text-[11px] text-accent-emerald/80 pl-6">
+                                            Didn&apos;t open automatically?{" "}
+                                            <a
+                                                href={whatsappLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="underline font-bold text-accent-emerald hover:text-ink transition"
+                                            >
+                                                Click here to continue in WhatsApp
+                                            </a>
+                                        </p>
+                                    )}
                                 </div>
                             )}
                             {submitError && (

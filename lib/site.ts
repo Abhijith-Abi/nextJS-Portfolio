@@ -5,9 +5,9 @@
 export const SITE_URL = "https://abisolutions.in";
 
 /** First public release of the site (first commit). */
-export const SITE_PUBLISHED = "2025-12-01";
+export const SITE_PUBLISHED = "2025-12-01T00:00:00+05:30";
 /** Last meaningful homepage content update. */
-export const SITE_UPDATED = "2026-10-29";
+export const SITE_UPDATED = "2026-10-29T00:00:00+05:30";
 
 export const CONTACT = {
     email: "abhijithabhijith1999@gmail.com",
@@ -32,9 +32,10 @@ export const SCHEMA_IDS = {
     homeFaq: `${SITE_URL}/#faq`,
 } as const;
 
-/** Formats an ISO date (YYYY-MM-DD) for display, e.g. "October 28, 2026". */
+/** Formats an ISO date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ssZ) for display, e.g. "October 28, 2026". */
 export function formatSiteDate(iso: string): string {
-    return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
+    const dateObj = iso.includes("T") ? new Date(iso) : new Date(`${iso}T00:00:00Z`);
+    return dateObj.toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",

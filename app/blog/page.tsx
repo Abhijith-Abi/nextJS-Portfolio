@@ -114,7 +114,7 @@ const jsonLd = [
             headline: post.title,
             description: post.description,
             url: `https://abisolutions.in/blog/${post.slug}`,
-            datePublished: post.date,
+            datePublished: post.date.includes("T") ? post.date : `${post.date}T00:00:00+05:30`,
             author: {
                 "@type": "Person",
                 "@id": "https://abisolutions.in/#person",

@@ -80,8 +80,8 @@ export default function BlogPostPage({ params }: Props) {
         headline: post.title,
         description: post.description,
         url: `https://abisolutions.in/blog/${post.slug}`,
-        datePublished: post.date,
-        dateModified: post.date,
+        datePublished: post.date.includes("T") ? post.date : `${post.date}T00:00:00+05:30`,
+        dateModified: post.date.includes("T") ? post.date : `${post.date}T00:00:00+05:30`,
         author: {
             "@type": "Person",
             name: "Abhijith P A",

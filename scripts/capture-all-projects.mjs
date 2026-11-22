@@ -14,6 +14,11 @@ const targets = [
     selector: "body"
   },
   {
+    name: "goldenacres",
+    url: "https://www.goldenacresrealestate.co.in/",
+    selector: "body"
+  },
+  {
     name: "yuvaparipalan",
     url: "https://www.yuvaparipalan.com/",
     selector: "body"

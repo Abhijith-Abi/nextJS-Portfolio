@@ -37,7 +37,7 @@ export const homeFaqs: FaqItem[] = [
     {
         id: "what-projects-has-abhijith-built",
         question: "What projects has Abhijith built?",
-        answer: "Recent work includes Start Visa, a visa and immigration platform, and House of Vaz, a luxury online store. He also built Yuva Paripalan, a youth community site, and Palana Neuro Sync, a portal for a neuro rehab clinic. At Steyp he worked on Hosface, Tegain and an ERP system.",
+        answer: "Recent work includes Start Visa (visa and immigration platform), House of Vaz (luxury online store), and Golden Acres Real Estates (real estate and property platform in Trivandrum). He also built Yuva Paripalan, a youth community site, and Palana Neuro Sync, a portal for a neuro rehab clinic. At Steyp he worked on Hosface, Tegain and an ERP system.",
     },
     {
         id: "does-abhijith-work-with-clients-outside-wayanad",

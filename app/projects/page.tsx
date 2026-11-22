@@ -4,9 +4,9 @@ import { ProjectsSection } from "../../components/ProjectsSection";
 import { Footer } from "../../components/Footer";
 
 export const metadata: Metadata = {
-    title: "Projects — Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync | Abhijith P A & Abi Solutions",
+    title: "Projects — Start Visa, House of Vaz, Golden Acres, Yuva Paripalan | Abhijith P A & Abi Solutions",
     description:
-        "Production web applications built by Abhijith P A (Abi Solutions): Start Visa (global visa platform), House of Vaz (luxury e-commerce), Yuva Paripalan (youth community), Palana Neuro Sync (neurological clinical portal). Built with Next.js 14, React, TypeScript, Django & AWS.",
+        "Production web applications built by Abhijith P A (Abi Solutions): Start Visa (global visa platform), House of Vaz (luxury e-commerce), Golden Acres Real Estates (property portal), Yuva Paripalan (youth community), Palana Neuro Sync (neurological clinical portal). Built with Next.js 14, React, TypeScript, Django & AWS.",
     keywords: [
         "Abhijith P A projects",
         "Abi Solutions projects",
@@ -14,6 +14,10 @@ export const metadata: Metadata = {
         "Start Visa developer",
         "House of Vaz",
         "House of Vaz e-commerce",
+        "Golden Acres",
+        "Golden Acres Real Estates",
+        "Golden Acres developer",
+        "Real Estate Platform Developer",
         "Yuva Paripalan",
         "Yuva Paripalan website",
         "Palana Neuro Sync",
@@ -35,15 +39,15 @@ export const metadata: Metadata = {
         locale: "en_US",
         url: "https://abisolutions.in/projects",
         siteName: "Abhijith P A — Abi Solutions",
-        title: "Projects by Abhijith P A | Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync",
+        title: "Projects by Abhijith P A | Start Visa, House of Vaz, Golden Acres, Yuva Paripalan",
         description:
-            "Live production apps: Start Visa, House of Vaz E-Commerce, Yuva Paripalan, Palana Neuro Sync. Built with Next.js, React, TypeScript & AWS by Abhijith P A.",
+            "Live production apps: Start Visa, House of Vaz E-Commerce, Golden Acres Real Estates, Yuva Paripalan, Palana Neuro Sync. Built with Next.js, React, TypeScript & AWS by Abhijith P A.",
         images: [
             {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Projects by Abhijith P A — Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync",
+                alt: "Projects by Abhijith P A — Start Visa, House of Vaz, Golden Acres, Yuva Paripalan, Palana Neuro Sync",
                 type: "image/jpeg",
             },
         ],
@@ -52,9 +56,9 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@abhijith",
         creator: "@abhijith",
-        title: "Projects — Abhijith P A | Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync",
+        title: "Projects — Abhijith P A | Start Visa, House of Vaz, Golden Acres, Yuva Paripalan",
         description:
-            "Production apps with real users: Start Visa, House of Vaz, Yuva Paripalan, Palana Neuro Sync. Built with Next.js & React by Abi Solutions.",
+            "Production apps with real users: Start Visa, House of Vaz, Golden Acres, Yuva Paripalan, Palana Neuro Sync. Built with Next.js & React by Abi Solutions.",
         images: ["/og-image.jpg"],
     },
     robots: {
@@ -132,11 +136,11 @@ const jsonLd = [
                     position: 3,
                     item: {
                         "@type": "WebApplication",
-                        name: "Yuva Paripalan",
+                        name: "Golden Acres Real Estates",
                         description:
-                            "Youth empowerment and community development portal with program onboarding, volunteer management, and event schedules. Built with Next.js, TypeScript & PostgreSQL.",
-                        url: "https://www.yuvaparipalan.com/",
-                        applicationCategory: "SocialApplication",
+                            "Premier property advisory and real estate platform in Trivandrum, Kerala, featuring verified residential plots, commercial land parcels, luxury villas, and direct buyer inquiry pipelines. Built with Next.js, React & Tailwind CSS.",
+                        url: "https://www.goldenacresrealestate.co.in/",
+                        applicationCategory: "BusinessApplication",
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",
@@ -155,6 +159,24 @@ const jsonLd = [
                             "Neurological care and clinical synchronization platform connecting clinicians with patient assessments and appointment bookings. Built with React, Next.js & REST APIs.",
                         url: "https://palananeurosync.com/",
                         applicationCategory: "HealthApplication",
+                        operatingSystem: "Web",
+                        creator: {
+                            "@type": "Person",
+                            "@id": "https://abisolutions.in/#person",
+                            name: "Abhijith P A",
+                        },
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 5,
+                    item: {
+                        "@type": "WebApplication",
+                        name: "Yuva Paripalan",
+                        description:
+                            "Youth empowerment and community development portal with program onboarding, volunteer management, and event schedules. Built with Next.js, TypeScript & PostgreSQL.",
+                        url: "https://www.yuvaparipalan.com/",
+                        applicationCategory: "SocialApplication",
                         operatingSystem: "Web",
                         creator: {
                             "@type": "Person",

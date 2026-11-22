@@ -111,7 +111,7 @@ export function CommandPalette() {
         {
             id: "nav-projects",
             title: "Projects & Case Studies",
-            description: "Start Visa, House of Vaz, Yuva Paripalan & Palana Neuro Sync",
+            description: "Start Visa, House of Vaz, Golden Acres, Yuva Paripalan & Palana Neuro Sync",
             category: "Navigation",
             icon: FolderGit2,
             action: () => {

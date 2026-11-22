@@ -45,6 +45,18 @@ const projects: Project[] = [
         metrics: ["<0.8s Page load", "Dynamic inventory", "Stripe processing"],
     },
     {
+        name: "Golden Acres",
+        domain: "Real Estate & Property Platform",
+        category: "PropTech & Real Estate",
+        role: "Full Stack Engineer & Web Architect",
+        description:
+            "Premier real estate and property discovery portal for Trivandrum, Kerala. Features dynamic property listings for plots, villas, and land parcels with interactive location search and direct buyer inquiry pipelines.",
+        image: "/projects/goldenacres.webp",
+        url: "https://www.goldenacresrealestate.co.in/",
+        tech: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Vercel"],
+        metrics: ["Dynamic property catalog", "Location search", "Direct inquiry routing"],
+    },
+    {
         name: "Palana Neuro Sync",
         domain: "Clinical Healthcare & Telemetry",
         category: "HealthTech & Patient Care",
@@ -116,7 +128,7 @@ export function ProjectsSection() {
                                 {projects[0].category}
                             </span>
                             <span className="font-mono text-xs text-ink/40">
-                                01 / 04
+                                01 / 05
                             </span>
                         </div>
                         <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
@@ -205,7 +217,7 @@ export function ProjectsSection() {
                                 {projects[1].category}
                             </span>
                             <span className="font-mono text-xs text-ink/40">
-                                02 / 04
+                                02 / 05
                             </span>
                         </div>
                         <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
@@ -277,33 +289,122 @@ export function ProjectsSection() {
                     </div>
                 </motion.article>
 
-                {/* 3. PALANA NEURO SYNC — Clinical Systems Bento Cell (5 Columns) */}
+                {/* 3. GOLDEN ACRES — Real Estate & Property Platform (7 Columns) */}
                 <motion.article
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.8, ease, delay: 0.15 }}
-                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-surface transition-all duration-300 hover:border-line2 lg:col-span-5"
+                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-surface transition-all duration-300 hover:border-line2 lg:col-span-7"
                 >
-                    <div className="p-6 sm:p-7 pb-4">
+                    <div className="p-6 sm:p-8 pb-5">
                         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                             <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent border border-accent/20 bg-accent/5 px-2.5 py-1 rounded">
                                 {projects[2].category}
                             </span>
                             <span className="font-mono text-xs text-ink/40">
-                                03 / 04
+                                03 / 05
                             </span>
                         </div>
                         <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
                             {projects[2].name}
                         </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                        <p className="mt-2 text-sm leading-relaxed text-ink-muted max-w-xl">
                             {projects[2].description}
                         </p>
                         
                         {/* Key Metrics */}
-                        <div className="mt-3.5 flex flex-wrap gap-1.5">
+                        <div className="mt-4 flex flex-wrap gap-2">
                             {projects[2].metrics.map((m) => (
+                                <span
+                                    key={m}
+                                    className="font-mono text-[10.5px] text-ink/75 bg-surface2 border border-line px-2 py-0.5 rounded"
+                                >
+                                    ✓ {m}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Window Preview */}
+                    <div className="px-5 sm:px-8 pb-6 sm:pb-8">
+                        <a
+                            href={projects[2].url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block overflow-hidden rounded-lg border border-line bg-background transition-colors hover:border-line2"
+                            aria-label={`Visit ${projects[2].name}`}
+                        >
+                            <div className="flex items-center justify-between border-b border-line bg-surface px-3.5 py-2">
+                                <div className="flex items-center gap-1.5">
+                                    <span className="h-2 w-2 rounded-full bg-white/15" />
+                                    <span className="h-2 w-2 rounded-full bg-white/15" />
+                                    <span className="h-2 w-2 rounded-full bg-white/15" />
+                                    <span className="ml-2 font-mono text-[10px] text-ink/40 truncate max-w-[160px] sm:max-w-xs">
+                                        goldenacresrealestate.co.in
+                                    </span>
+                                </div>
+                                <span className="inline-flex items-center gap-1 font-mono text-[11px] text-accent">
+                                    <span>Live Site</span>
+                                    <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                </span>
+                            </div>
+                            <div className="relative aspect-[16/10] w-full overflow-hidden">
+                                <Image
+                                    src={projects[2].image}
+                                    alt={`${projects[2].name} Platform`}
+                                    fill
+                                    sizes="(max-width: 1024px) 100vw, 720px"
+                                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </a>
+
+                        {/* Tech tags */}
+                        <div className="mt-4 flex flex-wrap items-center gap-2">
+                            <span className="font-mono text-[10.5px] text-accent/80 mr-1">
+                                {projects[2].role}:
+                            </span>
+                            {projects[2].tech.map((t) => (
+                                <span
+                                    key={t}
+                                    className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-[10.5px] text-ink/60"
+                                >
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </motion.article>
+
+                {/* 4. PALANA NEURO SYNC — Clinical Systems Bento Cell (5 Columns) */}
+                <motion.article
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8, ease, delay: 0.18 }}
+                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-surface transition-all duration-300 hover:border-line2 lg:col-span-5"
+                >
+                    <div className="p-6 sm:p-7 pb-4">
+                        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent border border-accent/20 bg-accent/5 px-2.5 py-1 rounded">
+                                {projects[3].category}
+                            </span>
+                            <span className="font-mono text-xs text-ink/40">
+                                04 / 05
+                            </span>
+                        </div>
+                        <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
+                            {projects[3].name}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                            {projects[3].description}
+                        </p>
+                        
+                        {/* Key Metrics */}
+                        <div className="mt-3.5 flex flex-wrap gap-1.5">
+                            {projects[3].metrics.map((m) => (
                                 <span
                                     key={m}
                                     className="font-mono text-[10.5px] text-ink/75 bg-surface2 border border-line px-2 py-0.5 rounded"
@@ -317,11 +418,11 @@ export function ProjectsSection() {
                     {/* Window Preview */}
                     <div className="px-5 sm:px-7 pb-6 sm:pb-7">
                         <a
-                            href={projects[2].url}
+                            href={projects[3].url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block overflow-hidden rounded-lg border border-line bg-background transition-colors hover:border-line2"
-                            aria-label={`Visit ${projects[2].name}`}
+                            aria-label={`Visit ${projects[3].name}`}
                         >
                             <div className="flex items-center justify-between border-b border-line bg-surface px-3 py-2">
                                 <div className="flex items-center gap-1.5">
@@ -339,8 +440,8 @@ export function ProjectsSection() {
                             </div>
                             <div className="relative aspect-[16/11] w-full overflow-hidden">
                                 <Image
-                                    src={projects[2].image}
-                                    alt={`${projects[2].name} Portal`}
+                                    src={projects[3].image}
+                                    alt={`${projects[3].name} Portal`}
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 520px"
                                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
@@ -351,7 +452,7 @@ export function ProjectsSection() {
 
                         {/* Tech tags */}
                         <div className="mt-4 flex flex-wrap items-center gap-1.5">
-                            {projects[2].tech.map((t) => (
+                            {projects[3].tech.map((t) => (
                                 <span
                                     key={t}
                                     className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-[10.5px] text-ink/60"
@@ -363,91 +464,95 @@ export function ProjectsSection() {
                     </div>
                 </motion.article>
 
-                {/* 4. YUVA PARIPALAN — Community & Scale Bento Cell (7 Columns) */}
+                {/* 5. YUVA PARIPALAN — Community & Scale Bento Cell (12 Columns) */}
                 <motion.article
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.8, ease, delay: 0.2 }}
-                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-surface transition-all duration-300 hover:border-line2 lg:col-span-7"
+                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-surface transition-all duration-300 hover:border-line2 lg:col-span-12"
                 >
-                    <div className="p-6 sm:p-8 pb-5">
-                        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent border border-accent/20 bg-accent/5 px-2.5 py-1 rounded">
-                                {projects[3].category}
-                            </span>
-                            <span className="font-mono text-xs text-ink/40">
-                                04 / 04
-                            </span>
-                        </div>
-                        <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
-                            {projects[3].name}
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-ink-muted max-w-xl">
-                            {projects[3].description}
-                        </p>
-                        
-                        {/* Key Metrics */}
-                        <div className="mt-4 flex flex-wrap gap-2">
-                            {projects[3].metrics.map((m) => (
-                                <span
-                                    key={m}
-                                    className="font-mono text-[10.5px] text-ink/75 bg-surface2 border border-line px-2 py-0.5 rounded"
-                                >
-                                    ✓ {m}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Window Preview */}
-                    <div className="px-5 sm:px-8 pb-6 sm:pb-8">
-                        <a
-                            href={projects[3].url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block overflow-hidden rounded-lg border border-line bg-background transition-colors hover:border-line2"
-                            aria-label={`Visit ${projects[3].name}`}
-                        >
-                            <div className="flex items-center justify-between border-b border-line bg-surface px-3.5 py-2">
-                                <div className="flex items-center gap-1.5">
-                                    <span className="h-2 w-2 rounded-full bg-white/15" />
-                                    <span className="h-2 w-2 rounded-full bg-white/15" />
-                                    <span className="h-2 w-2 rounded-full bg-white/15" />
-                                    <span className="ml-2 font-mono text-[10px] text-ink/40 truncate max-w-[160px] sm:max-w-xs">
-                                        yuvaparipalan.com
+                    <div className="grid grid-cols-1 gap-6 p-6 sm:p-8 lg:grid-cols-12 lg:items-center">
+                        <div className="flex flex-col justify-between lg:col-span-5">
+                            <div>
+                                <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                                    <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-accent border border-accent/20 bg-accent/5 px-2.5 py-1 rounded">
+                                        {projects[4].category}
+                                    </span>
+                                    <span className="font-mono text-xs text-ink/40">
+                                        05 / 05
                                     </span>
                                 </div>
-                                <span className="inline-flex items-center gap-1 font-mono text-[11px] text-accent">
-                                    <span>Live Site</span>
-                                    <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                                </span>
+                                <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
+                                    {projects[4].name}
+                                </h3>
+                                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                                    {projects[4].description}
+                                </p>
+                                
+                                {/* Key Metrics */}
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {projects[4].metrics.map((m) => (
+                                        <span
+                                            key={m}
+                                            className="font-mono text-[10.5px] text-ink/75 bg-surface2 border border-line px-2 py-0.5 rounded"
+                                        >
+                                            ✓ {m}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
-                            <div className="relative aspect-[16/10] w-full overflow-hidden">
-                                <Image
-                                    src={projects[3].image}
-                                    alt={`${projects[3].name} Platform`}
-                                    fill
-                                    sizes="(max-width: 1024px) 100vw, 720px"
-                                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </a>
 
-                        {/* Tech tags */}
-                        <div className="mt-4 flex flex-wrap items-center gap-2">
-                            <span className="font-mono text-[10.5px] text-accent/80 mr-1">
-                                {projects[3].role}:
-                            </span>
-                            {projects[3].tech.map((t) => (
-                                <span
-                                    key={t}
-                                    className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-[10.5px] text-ink/60"
-                                >
-                                    {t}
+                            {/* Tech tags */}
+                            <div className="mt-6 flex flex-wrap items-center gap-2">
+                                <span className="font-mono text-[10.5px] text-accent/80 mr-1">
+                                    {projects[4].role}:
                                 </span>
-                            ))}
+                                {projects[4].tech.map((t) => (
+                                    <span
+                                        key={t}
+                                        className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-[10.5px] text-ink/60"
+                                    >
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Window Preview */}
+                        <div className="lg:col-span-7">
+                            <a
+                                href={projects[4].url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block overflow-hidden rounded-lg border border-line bg-background transition-colors hover:border-line2"
+                                aria-label={`Visit ${projects[4].name}`}
+                            >
+                                <div className="flex items-center justify-between border-b border-line bg-surface px-3.5 py-2">
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="h-2 w-2 rounded-full bg-white/15" />
+                                        <span className="h-2 w-2 rounded-full bg-white/15" />
+                                        <span className="h-2 w-2 rounded-full bg-white/15" />
+                                        <span className="ml-2 font-mono text-[10px] text-ink/40 truncate max-w-[160px] sm:max-w-xs">
+                                            yuvaparipalan.com
+                                        </span>
+                                    </div>
+                                    <span className="inline-flex items-center gap-1 font-mono text-[11px] text-accent">
+                                        <span>Live Site</span>
+                                        <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                    </span>
+                                </div>
+                                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                                    <Image
+                                        src={projects[4].image}
+                                        alt={`${projects[4].name} Platform`}
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 750px"
+                                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </motion.article>

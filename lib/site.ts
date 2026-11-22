@@ -10,7 +10,7 @@ export const SITE_PUBLISHED = "2025-12-01T00:00:00+05:30";
 export const SITE_UPDATED = "2026-10-29T00:00:00+05:30";
 
 export const CONTACT = {
-    email: "abhijithabhijith1999@gmail.com",
+    email: "abi@abisolutions.in",
     phone: "+919961316468",
     phoneDisplay: "+91 99613 16468",
     whatsapp: "https://wa.me/919961316468",

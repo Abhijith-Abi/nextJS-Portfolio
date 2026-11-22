@@ -211,8 +211,8 @@ export function ContactSection() {
                                 {[
                                     {
                                         k: "Email",
-                                        v: "abhijithabhijith1999@gmail.com",
-                                        href: "mailto:abhijithabhijith1999@gmail.com",
+                                        v: "abi@abisolutions.in",
+                                        href: "mailto:abi@abisolutions.in",
                                         icon: Mail,
                                     },
                                     {

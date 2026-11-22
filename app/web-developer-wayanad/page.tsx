@@ -144,7 +144,7 @@ const jsonLd = [
         url: "https://abisolutions.in/web-developer-wayanad",
         image: "https://abisolutions.in/og-image.jpg",
         telephone: "+919961316468",
-        email: "abhijithabhijith1999@gmail.com",
+        email: "abi@abisolutions.in",
         address: {
             "@type": "PostalAddress",
             addressLocality: "Wayanad",
@@ -283,7 +283,7 @@ const jsonLd = [
                 name: "Can I hire a freelance developer in Wayanad?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes, Abhijith P A is available as a freelance developer in Wayanad for web development, app development, and AI automation projects. He works with React, Next.js, Django, Python, and AWS. Contact via phone (+91 9961316468) or email (abhijithabhijith1999@gmail.com) for project discussions.",
+                    text: "Yes, Abhijith P A is available as a freelance developer in Wayanad for web development, app development, and AI automation projects. He works with React, Next.js, Django, Python, and AWS. Contact via phone (+91 9961316468) or email (abi@abisolutions.in) for project discussions.",
                 },
             },
             {

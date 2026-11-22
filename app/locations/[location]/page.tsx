@@ -87,7 +87,7 @@ export default async function LocationPage({ params }: PageProps) {
             image: "https://abisolutions.in/og-image.jpg",
             url: canonicalUrl,
             telephone: "+919961316468",
-            email: "abhijithabhijith1999@gmail.com",
+            email: "abi@abisolutions.in",
             address: {
                 "@type": "PostalAddress",
                 addressLocality: loc.shortName,

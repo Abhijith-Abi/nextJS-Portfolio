@@ -99,7 +99,7 @@ const jsonLd = [
                 "AlgoBiz",
                 "Abhijith Developer",
             ],
-            email: "abhijithabhijith1999@gmail.com",
+            email: "abi@abisolutions.in",
             telephone: "+919961316468",
             jobTitle: "Full Stack Developer & AI Engineer",
             url: "https://abisolutions.in",
@@ -113,7 +113,7 @@ const jsonLd = [
                 {
                     "@type": "ContactPoint",
                     contactType: "customer service",
-                    email: "abhijithabhijith1999@gmail.com",
+                    email: "abi@abisolutions.in",
                     telephone: "+919961316468",
                     availableLanguage: ["English", "Malayalam", "Hindi"],
                     areaServed: ["IN", "US", "AE", "GB"],
@@ -121,7 +121,7 @@ const jsonLd = [
                 {
                     "@type": "ContactPoint",
                     contactType: "sales",
-                    email: "abhijithabhijith1999@gmail.com",
+                    email: "abi@abisolutions.in",
                     telephone: "+919961316468",
                     availableLanguage: ["English", "Malayalam"],
                 },

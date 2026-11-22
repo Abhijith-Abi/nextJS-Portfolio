@@ -237,7 +237,7 @@ export function ExperienceSection() {
                                     <IconLinkedin className="h-4 w-4" />
                                 </a>
                                 <a
-                                    href="mailto:abhijithabhijith1999@gmail.com"
+                                    href="mailto:abi@abisolutions.in"
                                     aria-label="Email"
                                     className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-line text-ink-muted transition hover:-translate-y-[2px] hover:border-accent hover:text-accent"
                                 >

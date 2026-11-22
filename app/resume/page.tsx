@@ -101,7 +101,7 @@ const jsonLd = {
         addressLocality: "Kerala",
         addressCountry: "IN",
     },
-    email: "abhijithabhijith1999@gmail.com",
+    email: "abi@abisolutions.in",
     telephone: "+919961316468",
     sameAs: [
         "https://github.com/Abhijith-Abi",
@@ -131,10 +131,10 @@ export default function ResumePage() {
                             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] tracking-[0.06em] text-ink-muted">
                                 <span>Kerala, India</span>
                                 <a
-                                    href="mailto:abhijithabhijith1999@gmail.com"
+                                    href="mailto:abi@abisolutions.in"
                                     className="link-underline hover:text-accent"
                                 >
-                                    abhijithabhijith1999@gmail.com
+                                    abi@abisolutions.in
                                 </a>
                                 <a
                                     href="tel:+919961316468"

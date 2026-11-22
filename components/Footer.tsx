@@ -69,10 +69,10 @@ export function Footer() {
                         <p className="flex items-center gap-2">
                             <Mail className="h-3.5 w-3.5 shrink-0 text-accent" />
                             <a
-                                href="mailto:abhijithabhijith1999@gmail.com"
+                                href="mailto:abi@abisolutions.in"
                                 className="truncate hover:text-ink"
                             >
-                                abhijithabhijith1999@gmail.com
+                                abi@abisolutions.in
                             </a>
                         </p>
                         <p className="flex items-center gap-2">

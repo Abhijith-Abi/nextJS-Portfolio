@@ -89,7 +89,7 @@ const jsonLd = {
     contactPoint: {
         "@type": "ContactPoint",
         telephone: "+919961316468",
-        email: "abhijithabhijith1999@gmail.com",
+        email: "abi@abisolutions.in",
         contactType: "customer service",
         availableLanguage: ["English", "Malayalam"],
     },

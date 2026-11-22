@@ -111,7 +111,7 @@ const jsonLd = [
                 "Full Stack Developer and AI Engineer with 4+ years of experience building production web applications, ERP systems, SaaS platforms, HRMS, and AI automation products. Founder of Abi Solutions.",
             image: portfolioPhotos.map((p) => `https://abisolutions.in${p.src}`),
             url: "https://abisolutions.in",
-            email: "abhijithabhijith1999@gmail.com",
+            email: "abi@abisolutions.in",
             telephone: "+919961316468",
             address: {
                 "@type": "PostalAddress",
